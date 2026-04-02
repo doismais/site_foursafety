@@ -1,0 +1,3042 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>4Safety — Soluções Técnicas em Segurança do Trabalho</title>
+    <meta
+      name="description"
+      content="Soluções técnicas para segurança ocupacional com foco em ambientes críticos, certificação e marcas globais."
+    />
+    <meta
+      property="og:title"
+      content="4Safety — Soluções Técnicas em Segurança do Trabalho"
+    />
+    <meta
+      property="og:description"
+      content="Soluções técnicas para segurança ocupacional com foco em ambientes críticos, certificação e marcas globais."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="images/OG-image.png" />
+    <meta
+      property="og:image:alt"
+      content="4Safety — Soluções Técnicas em Segurança do Trabalho"
+    />
+    <meta property="og:url" content="https://4safety.vercel.app/" />
+    <link rel="canonical" href="https://4safety.vercel.app/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="images/OG-image.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&family=Source+Sans+3:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      :root {
+        --orange: #ff4e00;
+        --black: #161412;
+        --ink: #141210;
+        --g900: #252220;
+        --g700: #4a4540;
+        --g400: #9a948c;
+        --g100: #ebe6df;
+        --paper: #f7f4ef;
+        --white: #fff;
+        --institutional: #e0d9d0;
+        --institutional-deep: #d4cdc3;
+        --nav-aqua-tint: rgba(175, 230, 245, 0.42);
+        --nav-aqua-edge: rgba(90, 170, 195, 0.22);
+        --font-display:
+          "Source Sans 3", -apple-system, BlinkMacSystemFont, sans-serif;
+        --font-body:
+          "Source Sans 3", -apple-system, BlinkMacSystemFont, sans-serif;
+        --font-mono: "JetBrains Mono", monospace;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: var(--font-body);
+        background: var(--ink);
+        color: var(--white);
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* ── NAV: topo = branco 100%; após rolagem = glass aqua ── */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: env(safe-area-inset-top, 0px)
+          max(1.25rem, env(safe-area-inset-right)) 0
+          max(1.25rem, env(safe-area-inset-left));
+        min-height: calc(60px + env(safe-area-inset-top, 0px));
+        height: auto;
+        background: var(--white);
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+        border-bottom: 1px solid rgba(40, 36, 32, 0.08);
+        box-shadow: 0 1px 0 rgba(255, 255, 255, 1);
+        transition:
+          background 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+          border-color 0.4s ease,
+          box-shadow 0.45s ease,
+          -webkit-backdrop-filter 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+          backdrop-filter 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      nav.nav--scrolled {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.58) 0%,
+          var(--nav-aqua-tint) 55%,
+          rgba(160, 220, 235, 0.35) 100%
+        );
+        -webkit-backdrop-filter: saturate(175%) blur(22px);
+        backdrop-filter: saturate(175%) blur(22px);
+        border-bottom: 1px solid rgba(255, 78, 0, 0.28);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.65),
+          inset 0 -1px 0 var(--nav-aqua-edge),
+          0 6px 28px rgba(30, 80, 95, 0.1);
+      }
+      @supports not (
+        (-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))
+      ) {
+        nav.nav--scrolled {
+          background: linear-gradient(180deg, #f0fbff 0%, #d8f0f6 100%);
+        }
+      }
+      .nav-logo {
+        position: relative;
+        display: block;
+        width: fit-content;
+      }
+      .nav-logo img {
+        height: 31px;
+        display: block;
+        transition:
+          opacity 0.28s ease,
+          transform 0.28s ease,
+          filter 0.28s ease;
+      }
+      .nav-logo-default {
+        opacity: 1;
+      }
+      .nav-logo-scrolled {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        filter: drop-shadow(0 1px 10px rgba(0, 0, 0, 0.18));
+      }
+      nav.nav--scrolled .nav-logo-default {
+        opacity: 0;
+        transform: translateY(-2px);
+      }
+      nav.nav--scrolled .nav-logo-scrolled {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .nav-cta {
+        background: var(--orange);
+        color: var(--white);
+        font-family: var(--font-body);
+        font-size: 0.8rem;
+        font-weight: 500;
+        border: none;
+        border-radius: 6px;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        text-decoration: none;
+        white-space: nowrap;
+        transition: opacity 0.2s;
+      }
+      .nav-cta:hover {
+        opacity: 0.88;
+      }
+      .nav-links {
+        display: none;
+        gap: 1.5rem;
+        list-style: none;
+      }
+      .nav-links a {
+        color: var(--g700);
+        font-size: 0.85rem;
+        text-decoration: none;
+        transition: color 0.2s;
+        font-weight: 500;
+      }
+      .nav-links a:hover {
+        color: var(--orange);
+      }
+      @media (min-width: 768px) {
+        nav {
+          padding: env(safe-area-inset-top, 0px)
+            max(2.5rem, env(safe-area-inset-right)) 0
+            max(2.5rem, env(safe-area-inset-left));
+          min-height: calc(68px + env(safe-area-inset-top, 0px));
+        }
+        .nav-logo img {
+          height: 35px;
+        }
+        .nav-links {
+          display: flex;
+        }
+      }
+
+      /* ── HERO ── */
+      .hero {
+        min-height: 100svh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 7rem 1.25rem 3rem;
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(
+          165deg,
+          #1a1714 0%,
+          var(--ink) 42%,
+          #100e0c 100%
+        );
+      }
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            ellipse 60% 50% at 80% 20%,
+            rgba(255, 78, 0, 0.11) 0%,
+            transparent 58%
+          ),
+          radial-gradient(
+            ellipse 40% 60% at 10% 80%,
+            rgba(180, 120, 70, 0.06) 0%,
+            transparent 55%
+          ),
+          radial-gradient(
+            ellipse 50% 40% at 50% 100%,
+            rgba(255, 78, 0, 0.05) 0%,
+            transparent 50%
+          );
+      }
+      .hero-grid {
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        background-size: 40px 40px;
+        -webkit-mask-image: radial-gradient(
+          ellipse at center,
+          black 30%,
+          transparent 80%
+        );
+        mask-image: radial-gradient(
+          ellipse at center,
+          black 30%,
+          transparent 80%
+        );
+      }
+      .hero-brand-lines {
+        position: absolute;
+        left: -18%;
+        top: -14%;
+        width: min(92vw, 540px);
+        aspect-ratio: 2691 / 2844;
+        background: url("images/decor/lines-4safety.png") no-repeat center /
+          contain;
+        opacity: 0.3;
+        mix-blend-mode: screen;
+        pointer-events: none;
+        z-index: 1;
+        transform: rotate(-8deg);
+        filter: drop-shadow(0 24px 44px rgba(255, 78, 0, 0.18));
+      }
+      .hero-placeholder {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 55%;
+        height: 100%;
+        background: linear-gradient(
+          135deg,
+          #1f1c18 0%,
+          #2a2622 50%,
+          #1c1916 100%
+        );
+        clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+      .hero-placeholder::after {
+        position: absolute;
+        inset: 0;
+        content: "";
+        background: linear-gradient(
+          270deg,
+          rgba(20, 18, 16, 0.08) 0%,
+          rgba(20, 18, 16, 0.38) 100%
+        );
+      }
+      .hero-placeholder img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: min(62vw, 760px);
+        width: 100%;
+      }
+      @media (min-width: 768px) {
+        .hero-brand-lines {
+          left: auto;
+          right: 38%;
+          top: -22%;
+          width: min(42vw, 620px);
+          opacity: 0.22;
+          transform: rotate(-6deg);
+        }
+      }
+      .hero-eyebrow {
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        color: var(--orange);
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        margin-bottom: 1.25rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        opacity: 0;
+      }
+      .hero-eyebrow::before {
+        content: "";
+        width: 20px;
+        height: 1px;
+        background: var(--orange);
+      }
+      .hero-h1 {
+        font-family: var(--font-display);
+        font-size: clamp(2.2rem, 6.3vw, 4.6rem);
+        font-weight: 800;
+        line-height: 1.05;
+        letter-spacing: -0.02em;
+        margin-bottom: 1.25rem;
+        opacity: 0;
+      }
+      .hero-h1 span {
+        color: var(--orange);
+      }
+      .hero-sub {
+        font-size: clamp(0.9rem, 2.5vw, 1.05rem);
+        color: var(--g400);
+        line-height: 1.65;
+        max-width: 62ch;
+        margin-bottom: 2rem;
+        opacity: 0;
+      }
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        opacity: 0;
+      }
+      .btn-primary {
+        background: var(--orange);
+        color: var(--white);
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        font-weight: 500;
+        padding: 0.85rem 1.75rem;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition:
+          opacity 0.2s,
+          transform 0.2s;
+      }
+      .btn-primary:hover {
+        opacity: 0.9;
+        transform: translateY(-1px);
+      }
+      .btn-primary.btn-block {
+        width: 100%;
+        justify-content: center;
+      }
+      .btn-ghost {
+        background: transparent;
+        color: var(--white);
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        font-weight: 400;
+        padding: 0.85rem 1.75rem;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        cursor: pointer;
+        text-decoration: none;
+        transition:
+          border-color 0.2s,
+          transform 0.2s;
+      }
+      .btn-ghost:hover {
+        border-color: rgba(255, 255, 255, 0.4);
+        transform: translateY(-1px);
+      }
+      .hero-scroll {
+        position: absolute;
+        bottom: 2rem;
+        left: 1.25rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        color: rgba(255, 255, 255, 0.25);
+        letter-spacing: 0.1em;
+        opacity: 0;
+      }
+      .scroll-line {
+        width: 30px;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.2);
+        position: relative;
+        overflow: hidden;
+      }
+      .scroll-line::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: var(--orange);
+        animation: scrollLine 2s ease-in-out infinite 1.5s;
+      }
+      @keyframes scrollLine {
+        0% {
+          left: -100%;
+        }
+        50% {
+          left: 0;
+        }
+        100% {
+          left: 100%;
+        }
+      }
+      @media (max-width: 767px) {
+        .hero {
+          min-height: auto;
+          justify-content: flex-start;
+          padding: calc(78px + env(safe-area-inset-top, 0px)) 0 1.5rem;
+        }
+        .hero-bg {
+          background:
+            radial-gradient(
+              ellipse 70% 55% at 78% 12%,
+              rgba(255, 78, 0, 0.12) 0%,
+              transparent 58%
+            ),
+            linear-gradient(
+              180deg,
+              rgba(20, 18, 16, 0.15) 0%,
+              rgba(20, 18, 16, 0.94) 100%
+            );
+        }
+        .hero-grid {
+          opacity: 0.45;
+        }
+        .hero-brand-lines {
+          left: auto;
+          right: -14%;
+          top: 4.5rem;
+          width: 48vw;
+          opacity: 0.16;
+          transform: rotate(-3deg);
+        }
+        .hero-placeholder {
+          position: relative;
+          top: auto;
+          right: auto;
+          width: 100%;
+          height: 38svh;
+          min-height: 320px;
+          clip-path: none;
+          border-bottom-left-radius: 26px;
+          border-bottom-right-radius: 26px;
+        }
+        .hero-placeholder::after {
+          background:
+            linear-gradient(
+              180deg,
+              rgba(20, 18, 16, 0.1) 0%,
+              rgba(20, 18, 16, 0.2) 35%,
+              rgba(20, 18, 16, 0.88) 100%
+            ),
+            linear-gradient(
+              90deg,
+              rgba(20, 18, 16, 0.28) 0%,
+              rgba(20, 18, 16, 0.02) 40%,
+              rgba(20, 18, 16, 0.35) 100%
+            );
+        }
+        .hero-placeholder img {
+          object-position: center 28%;
+        }
+        .hero-content {
+          max-width: none;
+          margin: -2.5rem 1rem 0;
+          padding: 1.35rem 1rem 1rem;
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          border-radius: 22px;
+          background: linear-gradient(
+            180deg,
+            rgba(24, 21, 18, 0.88) 0%,
+            rgba(20, 18, 16, 0.96) 100%
+          );
+          box-shadow:
+            0 24px 44px rgba(0, 0, 0, 0.28),
+            inset 0 1px 0 rgba(255, 255, 255, 0.04);
+          backdrop-filter: blur(8px);
+        }
+        .hero-eyebrow {
+          font-size: 0.62rem;
+          letter-spacing: 0.16em;
+          margin-bottom: 0.85rem;
+        }
+        .hero-h1 {
+          font-size: clamp(2rem, 8.8vw, 3rem);
+          margin-bottom: 0.9rem;
+        }
+        .hero-sub {
+          font-size: 0.96rem;
+          line-height: 1.7;
+          color: rgba(235, 230, 223, 0.72);
+          margin-bottom: 1.25rem;
+        }
+        .hero-actions {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 0.75rem;
+        }
+        .btn-primary,
+        .btn-ghost {
+          width: 100%;
+          justify-content: center;
+        }
+        .hero-scroll {
+          display: none;
+        }
+      }
+      @media (min-width: 768px) {
+        .hero {
+          padding: 9rem 2.5rem 4rem;
+        }
+        .hero-content {
+          max-width: min(56vw, 820px);
+        }
+        .hero-sub {
+          font-size: clamp(1rem, 1.2vw, 1.2rem);
+        }
+        .hero-scroll {
+          left: 2.5rem;
+        }
+      }
+
+      /* ── TRUST BAR (faixa institucional clara) ── */
+      .trust {
+        background: linear-gradient(
+          180deg,
+          var(--institutional) 0%,
+          var(--institutional-deep) 100%
+        );
+        border-top: 1px solid rgba(40, 36, 32, 0.1);
+        border-bottom: 1px solid rgba(40, 36, 32, 0.12);
+        padding: 1.35rem 1.25rem;
+        overflow: hidden;
+      }
+      .trust-label {
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        color: #5c564c;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+      .trust-track {
+        display: flex;
+        gap: 2.5rem;
+        align-items: center;
+        animation: marquee 22s linear infinite;
+        white-space: nowrap;
+        width: max-content;
+      }
+      .trust-track:hover {
+        animation-play-state: paused;
+      }
+      .trust-item {
+        font-family: var(--font-display);
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: rgba(35, 32, 28, 0.38);
+        letter-spacing: 0.05em;
+        transition: color 0.3s;
+        cursor: default;
+      }
+      .trust-item:hover {
+        color: var(--orange);
+      }
+      .trust-marquee-wrap {
+        overflow: hidden;
+      }
+      @keyframes marquee {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      /* ── SECTION BASE ── */
+      section {
+        padding: 4rem 1.25rem;
+      }
+      @media (min-width: 768px) {
+        section {
+          padding: 6rem 2.5rem;
+        }
+      }
+      .section-eyebrow {
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        color: var(--orange);
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .section-eyebrow::before {
+        content: "";
+        width: 16px;
+        height: 1px;
+        background: var(--orange);
+      }
+      .section-headline {
+        font-family: var(--font-display);
+        font-size: clamp(1.6rem, 4vw, 2.6rem);
+        font-weight: 800;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        margin-bottom: 0.75rem;
+      }
+      .section-sub {
+        color: var(--g400);
+        font-size: 0.95rem;
+        line-height: 1.65;
+        max-width: 520px;
+      }
+
+      /* ── CENÁRIOS (fundo branco, traços laranja parciais, texto escuro) ── */
+      .scenarios {
+        background: var(--white);
+        color: var(--black);
+      }
+      .scenarios .section-headline {
+        color: var(--black);
+      }
+      .scenarios .section-sub {
+        color: var(--g700);
+      }
+      .scenarios-header {
+        margin-bottom: 2.5rem;
+      }
+      .scenarios-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      @media (min-width: 720px) {
+        .scenarios-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+      @media (min-width: 1024px) {
+        .scenarios-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+      }
+      .scenario-card {
+        background: var(--white);
+        padding: 1.45rem;
+        border-radius: 14px;
+        border: 1px solid rgba(40, 36, 32, 0.1);
+        box-shadow: 0 6px 20px rgba(40, 36, 32, 0.05);
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease,
+          border-color 0.3s ease;
+        cursor: default;
+      }
+      .scenario-card:hover {
+        transform: translateY(-3px);
+        border-color: rgba(255, 78, 0, 0.22);
+        box-shadow: 0 12px 28px rgba(40, 36, 32, 0.08);
+      }
+      .sc-badge {
+        font-family: var(--font-mono);
+        font-size: 0.6rem;
+        color: var(--orange);
+        background: rgba(255, 78, 0, 0.08);
+        border: 1px solid rgba(255, 78, 0, 0.35);
+        border-radius: 4px;
+        padding: 0.2rem 0.5rem;
+        display: inline-block;
+        letter-spacing: 0.1em;
+        margin-bottom: 0.9rem;
+      }
+      .sc-headline {
+        font-family: var(--font-display);
+        font-size: 1.1rem;
+        font-weight: 800;
+        margin-bottom: 0.6rem;
+        color: var(--black);
+        line-height: 1.08;
+      }
+      .sc-body {
+        font-size: 0.9rem;
+        color: var(--g700);
+        line-height: 1.55;
+      }
+      .sc-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        margin-top: 1rem;
+        font-size: 0.78rem;
+        color: var(--orange);
+        text-decoration: none;
+        font-weight: 600;
+        transition:
+          gap 0.2s,
+          color 0.2s;
+      }
+      .sc-cta:hover {
+        gap: 0.6rem;
+        color: #e04600;
+      }
+      .sc-cta::after {
+        content: "→";
+      }
+      .scenario-card--highlight {
+        background: linear-gradient(180deg, #fff4ec 0%, #fff 100%);
+        border-color: rgba(255, 78, 0, 0.32);
+      }
+      .scenario-card--highlight .sc-headline {
+        font-size: 1.25rem;
+      }
+
+      /* ── GLASSMORPHISM — NÚMEROS / STATS ── */
+      .glass-section {
+        position: relative;
+        overflow: hidden;
+        padding: 5rem 1.25rem;
+        background: linear-gradient(
+          145deg,
+          #12100e 0%,
+          #1a1714 38%,
+          #141210 100%
+        );
+      }
+      .glass-section::before {
+        content: "";
+        position: absolute;
+        top: -40%;
+        left: -20%;
+        width: 60%;
+        height: 120%;
+        background: radial-gradient(
+          ellipse,
+          rgba(255, 78, 0, 0.12) 0%,
+          transparent 65%
+        );
+        pointer-events: none;
+      }
+      .glass-section::after {
+        content: "";
+        position: absolute;
+        bottom: -30%;
+        right: -10%;
+        width: 50%;
+        height: 100%;
+        background: radial-gradient(
+          ellipse,
+          rgba(255, 78, 0, 0.07) 0%,
+          transparent 65%
+        );
+        pointer-events: none;
+      }
+      .glass-inner {
+        position: relative;
+        z-index: 1;
+      }
+      .glass-header {
+        margin-bottom: 2.5rem;
+      }
+      .glass-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      @media (min-width: 500px) {
+        .glass-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (min-width: 900px) {
+        .glass-grid {
+          grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        padding: 2rem 1.5rem;
+        -webkit-backdrop-filter: blur(20px);
+        backdrop-filter: blur(20px);
+        position: relative;
+        overflow: hidden;
+        transition:
+          border-color 0.3s,
+          transform 0.3s;
+        text-align: center;
+      }
+      .glass-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 78, 0, 0.5),
+          transparent
+        );
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+      .glass-card:hover {
+        border-color: rgba(255, 78, 0, 0.3);
+        transform: translateY(-4px);
+      }
+      .glass-card:hover::before {
+        opacity: 1;
+      }
+      .glass-number {
+        font-family: var(--font-display);
+        font-size: clamp(2.4rem, 5vw, 3.2rem);
+        font-weight: 800;
+        color: var(--white);
+        line-height: 1;
+        margin-bottom: 0.35rem;
+        letter-spacing: -0.03em;
+      }
+      .glass-number span {
+        color: var(--orange);
+      }
+      .glass-label {
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        color: var(--g400);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        margin-bottom: 0.75rem;
+      }
+      .glass-desc {
+        font-size: 0.82rem;
+        color: rgba(255, 255, 255, 0.4);
+        line-height: 1.5;
+      }
+      @media (min-width: 768px) {
+        .glass-section {
+          padding: 6rem 2.5rem;
+        }
+      }
+
+      /* ── DIFERENCIAIS ── */
+      .diferenciais {
+        background: var(--ink);
+      }
+      .dif-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin-top: 2.5rem;
+      }
+      @media (min-width: 600px) {
+        .dif-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (min-width: 900px) {
+        .dif-grid {
+          grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
+      }
+      .dif-card {
+        padding: 1.5rem;
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        border-radius: 10px;
+        background: var(--g900);
+        transition:
+          border-color 0.25s,
+          transform 0.25s;
+      }
+      .dif-card:hover {
+        border-color: rgba(255, 78, 0, 0.3);
+        transform: translateY(-3px);
+      }
+      .dif-icon {
+        width: 38px;
+        height: 38px;
+        border-radius: 8px;
+        background: rgba(255, 78, 0, 0.1);
+        border: 1px solid rgba(255, 78, 0, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+      }
+      .dif-headline {
+        font-family: var(--font-display);
+        font-size: 0.95rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+      .dif-body {
+        font-size: 0.82rem;
+        color: var(--g400);
+        line-height: 1.6;
+      }
+
+      /* ── PRODUTOS ── */
+      .produtos {
+        background: linear-gradient(180deg, #fbf8f3 0%, #f3eee7 100%);
+        color: #1c1916;
+        padding-left: clamp(1.75rem, 5vw, 4.5rem);
+        padding-right: clamp(1.75rem, 5vw, 4.5rem);
+      }
+      .produtos .section-headline {
+        color: #1c1916;
+      }
+      .produtos .section-sub {
+        color: #5f584f;
+      }
+      .produtos-header {
+        margin-bottom: 2rem;
+      }
+      .produtos-filter {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.7rem;
+        margin-bottom: 2.25rem;
+        align-items: center;
+      }
+      .filter-label {
+        font-family: var(--font-mono);
+        font-size: 0.6rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #5f584f;
+        margin-right: 0.5rem;
+      }
+      .filter-select {
+        display: none;
+        width: min(100%, 320px);
+        padding: 0.8rem 1rem;
+        border-radius: 14px;
+        border: 1px solid rgba(28, 25, 22, 0.18);
+        background: rgba(255, 255, 255, 0.92);
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        letter-spacing: 0.08em;
+        color: #3d3832;
+        appearance: none;
+        background-image:
+          linear-gradient(45deg, transparent 50%, #3d3832 50%),
+          linear-gradient(135deg, #3d3832 50%, transparent 50%);
+        background-position:
+          calc(100% - 18px) calc(50% - 4px),
+          calc(100% - 12px) calc(50% - 4px);
+        background-size:
+          6px 6px,
+          6px 6px;
+        background-repeat: no-repeat;
+        padding-right: 2.2rem;
+      }
+      .filter-btn {
+        font-family: var(--font-mono);
+        font-size: 0.68rem;
+        letter-spacing: 0.08em;
+        padding: 0.72rem 1rem;
+        border-radius: 999px;
+        border: 1px solid rgba(28, 25, 22, 0.14);
+        background: rgba(255, 255, 255, 0.78);
+        color: #3d3832;
+        cursor: pointer;
+        transition:
+          transform 0.2s,
+          border-color 0.2s,
+          background 0.2s,
+          color 0.2s;
+      }
+      .filter-btn:hover {
+        border-color: rgba(255, 78, 0, 0.35);
+        color: #1c1916;
+        transform: translateY(-1px);
+      }
+      .filter-btn.active {
+        background: var(--orange);
+        border-color: var(--orange);
+        color: var(--white);
+      }
+      @media (max-width: 720px) {
+        .produtos-filter {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .filter-btn {
+          display: none;
+        }
+        .filter-select {
+          display: block;
+        }
+      }
+      .produtos-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      @media (min-width: 760px) {
+        .produtos-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (min-width: 1180px) {
+        .produtos-grid {
+          grid-template-columns: 1fr 1fr 1fr;
+        }
+      }
+      .produto-card {
+        background: rgba(255, 255, 255, 0.92);
+        padding: 1rem;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid rgba(28, 25, 22, 0.08);
+        border-radius: 20px;
+        box-shadow:
+          0 16px 34px rgba(48, 38, 24, 0.08),
+          inset 0 1px 0 rgba(255, 255, 255, 0.7);
+        transition:
+          transform 0.22s,
+          box-shadow 0.22s,
+          border-color 0.22s;
+      }
+      .badge-ca-fixed {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        z-index: 2;
+        pointer-events: none;
+        transform: rotate(-3deg);
+      }
+      .produto-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 1rem;
+        right: 1rem;
+        height: 3px;
+        border-radius: 999px;
+        background: linear-gradient(
+          90deg,
+          rgba(255, 78, 0, 0.95) 0%,
+          rgba(255, 132, 69, 0.42) 100%
+        );
+      }
+      .produto-card:hover {
+        transform: translateY(-3px);
+        border-color: rgba(255, 78, 0, 0.18);
+        box-shadow:
+          0 18px 38px rgba(48, 38, 24, 0.12),
+          inset 0 1px 0 rgba(255, 255, 255, 0.72);
+      }
+      .produto-img {
+        width: 100%;
+        aspect-ratio: 4/3;
+        border-radius: 16px;
+        background: linear-gradient(180deg, #ffffff 0%, #f3efe9 100%);
+        display: block;
+        margin-bottom: 1rem;
+        border: 1px solid rgba(28, 25, 22, 0.08);
+        object-fit: contain;
+        object-position: center;
+        padding: 1rem;
+      }
+      .produto-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.45rem;
+        margin-bottom: 0.9rem;
+      }
+      .badge-ca {
+        font-family: var(--font-mono);
+        font-size: 0.66rem;
+        font-weight: 700;
+        color: #5a1a00;
+        background: rgba(255, 78, 0, 0.92);
+        border: 1px solid rgba(255, 78, 0, 0.7);
+        border-radius: 999px;
+        padding: 0.36rem 0.72rem;
+        letter-spacing: 0.14em;
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: max-content;
+        max-width: calc(100% - 24px);
+        white-space: nowrap;
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.35),
+          0 8px 16px rgba(255, 78, 0, 0.22);
+        text-transform: uppercase;
+      }
+      .badge-ca::after {
+        content: "";
+        position: absolute;
+        top: 2px;
+        bottom: 2px;
+        right: 3px;
+        width: 42%;
+        border-radius: 999px;
+        background: linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0) 0%,
+          rgba(255, 255, 255, 0.55) 65%,
+          rgba(255, 255, 255, 0.85) 100%
+        );
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.35);
+        mix-blend-mode: screen;
+        opacity: 0.85;
+        pointer-events: none;
+      }
+      .badge-norma {
+        font-family: var(--font-mono);
+        font-size: 0.6rem;
+        color: #5d554b;
+        background: #f3eee6;
+        border: 1px solid rgba(28, 25, 22, 0.08);
+        border-radius: 999px;
+        padding: 0.28rem 0.55rem;
+        letter-spacing: 0.08em;
+      }
+      .produto-headline {
+        font-family: var(--font-display);
+        font-size: 1.14rem;
+        font-weight: 800;
+        margin-bottom: 0.6rem;
+        line-height: 1.18;
+        color: #171411;
+      }
+      .produto-body {
+        font-size: 0.9rem;
+        color: #5a534b;
+        line-height: 1.58;
+        flex: 1;
+      }
+      .produto-cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.45rem;
+        margin-top: 1.15rem;
+        min-height: 48px;
+        font-size: 0.88rem;
+        color: var(--white);
+        text-decoration: none;
+        font-weight: 700;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s,
+          background 0.2s;
+        border: 1px solid rgba(255, 78, 0, 0.12);
+        background: var(--orange);
+        cursor: pointer;
+        padding: 0.85rem 1rem;
+        border-radius: 12px;
+        width: 100%;
+        box-shadow: 0 10px 18px rgba(255, 78, 0, 0.14);
+      }
+      .produto-cta:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 14px 22px rgba(255, 78, 0, 0.2);
+      }
+      .produto-cta::after {
+        content: "›";
+        font-size: 1rem;
+      }
+
+      /* ── SEÇÃO BRANCA — POR QUE ESPECIFICAR CERTO ── */
+      .white-section {
+        background: var(--paper);
+        padding: 5rem 1.25rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .white-section::before {
+        content: "";
+        position: absolute;
+        top: -60px;
+        right: -60px;
+        width: 280px;
+        height: 280px;
+        border-radius: 50%;
+        background: rgba(255, 78, 0, 0.06);
+        pointer-events: none;
+      }
+      .white-section::after {
+        content: "";
+        position: absolute;
+        bottom: -80px;
+        left: -40px;
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        background: rgba(255, 78, 0, 0.04);
+        pointer-events: none;
+      }
+      .white-inner {
+        position: relative;
+        z-index: 1;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      .white-eyebrow {
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        color: var(--orange);
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .white-eyebrow::before {
+        content: "";
+        width: 16px;
+        height: 1px;
+        background: var(--orange);
+      }
+      .white-headline {
+        font-family: var(--font-display);
+        font-size: clamp(1.6rem, 4vw, 2.4rem);
+        font-weight: 800;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        color: var(--black);
+        margin-bottom: 0.75rem;
+      }
+      .white-headline span {
+        color: var(--orange);
+      }
+      .white-sub {
+        color: var(--g700);
+        font-size: 0.95rem;
+        line-height: 1.7;
+        max-width: 520px;
+        margin-bottom: 3rem;
+      }
+      .white-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+      @media (min-width: 600px) {
+        .white-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (min-width: 900px) {
+        .white-grid {
+          grid-template-columns: 1fr 1fr 1fr;
+        }
+      }
+      .white-card {
+        background: var(--white);
+        border-radius: 12px;
+        padding: 1.5rem;
+        border: 1px solid rgba(40, 36, 32, 0.08);
+        border-left: 3px solid var(--orange);
+        transition:
+          transform 0.25s,
+          box-shadow 0.25s;
+      }
+      .white-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 28px rgba(40, 36, 32, 0.08);
+      }
+      .white-card-num {
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        color: var(--orange);
+        letter-spacing: 0.1em;
+        margin-bottom: 0.75rem;
+        display: block;
+      }
+      .white-card-headline {
+        font-family: var(--font-display);
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--black);
+        margin-bottom: 0.5rem;
+      }
+      .white-card-body {
+        font-size: 0.83rem;
+        color: var(--g700);
+        line-height: 1.6;
+      }
+      .white-cta-wrap {
+        margin-top: 2.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        align-items: center;
+      }
+      .btn-dark {
+        background: var(--black);
+        color: var(--white);
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        font-weight: 500;
+        padding: 0.85rem 1.75rem;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition:
+          opacity 0.2s,
+          transform 0.2s;
+      }
+      .btn-dark:hover {
+        opacity: 0.85;
+        transform: translateY(-1px);
+      }
+      .btn-orange-outline {
+        background: transparent;
+        color: var(--orange);
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        padding: 0.85rem 1.75rem;
+        border-radius: 8px;
+        border: 1.5px solid var(--orange);
+        cursor: pointer;
+        text-decoration: none;
+        transition:
+          background 0.2s,
+          color 0.2s;
+      }
+      .btn-orange-outline:hover {
+        background: var(--orange);
+        color: var(--white);
+      }
+      @media (min-width: 768px) {
+        .white-section {
+          padding: 6rem 2.5rem;
+        }
+      }
+
+      /* ── PARCEIROS ── */
+      .parceiros {
+        background: linear-gradient(180deg, #161412 0%, var(--ink) 100%);
+      }
+      .parceiros-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 2rem;
+      }
+      .parceiro-pill {
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        color: rgba(255, 255, 255, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 4px;
+        padding: 0.35rem 0.75rem;
+        transition: all 0.2s;
+        cursor: default;
+        letter-spacing: 0.06em;
+      }
+      .parceiro-pill:hover {
+        color: var(--white);
+        border-color: rgba(255, 78, 0, 0.35);
+        background: rgba(255, 78, 0, 0.05);
+      }
+
+      /* ── CTA BLOCK LARANJA ── */
+      .cta-block {
+        background: var(--orange);
+        padding: 4rem 1.25rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .cta-block::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+        background-size: 30px 30px;
+      }
+      .cta-block-headline {
+        font-family: var(--font-display);
+        font-size: clamp(1.6rem, 4vw, 2.4rem);
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: 0.75rem;
+        color: var(--white);
+        letter-spacing: -0.02em;
+        position: relative;
+        z-index: 1;
+      }
+      .cta-block-sub {
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+        max-width: 460px;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        z-index: 1;
+      }
+      .cta-block-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        justify-content: center;
+        position: relative;
+        z-index: 1;
+      }
+      .btn-white {
+        background: var(--white);
+        color: var(--orange);
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        font-weight: 700;
+        padding: 0.85rem 1.75rem;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition:
+          opacity 0.2s,
+          transform 0.2s;
+      }
+      .btn-white:hover {
+        opacity: 0.93;
+        transform: translateY(-1px);
+      }
+      .cta-block .wa-icon {
+        fill: var(--orange);
+      }
+      .btn-outline-white {
+        background: transparent;
+        color: var(--white);
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        padding: 0.85rem 1.75rem;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        cursor: pointer;
+        text-decoration: none;
+        transition:
+          border-color 0.2s,
+          transform 0.2s;
+      }
+      .btn-outline-white:hover {
+        border-color: var(--white);
+        transform: translateY(-1px);
+      }
+      @media (min-width: 768px) {
+        .cta-block {
+          padding: 5rem 2.5rem;
+        }
+      }
+
+      /* ── CONTATO ── */
+      .contato {
+        background: var(--ink);
+      }
+      .contato-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin-top: 2.5rem;
+      }
+      @media (min-width: 768px) {
+        .contato-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 3rem;
+        }
+      }
+      .contato-wa {
+        background: rgba(255, 78, 0, 0.08);
+        border: 1px solid rgba(255, 78, 0, 0.25);
+        border-radius: 12px;
+        padding: 2rem;
+      }
+      .contato-wa-label {
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        color: var(--orange);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+      }
+      .contato-wa-headline {
+        font-family: var(--font-display);
+        font-size: 1.4rem;
+        font-weight: 800;
+        margin-bottom: 0.6rem;
+      }
+      .contato-wa-sub {
+        font-size: 0.85rem;
+        color: var(--g400);
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+      }
+      .contato-info {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .info-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+      }
+      .info-icon {
+        font-size: 1rem;
+        margin-top: 0.1rem;
+        min-width: 20px;
+        text-align: center;
+      }
+      .info-label {
+        font-family: var(--font-mono);
+        font-size: 0.6rem;
+        color: var(--g400);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        display: block;
+        margin-bottom: 0.1rem;
+      }
+      .info-value {
+        font-size: 0.9rem;
+        color: var(--white);
+      }
+      .form-group {
+        margin-bottom: 1rem;
+      }
+      .form-label {
+        font-family: var(--font-mono);
+        font-size: 0.6rem;
+        color: var(--g400);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        display: block;
+        margin-bottom: 0.4rem;
+      }
+      .form-input,
+      .form-textarea,
+      .form-select {
+        width: 100%;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        padding: 0.75rem 1rem;
+        color: var(--white);
+        font-family: var(--font-body);
+        font-size: 0.88rem;
+        transition: border-color 0.2s;
+      }
+      .form-input:focus,
+      .form-textarea:focus,
+      .form-select:focus {
+        outline: none;
+        border-color: rgba(255, 78, 0, 0.5);
+      }
+      .form-textarea {
+        resize: vertical;
+        min-height: 100px;
+      }
+      .form-select option {
+        background: var(--g900);
+      }
+      .contato-info-wrap {
+        margin-top: 1.5rem;
+      }
+
+      /* ── FOOTER ── */
+      footer {
+        position: relative;
+        background:
+          radial-gradient(
+            ellipse 50% 60% at 100% 0%,
+            rgba(255, 78, 0, 0.08) 0%,
+            transparent 60%
+          ),
+          linear-gradient(180deg, #110f0d 0%, #0b0908 100%);
+        border-top: 1px solid rgba(255, 255, 255, 0.07);
+        padding: 2.5rem 1.25rem 6rem;
+        overflow: hidden;
+      }
+      footer::before {
+        content: "";
+        position: absolute;
+        right: -4rem;
+        bottom: -5rem;
+        width: min(44vw, 280px);
+        aspect-ratio: 2691 / 2844;
+        background: url("images/decor/lines-4safety.png") no-repeat center /
+          contain;
+        opacity: 0.08;
+        pointer-events: none;
+      }
+      @media (min-width: 768px) {
+        footer {
+          padding: 3rem 2.5rem 3rem;
+        }
+      }
+      .footer-inner {
+        position: relative;
+        z-index: 1;
+        max-width: 1180px;
+        margin: 0 auto;
+      }
+      .footer-top {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+      .footer-brand {
+        padding: 1.35rem 1.1rem;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 20px;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.025) 0%,
+          rgba(255, 255, 255, 0.01) 100%
+        );
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+      }
+      .footer-logo img {
+        height: 28px;
+        display: block;
+        margin-bottom: 0.85rem;
+      }
+      .footer-tagline {
+        font-size: 0.98rem;
+        line-height: 1.6;
+        color: rgba(235, 230, 223, 0.76);
+        max-width: 30rem;
+      }
+      .footer-micro {
+        margin-top: 1rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55rem;
+        font-family: var(--font-mono);
+        font-size: 0.62rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(255, 78, 0, 0.88);
+      }
+      .footer-micro::before {
+        content: "";
+        width: 18px;
+        height: 1px;
+        background: rgba(255, 78, 0, 0.85);
+      }
+      .footer-columns {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+      .footer-card {
+        padding: 1.25rem 1.1rem;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.025);
+      }
+      .footer-card--nav {
+        background: rgba(255, 255, 255, 0.06);
+        border-color: rgba(255, 78, 0, 0.22);
+        box-shadow:
+          0 14px 30px rgba(0, 0, 0, 0.2),
+          inset 0 1px 0 rgba(255, 255, 255, 0.12);
+      }
+      .footer-card--nav .footer-card-label {
+        color: rgba(255, 78, 0, 0.9);
+      }
+      .footer-card--nav .footer-links a {
+        color: rgba(255, 255, 255, 0.92);
+      }
+      .footer-card-label {
+        font-family: var(--font-mono);
+        font-size: 0.62rem;
+        color: rgba(255, 255, 255, 0.36);
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        margin-bottom: 0.95rem;
+      }
+      .footer-links {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.8rem 1rem;
+      }
+      .footer-links a,
+      .footer-contact a {
+        font-size: 0.92rem;
+        color: rgba(235, 230, 223, 0.78);
+        text-decoration: none;
+        transition:
+          color 0.2s,
+          transform 0.2s;
+      }
+      .footer-links a:hover,
+      .footer-contact a:hover {
+        color: var(--white);
+        transform: translateX(2px);
+      }
+      .footer-contact {
+        display: grid;
+        gap: 0.85rem;
+      }
+      .footer-contact-item {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+      }
+      .footer-contact-label {
+        font-family: var(--font-mono);
+        font-size: 0.58rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.3);
+      }
+      .footer-contact-text {
+        font-size: 0.92rem;
+        color: rgba(235, 230, 223, 0.78);
+        line-height: 1.5;
+      }
+      .footer-cta-card {
+        border-color: rgba(255, 78, 0, 0.16);
+        background: linear-gradient(
+          180deg,
+          rgba(255, 78, 0, 0.08) 0%,
+          rgba(255, 78, 0, 0.02) 100%
+        );
+      }
+      .footer-cta-headline {
+        font-family: var(--font-display);
+        font-size: 1.18rem;
+        font-weight: 800;
+        line-height: 1.15;
+        margin-bottom: 0.55rem;
+      }
+      .footer-cta-sub {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        color: rgba(235, 230, 223, 0.68);
+        margin-bottom: 1rem;
+      }
+      .footer-cta-actions {
+        display: grid;
+        gap: 0.7rem;
+      }
+      .footer-bottom {
+        display: flex;
+        flex-direction: column;
+        gap: 0.55rem;
+        padding-top: 1.25rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .footer-legal {
+        font-size: 0.75rem;
+        color: rgba(255, 255, 255, 0.28);
+        font-family: var(--font-mono);
+        line-height: 1.65;
+      }
+      .footer-legal a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .footer-legal a:hover {
+        color: rgba(255, 255, 255, 0.6);
+      }
+      .footer-brand-name {
+        color: rgba(255, 255, 255, 0.72);
+        font-family: var(--font-display);
+        font-weight: 800;
+        letter-spacing: 0;
+      }
+      @media (min-width: 768px) {
+        .footer-top {
+          grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+          align-items: stretch;
+        }
+        .footer-columns {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+        .footer-bottom {
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+        }
+      }
+
+      /* ── WA FLOAT ── */
+      .wa-float {
+        position: fixed;
+        bottom: 1.5rem;
+        right: 1.5rem;
+        z-index: 200;
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        background: var(--orange);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        box-shadow: 0 4px 20px rgba(255, 78, 0, 0.4);
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+      .wa-float:hover {
+        transform: scale(1.08);
+        box-shadow: 0 6px 28px rgba(255, 78, 0, 0.55);
+      }
+      .wa-float svg {
+        width: 26px;
+        height: 26px;
+      }
+      .back-to-top {
+        position: fixed;
+        bottom: 1.5rem;
+        right: 5.3rem;
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        background: rgba(20, 18, 16, 0.6);
+        color: var(--white);
+        display: grid;
+        place-items: center;
+        text-decoration: none;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(10px);
+        transition:
+          opacity 0.2s,
+          transform 0.2s,
+          background 0.2s;
+        z-index: 200;
+        -webkit-backdrop-filter: blur(8px);
+        backdrop-filter: blur(8px);
+      }
+      .back-to-top.show {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+      .back-to-top:hover {
+        background: rgba(255, 78, 0, 0.2);
+      }
+      .back-to-top svg {
+        width: 18px;
+        height: 18px;
+      }
+
+      /* ── REVEAL ── */
+      .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+
+      /* ── WA SVG INLINE ── */
+      .wa-icon {
+        fill: white;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav id="main-nav">
+      <a href="#" class="nav-logo">
+        <img
+          class="nav-logo-default"
+          src="images/brand/Logo_4Safety-1.png"
+          alt="4Safety"
+        />
+        <img
+          class="nav-logo-scrolled"
+          src="images/brand/Logo_4Safety-branco.png"
+          alt="4Safety"
+          aria-hidden="true"
+        />
+      </a>
+      <ul class="nav-links">
+        <li><a href="#solucoes">Soluções</a></li>
+        <li><a href="#produtos">Produtos</a></li>
+        <li><a href="#parceiros">Parceiros</a></li>
+        <li><a href="consulta-de-ca/index.html">Consulta CA</a></li>
+        <li><a href="quem-somos/index.html">Quem somos</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+      <a
+        href="https://wa.me/5548999148413"
+        class="nav-cta"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Solicitar Orçamento</a
+      >
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-grid"></div>
+      <div class="hero-brand-lines" aria-hidden="true"></div>
+      <div class="hero-placeholder">
+        <img
+          src="images/hero/hero-ambient-critico.jpg"
+          alt="Ambiente industrial crítico com equipe em operação"
+        />
+      </div>
+      <div class="hero-content">
+        <p class="hero-eyebrow">Especialista em ambientes críticos</p>
+        <h1 class="hero-h1">
+          Sua operação segura começa pela <span>especificação</span> correta
+        </h1>
+        <p class="hero-sub">
+          Distribuímos soluções técnicas para gestão de risco em altura, espaços
+          confinados, fumigação e atmosferas perigosas. Marcas globais. CA
+          válido. Suporte de engenharia.
+        </p>
+        <div class="hero-actions">
+          <a
+            href="https://wa.me/5548999148413"
+            class="btn-primary"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" class="wa-icon">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
+              />
+              <path
+                d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.847L.057 23.571a.5.5 0 0 0 .611.61l5.763-1.498A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.006-1.368l-.36-.213-3.713.965.993-3.622-.233-.374A9.818 9.818 0 1 1 12 21.818z"
+              />
+            </svg>
+            Falar no WhatsApp
+          </a>
+          <a href="#solucoes" class="btn-ghost">Ver Soluções</a>
+        </div>
+      </div>
+      <div class="hero-scroll"><span class="scroll-line"></span>SCROLL</div>
+    </section>
+
+    <!-- TRUST BAR -->
+    <div class="trust">
+      <p class="trust-label">Distribuidores autorizados</p>
+      <div class="trust-marquee-wrap">
+        <div class="trust-track">
+          <span class="trust-item">UNIPHOS</span>
+          <span class="trust-item">GFG INSTRUMENTATION</span>
+          <span class="trust-item">SENSIDYNE</span>
+          <span class="trust-item">INSTANTEL</span>
+          <span class="trust-item">THERMO FISHER</span>
+          <span class="trust-item">MSA SAFETY</span>
+          <span class="trust-item">SVANTEK</span>
+          <span class="trust-item">ZEFON</span>
+          <span class="trust-item">ION SCIENCE</span>
+          <span class="trust-item">UNIPHOS</span>
+          <span class="trust-item">GFG INSTRUMENTATION</span>
+          <span class="trust-item">SENSIDYNE</span>
+          <span class="trust-item">INSTANTEL</span>
+          <span class="trust-item">THERMO FISHER</span>
+          <span class="trust-item">MSA SAFETY</span>
+          <span class="trust-item">SVANTEK</span>
+          <span class="trust-item">ZEFON</span>
+          <span class="trust-item">ION SCIENCE</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- GLASSMORPHISM — NÚMEROS -->
+    <div class="glass-section">
+      <div class="glass-inner">
+        <div class="glass-header reveal">
+          <p class="section-eyebrow">4Safety em números</p>
+          <h2 class="section-headline">
+            Resultados que<br />constroem confiança
+          </h2>
+        </div>
+        <div class="glass-grid">
+          <div class="glass-card reveal">
+            <div class="glass-number">+<span>30</span></div>
+            <div class="glass-label">Marcas globais</div>
+            <div class="glass-desc">
+              Distribuidores autorizados com importação direta e garantia
+              original
+            </div>
+          </div>
+          <div class="glass-card reveal">
+            <div class="glass-number"><span>12</span></div>
+            <div class="glass-label">Linhas de produto</div>
+            <div class="glass-desc">
+              Portfólio técnico especializado para ambientes críticos e
+              industriais
+            </div>
+          </div>
+          <div class="glass-card reveal">
+            <div class="glass-number">100<span>%</span></div>
+            <div class="glass-label">CA INMETRO</div>
+            <div class="glass-desc">
+              Todos os EPIs com Certificado de Aprovação ativo e rastreável
+            </div>
+          </div>
+          <div class="glass-card reveal">
+            <div class="glass-number"><span>1</span>dia</div>
+            <div class="glass-label">Prazo de orçamento</div>
+            <div class="glass-desc">
+              Resposta técnica no mesmo dia via WhatsApp — Seg a Sex
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRODUTOS -->
+    <section class="produtos" id="produtos">
+      <div class="produtos-header reveal">
+        <p class="section-eyebrow">Portfólio técnico</p>
+        <h2 class="section-headline">
+          Encontre o equipamento certo para cada risco
+        </h2>
+        <p class="section-sub">
+          Filtre por aplicação, veja o produto e peça orçamento direto. Todos os
+          itens com suporte técnico e linhas certificadas.
+        </p>
+      </div>
+      <div class="produtos-filter reveal">
+        <label class="filter-label" for="produtos-filter-select"
+          >Filtrar por aplicação</label
+        >
+        <select class="filter-select" id="produtos-filter-select">
+          <option value="all">Todos</option>
+          <option value="gas">Detecção de Gás</option>
+          <option value="respiratorio">Respiratório</option>
+          <option value="altura">Altura</option>
+          <option value="auditivo">Auditivo</option>
+          <option value="outros">Outros EPIs</option>
+        </select>
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="gas">Detecção de Gás</button>
+        <button class="filter-btn" data-filter="respiratorio">
+          Respiratório
+        </button>
+        <button class="filter-btn" data-filter="altura">Altura</button>
+        <button class="filter-btn" data-filter="auditivo">Auditivo</button>
+        <button class="filter-btn" data-filter="outros">Outros EPIs</button>
+      </div>
+      <div class="produtos-grid">
+        <div class="produto-card reveal" data-cat="gas">
+          <span class="badge-ca badge-ca-fixed">CA INMETRO</span>
+          <img
+            class="produto-img"
+            src="images/products/produto-tubo-colorimetrico-uniphos.jpg"
+            alt="Tubo Colorimétrico Uniphos"
+          />
+          <div class="produto-badges">
+            <span class="badge-norma">NR-33 / NR-15</span>
+          </div>
+          <h3 class="produto-headline">Tubo Colorimétrico Uniphos</h3>
+          <p class="produto-body">
+            Análise quantitativa de atmosfera — detecção de gases tóxicos e
+            explosivos em campo.
+          </p>
+          <a
+            href="https://wa.me/5548999148413"
+            class="produto-cta"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Comprar agora</a
+          >
+        </div>
+        <div class="produto-card reveal" data-cat="gas">
+          <span class="badge-ca badge-ca-fixed">CA INMETRO</span>
+          <img
+            class="produto-img"
+            src="images/products/produto-bomba-deteccao-gas.png"
+            alt="Bomba de Detecção de Gás"
+          />
+          <div class="produto-badges">
+            <span class="badge-norma">NR-33</span>
+          </div>
+          <h3 class="produto-headline">Bomba de Detecção de Gás</h3>
+          <p class="produto-body">
+            Bombas manuais e automáticas para amostragem com tubos
+            colorimétricos em espaços confinados.
+          </p>
+          <a
+            href="https://wa.me/5548999148413"
+            class="produto-cta"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Comprar agora</a
+          >
+        </div>
+        <div class="produto-card reveal" data-cat="gas">
+          <span class="badge-ca badge-ca-fixed">CA INMETRO</span>
+          <img
+            class="produto-img"
+            src="images/products/produto-detector-gas-portatil.png"
+            alt="Detector de Gás Portátil"
+          />
+          <div class="produto-badges">
+            <span class="badge-norma">NR-33</span>
+          </div>
+          <h3 class="produto-headline">Detector de Gás Portátil</h3>
+          <p class="produto-body">
+            Monitoramento contínuo de O₂, CO, H₂S e gases explosivos. Alarme
+            sonoro e visual.
+          </p>
+          <a
+            href="https://wa.me/5548999148413"
+            class="produto-cta"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Comprar agora</a
+          >
+        </div>
+        <div class="produto-card reveal" data-cat="outros">
+          <span class="badge-ca badge-ca-fixed">CA INMETRO</span>
+          <img
+            class="produto-img"
+            src="images/products/produto-fumigacao.png"
+            alt="Equipamentos de Fumigação"
+          />
+          <div class="produto-badges">
+            <span class="badge-norma">MAPA / ANVISA</span
+            ><span class="badge-norma">Fumigação</span>
+          </div>
+          <h3 class="produto-headline">Equipamentos de Fumigação</h3>
+          <p class="produto-body">
+            Aplicadores, dosadores e EPIs para fumigação de silos, armazéns e
+            ambientes industriais.
+          </p>
+          <a
+            href="https://wa.me/5548999148413"
+            class="produto-cta"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Comprar agora</a
+          >
+        </div>
+        <div class="produto-card reveal" data-cat="respiratorio">
+          <span class="badge-ca badge-ca-fixed">CA INMETRO</span>
+          <img
+            class="produto-img"
+            src="images/products/produto-protecao-respiratoria.jpg"
+            alt="Proteção Respiratória"
+          />
+          <div class="produto-badges">
+            <span class="badge-norma">NR-6 / NR-9</span>
+          </div>
+          <h3 class="produto-headline">Proteção Respiratória</h3>
+          <p class="produto-body">
+            Máscaras semifaciais, faceiras inteiras e respiradores para vapores,
+            aerossóis e partículas.
+          </p>
+          <a
+            href="https://wa.me/5548999148413"
+            class="produto-cta"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Comprar agora</a
+          >
+        </div>
+        <div class="produto-card reveal" data-cat="altura">
+          <span class="badge-ca badge-ca-fixed">CA INMETRO</span>
+          <img
+            class="produto-img"
+            src="images/products/produto-equipamentos-altura.png"
+            alt="Equipamentos para Altura"
+          />
+          <div class="produto-badges">
+            <span class="badge-norma">NR-35</span>
+          </div>
+          <h3 class="produto-headline">Equipamentos para Altura</h3>
+          <p class="produto-body">
+            Trava-quedas, cinturões paraquedistas, longas e sistemas de
+            ancoragem certificados.
+          </p>
+          <a
+            href="https://wa.me/5548999148413"
+            class="produto-cta"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Comprar agora</a
+          >
+        </div>
+        <div class="produto-card reveal" data-cat="outros">
+          <span class="badge-ca badge-ca-fixed">CA INMETRO</span>
+          <img
+            class="produto-img"
+            src="images/products/produto-botas-calzados.png"
+            alt="Botas e Calçados"
+          />
+          <div class="produto-badges">
+            <span class="badge-norma">NR-6</span>
+          </div>
+          <h3 class="produto-headline">Botas e Calçados</h3>
+          <p class="produto-body">
+            Calçados de segurança com bico de aço, antiderrapante e resistência
+            química.
+          </p>
+          <a
+            href="https://wa.me/5548999148413"
+            class="produto-cta"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Comprar agora</a
+          >
+        </div>
+        <div class="produto-card reveal" data-cat="auditivo">
+          <span class="badge-ca badge-ca-fixed">CA INMETRO</span>
+          <img
+            class="produto-img"
+            src="images/products/produto-protetor-auditivo.png"
+            alt="Protetor Auditivo"
+          />
+          <div class="produto-badges">
+            <span class="badge-norma">NR-15 / NR-6</span>
+          </div>
+          <h3 class="produto-headline">Protetor Auditivo</h3>
+          <p class="produto-body">
+            Protetores tipo concha e plug com NRRsf certificado para ambientes
+            industriais.
+          </p>
+          <a
+            href="https://wa.me/5548999148413"
+            class="produto-cta"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Comprar agora</a
+          >
+        </div>
+        <div class="produto-card reveal" data-cat="outros">
+          <span class="badge-ca badge-ca-fixed">CA INMETRO</span>
+          <img
+            class="produto-img"
+            src="images/products/produto-oculos-protecao.png"
+            alt="Óculos de Proteção"
+          />
+          <div class="produto-badges">
+            <span class="badge-norma">NR-6</span>
+          </div>
+          <h3 class="produto-headline">Óculos de Proteção</h3>
+          <p class="produto-body">
+            Proteção ocular contra impacto, radiação UV e respingos químicos.
+          </p>
+          <a
+            href="https://wa.me/5548999148413"
+            class="produto-cta"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Comprar agora</a
+          >
+        </div>
+        <div class="produto-card reveal" data-cat="outros">
+          <span class="badge-ca badge-ca-fixed">CA INMETRO</span>
+          <img
+            class="produto-img"
+            src="images/products/produto-luvas-protecao.png"
+            alt="Luvas de Proteção"
+          />
+          <div class="produto-badges">
+            <span class="badge-norma">NR-6</span>
+          </div>
+          <h3 class="produto-headline">Luvas de Proteção</h3>
+          <p class="produto-body">
+            Proteção para riscos mecânicos, químicos, térmicos e elétricos — por
+            aplicação.
+          </p>
+          <a
+            href="https://wa.me/5548999148413"
+            class="produto-cta"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Comprar agora</a
+          >
+        </div>
+        <div class="produto-card reveal" data-cat="outros">
+          <span class="badge-ca badge-ca-fixed">CA INMETRO</span>
+          <img
+            class="produto-img"
+            src="images/products/produto-descartaveis.png"
+            alt="Descartáveis"
+          />
+          <div class="produto-badges">
+            <span class="badge-norma">NR-6</span>
+          </div>
+          <h3 class="produto-headline">Descartáveis</h3>
+          <p class="produto-body">
+            Macacões Tyvek, toucas, protetores de calçado e kits para
+            contaminantes.
+          </p>
+          <a
+            href="https://wa.me/5548999148413"
+            class="produto-cta"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Comprar agora</a
+          >
+        </div>
+        <div class="produto-card reveal" data-cat="outros">
+          <span class="badge-ca badge-ca-fixed">CA INMETRO</span>
+          <img
+            class="produto-img"
+            src="images/products/produto-protecao-termica.png"
+            alt="Proteção Térmica"
+          />
+          <div class="produto-badges">
+            <span class="badge-norma">NR-6 / NR-15</span>
+          </div>
+          <h3 class="produto-headline">Proteção Térmica</h3>
+          <p class="produto-body">
+            Luvas, aventais e roupas aluminizadas para exposição a calor intenso
+            e fagulhas.
+          </p>
+          <a
+            href="https://wa.me/5548999148413"
+            class="produto-cta"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Comprar agora</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO BRANCA — POR QUE ESPECIFICAR CERTO -->
+    <div class="white-section">
+      <div class="white-inner">
+        <div class="reveal">
+          <p class="white-eyebrow">Por que a 4Safety</p>
+          <h2 class="white-headline">
+            Distribuição técnica.<br /><span>Não só logística.</span>
+          </h2>
+          <p class="white-sub">
+            O EPI errado não protege. O equipamento subdimensionado não passa em
+            auditoria. A 4Safety existe para fechar essa lacuna entre o que está
+            disponível e o que é tecnicamente correto.
+          </p>
+        </div>
+        <div class="white-grid">
+          <div class="white-card reveal">
+            <span class="white-card-num">01 —</span>
+            <h3 class="white-card-headline">Portfólio com CA válido</h3>
+            <p class="white-card-body">
+              Todos os EPIs com Certificado de Aprovação INMETRO ativo. Consulta
+              integrada diretamente no site — antes de comprar.
+            </p>
+          </div>
+          <div class="white-card reveal">
+            <span class="white-card-num">02 —</span>
+            <h3 class="white-card-headline">
+              Marcas globais, entrega nacional
+            </h3>
+            <p class="white-card-body">
+              Importação direta das fabricantes. Garantia original, fichas
+              técnicas e documentação de segurança completa.
+            </p>
+          </div>
+          <div class="white-card reveal">
+            <span class="white-card-num">03 —</span>
+            <h3 class="white-card-headline">Especificação técnica inclusa</h3>
+            <p class="white-card-body">
+              Nossa equipe indica o produto correto para o risco identificado —
+              não apenas o disponível em estoque.
+            </p>
+          </div>
+          <div class="white-card reveal">
+            <span class="white-card-num">04 —</span>
+            <h3 class="white-card-headline">Atendimento comercial ágil</h3>
+            <p class="white-card-body">
+              Orçamento via WhatsApp. Resposta no mesmo dia. Atendimento
+              Seg–Sex, 08h às 18h com Luis Claudio.
+            </p>
+          </div>
+          <div class="white-card reveal">
+            <span class="white-card-num">05 —</span>
+            <h3 class="white-card-headline">Conformidade normativa</h3>
+            <p class="white-card-body">
+              Referência em NR-33, NR-35, NR-15 e NR-6. Cada produto alinhado
+              com a norma aplicável ao seu ambiente.
+            </p>
+          </div>
+          <div class="white-card reveal">
+            <span class="white-card-num">06 —</span>
+            <h3 class="white-card-headline">Parcerias de longo prazo</h3>
+            <p class="white-card-body">
+              Relacionamento continuado com clientes, fornecedores e
+              fabricantes. Crescimento orgânico com raiz técnica.
+            </p>
+          </div>
+        </div>
+        <div class="white-cta-wrap reveal">
+          <a
+            href="https://wa.me/5548999148413"
+            class="btn-dark"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
+              />
+              <path
+                d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.847L.057 23.571a.5.5 0 0 0 .611.61l5.763-1.498A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.006-1.368l-.36-.213-3.713.965.993-3.622-.233-.374A9.818 9.818 0 1 1 12 21.818z"
+              />
+            </svg>
+            Solicitar Orçamento
+          </a>
+          <a href="#produtos" class="btn-orange-outline">Ver Produtos</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CENÁRIOS -->
+    <section class="scenarios" id="solucoes">
+      <div class="scenarios-header reveal">
+        <p class="section-eyebrow">Onde atuamos</p>
+        <h2 class="section-headline">
+          Cada risco tem uma<br />solução técnica específica
+        </h2>
+        <p class="section-sub">
+          Não vendemos catálogo. Identificamos o cenário, indicamos o produto
+          certificado.
+        </p>
+      </div>
+      <div class="scenarios-grid">
+        <div class="scenario-card scenario-card--highlight reveal">
+          <span class="sc-badge">NR-33</span>
+          <h3 class="sc-headline">Espaço Confinado</h3>
+          <p class="sc-body">
+            Detecção de gás, proteção respiratória e sistemas de resgate para
+            entrada e permanência em atmosfera crítica.
+          </p>
+          <a href="#produtos" class="sc-cta">Ver equipamentos</a>
+        </div>
+        <div class="scenario-card reveal">
+          <span class="sc-badge">NR-35</span>
+          <h3 class="sc-headline">Trabalho em Altura</h3>
+          <p class="sc-body">
+            Trava-quedas, cinturões, ancoragem e linhas de vida com foco em
+            conformidade de campo.
+          </p>
+          <a href="#produtos" class="sc-cta">Ver equipamentos</a>
+        </div>
+        <div class="scenario-card reveal">
+          <span class="sc-badge">MAPA / ANVISA</span>
+          <h3 class="sc-headline">Fumigação Industrial</h3>
+          <p class="sc-body">
+            Equipamentos homologados para aplicação de fumigantes em silos,
+            armazéns e contêineres.
+          </p>
+          <a href="#produtos" class="sc-cta">Ver equipamentos</a>
+        </div>
+        <div class="scenario-card reveal">
+          <span class="sc-badge">NR-15</span>
+          <h3 class="sc-headline">Controle de Ruído</h3>
+          <p class="sc-body">
+            Dosimetria, protetores auditivos com CA e medições para conformidade
+            ocupacional.
+          </p>
+          <a href="#produtos" class="sc-cta">Ver equipamentos</a>
+        </div>
+        <div class="scenario-card reveal">
+          <span class="sc-badge">NR-9</span>
+          <h3 class="sc-headline">Risco Químico e Térmico</h3>
+          <p class="sc-body">
+            Proteção respiratória, luvas, roupas e óculos para exposição a
+            agentes agressivos e calor de processo.
+          </p>
+          <a href="#produtos" class="sc-cta">Ver equipamentos</a>
+        </div>
+        <div class="scenario-card reveal">
+          <span class="sc-badge">NR-33 / NR-15</span>
+          <h3 class="sc-headline">Monitoramento Atmosférico</h3>
+          <p class="sc-body">
+            Tubos colorimétricos, bombas de detecção e leitura quantitativa para
+            decisão técnica em campo.
+          </p>
+          <a href="#produtos" class="sc-cta">Ver equipamentos</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARCEIROS -->
+    <section class="parceiros" id="parceiros">
+      <div class="reveal">
+        <p class="section-eyebrow">Nosso portfólio de marcas</p>
+        <h2 class="section-headline">
+          Líderes globais.<br />Distribuição nacional.
+        </h2>
+        <p class="section-sub">
+          Importação direta com garantia original, fichas técnicas e suporte de
+          fabricante.
+        </p>
+      </div>
+      <div class="parceiros-grid reveal">
+        <span class="parceiro-pill">MGCinto</span
+        ><span class="parceiro-pill">Air Safety</span>
+        <span class="parceiro-pill">Uniphos</span
+        ><span class="parceiro-pill">Magee</span>
+        <span class="parceiro-pill">AethLabs</span
+        ><span class="parceiro-pill">Scott</span>
+        <span class="parceiro-pill">Instantel</span
+        ><span class="parceiro-pill">Zefon</span>
+        <span class="parceiro-pill">Hagner</span
+        ><span class="parceiro-pill">InSitu</span>
+        <span class="parceiro-pill">Unitec</span
+        ><span class="parceiro-pill">Thermo Fisher</span>
+        <span class="parceiro-pill">ACS</span
+        ><span class="parceiro-pill">ION Science</span>
+        <span class="parceiro-pill">BGI</span
+        ><span class="parceiro-pill">Mesa Labs</span>
+        <span class="parceiro-pill">GFG</span
+        ><span class="parceiro-pill">Sensidyne</span>
+        <span class="parceiro-pill">Svantek</span
+        ><span class="parceiro-pill">Softworks</span>
+        <span class="parceiro-pill">Promat</span
+        ><span class="parceiro-pill">Marluvas</span>
+        <span class="parceiro-pill">Fujiwara</span
+        ><span class="parceiro-pill">Montana</span>
+        <span class="parceiro-pill">Delta Plus</span
+        ><span class="parceiro-pill">Danny</span>
+        <span class="parceiro-pill">Mavaro</span
+        ><span class="parceiro-pill">Kapilso</span>
+      </div>
+    </section>
+
+    <!-- CTA BLOCK -->
+    <div class="cta-block">
+      <h2 class="cta-block-headline">Precisa de um orçamento técnico?</h2>
+      <p class="cta-block-sub">
+        Descreva o cenário ou o produto. Luis Claudio responde com a
+        especificação correta.
+      </p>
+      <div class="cta-block-actions">
+        <a
+          href="https://wa.me/5548999148413"
+          class="btn-white"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" class="wa-icon">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
+            />
+            <path
+              d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.847L.057 23.571a.5.5 0 0 0 .611.61l5.763-1.498A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.006-1.368l-.36-.213-3.713.965.993-3.622-.233-.374A9.818 9.818 0 1 1 12 21.818z"
+            />
+          </svg>
+          Falar no WhatsApp
+        </a>
+        <a href="mailto:4safety@4safety.com.br" class="btn-outline-white"
+          >Enviar por e-mail</a
+        >
+      </div>
+    </div>
+
+    <!-- CONTATO -->
+    <section class="contato" id="contato">
+      <div class="reveal">
+        <p class="section-eyebrow">Fale com a 4Safety</p>
+        <h2 class="section-headline">Orçamento técnico<br />no mesmo dia</h2>
+      </div>
+      <div class="contato-grid">
+        <div>
+          <div class="contato-wa reveal">
+            <p class="contato-wa-label">Canal preferencial</p>
+            <h3 class="contato-wa-headline">WhatsApp</h3>
+            <p class="contato-wa-sub">
+              Resposta mais rápida. Atendimento com Luis Claudio — especialista
+              técnico.
+            </p>
+            <a
+              href="https://wa.me/5548999148413"
+              class="btn-primary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" class="wa-icon">
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
+                />
+                <path
+                  d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.847L.057 23.571a.5.5 0 0 0 .611.61l5.763-1.498A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.006-1.368l-.36-.213-3.713.965.993-3.622-.233-.374A9.818 9.818 0 1 1 12 21.818z"
+                />
+              </svg>
+              (48) 99914-8413
+            </a>
+          </div>
+          <div class="reveal contato-info-wrap">
+            <div class="contato-info">
+              <div class="info-item">
+                <span class="info-icon">📞</span>
+                <div>
+                  <span class="info-label">Telefone fixo</span
+                  ><span class="info-value">(48) 3338-2929</span>
+                </div>
+              </div>
+              <div class="info-item">
+                <span class="info-icon">✉️</span>
+                <div>
+                  <span class="info-label">E-mail</span
+                  ><span class="info-value">4safety@4safety.com.br</span>
+                </div>
+              </div>
+              <div class="info-item">
+                <span class="info-icon">🕐</span>
+                <div>
+                  <span class="info-label">Atendimento</span
+                  ><span class="info-value">Seg–Sex, 08h às 18h</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="reveal">
+          <div class="form-group">
+            <label class="form-label">Nome</label>
+            <input class="form-input" type="text" placeholder="Seu nome" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Empresa</label>
+            <input
+              class="form-input"
+              type="text"
+              placeholder="Empresa (opcional)"
+            />
+          </div>
+          <div class="form-group">
+            <label class="form-label">E-mail</label>
+            <input
+              class="form-input"
+              type="email"
+              placeholder="seu@email.com.br"
+            />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="form-assunto">Assunto</label>
+            <select class="form-select" id="form-assunto" name="assunto">
+              <option>Orçamento</option>
+              <option>Especificação técnica</option>
+              <option>Dúvida sobre CA</option>
+              <option>Outro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Descreva o ambiente ou produto</label>
+            <textarea
+              class="form-textarea"
+              placeholder="Ex: preciso de detector multi-gás para espaço confinado, equipe de 5 pessoas..."
+            ></textarea>
+          </div>
+          <button type="button" class="btn-primary btn-block">
+            Enviar mensagem
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <a href="#" class="footer-logo"
+              ><img src="images/brand/Logo_4Safety-bco_lja.png" alt="4Safety"
+            /></a>
+            <p class="footer-tagline">
+              Segurança do trabalho com especificação técnica para ambientes
+              críticos, operações industriais e decisões que não admitem erro.
+            </p>
+            <p class="footer-micro">Distribuição técnica com resposta rápida</p>
+          </div>
+          <div class="footer-card footer-cta-card">
+            <p class="footer-card-label">Último passo útil</p>
+            <h3 class="footer-cta-headline">
+              Precisa fechar a especificação ainda hoje?
+            </h3>
+            <p class="footer-cta-sub">
+              Fale direto com a equipe comercial e reduza o tempo entre dúvida,
+              escolha técnica e orçamento.
+            </p>
+            <div class="footer-cta-actions">
+              <a
+                href="https://wa.me/5548999148413"
+                class="btn-primary btn-block"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Solicitar Orçamento</a
+              >
+              <a href="#contato" class="btn-ghost"
+                >Enviar detalhes do cenário</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="footer-columns">
+          <div class="footer-card footer-card--nav">
+            <p class="footer-card-label">Navegação</p>
+            <div class="footer-links">
+              <a href="#solucoes">Soluções</a>
+              <a href="#produtos">Produtos</a>
+              <a href="#parceiros">Parceiros</a>
+              <a href="consulta-de-ca/index.html">Consulta CA</a>
+              <a href="quem-somos/index.html">Quem somos</a>
+              <a href="#contato">Contato</a>
+            </div>
+          </div>
+          <div class="footer-card">
+            <p class="footer-card-label">Contato</p>
+            <div class="footer-contact">
+              <div class="footer-contact-item">
+                <span class="footer-contact-label">WhatsApp</span>
+                <a
+                  href="https://wa.me/5548999148413"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >(48) 99914-8413</a
+                >
+              </div>
+              <div class="footer-contact-item">
+                <span class="footer-contact-label">Telefone</span>
+                <a href="tel:+554833382929">(48) 3338-2929</a>
+              </div>
+              <div class="footer-contact-item">
+                <span class="footer-contact-label">E-mail</span>
+                <a href="mailto:4safety@4safety.com.br"
+                  >4safety@4safety.com.br</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="footer-card">
+            <p class="footer-card-label">Operação</p>
+            <div class="footer-contact">
+              <div class="footer-contact-item">
+                <span class="footer-contact-label">Atendimento</span>
+                <span class="footer-contact-text">Seg–Sex, 08h às 18h</span>
+              </div>
+              <div class="footer-contact-item">
+                <span class="footer-contact-label">Foco</span>
+                <span class="footer-contact-text"
+                  >NR-33, NR-35, atmosferas perigosas, fumigação e EPIs
+                  certificados</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span class="footer-legal"
+            >© <span id="footer-year"></span>
+            <span class="footer-brand-name">4Safety</span> é o nome fantasia de
+            Ilha Norte Importacao e Exportacao - CNPJ 11.897.812/0001-06</span
+          >
+          <span class="footer-legal"
+            >Todos os direitos reservados // Desenvolvido por
+            <a
+              href="https://doismais.com.br/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Agência Dois Mais</a
+            ></span
+          >
+        </div>
+      </div>
+    </footer>
+
+    <a href="#top" class="back-to-top" aria-label="Voltar ao topo">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path
+          d="M12 5l-6 6m6-6 6 6M12 5v14"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </a>
+
+    <!-- WA FLOAT -->
+    <a
+      href="https://wa.me/5548999148413"
+      class="wa-float"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Falar no WhatsApp"
+    >
+      <svg viewBox="0 0 24 24" fill="white">
+        <path
+          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
+        />
+        <path
+          d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.847L.057 23.571a.5.5 0 0 0 .611.61l5.763-1.498A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.006-1.368l-.36-.213-3.713.965.993-3.622-.233-.374A9.818 9.818 0 1 1 12 21.818z"
+        />
+      </svg>
+    </a>
+
+    <script>
+      document.getElementById("footer-year").textContent =
+        new Date().getFullYear();
+
+      // ── HERO WAAPI ENTRANCE ──────────────────────────────────────────────
+      const heroEls = [
+        { el: document.querySelector(".hero-eyebrow"), delay: 200 },
+        { el: document.querySelector(".hero-h1"), delay: 420 },
+        { el: document.querySelector(".hero-sub"), delay: 640 },
+        { el: document.querySelector(".hero-actions"), delay: 860 },
+        { el: document.querySelector(".hero-scroll"), delay: 1100 },
+      ];
+      heroEls.forEach(({ el, delay }) => {
+        if (!el) return;
+        el.animate(
+          [
+            { opacity: 0, transform: "translateY(28px)" },
+            { opacity: 1, transform: "translateY(0)" },
+          ],
+          {
+            duration: 720,
+            delay,
+            fill: "forwards",
+            easing: "cubic-bezier(0.22,1,0.36,1)",
+          },
+        );
+      });
+
+      // ── SCROLL REVEAL WAAPI ──────────────────────────────────────────────
+      const reveals = document.querySelectorAll(".reveal");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            const el = entry.target;
+            const siblings = [...el.parentElement.querySelectorAll(".reveal")];
+            const idx = siblings.indexOf(el);
+            const stagger = Math.min(idx * 75, 380);
+            el.animate(
+              [
+                { opacity: 0, transform: "translateY(22px)" },
+                { opacity: 1, transform: "translateY(0)" },
+              ],
+              {
+                duration: 580,
+                delay: stagger,
+                fill: "forwards",
+                easing: "cubic-bezier(0.22,1,0.36,1)",
+              },
+            );
+            observer.unobserve(el);
+          });
+        },
+        { threshold: 0.1, rootMargin: "0px 0px -36px 0px" },
+      );
+      reveals.forEach((el) => observer.observe(el));
+
+      // ── GLASS CARDS COUNTER ANIMATION ───────────────────────────────────
+      const counters = document.querySelectorAll(".glass-number");
+      const countObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            const el = entry.target;
+            const span = el.querySelector("span");
+            if (!span) return;
+            const target = parseInt(span.textContent);
+            if (isNaN(target)) return;
+            let current = 0;
+            const step = Math.ceil(target / 40);
+            const timer = setInterval(() => {
+              current = Math.min(current + step, target);
+              span.textContent = current;
+              if (current >= target) clearInterval(timer);
+            }, 30);
+            countObserver.unobserve(el);
+          });
+        },
+        { threshold: 0.5 },
+      );
+      counters.forEach((el) => countObserver.observe(el));
+
+      // ── PRODUTO FILTER ───────────────────────────────────────────────────
+      const filterBtns = document.querySelectorAll(".filter-btn");
+      const cards = document.querySelectorAll(".produto-card");
+      const filterSelect = document.querySelector(".filter-select");
+      const whatsappBase = "https://wa.me/5548999148413";
+      document.querySelectorAll(".produto-card").forEach((card) => {
+        const name = card
+          .querySelector(".produto-headline")
+          ?.textContent?.trim();
+        const cta = card.querySelector(".produto-cta");
+        if (!cta || !name) return;
+        const message =
+          `Olá! Quero comprar o produto: ${name}. ` +
+          `Pode me enviar disponibilidade e preço?`;
+        cta.href = `${whatsappBase}?text=${encodeURIComponent(message)}`;
+      });
+      const applyFilter = (f) => {
+        filterBtns.forEach((b) => b.classList.remove("active"));
+        const activeBtn = document.querySelector(
+          `.filter-btn[data-filter="${f}"]`,
+        );
+        if (activeBtn) activeBtn.classList.add("active");
+        if (filterSelect) filterSelect.value = f;
+        cards.forEach((card) => {
+          const show = f === "all" || card.dataset.cat === f;
+          if (show) {
+            card.style.display = "flex";
+            card.animate(
+              [
+                { opacity: 0, transform: "scale(.96)" },
+                { opacity: 1, transform: "scale(1)" },
+              ],
+              { duration: 280, fill: "forwards", easing: "ease-out" },
+            );
+          } else {
+            card.style.display = "none";
+          }
+        });
+      };
+      filterBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          applyFilter(btn.dataset.filter);
+        });
+      });
+      if (filterSelect) {
+        filterSelect.addEventListener("change", () => {
+          applyFilter(filterSelect.value);
+        });
+      }
+
+      // ── NAV: branco sólido no topo; glass aqua após rolagem ───────────────
+      function updateNavGlass() {
+        const nav = document.getElementById("main-nav");
+        if (!nav) return;
+        nav.classList.toggle("nav--scrolled", window.scrollY > 40);
+      }
+      window.addEventListener("scroll", updateNavGlass, { passive: true });
+      updateNavGlass();
+
+      // ── BACK TO TOP ──────────────────────────────────────────────────────
+      const backToTop = document.querySelector(".back-to-top");
+      const syncBackToTop = () => {
+        if (!backToTop) return;
+        backToTop.classList.toggle("show", window.scrollY > 520);
+      };
+      window.addEventListener("scroll", syncBackToTop, { passive: true });
+      syncBackToTop();
+
+      // ── WA FLOAT PULSE ───────────────────────────────────────────────────
+      document
+        .querySelector(".wa-float")
+        .animate(
+          [
+            { boxShadow: "0 4px 20px rgba(255,78,0,.38)" },
+            { boxShadow: "0 4px 32px rgba(255,78,0,.68)" },
+            { boxShadow: "0 4px 20px rgba(255,78,0,.38)" },
+          ],
+          {
+            duration: 2400,
+            iterations: Infinity,
+            easing: "ease-in-out",
+            delay: 2200,
+          },
+        );
+
+      // ── GLASS CARDS HOVER GLOW ───────────────────────────────────────────
+      document.querySelectorAll(".glass-card").forEach((card) => {
+        card.addEventListener("mousemove", (e) => {
+          const r = card.getBoundingClientRect();
+          const x = ((e.clientX - r.left) / r.width) * 100;
+          const y = ((e.clientY - r.top) / r.height) * 100;
+          card.style.background = `radial-gradient(circle at ${x}% ${y}%, rgba(255,78,0,0.08) 0%, rgba(255,255,255,0.04) 60%)`;
+        });
+        card.addEventListener("mouseleave", () => {
+          card.style.background = "rgba(255,255,255,0.04)";
+        });
+      });
+    </script>
+  </body>
+</html>

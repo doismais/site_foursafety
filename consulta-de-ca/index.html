@@ -1,0 +1,867 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>Consulta de CA | 4Safety — Certificado de Aprovação INMETRO</title>
+    <meta
+      name="description"
+      content="Consulte o Certificado de Aprovação (CA) de EPIs no sistema oficial. Verifique validade, fabricante e escopo de proteção."
+    />
+    <meta
+      property="og:title"
+      content="Consulta de CA | 4Safety — Certificado de Aprovação INMETRO"
+    />
+    <meta
+      property="og:description"
+      content="Consulte o Certificado de Aprovação (CA) de EPIs no sistema oficial. Verifique validade, fabricante e escopo de proteção."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="../images/OG-image.png" />
+    <meta property="og:image:alt" content="Consulta de CA 4Safety" />
+    <meta
+      property="og:url"
+      content="https://4safety.vercel.app/consulta-de-ca/"
+    />
+    <link rel="canonical" href="https://4safety.vercel.app/consulta-de-ca/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="../images/OG-image.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&family=Source+Sans+3:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      :root {
+        --orange: #ff4e00;
+        --black: #161412;
+        --ink: #141210;
+        --g900: #252220;
+        --g700: #4a4540;
+        --g400: #9a948c;
+        --g100: #ebe6df;
+        --paper: #f7f4ef;
+        --white: #fff;
+        --institutional: #e0d9d0;
+        --institutional-deep: #d4cdc3;
+        --nav-aqua-tint: rgba(175, 230, 245, 0.42);
+        --nav-aqua-edge: rgba(90, 170, 195, 0.22);
+        --font-display:
+          "Source Sans 3", -apple-system, BlinkMacSystemFont, sans-serif;
+        --font-body:
+          "Source Sans 3", -apple-system, BlinkMacSystemFont, sans-serif;
+        --font-mono: "JetBrains Mono", monospace;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: var(--font-body);
+        background: var(--ink);
+        color: var(--white);
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+      }
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: env(safe-area-inset-top, 0px)
+          max(1.25rem, env(safe-area-inset-right)) 0
+          max(1.25rem, env(safe-area-inset-left));
+        min-height: calc(60px + env(safe-area-inset-top, 0px));
+        background: var(--white);
+        border-bottom: 1px solid rgba(40, 36, 32, 0.08);
+        box-shadow: 0 1px 0 rgba(255, 255, 255, 1);
+        transition:
+          background 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+          border-color 0.4s ease,
+          box-shadow 0.45s ease,
+          -webkit-backdrop-filter 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+          backdrop-filter 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      nav.nav--scrolled {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.58) 0%,
+          var(--nav-aqua-tint) 55%,
+          rgba(160, 220, 235, 0.35) 100%
+        );
+        -webkit-backdrop-filter: saturate(175%) blur(22px);
+        backdrop-filter: saturate(175%) blur(22px);
+        border-bottom: 1px solid rgba(255, 78, 0, 0.28);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.65),
+          inset 0 -1px 0 var(--nav-aqua-edge),
+          0 6px 28px rgba(30, 80, 95, 0.1);
+      }
+      .nav-logo {
+        position: relative;
+        display: block;
+        width: fit-content;
+      }
+      .nav-logo img {
+        height: 31px;
+        display: block;
+        transition:
+          opacity 0.28s ease,
+          transform 0.28s ease,
+          filter 0.28s ease;
+      }
+      .nav-logo-default {
+        opacity: 1;
+      }
+      .nav-logo-scrolled {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        filter: drop-shadow(0 1px 10px rgba(0, 0, 0, 0.18));
+      }
+      nav.nav--scrolled .nav-logo-default {
+        opacity: 0;
+        transform: translateY(-2px);
+      }
+      nav.nav--scrolled .nav-logo-scrolled {
+        opacity: 1;
+      }
+      .nav-links {
+        display: none;
+        gap: 1.5rem;
+        list-style: none;
+      }
+      .nav-links a {
+        color: var(--g700);
+        font-size: 0.85rem;
+        text-decoration: none;
+        transition: color 0.2s;
+        font-weight: 500;
+      }
+      .nav-links a:hover {
+        color: var(--orange);
+      }
+      .nav-cta {
+        background: var(--orange);
+        color: var(--white);
+        font-size: 0.8rem;
+        font-weight: 600;
+        border-radius: 8px;
+        padding: 0.68rem 1rem;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+      @media (min-width: 768px) {
+        nav {
+          padding: env(safe-area-inset-top, 0px)
+            max(2.5rem, env(safe-area-inset-right)) 0
+            max(2.5rem, env(safe-area-inset-left));
+          min-height: calc(68px + env(safe-area-inset-top, 0px));
+        }
+        .nav-logo img {
+          height: 35px;
+        }
+        .nav-links {
+          display: flex;
+        }
+      }
+
+      .hero {
+        position: relative;
+        overflow: hidden;
+        min-height: 82svh;
+        padding: 7.5rem 1.25rem 3.5rem;
+        display: flex;
+        align-items: flex-end;
+        background: linear-gradient(
+          155deg,
+          #1a1714 0%,
+          var(--ink) 50%,
+          #0f0d0b 100%
+        );
+      }
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            ellipse 46% 54% at 84% 18%,
+            rgba(255, 78, 0, 0.12) 0%,
+            transparent 60%
+          ),
+          radial-gradient(
+            ellipse 32% 55% at 12% 90%,
+            rgba(193, 134, 81, 0.08) 0%,
+            transparent 58%
+          );
+      }
+      .hero-grid {
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        background-size: 42px 42px;
+        mask-image: radial-gradient(
+          ellipse at center,
+          black 32%,
+          transparent 82%
+        );
+      }
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 640px;
+      }
+      .hero-eyebrow {
+        font-family: var(--font-mono);
+        font-size: 0.68rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--orange);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55rem;
+        margin-bottom: 1.1rem;
+      }
+      .hero-eyebrow::before {
+        content: "";
+        width: 18px;
+        height: 1px;
+        background: var(--orange);
+      }
+      .hero-h1 {
+        font-size: clamp(2.4rem, 3.4vw, 3.6rem);
+        font-weight: 800;
+        line-height: 1.04;
+        margin-bottom: 1.2rem;
+        color: var(--white);
+      }
+      .hero-sub {
+        color: rgba(255, 255, 255, 0.78);
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+      }
+      .hero-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 0.9rem;
+        align-items: flex-start;
+      }
+      .btn-primary,
+      .btn-ghost {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.85rem 1.4rem;
+        border-radius: 999px;
+        font-weight: 600;
+        text-decoration: none;
+        font-size: 0.9rem;
+      }
+      .btn-primary {
+        background: var(--orange);
+        color: var(--white);
+        box-shadow: 0 10px 26px rgba(255, 78, 0, 0.2);
+      }
+      .btn-ghost {
+        color: var(--white);
+        border: 1px solid rgba(255, 255, 255, 0.35);
+      }
+      .btn-ghost:hover {
+        border-color: rgba(255, 255, 255, 0.65);
+      }
+
+      .section {
+        padding: 5rem 1.25rem;
+        background: var(--white);
+        color: var(--black);
+      }
+      .section-dark {
+        background: var(--ink);
+        color: var(--white);
+      }
+      .section-inner {
+        max-width: 1080px;
+        margin: 0 auto;
+      }
+      .section-eyebrow {
+        font-family: var(--font-mono);
+        font-size: 0.64rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--orange);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55rem;
+        margin-bottom: 1rem;
+      }
+      .section-eyebrow::before {
+        content: "";
+        width: 18px;
+        height: 1px;
+        background: var(--orange);
+      }
+      .section-headline {
+        font-size: clamp(1.8rem, 2.6vw, 2.4rem);
+        font-weight: 800;
+        margin-bottom: 1rem;
+      }
+      .section-sub {
+        color: var(--g700);
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 2.5rem;
+      }
+
+      .steps-grid {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: 1fr;
+      }
+      .step-card {
+        background: var(--paper);
+        border-radius: 1.2rem;
+        padding: 1.4rem;
+        border: 1px solid rgba(40, 36, 32, 0.08);
+        box-shadow: 0 10px 26px rgba(40, 36, 32, 0.06);
+      }
+      .step-num {
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        letter-spacing: 0.18em;
+        color: var(--orange);
+        text-transform: uppercase;
+        margin-bottom: 0.5rem;
+      }
+      .step-title {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 0.6rem;
+      }
+      .step-body {
+        color: var(--g700);
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      .consulta-card {
+        margin-top: 2.5rem;
+        padding: 1.6rem;
+        border-radius: 1.4rem;
+        background: linear-gradient(145deg, #fff7f2 0%, #ffffff 100%);
+        border: 1px solid rgba(255, 78, 0, 0.18);
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+      }
+      .consulta-card p {
+        color: var(--g700);
+        line-height: 1.6;
+      }
+
+      .seal-grid {
+        display: grid;
+        gap: 1.5rem;
+        grid-template-columns: 1fr;
+        align-items: center;
+      }
+      .seal-card {
+        background: rgba(255, 255, 255, 0.04);
+        border-radius: 1.4rem;
+        padding: 1.8rem;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .seal-card img {
+        width: min(240px, 60vw);
+        height: auto;
+        display: block;
+        margin-bottom: 1rem;
+        filter: drop-shadow(0 18px 36px rgba(0, 0, 0, 0.2));
+      }
+      .seal-title {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+      .seal-body {
+        color: rgba(255, 255, 255, 0.72);
+        line-height: 1.6;
+      }
+
+      .cta-block {
+        padding: 5rem 1.25rem;
+        background: var(--orange);
+        color: var(--white);
+        text-align: left;
+      }
+      .cta-inner {
+        max-width: 920px;
+        margin: 0 auto;
+      }
+      .cta-headline {
+        font-size: clamp(2rem, 3vw, 2.8rem);
+        font-weight: 800;
+        margin-bottom: 1rem;
+      }
+      .cta-sub {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+        color: rgba(255, 255, 255, 0.9);
+      }
+      .cta-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        align-items: flex-start;
+      }
+      .btn-white {
+        background: var(--white);
+        color: var(--orange);
+        border-radius: 999px;
+        padding: 0.85rem 1.4rem;
+        font-weight: 700;
+        text-decoration: none;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+      }
+      .btn-outline-white {
+        color: var(--white);
+        border: 1px solid rgba(255, 255, 255, 0.55);
+        border-radius: 999px;
+        padding: 0.85rem 1.4rem;
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      footer {
+        background: #0f0d0b;
+        color: var(--white);
+        padding: 3.5rem 1.25rem 2rem;
+      }
+      .footer-inner {
+        max-width: 1080px;
+        margin: 0 auto;
+      }
+      .footer-top {
+        display: grid;
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+      .footer-brand img {
+        height: 30px;
+        margin-bottom: 1rem;
+      }
+      .footer-tagline {
+        color: rgba(255, 255, 255, 0.7);
+        line-height: 1.6;
+      }
+      .footer-columns {
+        display: grid;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+      }
+      .footer-card {
+        background: rgba(255, 255, 255, 0.04);
+        border-radius: 1.1rem;
+        padding: 1.4rem;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .footer-card--nav {
+        background: rgba(255, 255, 255, 0.07);
+        border-color: rgba(255, 78, 0, 0.24);
+        box-shadow:
+          0 14px 30px rgba(0, 0, 0, 0.2),
+          inset 0 1px 0 rgba(255, 255, 255, 0.12);
+      }
+      .footer-card--nav .footer-card-label {
+        color: rgba(255, 78, 0, 0.9);
+      }
+      .footer-card--nav .footer-links a {
+        color: rgba(255, 255, 255, 0.92);
+      }
+      .footer-card-label {
+        font-family: var(--font-mono);
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        font-size: 0.6rem;
+        color: var(--g400);
+        margin-bottom: 0.8rem;
+      }
+      .footer-links {
+        display: grid;
+        gap: 0.5rem;
+      }
+      .footer-links a,
+      .footer-contact a,
+      .footer-contact-text {
+        color: rgba(255, 255, 255, 0.82);
+        text-decoration: none;
+        font-size: 0.9rem;
+      }
+      .footer-contact {
+        display: grid;
+        gap: 0.9rem;
+      }
+      .footer-contact-label {
+        color: var(--g400);
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+      }
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        padding-top: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 0.8rem;
+      }
+      .footer-brand-name {
+        color: rgba(255, 255, 255, 0.85);
+        font-weight: 700;
+      }
+
+      .wa-float {
+        position: fixed;
+        right: 1.25rem;
+        bottom: 1.25rem;
+        width: 54px;
+        height: 54px;
+        border-radius: 50%;
+        background: #ff5a1f;
+        display: grid;
+        place-items: center;
+        z-index: 110;
+        box-shadow: 0 18px 30px rgba(0, 0, 0, 0.3);
+      }
+      .wa-float svg {
+        width: 26px;
+        height: 26px;
+      }
+
+      @media (min-width: 720px) {
+        .hero {
+          padding: 8.5rem 3rem 4rem;
+        }
+        .hero-actions {
+          flex-direction: row;
+        }
+        .steps-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+        .seal-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .cta-actions {
+          flex-direction: row;
+          align-items: center;
+        }
+        .footer-top {
+          grid-template-columns: 1.5fr 1fr;
+        }
+        .footer-columns {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+        .footer-bottom {
+          flex-direction: row;
+          justify-content: space-between;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav id="main-nav">
+      <a href="../index.html" class="nav-logo" aria-label="4Safety">
+        <img
+          src="../images/brand/Logo_4Safety-1.png"
+          alt="4Safety"
+          class="nav-logo-default"
+        />
+        <img
+          src="../images/brand/Logo_4Safety-branco.png"
+          alt="4Safety"
+          class="nav-logo-scrolled"
+        />
+      </a>
+      <ul class="nav-links">
+        <li><a href="../index.html#solucoes">Soluções</a></li>
+        <li><a href="../index.html#produtos">Produtos</a></li>
+        <li><a href="../index.html#parceiros">Parceiros</a></li>
+        <li><a href="./index.html">Consulta CA</a></li>
+        <li><a href="../quem-somos/index.html">Quem somos</a></li>
+        <li><a href="../index.html#contato">Contato</a></li>
+      </ul>
+      <a
+        href="https://wa.me/5548999148413"
+        class="nav-cta"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Solicitar Orçamento</a
+      >
+    </nav>
+
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-grid"></div>
+      <div class="hero-content">
+        <p class="hero-eyebrow">Conformidade normativa</p>
+        <h1 class="hero-h1">Consulte o CA antes de especificar</h1>
+        <p class="hero-sub">
+          O Certificado de Aprovação é obrigatório para todo EPI comercializado
+          no Brasil. Verifique a validade diretamente no sistema oficial do
+          Ministério do Trabalho e Emprego.
+        </p>
+        <div class="hero-actions">
+          <a
+            class="btn-primary"
+            href="https://caepi.mte.gov.br/internet/ConsultaCAInternet.aspx"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Acessar consulta oficial</a
+          >
+          <a class="btn-ghost" href="#como-consultar">Como consultar</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="como-consultar">
+      <div class="section-inner">
+        <p class="section-eyebrow">Como consultar</p>
+        <h2 class="section-headline">
+          Passos simples para validar um EPI com CA
+        </h2>
+        <p class="section-sub">
+          O processo e direto. O que muda o resultado e a disciplina de
+          consultar sempre antes de especificar ou comprar.
+        </p>
+        <div class="steps-grid">
+          <div class="step-card">
+            <p class="step-num">Passo 01</p>
+            <h3 class="step-title">Digite o número do CA</h3>
+            <p class="step-body">
+              Use o número do certificado informado no produto ou embalagem.
+            </p>
+          </div>
+          <div class="step-card">
+            <p class="step-num">Passo 02</p>
+            <h3 class="step-title">Valide fabricante e escopo</h3>
+            <p class="step-body">
+              O sistema informa fabricante, descrição do EPI, escopo e validade.
+            </p>
+          </div>
+          <div class="step-card">
+            <p class="step-num">Passo 03</p>
+            <h3 class="step-title">CA vencido = risco legal</h3>
+            <p class="step-body">
+              CA vencido significa EPI fora de conformidade e passivo em
+              auditorias.
+            </p>
+          </div>
+        </div>
+        <div class="consulta-card">
+          <p>
+            A consulta deve ser feita no sistema oficial do Ministério do
+            Trabalho e Emprego. Use o botão abaixo para abrir a página correta.
+          </p>
+          <a
+            class="btn-primary"
+            href="https://caepi.mte.gov.br/internet/ConsultaCAInternet.aspx"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Abrir consulta de CA</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark">
+      <div class="section-inner">
+        <p class="section-eyebrow">Referencia oficial</p>
+        <h2 class="section-headline">Base normativa e padronização nacional</h2>
+        <p class="section-sub" style="color: rgba(255, 255, 255, 0.7)">
+          A consulta do CA é centralizada e oficial. Isso protege sua operação e
+          impede compra de EPI fora de validade.
+        </p>
+        <div class="seal-grid">
+          <div class="seal-card">
+            <img
+              src="../images/decor/4safety-ministerio-trabalho.png"
+              alt="Ministério do Trabalho e Emprego"
+            />
+            <div class="seal-title">Ministério do Trabalho e Emprego</div>
+            <p class="seal-body">
+              O MTE é a autoridade responsável pela base oficial de CAs e pela
+              conformidade legal dos EPIs.
+            </p>
+          </div>
+          <div class="seal-card">
+            <img src="../images/decor/inmetro.png" alt="INMETRO" />
+            <div class="seal-title">INMETRO</div>
+            <p class="seal-body">
+              Padronização nacional e referência técnica para qualidade e
+              certificação de produtos.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="cta-block">
+      <div class="cta-inner">
+        <h2 class="cta-headline">Precisa de EPI com CA válido?</h2>
+        <p class="cta-sub">
+          Todos os produtos 4Safety têm Certificado de Aprovação ativo. Se
+          preferir, nossa equipe indica o item correto para seu risco.
+        </p>
+        <div class="cta-actions">
+          <a href="../index.html#produtos" class="btn-white"
+            >Ver produtos com CA</a
+          >
+          <a
+            href="https://wa.me/5548999148413"
+            class="btn-outline-white"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Solicitar orçamento</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <a href="../index.html" class="footer-logo"
+              ><img
+                src="../images/brand/Logo_4Safety-bco_lja.png"
+                alt="4Safety"
+            /></a>
+            <p class="footer-tagline">
+              Segurança do trabalho com especificação técnica para ambientes
+              críticos, operações industriais e decisões que não admitem erro.
+            </p>
+          </div>
+          <div class="footer-card">
+            <p class="footer-card-label">Contato</p>
+            <div class="footer-contact">
+              <div>
+                <span class="footer-contact-label">WhatsApp</span><br />
+                <a
+                  href="https://wa.me/5548999148413"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >(48) 99914-8413</a
+                >
+              </div>
+              <div>
+                <span class="footer-contact-label">E-mail</span><br />
+                <a href="mailto:4safety@4safety.com.br"
+                  >4safety@4safety.com.br</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-columns">
+          <div class="footer-card footer-card--nav">
+            <p class="footer-card-label">Navegação</p>
+            <div class="footer-links">
+              <a href="../index.html#solucoes">Soluções</a>
+              <a href="../index.html#produtos">Produtos</a>
+              <a href="../index.html#parceiros">Parceiros</a>
+              <a href="./index.html">Consulta CA</a>
+              <a href="../quem-somos/index.html">Quem somos</a>
+              <a href="../index.html#contato">Contato</a>
+            </div>
+          </div>
+          <div class="footer-card">
+            <p class="footer-card-label">Operação</p>
+            <div class="footer-contact">
+              <div>
+                <span class="footer-contact-label">Atendimento</span><br />
+                <span class="footer-contact-text">Seg–Sex, 08h às 18h</span>
+              </div>
+              <div>
+                <span class="footer-contact-label">Foco</span><br />
+                <span class="footer-contact-text"
+                  >Espaços confinados, altura, fumigação industrial e
+                  monitoramento atmosférico</span
+                >
+              </div>
+            </div>
+          </div>
+          <div class="footer-card">
+            <p class="footer-card-label">Último passo útil</p>
+            <a
+              href="https://wa.me/5548999148413"
+              class="btn-primary"
+              target="_blank"
+              rel="noopener noreferrer"
+              style="width: 100%"
+              >Solicitar orçamento</a
+            >
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span class="footer-legal"
+            >© <span id="footer-year"></span>
+            <span class="footer-brand-name">4Safety</span> é o nome fantasia de
+            Ilha Norte Importacao e Exportacao - CNPJ 11.897.812/0001-06</span
+          >
+          <span class="footer-legal">Todos os direitos reservados</span>
+        </div>
+      </div>
+    </footer>
+
+    <a
+      href="https://wa.me/5548999148413"
+      class="wa-float"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Falar no WhatsApp"
+    >
+      <svg viewBox="0 0 24 24" fill="white">
+        <path
+          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
+        />
+        <path
+          d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.847L.057 23.571a.5.5 0 0 0 .611.61l5.763-1.498A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.006-1.368l-.36-.213-3.713.965.993-3.622-.233-.374A9.818 9.818 0 1 1 12 21.818z"
+        />
+      </svg>
+    </a>
+
+    <script>
+      document.getElementById("footer-year").textContent =
+        new Date().getFullYear();
+
+      const nav = document.getElementById("main-nav");
+      const syncNav = () => {
+        if (!nav) return;
+        if (window.scrollY > 12) {
+          nav.classList.add("nav--scrolled");
+        } else {
+          nav.classList.remove("nav--scrolled");
+        }
+      };
+      syncNav();
+      window.addEventListener("scroll", syncNav, { passive: true });
+    </script>
+  </body>
+</html>

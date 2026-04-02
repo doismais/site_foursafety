@@ -1,0 +1,1152 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>Quem Somos | 4Safety — Especialistas em Segurança do Trabalho</title>
+    <meta
+      name="description"
+      content="A 4Safety distribui soluções técnicas para segurança ocupacional com foco em ambientes críticos, certificação e marcas globais."
+    />
+    <meta
+      property="og:title"
+      content="Quem Somos | 4Safety — Especialistas em Segurança do Trabalho"
+    />
+    <meta
+      property="og:description"
+      content="A 4Safety distribui soluções técnicas para segurança ocupacional com foco em ambientes críticos, certificação e marcas globais."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="../images/OG-image.png" />
+    <meta property="og:image:alt" content="Quem Somos 4Safety" />
+    <meta property="og:url" content="https://4safety.vercel.app/quem-somos/" />
+    <link rel="canonical" href="https://4safety.vercel.app/quem-somos/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="../images/OG-image.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&family=Source+Sans+3:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      :root {
+        --orange: #ff4e00;
+        --black: #161412;
+        --ink: #141210;
+        --g900: #252220;
+        --g700: #4a4540;
+        --g400: #9a948c;
+        --g100: #ebe6df;
+        --paper: #f7f4ef;
+        --white: #fff;
+        --institutional: #e0d9d0;
+        --institutional-deep: #d4cdc3;
+        --nav-aqua-tint: rgba(175, 230, 245, 0.42);
+        --nav-aqua-edge: rgba(90, 170, 195, 0.22);
+        --font-display:
+          "Source Sans 3", -apple-system, BlinkMacSystemFont, sans-serif;
+        --font-body:
+          "Source Sans 3", -apple-system, BlinkMacSystemFont, sans-serif;
+        --font-mono: "JetBrains Mono", monospace;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: var(--font-body);
+        background: var(--ink);
+        color: var(--white);
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+      }
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: env(safe-area-inset-top, 0px)
+          max(1.25rem, env(safe-area-inset-right)) 0
+          max(1.25rem, env(safe-area-inset-left));
+        min-height: calc(60px + env(safe-area-inset-top, 0px));
+        background: var(--white);
+        border-bottom: 1px solid rgba(40, 36, 32, 0.08);
+        box-shadow: 0 1px 0 rgba(255, 255, 255, 1);
+        transition:
+          background 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+          border-color 0.4s ease,
+          box-shadow 0.45s ease,
+          -webkit-backdrop-filter 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+          backdrop-filter 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      nav.nav--scrolled {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.58) 0%,
+          var(--nav-aqua-tint) 55%,
+          rgba(160, 220, 235, 0.35) 100%
+        );
+        -webkit-backdrop-filter: saturate(175%) blur(22px);
+        backdrop-filter: saturate(175%) blur(22px);
+        border-bottom: 1px solid rgba(255, 78, 0, 0.28);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.65),
+          inset 0 -1px 0 var(--nav-aqua-edge),
+          0 6px 28px rgba(30, 80, 95, 0.1);
+      }
+      .nav-logo {
+        position: relative;
+        display: block;
+        width: fit-content;
+      }
+      .nav-logo img {
+        height: 31px;
+        display: block;
+        transition:
+          opacity 0.28s ease,
+          transform 0.28s ease,
+          filter 0.28s ease;
+      }
+      .nav-logo-default {
+        opacity: 1;
+      }
+      .nav-logo-scrolled {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        filter: drop-shadow(0 1px 10px rgba(0, 0, 0, 0.18));
+      }
+      nav.nav--scrolled .nav-logo-default {
+        opacity: 0;
+        transform: translateY(-2px);
+      }
+      nav.nav--scrolled .nav-logo-scrolled {
+        opacity: 1;
+      }
+      .nav-links {
+        display: none;
+        gap: 1.5rem;
+        list-style: none;
+      }
+      .nav-links a {
+        color: var(--g700);
+        font-size: 0.85rem;
+        text-decoration: none;
+        transition: color 0.2s;
+        font-weight: 500;
+      }
+      .nav-links a:hover {
+        color: var(--orange);
+      }
+      .nav-cta {
+        background: var(--orange);
+        color: var(--white);
+        font-size: 0.8rem;
+        font-weight: 600;
+        border-radius: 8px;
+        padding: 0.68rem 1rem;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+      @media (min-width: 768px) {
+        nav {
+          padding: env(safe-area-inset-top, 0px)
+            max(2.5rem, env(safe-area-inset-right)) 0
+            max(2.5rem, env(safe-area-inset-left));
+          min-height: calc(68px + env(safe-area-inset-top, 0px));
+        }
+        .nav-logo img {
+          height: 35px;
+        }
+        .nav-links {
+          display: flex;
+        }
+      }
+
+      .hero {
+        position: relative;
+        overflow: hidden;
+        min-height: 88svh;
+        padding: 7.5rem 1.25rem 3.5rem;
+        display: flex;
+        align-items: flex-end;
+        background: linear-gradient(
+          160deg,
+          #1a1714 0%,
+          var(--ink) 46%,
+          #0f0d0b 100%
+        );
+      }
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            ellipse 52% 48% at 82% 18%,
+            rgba(255, 78, 0, 0.12) 0%,
+            transparent 60%
+          ),
+          radial-gradient(
+            ellipse 38% 55% at 10% 90%,
+            rgba(193, 134, 81, 0.07) 0%,
+            transparent 56%
+          );
+      }
+      .hero-grid {
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        background-size: 42px 42px;
+        mask-image: radial-gradient(
+          ellipse at center,
+          black 34%,
+          transparent 82%
+        );
+      }
+      .hero-brand-lines {
+        position: absolute;
+        left: auto;
+        right: 42%;
+        top: -20%;
+        width: min(40vw, 620px);
+        aspect-ratio: 2691 / 2844;
+        background: url("../images/decor/lines-4safety.png") no-repeat center /
+          contain;
+        opacity: 0.18;
+        mix-blend-mode: screen;
+        transform: rotate(-8deg);
+        filter: drop-shadow(0 26px 48px rgba(255, 78, 0, 0.16));
+      }
+      .hero-visual {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 50%;
+        height: 100%;
+        clip-path: polygon(18% 0, 100% 0, 100% 100%, 0 100%);
+        overflow: hidden;
+      }
+      .hero-visual::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          270deg,
+          rgba(20, 18, 16, 0.1) 0%,
+          rgba(20, 18, 16, 0.42) 100%
+        );
+      }
+      .hero-visual img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 28%;
+      }
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 620px;
+      }
+      .section-eyebrow,
+      .hero-eyebrow {
+        font-family: var(--font-mono);
+        font-size: 0.68rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--orange);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55rem;
+      }
+      .section-eyebrow::before,
+      .hero-eyebrow::before {
+        content: "";
+        width: 18px;
+        height: 1px;
+        background: var(--orange);
+      }
+      .hero-eyebrow {
+        margin-bottom: 1.15rem;
+      }
+      .hero-h1 {
+        font-family: var(--font-display);
+        font-size: clamp(2.4rem, 7vw, 4.8rem);
+        font-weight: 800;
+        line-height: 1.02;
+        letter-spacing: -0.03em;
+        max-width: 10ch;
+        margin-bottom: 1.1rem;
+      }
+      .hero-sub {
+        font-size: 1rem;
+        line-height: 1.72;
+        color: rgba(235, 230, 223, 0.76);
+        max-width: 50ch;
+      }
+      .hero-actions {
+        margin-top: 1.8rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+      }
+      .btn-primary,
+      .btn-ghost {
+        min-height: 48px;
+        border-radius: 10px;
+        padding: 0.92rem 1.3rem;
+        font-size: 0.92rem;
+        font-weight: 700;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        transition:
+          transform 0.2s,
+          border-color 0.2s,
+          background 0.2s;
+      }
+      .btn-primary {
+        background: var(--orange);
+        color: var(--white);
+        border: 1px solid rgba(255, 78, 0, 0.14);
+        box-shadow: 0 14px 24px rgba(255, 78, 0, 0.16);
+      }
+      .btn-ghost {
+        color: var(--white);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(255, 255, 255, 0.03);
+      }
+      .btn-primary:hover,
+      .btn-ghost:hover {
+        transform: translateY(-1px);
+      }
+      @media (max-width: 767px) {
+        .hero {
+          min-height: auto;
+          padding: calc(82px + env(safe-area-inset-top, 0px)) 0 1.75rem;
+          display: block;
+        }
+        .hero-brand-lines {
+          right: -10%;
+          top: 5rem;
+          width: 46vw;
+          opacity: 0.15;
+          transform: rotate(-4deg);
+        }
+        .hero-visual {
+          position: relative;
+          width: 100%;
+          height: 36svh;
+          min-height: 310px;
+          clip-path: none;
+          border-bottom-left-radius: 28px;
+          border-bottom-right-radius: 28px;
+        }
+        .hero-visual::after {
+          background:
+            linear-gradient(
+              180deg,
+              rgba(20, 18, 16, 0.05) 0%,
+              rgba(20, 18, 16, 0.2) 36%,
+              rgba(20, 18, 16, 0.86) 100%
+            ),
+            linear-gradient(
+              90deg,
+              rgba(20, 18, 16, 0.28) 0%,
+              rgba(20, 18, 16, 0.03) 40%,
+              rgba(20, 18, 16, 0.35) 100%
+            );
+        }
+        .hero-content {
+          margin: -2.4rem 1rem 0;
+          padding: 1.35rem 1rem 1rem;
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          border-radius: 22px;
+          background: linear-gradient(
+            180deg,
+            rgba(24, 21, 18, 0.88) 0%,
+            rgba(20, 18, 16, 0.96) 100%
+          );
+          box-shadow:
+            0 24px 44px rgba(0, 0, 0, 0.28),
+            inset 0 1px 0 rgba(255, 255, 255, 0.04);
+        }
+        .hero-h1 {
+          font-size: clamp(2rem, 9vw, 3.2rem);
+          max-width: none;
+        }
+        .hero-sub {
+          font-size: 0.96rem;
+        }
+        .hero-actions {
+          display: grid;
+        }
+        .btn-primary,
+        .btn-ghost {
+          width: 100%;
+        }
+      }
+
+      section {
+        padding: 4.25rem 1.25rem;
+      }
+      @media (min-width: 768px) {
+        section {
+          padding: 6rem 2.5rem;
+        }
+      }
+      .section-inner {
+        max-width: 1180px;
+        margin: 0 auto;
+      }
+      .section-headline {
+        font-family: var(--font-display);
+        font-size: clamp(1.9rem, 4vw, 3rem);
+        line-height: 1.08;
+        letter-spacing: -0.03em;
+        font-weight: 800;
+        margin-top: 0.85rem;
+        margin-bottom: 0.9rem;
+      }
+      .section-sub {
+        font-size: 1rem;
+        line-height: 1.7;
+        color: var(--g700);
+        max-width: 54ch;
+      }
+
+      .historia {
+        background: linear-gradient(180deg, #fbf8f3 0%, #f1ece5 100%);
+        color: var(--black);
+      }
+      .historia-grid {
+        display: grid;
+        gap: 1.25rem;
+        margin-top: 2rem;
+      }
+      .historia-copy {
+        display: grid;
+        gap: 1rem;
+      }
+      .historia-copy p {
+        font-size: 1rem;
+        line-height: 1.8;
+        color: #504942;
+      }
+      .historia-highlight {
+        border: 1px solid rgba(28, 25, 22, 0.08);
+        border-radius: 22px;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 1.35rem 1.2rem;
+        box-shadow: 0 18px 34px rgba(48, 38, 24, 0.08);
+      }
+      .historia-pillars {
+        display: grid;
+        gap: 0.85rem;
+      }
+      .pillar {
+        border-radius: 16px;
+        background: #faf6f0;
+        border: 1px solid rgba(28, 25, 22, 0.06);
+        padding: 1rem;
+      }
+      .pillar-label {
+        font-family: var(--font-mono);
+        font-size: 0.62rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(255, 78, 0, 0.86);
+        margin-bottom: 0.45rem;
+      }
+      .pillar-title {
+        font-family: var(--font-display);
+        font-size: 1.06rem;
+        font-weight: 800;
+        color: #171411;
+      }
+      @media (min-width: 920px) {
+        .historia-grid {
+          grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+          align-items: start;
+        }
+      }
+
+      .valores {
+        background: var(--ink);
+      }
+      .valores-grid {
+        display: grid;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+      .valor-card {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 20px;
+        padding: 1.35rem 1.2rem;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+      }
+      .valor-icon {
+        width: 42px;
+        height: 42px;
+        border-radius: 12px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 78, 0, 0.1);
+        border: 1px solid rgba(255, 78, 0, 0.18);
+        color: var(--orange);
+        margin-bottom: 1rem;
+      }
+      .valor-title {
+        font-family: var(--font-display);
+        font-size: 1.08rem;
+        font-weight: 800;
+        margin-bottom: 0.55rem;
+      }
+      .valor-body {
+        font-size: 0.95rem;
+        line-height: 1.7;
+        color: rgba(235, 230, 223, 0.74);
+      }
+      @media (min-width: 760px) {
+        .valores-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      .marcas {
+        background: linear-gradient(180deg, #fbf8f3 0%, #f3eee7 100%);
+        color: var(--black);
+      }
+      .marcas-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.8rem;
+        margin-top: 2rem;
+      }
+      .marca-pill {
+        min-height: 72px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        border-radius: 18px;
+        border: 1px solid rgba(28, 25, 22, 0.1);
+        background: rgba(255, 255, 255, 0.92);
+        font-family: var(--font-display);
+        font-size: 0.98rem;
+        font-weight: 800;
+        color: rgba(28, 25, 22, 0.34);
+        letter-spacing: 0.03em;
+        transition:
+          color 0.2s,
+          border-color 0.2s,
+          transform 0.2s;
+      }
+      .marca-pill:hover {
+        color: var(--orange);
+        border-color: rgba(255, 78, 0, 0.2);
+        transform: translateY(-1px);
+      }
+      @media (min-width: 760px) {
+        .marcas-grid {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+      }
+
+      .cta-block {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 78, 0, 0.96) 0%,
+          #f55005 100%
+        );
+        padding: 4rem 1.25rem;
+      }
+      .cta-inner {
+        max-width: 980px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .cta-headline {
+        font-family: var(--font-display);
+        font-size: clamp(2rem, 4vw, 3rem);
+        line-height: 1.06;
+        font-weight: 800;
+        margin-bottom: 0.8rem;
+      }
+      .cta-sub {
+        font-size: 1rem;
+        line-height: 1.7;
+        color: rgba(255, 255, 255, 0.84);
+        max-width: 40rem;
+        margin: 0 auto 1.4rem;
+      }
+
+      footer {
+        position: relative;
+        background:
+          radial-gradient(
+            ellipse 50% 60% at 100% 0%,
+            rgba(255, 78, 0, 0.08) 0%,
+            transparent 60%
+          ),
+          linear-gradient(180deg, #110f0d 0%, #0b0908 100%);
+        border-top: 1px solid rgba(255, 255, 255, 0.07);
+        padding: 2.5rem 1.25rem 6rem;
+        overflow: hidden;
+      }
+      footer::before {
+        content: "";
+        position: absolute;
+        right: -4rem;
+        bottom: -5rem;
+        width: min(44vw, 280px);
+        aspect-ratio: 2691 / 2844;
+        background: url("../images/decor/lines-4safety.png") no-repeat center /
+          contain;
+        opacity: 0.08;
+      }
+      .footer-inner {
+        position: relative;
+        z-index: 1;
+        max-width: 1180px;
+        margin: 0 auto;
+      }
+      .footer-top {
+        display: grid;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+      .footer-brand {
+        padding: 1.35rem 1.1rem;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 20px;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.025) 0%,
+          rgba(255, 255, 255, 0.01) 100%
+        );
+      }
+      .footer-logo img {
+        height: 28px;
+        display: block;
+        margin-bottom: 0.85rem;
+      }
+      .footer-tagline {
+        font-size: 0.98rem;
+        line-height: 1.6;
+        color: rgba(235, 230, 223, 0.76);
+        max-width: 30rem;
+      }
+      .footer-columns {
+        display: grid;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+      .footer-card {
+        padding: 1.25rem 1.1rem;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.025);
+      }
+      .footer-card--nav {
+        background: rgba(255, 255, 255, 0.07);
+        border-color: rgba(255, 78, 0, 0.24);
+        box-shadow:
+          0 14px 30px rgba(0, 0, 0, 0.2),
+          inset 0 1px 0 rgba(255, 255, 255, 0.12);
+      }
+      .footer-card--nav .footer-card-label {
+        color: rgba(255, 78, 0, 0.9);
+      }
+      .footer-card--nav .footer-links a {
+        color: rgba(255, 255, 255, 0.92);
+      }
+      .footer-card-label {
+        font-family: var(--font-mono);
+        font-size: 0.62rem;
+        color: rgba(255, 255, 255, 0.36);
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        margin-bottom: 0.95rem;
+      }
+      .footer-links {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.8rem 1rem;
+      }
+      .footer-links a,
+      .footer-contact a {
+        font-size: 0.92rem;
+        color: rgba(235, 230, 223, 0.78);
+        text-decoration: none;
+      }
+      .footer-contact {
+        display: grid;
+        gap: 0.85rem;
+      }
+      .footer-contact-label {
+        font-family: var(--font-mono);
+        font-size: 0.58rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.3);
+      }
+      .footer-contact-text {
+        font-size: 0.92rem;
+        color: rgba(235, 230, 223, 0.78);
+        line-height: 1.5;
+      }
+      .footer-bottom {
+        display: flex;
+        flex-direction: column;
+        gap: 0.55rem;
+        padding-top: 1.25rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .footer-legal {
+        font-size: 0.75rem;
+        color: rgba(255, 255, 255, 0.28);
+        font-family: var(--font-mono);
+        line-height: 1.65;
+      }
+      .footer-brand-name {
+        color: rgba(255, 255, 255, 0.72);
+        font-family: var(--font-display);
+        font-weight: 800;
+      }
+      @media (min-width: 768px) {
+        footer {
+          padding: 3rem 2.5rem;
+        }
+        .footer-top {
+          grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+        }
+        .footer-columns {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+        .footer-bottom {
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+        }
+      }
+
+      .wa-float {
+        position: fixed;
+        right: 1.2rem;
+        bottom: 1.2rem;
+        z-index: 200;
+        width: 54px;
+        height: 54px;
+        border-radius: 50%;
+        background: var(--orange);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        box-shadow: 0 4px 20px rgba(255, 78, 0, 0.4);
+      }
+      .wa-float svg {
+        width: 26px;
+        height: 26px;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      .wa-icon {
+        fill: white;
+      }
+    </style>
+  </head>
+  <body>
+    <nav id="main-nav">
+      <a href="../index.html" class="nav-logo" aria-label="4Safety">
+        <img
+          class="nav-logo-default"
+          src="../images/brand/Logo_4Safety-1.png"
+          alt="4Safety"
+        />
+        <img
+          class="nav-logo-scrolled"
+          src="../images/brand/Logo_4Safety-branco.png"
+          alt="4Safety"
+          aria-hidden="true"
+        />
+      </a>
+      <ul class="nav-links">
+        <li><a href="../index.html#solucoes">Soluções</a></li>
+        <li><a href="../index.html#produtos">Produtos</a></li>
+        <li><a href="../index.html#parceiros">Parceiros</a></li>
+        <li><a href="../consulta-de-ca/index.html">Consulta CA</a></li>
+        <li><a href="./index.html">Quem somos</a></li>
+        <li><a href="../index.html#contato">Contato</a></li>
+      </ul>
+      <a
+        href="https://wa.me/5548999148413"
+        class="nav-cta"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Solicitar Orçamento</a
+      >
+    </nav>
+
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-grid"></div>
+      <div class="hero-brand-lines" aria-hidden="true"></div>
+      <div class="hero-visual">
+        <img
+          src="../images/hero/hero-ambient-critico.jpg"
+          alt="Equipe técnica em ambiente industrial"
+        />
+      </div>
+      <div class="hero-content">
+        <p class="hero-eyebrow">Nossa empresa</p>
+        <h1 class="hero-h1">Especialistas em risco. Não em catálogo.</h1>
+        <p class="hero-sub">
+          A 4Safety nasceu para resolver um problema específico: a distância
+          entre o produto disponível no mercado e o produto tecnicamente correto
+          para cada risco.
+        </p>
+        <div class="hero-actions">
+          <a
+            href="https://wa.me/5548999148413"
+            class="btn-primary"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Solicitar Orçamento via WhatsApp</a
+          >
+          <a href="#historia" class="btn-ghost">Entender como operamos</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="historia" id="historia">
+      <div class="section-inner">
+        <p class="section-eyebrow">O que nos define</p>
+        <h2 class="section-headline">
+          Distribuição técnica para ambientes em que erro custa caro.
+        </h2>
+        <div class="historia-grid">
+          <div class="historia-copy reveal">
+            <p>
+              Somos uma importadora e distribuidora de produtos e soluções para
+              segurança do trabalho com foco em ambientes de alta criticidade:
+              espaços confinados, trabalho em altura, fumigação industrial e
+              monitoramento atmosférico.
+            </p>
+            <p>
+              Nossa operação é construída sobre três pilares: portfólio técnico
+              especializado, parceria com fabricantes globais e atendimento de
+              engenharia, não apenas comercial.
+            </p>
+            <p>
+              Acreditamos que o EPI correto começa na especificação, não na
+              prateleira.
+            </p>
+          </div>
+          <div class="historia-highlight reveal">
+            <div class="historia-pillars">
+              <div class="pillar">
+                <p class="pillar-label">Pilar 01</p>
+                <h3 class="pillar-title">Portfólio técnico especializado</h3>
+              </div>
+              <div class="pillar">
+                <p class="pillar-label">Pilar 02</p>
+                <h3 class="pillar-title">
+                  Fabricantes globais e garantia original
+                </h3>
+              </div>
+              <div class="pillar">
+                <p class="pillar-label">Pilar 03</p>
+                <h3 class="pillar-title">
+                  Atendimento de engenharia com resposta rápida
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="valores" id="como-operamos">
+      <div class="section-inner">
+        <p class="section-eyebrow">Como operamos</p>
+        <h2 class="section-headline">
+          Técnica, conformidade e velocidade comercial na mesma operação.
+        </h2>
+        <p class="section-sub">
+          Não tratamos segurança do trabalho como prateleira infinita. Cada
+          escolha precisa chegar com documentação, contexto normativo e
+          capacidade real de aplicação em campo.
+        </p>
+        <div class="valores-grid">
+          <article class="valor-card reveal">
+            <div class="valor-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M12 3l7 3v5c0 4.5-2.9 8.6-7 10-4.1-1.4-7-5.5-7-10V6l7-3z"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                />
+                <path
+                  d="M8.7 12.1l2.1 2.1 4.5-4.6"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                />
+              </svg>
+            </div>
+            <h3 class="valor-title">Conformidade como premissa</h3>
+            <p class="valor-body">
+              CA válido, documentação técnica e rastreabilidade em cada produto
+              distribuído.
+            </p>
+          </article>
+          <article class="valor-card reveal">
+            <div class="valor-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M8 11a3 3 0 100-6 3 3 0 000 6zm8 0a3 3 0 100-6 3 3 0 000 6zM4 20v-1a4 4 0 014-4h0a4 4 0 014 4v1M12 20v-1a4 4 0 014-4h0a4 4 0 014 4v1"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                />
+              </svg>
+            </div>
+            <h3 class="valor-title">Parcerias duradouras</h3>
+            <p class="valor-body">
+              Relações de longo prazo com fabricantes, clientes e colaboradores.
+              Crescimento orgânico, não especulativo.
+            </p>
+          </article>
+          <article class="valor-card reveal">
+            <div class="valor-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M12 4v4l3 3M12 20a8 8 0 100-16 8 8 0 000 16z"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                />
+              </svg>
+            </div>
+            <h3 class="valor-title">Atualização contínua</h3>
+            <p class="valor-body">
+              Acompanhamos revisões normativas, ABNT, INMETRO e evolução de
+              portfólio com critério técnico.
+            </p>
+          </article>
+          <article class="valor-card reveal">
+            <div class="valor-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M5 12h14M13 5l7 7-7 7"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                />
+              </svg>
+            </div>
+            <h3 class="valor-title">Agilidade comercial</h3>
+            <p class="valor-body">
+              Orçamento no mesmo dia. Especificação técnica sem burocracia nem
+              repasse cego de catálogo.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="marcas">
+      <div class="section-inner">
+        <p class="section-eyebrow">Nosso portfólio de marcas</p>
+        <h2 class="section-headline">Distribuímos os líderes globais</h2>
+        <p class="section-sub">
+          Importação direta com garantia original, fichas técnicas e suporte de
+          fabricante.
+        </p>
+        <div class="marcas-grid">
+          <div class="marca-pill reveal">UNIPHOS</div>
+          <div class="marca-pill reveal">GFG</div>
+          <div class="marca-pill reveal">SENSIDYNE</div>
+          <div class="marca-pill reveal">INSTANTEL</div>
+          <div class="marca-pill reveal">THERMO FISHER</div>
+          <div class="marca-pill reveal">MSA SAFETY</div>
+          <div class="marca-pill reveal">SVANTEK</div>
+          <div class="marca-pill reveal">ION SCIENCE</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="cta-block">
+      <div class="cta-inner">
+        <h2 class="cta-headline">Fale com nossa equipe técnica</h2>
+        <p class="cta-sub">
+          Descreva o risco ou o ambiente. Indicamos o produto certificado com a
+          especificação adequada.
+        </p>
+        <a
+          href="https://wa.me/5548999148413"
+          class="btn-primary"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Solicitar Orçamento via WhatsApp</a
+        >
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <a href="../index.html" class="footer-logo"
+              ><img
+                src="../images/brand/Logo_4Safety-bco_lja.png"
+                alt="4Safety"
+            /></a>
+            <p class="footer-tagline">
+              Segurança do trabalho com especificação técnica para ambientes
+              críticos, operações industriais e decisões que não admitem erro.
+            </p>
+          </div>
+          <div class="footer-card">
+            <p class="footer-card-label">Contato</p>
+            <div class="footer-contact">
+              <div>
+                <span class="footer-contact-label">WhatsApp</span><br />
+                <a
+                  href="https://wa.me/5548999148413"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >(48) 99914-8413</a
+                >
+              </div>
+              <div>
+                <span class="footer-contact-label">E-mail</span><br />
+                <a href="mailto:4safety@4safety.com.br"
+                  >4safety@4safety.com.br</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-columns">
+          <div class="footer-card footer-card--nav">
+            <p class="footer-card-label">Navegação</p>
+            <div class="footer-links">
+              <a href="../index.html#solucoes">Soluções</a>
+              <a href="../index.html#produtos">Produtos</a>
+              <a href="../index.html#parceiros">Parceiros</a>
+              <a href="../consulta-de-ca/index.html">Consulta CA</a>
+              <a href="./index.html">Quem somos</a>
+              <a href="../index.html#contato">Contato</a>
+            </div>
+          </div>
+          <div class="footer-card">
+            <p class="footer-card-label">Operação</p>
+            <div class="footer-contact">
+              <div>
+                <span class="footer-contact-label">Atendimento</span><br />
+                <span class="footer-contact-text">Seg–Sex, 08h às 18h</span>
+              </div>
+              <div>
+                <span class="footer-contact-label">Foco</span><br />
+                <span class="footer-contact-text"
+                  >Espaços confinados, altura, fumigação industrial e
+                  monitoramento atmosférico</span
+                >
+              </div>
+            </div>
+          </div>
+          <div class="footer-card">
+            <p class="footer-card-label">Último passo útil</p>
+            <a
+              href="https://wa.me/5548999148413"
+              class="btn-primary"
+              target="_blank"
+              rel="noopener noreferrer"
+              style="width: 100%"
+              >Solicitar Orçamento</a
+            >
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span class="footer-legal"
+            >© <span id="footer-year"></span>
+            <span class="footer-brand-name">4Safety</span> é o nome fantasia de
+            Ilha Norte Importacao e Exportacao - CNPJ 11.897.812/0001-06</span
+          >
+          <span class="footer-legal">Todos os direitos reservados</span>
+        </div>
+      </div>
+    </footer>
+
+    <a
+      href="https://wa.me/5548999148413"
+      class="wa-float"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Falar no WhatsApp"
+    >
+      <svg viewBox="0 0 24 24" fill="white">
+        <path
+          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
+        />
+        <path
+          d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.847L.057 23.571a.5.5 0 0 0 .611.61l5.763-1.498A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.006-1.368l-.36-.213-3.713.965.993-3.622-.233-.374A9.818 9.818 0 1 1 12 21.818z"
+        />
+      </svg>
+    </a>
+
+    <script>
+      document.getElementById("footer-year").textContent =
+        new Date().getFullYear();
+
+      const reveals = document.querySelectorAll(".reveal");
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.animate(
+              [
+                { opacity: 0, transform: "translateY(22px)" },
+                { opacity: 1, transform: "translateY(0)" },
+              ],
+              {
+                duration: 580,
+                fill: "forwards",
+                easing: "cubic-bezier(0.22,1,0.36,1)",
+              },
+            );
+            revealObserver.unobserve(entry.target);
+          });
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -36px 0px" },
+      );
+      reveals.forEach((el) => revealObserver.observe(el));
+
+      const nav = document.getElementById("main-nav");
+      const syncNav = () => {
+        if (!nav) return;
+        nav.classList.toggle("nav--scrolled", window.scrollY > 40);
+      };
+      syncNav();
+      window.addEventListener("scroll", syncNav, { passive: true });
+    </script>
+  </body>
+</html>
