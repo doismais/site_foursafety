@@ -6,6 +6,23 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   const CART_KEY = "4safety_cart";
+  const PRODUCT_IMAGE_MAP = {
+    "Tubo Colorimétrico Uniphos": "/images/products/produto-tubo-colorimetrico-uniphos.jpg",
+    "Bomba de Detecção de Gás": "/images/products/produto-bomba-deteccao-gas.png",
+    "Detector de Gás Portátil": "/images/products/produto-detector-gas-portatil.png",
+    "Equipamentos de Fumigação": "/images/products/produto-fumigacao.png",
+    "Proteção Respiratória": "/images/products/produto-protecao-respiratoria.jpg",
+    "Equipamentos para Altura": "/images/products/produto-equipamentos-altura.png",
+    "Botas e Calçados": "/images/products/produto-botas-calzados.png",
+    "Botas e Calçados de Segurança": "/images/products/produto-botas-calzados.png",
+    "Protetor Auditivo": "/images/products/produto-protetor-auditivo.png",
+    "Óculos de Proteção": "/images/products/produto-oculos-protecao.png",
+    "Luvas de Proteção": "/images/products/produto-luvas-protecao.png",
+    "Descartáveis": "/images/products/produto-descartaveis.png",
+    "Vestimentas Descartáveis": "/images/products/produto-descartaveis.png",
+    "Proteção Térmica": "/images/products/produto-protecao-termica.png",
+  };
+
   const normalizeImagePath = (imgPath) => {
     if (!imgPath) return "";
     try {
@@ -15,9 +32,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
+  const resolveProductImage = (item) => {
+    const normalized = normalizeImagePath(item?.img);
+    return PRODUCT_IMAGE_MAP[item?.name] || normalized || "";
+  };
+
   let cart = (JSON.parse(localStorage.getItem(CART_KEY)) || []).map((item) => ({
     ...item,
-    img: normalizeImagePath(item.img),
+    img: resolveProductImage(item),
   }));
 
   const WA_NUMBER = "5548999148413";
@@ -148,7 +170,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     list.innerHTML = cart.map((item, index) => `
       <div class="cart-item">
-        <img src="${item.img}" alt="${item.name}">
+        <img src="${resolveProductImage(item)}" alt="${item.name}">
         <div class="cart-item-details">
           <div class="cart-item-name">${item.name}</div>
           <div class="cart-item-remove" data-index="${index}">Remover</div>
@@ -251,7 +273,10 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
       const product = {
         name: btn.getAttribute("data-product-name"),
-        img: normalizeImagePath(btn.getAttribute("data-product-img")),
+        img: resolveProductImage({
+          name: btn.getAttribute("data-product-name"),
+          img: btn.getAttribute("data-product-img"),
+        }),
         slug: btn.getAttribute("data-product-slug")
       };
       if (!cart.some(item => item.name === product.name)) {
