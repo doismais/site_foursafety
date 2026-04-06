@@ -1,27 +1,58 @@
 PORT ?= 8080
+PYTHON ?= python3
+PNPM ?= pnpm
 
-.PHONY: install setup dev serve check audit
+.DEFAULT_GOAL := help
 
-# Comandos core
+.PHONY: help install setup dev serve build sync-nav visuals check audit
+
+help:
+	@echo "4Safety — comandos disponíveis"
+	@echo "──────────────────────────────"
+	@echo "make install   # instala o ferramental Node do projeto"
+	@echo "make dev       # sobe servidor local e abre navegador no macOS"
+	@echo "make serve     # sobe servidor local sem abrir navegador"
+	@echo "make build     # regenera páginas do catálogo em produtos/"
+	@echo "make sync-nav  # sincroniza navegação entre páginas HTML"
+	@echo "make visuals   # executa script auxiliar de ajustes visuais"
+	@echo "make check     # valida todas as páginas HTML do projeto"
+	@echo "make audit     # roda auditoria do ferramental Node"
+
+# Instala o ferramental leve usado em validação e auditoria
 install setup:
 	@echo "4Safety: instalando dependências com pnpm..."
-	pnpm install
-	@echo "Pronto! Comandos disponíveis: make dev, make serve, make check"
+	@$(PNPM) install --ignore-workspace
+	@echo "Pronto. Use: make dev, make build, make check"
 
 # Sobe servidor estático e abre o navegador (macOS: open)
 dev:
 	@echo "4Safety — http://127.0.0.1:$(PORT) (Ctrl+C para encerrar)"
 	@(sleep 1; open "http://127.0.0.1:$(PORT)" 2>/dev/null || true) &
-	python3 -m http.server $(PORT)
+	@$(PYTHON) -m http.server $(PORT)
 
 # Apenas o servidor, sem abrir o navegador
 serve:
-	python3 -m http.server $(PORT)
+	@$(PYTHON) -m http.server $(PORT)
 
-# Auditoria de segurança
+# Regenera páginas internas do catálogo
+build:
+	@echo "4Safety: regenerando catálogo interno..."
+	@$(PYTHON) scripts/gen_products.py
+
+# Sincroniza navegação entre páginas HTML
+sync-nav:
+	@echo "4Safety: sincronizando navegação..."
+	@$(PYTHON) scripts/sync_nav.py
+
+# Script auxiliar de refinamento visual
+visuals:
+	@echo "4Safety: aplicando ajustes visuais auxiliares..."
+	@$(PYTHON) scripts/apply_premium_visuals.py
+
+# Auditoria de segurança do ferramental Node
 audit:
-	pnpm audit
+	@$(PNPM) audit --ignore-workspace
 
-# Lint HTML (HTMLHint via npx + checagens Python)
+# Lint HTML (HTMLHint via pnpm/npx + checagens Python)
 check:
 	@./scripts/check.sh

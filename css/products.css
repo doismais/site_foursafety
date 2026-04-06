@@ -6,6 +6,469 @@
 
 :root {
   --nav-height: 80px;
+  --orange: #ff4e00;
+  --black: #161412;
+  --ink: #141210;
+  --g900: #252220;
+  --g800: #3a3530;
+  --g700: #4a4540;
+  --g400: #9a948c;
+  --g100: #ebe6df;
+  --paper: #f7f4ef;
+  --white: #fff;
+  --nav-aqua-tint: rgba(175, 230, 245, 0.42);
+  --nav-aqua-edge: rgba(90, 170, 195, 0.22);
+  --font-display: "Source Sans 3", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: "Source Sans 3", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --container-px: 1.25rem;
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --container-px: 6rem;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: var(--white);
+  color: var(--black);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+.nav-logo {
+  position: relative;
+  display: block;
+  width: fit-content;
+}
+
+.nav-logo img {
+  height: 31px;
+  transition:
+    opacity 0.28s ease,
+    transform 0.28s ease,
+    filter 0.28s ease;
+}
+
+.nav-logo-default {
+  opacity: 1;
+}
+
+.nav-logo-scrolled {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  filter: drop-shadow(0 1px 10px rgba(0, 0, 0, 0.18));
+}
+
+nav.nav--scrolled .nav-logo-default {
+  opacity: 0;
+  transform: translateY(-2px);
+}
+
+nav.nav--scrolled .nav-logo-scrolled {
+  opacity: 1;
+}
+
+.nav-menu {
+  display: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: var(--g700);
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--orange);
+}
+
+.nav-cta,
+.btn-primary {
+  background: var(--orange);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.85rem 1.35rem;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.nav-cta:hover,
+.btn-primary:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+.btn-primary.btn-block {
+  width: 100%;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--g900);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.85rem 1.35rem;
+  border-radius: 8px;
+  border: 1px solid rgba(22, 20, 18, 0.12);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.btn-ghost:hover {
+  background: rgba(255, 78, 0, 0.04);
+  border-color: rgba(255, 78, 0, 0.24);
+  transform: translateY(-1px);
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  z-index: 101;
+}
+
+.nav-toggle span {
+  width: 24px;
+  height: 2px;
+  background: var(--orange);
+  border-radius: 2px;
+  transition: 0.3s ease;
+}
+
+.nav-toggle.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  z-index: 99;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s ease;
+}
+
+.nav-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+footer {
+  position: relative;
+  padding: 2rem 1.25rem 2.5rem;
+  background:
+    radial-gradient(circle at top right, rgba(255, 78, 0, 0.12), transparent 40%),
+    linear-gradient(180deg, #1a1714 0%, var(--ink) 100%);
+  color: var(--white);
+}
+
+.footer-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.footer-top,
+.footer-columns {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.footer-top {
+  margin-bottom: 1rem;
+}
+
+.footer-columns {
+  margin-bottom: 1.5rem;
+}
+
+.footer-brand {
+  padding: 1.35rem 1.1rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.025) 0%, rgba(255, 255, 255, 0.01) 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+.footer-logo img {
+  height: 28px;
+  margin-bottom: 0.85rem;
+}
+
+.footer-tagline {
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: rgba(235, 230, 223, 0.76);
+  max-width: 30rem;
+}
+
+.footer-micro {
+  margin-top: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 78, 0, 0.88);
+}
+
+.footer-micro::before {
+  content: "";
+  width: 18px;
+  height: 1px;
+  background: rgba(255, 78, 0, 0.85);
+}
+
+.footer-card {
+  padding: 1.25rem 1.1rem;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.footer-card-label {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: rgba(255, 255, 255, 0.36);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 0.95rem;
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem 1rem;
+}
+
+.footer-links a,
+.footer-contact a {
+  font-size: 0.92rem;
+  color: rgba(235, 230, 223, 0.78);
+  text-decoration: none;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.footer-links a:hover,
+.footer-contact a:hover,
+.footer-legal a:hover {
+  color: var(--white);
+}
+
+.footer-contact {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.footer-contact-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.footer-contact-label {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.footer-cta-card {
+  border-color: rgba(255, 78, 0, 0.16);
+  background: linear-gradient(180deg, rgba(255, 78, 0, 0.08) 0%, rgba(255, 78, 0, 0.02) 100%);
+}
+
+.footer-cta-headline {
+  font-family: var(--font-display);
+  font-size: 1.18rem;
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 0.55rem;
+}
+
+.footer-cta-sub {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: rgba(235, 230, 223, 0.68);
+  margin-bottom: 1rem;
+}
+
+.footer-cta-actions {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.footer-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-legal {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.28);
+  font-family: var(--font-mono);
+  line-height: 1.65;
+}
+
+.footer-legal a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer-brand-name {
+  color: rgba(255, 255, 255, 0.72);
+  font-family: var(--font-display);
+  font-weight: 800;
+}
+
+@media (max-width: 767px) {
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 320px;
+    height: 100vh;
+    background: var(--white);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    padding: 6rem 2rem 2rem;
+    transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-menu.active {
+    right: 0;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .nav-links a {
+    font-size: 1.25rem;
+  }
+
+  .nav-cta {
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .nav-logo img {
+    height: 35px;
+  }
+
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+  }
+
+  .footer-top {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+    align-items: stretch;
+  }
+
+  .footer-columns {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .footer-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 /* ── BASE REVEAL ANIMA ── */
@@ -290,4 +753,3 @@
     grid-template-columns: repeat(3, 1fr);
   }
 }
-
