@@ -6,7 +6,19 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   const CART_KEY = "4safety_cart";
-  let cart = JSON.parse(localStorage.getItem(CART_KEY)) || [];
+  const normalizeImagePath = (imgPath) => {
+    if (!imgPath) return "";
+    try {
+      return new URL(imgPath, window.location.href).pathname;
+    } catch {
+      return imgPath;
+    }
+  };
+
+  let cart = (JSON.parse(localStorage.getItem(CART_KEY)) || []).map((item) => ({
+    ...item,
+    img: normalizeImagePath(item.img),
+  }));
 
   const WA_NUMBER = "5548999148413";
 
@@ -204,8 +216,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const sendToWA = (e) => {
     e.preventDefault();
     if (cart.length === 0) return;
-    let message = "Olá 4Safety! Gostaria de uma cotação para os seguintes itens:\n\n";
-    cart.forEach(item => { message += `• ${item.name}\n`; });
+    let message = "Olá *4Safety!*\n";
+    message += "Gostaria de uma cotação para os seguintes itens:\n\n";
+    cart.forEach((item) => {
+      message += `\`${String.raw`• ${item.name}`}\`\n`;
+    });
     const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank");
   };
@@ -228,6 +243,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   renderCartUI();
+  localStorage.setItem(CART_KEY, JSON.stringify(cart));
 
   document.body.addEventListener("click", (e) => {
     const btn = e.target.closest("[data-cart-add]");
@@ -235,7 +251,7 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
       const product = {
         name: btn.getAttribute("data-product-name"),
-        img: btn.getAttribute("data-product-img"),
+        img: normalizeImagePath(btn.getAttribute("data-product-img")),
         slug: btn.getAttribute("data-product-slug")
       };
       if (!cart.some(item => item.name === product.name)) {
