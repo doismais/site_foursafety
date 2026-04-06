@@ -10,13 +10,22 @@ Lista preliminar de badges do portfólio: [`docs/badges.md`](docs/badges.md).
 
 ## Desenvolvimento local
 
-Requisito: **Python 3** (servidor HTTP embutido).
+Requisito: **Python 3** (servidor HTTP embutido e scripts de automação).
 
+### Servidor de Desenvolvimento
 ```bash
 make dev
 ```
+Abre o navegador em `http://127.0.0.1:8080`.
 
-Abre o navegador em `http://127.0.0.1:8080` e sobe o servidor na pasta do projeto. Para encerrar, use `Ctrl+C`.
+### Automação de Conteúdo
+O site utiliza scripts Python para manter a consistência entre páginas:
+
+- **Gerador de Produtos**: `python3 scripts/gen_products.py`
+  Gera as páginas individuais em `produtos/` a partir de `templates/product.template.html`.
+- **Sincronizador de Navegação**: `python3 scripts/sync_nav.py`
+  Garante que o menu, os scripts e o CSS global sejam idênticos em todas as páginas HTML do projeto.
+
 
 Variável opcional:
 
@@ -44,17 +53,27 @@ Roda [`scripts/check.sh`](scripts/check.sh): [HTMLHint](https://htmlhint.com/) (
 
 - **Linux:** se `make dev` não abrir o navegador, abra manualmente a URL mostrada no terminal (ou instale `xdg-open` e adapte o `Makefile`).
 
-## Estrutura
+## Estrutura do Projeto
 
-| Caminho                        | Descrição                                           |
-| ------------------------------ | --------------------------------------------------- |
-| `index.html`                   | Página principal                                    |
-| `quem-somos/index.html`        | Página institucional                                |
-| `consulta-de-ca/index.html`    | Página de consulta de CA                            |
-| `links/index.html`             | Hub de links com CTA direto                         |
-| `images/brand/`                | Logos e ícones locais                               |
-| `images/decor/`                | Elementos decorativos                               |
-| `images/hero/`                 | Foto do hero (placeholder — ver doc abaixo)         |
-| `images/products/`             | Fotos dos cards de produto (placeholders)           |
-| `docs/imagens-placeholders.md` | Nomes de arquivo e brief das imagens a produzir     |
-| `docs/copy_and_context.md`     | Guia de conteúdo e design (não servido em produção) |
+| Caminho | Descrição |
+| :--- | :--- |
+| `index.html` | Landing page principal |
+| `produtos/` | Páginas de produtos (geradas automaticamente) |
+| `templates/` | Template mestre para páginas de produtos |
+| `scripts/` | Motores de automação (Python) |
+| `css/products.css` | Estilização premium do catálogo |
+| `quem-somos/` | Página institucional |
+| `consulta-de-ca/` | Ferramenta de consulta de CA |
+| `images/products/` | Fotos reais e placeholders dos produtos |
+| `docs/` | Guias de copy, design e badges |
+
+## Fluxo de Publicação (NΞØ Protocol)
+
+Antes de cada commit, o protocolo exige:
+1. **Segurança**: `pnpm audit`
+2. **Build**: Execução dos scripts de automação (`gen_products.py`)
+3. **Commits**: Seguir o padrão [Conventional Commits](https://www.conventionalcommits.org/)
+4. **Push**: Deploy automático via Vercel na branch `main`
+
+---
+*Mantido sob os padrões do NΞØ Protocol.*
