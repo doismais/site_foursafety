@@ -18,7 +18,12 @@ fi
 
 EXIT=0
 
-if command -v npx >/dev/null 2>&1; then
+if command -v pnpm >/dev/null 2>&1; then
+  echo "→ HTMLHint (pnpm dlx)"
+  if ! pnpm dlx htmlhint "$HTML"; then
+    EXIT=1
+  fi
+elif command -v npx >/dev/null 2>&1; then
   echo "→ HTMLHint (npx)"
   if ! npx --yes htmlhint "$HTML"; then
     EXIT=1
@@ -29,7 +34,7 @@ elif command -v htmlhint >/dev/null 2>&1; then
     EXIT=1
   fi
 else
-  echo "AVISO: npx/htmlhint não encontrados — instale Node.js para rodar HTMLHint." >&2
+  echo "AVISO: pnpm/npx/htmlhint não encontrados — instale Node.js para rodar HTMLHint." >&2
   echo "        Checagens em Python continuam abaixo." >&2
 fi
 

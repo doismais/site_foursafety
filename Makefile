@@ -1,14 +1,12 @@
 PORT ?= 8080
 
-.PHONY: install setup dev serve check
+.PHONY: install setup dev serve check audit
 
-# Projeto estático: sem package.json e sem dependências para instalar
+# Comandos core
 install setup:
-	@echo "4Safety: projeto estático (sem npm/pnpm)."
-	@echo "Comandos disponíveis:"
-	@echo "  make dev    # sobe servidor e abre navegador"
-	@echo "  make serve  # sobe servidor sem abrir navegador"
-	@echo "  make check  # valida HTML e estrutura"
+	@echo "4Safety: instalando dependências com pnpm..."
+	pnpm install
+	@echo "Pronto! Comandos disponíveis: make dev, make serve, make check"
 
 # Sobe servidor estático e abre o navegador (macOS: open)
 dev:
@@ -19,6 +17,10 @@ dev:
 # Apenas o servidor, sem abrir o navegador
 serve:
 	python3 -m http.server $(PORT)
+
+# Auditoria de segurança
+audit:
+	pnpm audit
 
 # Lint HTML (HTMLHint via npx + checagens Python)
 check:
