@@ -1,1 +1,21 @@
-{}
+{
+  "name": "4safety-site",
+  "version": "1.0.0",
+  "description": "Premium industrial safety catalogue and consultancy site",
+  "main": "index.html",
+  "scripts": {
+    "dev": "make dev",
+    "serve": "make serve",
+    "build": "echo 'Build successful (static site)'",
+    "check": "make check",
+    "audit": "pnpm audit"
+  },
+  "keywords": [
+    "safety",
+    "consultancy",
+    "industrial",
+    "epi"
+  ],
+  "author": "NΞØ Protocol",
+  "license": "ISC"
+}
