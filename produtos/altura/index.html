@@ -2,340 +2,46 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-    />
-    <title>Equipamentos para Altura | 4Safety — Detecção Precision</title>
-    <meta
-      name="description"
-      content="Detecção instantânea de gases com o Equipamentos para Altura. Precisão para ambientes críticos e NR-33."
-    />
-    <meta
-      property="og:title"
-      content="Equipamentos para Altura | 4Safety — Detecção Precision"
-    />
-    <meta
-      property="og:description"
-      content="Detecção instantânea de gases com o Equipamentos para Altura. Precisão para ambientes críticos e NR-33."
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Equipamentos para Altura | 4Safety — Especialistas em Segurança</title>
+    <meta name="description" content="Cinturões paraquedistas e dispositivos trava-quedas certificados para máxima segurança em planos elevados." />
+    <meta property="og:title" content="Equipamentos para Altura | 4Safety" />
+    <meta property="og:description" content="Cinturões paraquedistas e dispositivos trava-quedas certificados para máxima segurança em planos elevados." />
     <meta property="og:type" content="product" />
     <meta property="og:image" content="../images/products/produto-equipamentos-altura.png" />
-    <meta property="og:url" content="https://4safety.vercel.app/produtos/altura/" />
     
-    <link
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&family=Source+Sans+3:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&family=Source+Sans+3:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../../css/products.css" />
     <style>
-/* ── NAV: topo = branco 100%; após rolagem = glass aqua ── */
-      nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 100;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: env(safe-area-inset-top, 0px)
-          max(var(--container-px), env(safe-area-inset-right)) 0
-          max(var(--container-px), env(safe-area-inset-left));
-        min-height: calc(60px + env(safe-area-inset-top, 0px));
-        height: auto;
-        background: var(--white);
-        -webkit-backdrop-filter: none;
-        backdrop-filter: none;
-        border-bottom: 1px solid rgba(40, 36, 32, 0.08);
-        box-shadow: 0 1px 0 rgba(255, 255, 255, 1);
-        transition:
-          background 0.45s cubic-bezier(0.4, 0, 0.2, 1),
-          border-color 0.4s ease,
-          box-shadow 0.45s ease,
-          -webkit-backdrop-filter 0.45s cubic-bezier(0.4, 0, 0.2, 1),
-          backdrop-filter 0.45s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-      nav.nav--scrolled {
-        background: linear-gradient(
-          180deg,
-          rgba(255, 255, 255, 0.58) 0%,
-          var(--nav-aqua-tint) 55%,
-          rgba(160, 220, 235, 0.35) 100%
-        );
-        -webkit-backdrop-filter: saturate(175%) blur(22px);
-        backdrop-filter: saturate(175%) blur(22px);
-        border-bottom: 1px solid rgba(255, 78, 0, 0.28);
-        box-shadow:
-          inset 0 1px 0 rgba(255, 255, 255, 0.65),
-          inset 0 -1px 0 var(--nav-aqua-edge),
-          0 6px 28px rgba(30, 80, 95, 0.1);
-      }
-      @supports not (
-        (-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))
-      ) {
-        nav.nav--scrolled {
-          background: linear-gradient(180deg, #f0fbff 0%, #d8f0f6 100%);
-        }
-      }
-      .nav-logo {
-        position: relative;
-        display: block;
-        width: fit-content;
-      }
-      .nav-logo img {
-        height: 31px;
-        display: block;
-        transition:
-          opacity 0.28s ease,
-          transform 0.28s ease,
-          filter 0.28s ease;
-      }
-      .nav-logo-default {
-        opacity: 1;
-      }
-      .nav-logo-scrolled {
-        position: absolute;
-        inset: 0;
-        opacity: 0;
-        filter: drop-shadow(0 1px 10px rgba(0, 0, 0, 0.18));
-      }
-      nav.nav--scrolled .nav-logo-default {
-        opacity: 0;
-        transform: translateY(-2px);
-      }
-      nav.nav--scrolled .nav-logo-scrolled {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      .nav-cta {
-        background: var(--orange);
-        color: var(--white);
-        font-family: var(--font-body);
-        font-size: 0.8rem;
-        font-weight: 500;
-        border: none;
-        border-radius: 6px;
-        padding: 0.5rem 1rem;
-        cursor: pointer;
-        text-decoration: none;
-        white-space: nowrap;
-        transition: opacity 0.2s;
-      }
-      .nav-cta:hover {
-        opacity: 0.88;
-      }
-      .nav-links {
-        display: flex;
-        gap: 1.5rem;
-        list-style: none;
-      }
-      .nav-links a {
-        color: var(--g700);
-        font-size: 0.85rem;
-        text-decoration: none;
-        transition: color 0.2s;
-        font-weight: 500;
-      }
-      .nav-links a:hover {
-        color: var(--orange);
-      }
-
-      /* Hamburguer & Mobile Menu */
-      .nav-toggle {
-        display: none;
-        flex-direction: column;
-        gap: 5px;
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        padding: 5px;
-        z-index: 101;
-      }
-      .nav-toggle span {
-        width: 24px;
-        height: 2px;
-        background: var(--orange);
-        transition: 0.3s;
-        border-radius: 2px;
-      }
-      .nav-toggle.active span:nth-child(1) {
-        transform: translateY(7px) rotate(45deg);
-      }
-      .nav-toggle.active span:nth-child(2) {
-        opacity: 0;
-      }
-      .nav-toggle.active span:nth-child(3) {
-        transform: translateY(-7px) rotate(-45deg);
-      }
-
-      @media (max-width: 767px) {
-        .nav-toggle {
-          display: flex;
-        }
-        .nav-menu {
-          position: fixed;
-          top: 0;
-          right: -100%;
-          width: 80%;
-          max-width: 320px;
-          height: 100vh;
-          background: var(--white);
-          z-index: 100;
-          display: flex;
-          flex-direction: column;
-          padding: 6rem 2rem 2rem;
-          transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-          box-shadow: -10px 0 30px rgba(0,0,0,0.1);
-        }
-        .nav-menu.active {
-          right: 0;
-        }
-        .nav-overlay {
-          position: fixed;
-          inset: 0;
-          background: rgba(0,0,0,0.4);
-          -webkit-backdrop-filter: blur(4px);
-          backdrop-filter: blur(4px);
-          z-index: 99;
-          opacity: 0;
-          visibility: hidden;
-          transition: 0.3s;
-        }
-        .nav-overlay.active {
-          opacity: 1;
-          visibility: visible;
-        }
-
-        body.no-scroll {
-          overflow: hidden;
-        }
-        .nav-links {
-          flex-direction: column;
-          gap: 2rem;
-          margin-bottom: 3rem;
-        }
-        .nav-links a {
-          font-size: 1.25rem;
-        }
-        .nav-cta {
-          width: 100%;
-          text-align: center;
-          padding: 1rem;
-        }
-      }
-
-      @media (min-width: 768px) {
-        nav {
-          padding: env(safe-area-inset-top, 0px)
-            max(var(--container-px), env(safe-area-inset-right)) 0
-            max(var(--container-px), env(safe-area-inset-left));
-          min-height: calc(68px + env(safe-area-inset-top, 0px));
-        }
-        .nav-logo img {
-          height: 35px;
-        }
-        .nav-menu {
-          display: flex;
-          align-items: center;
-          gap: 2.5rem;
-        }
-      }
-
-      /* ── HERO
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-      :root {
-        --orange: #ff4e00;
-        --black: #161412;
-        --ink: #141210;
-        --g900: #252220;
-        --g700: #4a4540;
-        --g400: #9a948c;
-        --g100: #ebe6df;
-        --paper: #f7f4ef;
-        --white: #fff;
-        --font-display: "Source Sans 3", sans-serif;
-        --font-body: "Source Sans 3", sans-serif;
-        --font-mono: "JetBrains Mono", monospace;
-        --nav-aqua-tint: rgba(175, 230, 245, 0.42);
-        --nav-aqua-edge: rgba(90, 170, 195, 0.22);
-      }
-      html { scroll-behavior: smooth; }
-      body {
-        font-family: var(--font-body);
-        background: var(--white);
-        color: var(--black);
-        overflow-x: hidden;
-        -webkit-font-smoothing: antialiased;
-      }
-
-      /* Navbar Copy-Paste Logic */
+      /* Nav custom logic for this page */
       nav {
         position: fixed; top: 0; left: 0; right: 0; z-index: 100;
         display: flex; align-items: center; justify-content: space-between;
-        padding: env(safe-area-inset-top, 0px) max(1.25rem, env(safe-area-inset-right)) 0 max(1.25rem, env(safe-area-inset-left));
-        min-height: 60px; background: var(--white);
+        padding: env(safe-area-inset-top, 0px) max(var(--container-px), env(safe-area-inset-right)) 0 max(var(--container-px), env(safe-area-inset-left));
+        min-height: calc(60px + env(safe-area-inset-top, 0px));
+        background: var(--white);
         border-bottom: 1px solid rgba(40, 36, 32, 0.08);
+        transition: all 0.45s cubic-bezier(0.4, 0, 0.2, 1);
       }
-      .nav--scrolled {
+      nav.nav--scrolled {
         background: linear-gradient(180deg, rgba(255, 255, 255, 0.58) 0%, var(--nav-aqua-tint) 55%, rgba(160, 220, 235, 0.35) 100%);
         -webkit-backdrop-filter: saturate(175%) blur(22px);
         backdrop-filter: saturate(175%) blur(22px);
+        border-bottom: 1px solid rgba(255, 78, 0, 0.28);
       }
-      .nav-logo img { height: 35px; }
-      .nav-links { display: none; gap: 1.5rem; list-style: none; }
-      .nav-links a { text-decoration: none; color: var(--g700); font-weight: 500; font-size: 0.85rem; }
-      .nav-cta { background: var(--orange); color: white; padding: 0.6rem 1.2rem; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 0.8rem; }
-      @media (min-width: 768px) { .nav-links { display: flex; } }
-
-      /* Footer Utility Classes */
-      .footer-logo-img { height: 30px; margin-bottom: 1.5rem; }
-      .footer-tagline-text { opacity: 0.7; line-height: 1.6; max-width: 400px; }
-      .footer-links-col { display: flex; flex-direction: column; gap: 0.5rem; }
-      .footer-links-col p { font-weight: 700; margin-bottom: 0.5rem; }
-      .footer-links-col a { color: white; text-decoration: none; opacity: 0.7; }
-
-      /* Footer Minimalist */
-      footer { background: #0f0d0b; color: white; padding: 4rem 1.25rem 2rem; }
-      .footer-inner { max-width: 1080px; margin: 0 auto; }
-      .footer-grid { display: grid; gap: 3rem; margin-bottom: 3rem; }
-      .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; display: flex; justify-content: space-between; font-size: 0.8rem; opacity: 0.6; }
-      @media (min-width: 768px) { .footer-grid { grid-template-columns: 2fr 1fr; } }
     </style>
   </head>
   <body>
-    <!-- Navbar -->
-    <!-- NAV -->
+    <!-- Navigation -->
     <nav id="main-nav">
       <a href="../../index.html" class="nav-logo">
-        <img
-          class="nav-logo-default"
-          src="../../images/brand/Logo_4Safety-1.png"
-          alt="4Safety"
-        />
-        <img
-          class="nav-logo-scrolled"
-          src="../../images/brand/Logo_4Safety-branco.png"
-          alt="4Safety"
-          aria-hidden="true"
-        />
+        <img class="nav-logo-default" src="../../images/brand/Logo_4Safety-1.png" alt="4Safety" />
+        <img class="nav-logo-scrolled" src="../../images/brand/Logo_4Safety-branco.png" alt="4Safety" aria-hidden="true" />
       </a>
-
-      <!-- Menu Mobile Trigger -->
       <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
       </button>
-
       <div class="nav-overlay" id="nav-overlay"></div>
-
       <div class="nav-menu" id="nav-menu">
         <ul class="nav-links">
           <li><a href="../../index.html">Home</a></li>
@@ -346,13 +52,7 @@
           <li><a href="../../quem-somos/index.html">Quem somos</a></li>
           <li><a href="../../index.html#contato">Contato</a></li>
         </ul>
-        <a
-          href="https://wa.me/5548999148413"
-          class="nav-cta"
-          target="_blank"
-          rel="noopener noreferrer"
-          >Solicitar Orçamento</a
-        >
+        <a href="https://wa.me/5548999148413" class="nav-cta" target="_blank" rel="noopener noreferrer">Solicitar Orçamento</a>
       </div>
     </nav>
 
@@ -360,26 +60,15 @@
     <main class="product-hero">
       <div class="product-grid">
         <div class="product-gallery reveal">
-          <img src="../../images/products/produto-equipamentos-altura.png" alt="Equipamentos para Altura" />
+          <img src="../images/products/produto-equipamentos-altura.png" alt="Equipamentos para Altura" />
         </div>
         <div class="product-info reveal">
           <div class="product-tag">Trabalho Seguro — NR-35</div>
           <h1 class="product-title">Equipamentos para Altura</h1>
-          <p class="product-description">
-            Cinturões paraquedistas e dispositivos trava-quedas certificados para máxima segurança em planos elevados.
-          </p>
-          <div class="product-meta">
-            <span class="meta-badge">Conformidade NR-15</span>
-            <span class="meta-badge">Conformidade NR-33</span>
-            <span class="meta-badge">Certificação Inmetro</span>
-          </div>
+          <p class="product-description">Cinturões paraquedistas e dispositivos trava-quedas certificados para máxima segurança em planos elevados.</p>
+          <div class="product-meta"><span class="meta-badge">NR-35</span><span class="meta-badge">NBR 15836</span><span class="meta-badge">Alta Resistência</span></div>
           <div class="product-actions">
-            <a href="#" 
-               class="btn-add-cart btn-primary" 
-               data-cart-add 
-               data-product-name="Equipamentos para Altura"
-               data-product-img="../images/products/produto-equipamentos-altura.png"
-               data-product-slug="tubo-colorimetrico">
+            <a href="#" class="btn-add-cart btn-primary" data-cart-add data-product-name="Equipamentos para Altura" data-product-img="../images/products/produto-equipamentos-altura.png">
                Adicionar ao Orçamento
             </a>
           </div>
@@ -397,41 +86,20 @@
             </div>
             <div class="spec-item reveal">
               <span class="spec-label">Material</span>
-              <span class="spec-value">Poliéster de alta tenacidade</span>
+              <span class="spec-value">Poliéster Tenacidade</span>
             </div>
             <div class="spec-item reveal">
-              <span class="spec-label">Ferragens</span>
-              <span class="spec-value">Aço carbono bicromatizado</span>
+              <span class="spec-label">Ferragem</span>
+              <span class="spec-value">Aço Carbono</span>
             </div>
             <div class="spec-item reveal">
               <span class="spec-label">Trava-quedas</span>
-              <span class="spec-value">Para corda 12mm / Cabo aço</span>
+              <span class="spec-value">Corda / Cabo Aço</span>
             </div>
             <div class="spec-item reveal">
-              <span class="spec-label">Certificação</span>
-              <span class="spec-value">CA Ativo</span>
+              <span class="spec-label">CA</span>
+              <span class="spec-value">Certificação Ativa</span>
             </div></div>
-            <div class="spec-item reveal">
-              <span class="spec-label">Tempo de Amostragem</span>
-              <span class="spec-value">30 a 120 segundos</span>
-            </div>
-            <div class="spec-item reveal">
-              <span class="spec-label">Precisão</span>
-              <span class="spec-value">+/- 5% a 15%</span>
-            </div>
-            <div class="spec-item reveal">
-              <span class="spec-label">Gases Suportados</span>
-              <span class="spec-value">+de 150 gases</span>
-            </div>
-            <div class="spec-item reveal">
-              <span class="spec-label">Vida Útil</span>
-              <span class="spec-value">Até 2 anos (lacrado)</span>
-            </div>
-            <div class="spec-item reveal">
-              <span class="spec-label">Fabricante</span>
-              <span class="spec-value">Uniphos Environ S.P.L.</span>
-            </div>
-          </div>
         </div>
       </section>
     </main>
@@ -441,40 +109,21 @@
       <div class="footer-inner">
         <div class="footer-top">
           <div class="footer-brand">
-            <a href="../../index.html#" class="footer-logo"
-              ><img src="../../images/brand/Logo_4Safety-bco_lja.png" alt="4Safety"
-            /></a>
-            <p class="footer-tagline">
-              Segurança do trabalho com especificação técnica para ambientes
-              críticos, operações industriais e decisões que não admitem erro.
-            </p>
+            <a href="../../index.html#" class="footer-logo"><img src="../../images/brand/Logo_4Safety-bco_lja.png" alt="4Safety" /></a>
+            <p class="footer-tagline">Segurança do trabalho com especificação técnica para ambientes críticos, operações industriais e decisões que não admitem erro.</p>
             <p class="footer-micro">Distribuição técnica com resposta rápida</p>
           </div>
           <div class="footer-card footer-cta-card">
             <p class="footer-card-label">Último passo útil</p>
-            <h3 class="footer-cta-headline">
-              Precisa fechar a especificação ainda hoje?
-            </h3>
-            <p class="footer-cta-sub">
-              Fale direto com a equipe comercial e reduza o tempo entre dúvida,
-              escolha técnica e orçamento.
-            </p>
+            <h3 class="footer-cta-headline">Precisa fechar a especificação ainda hoje?</h3>
+            <p class="footer-cta-sub">Fale direto com a equipe comercial e reduza o tempo entre dúvida, escolha técnica e orçamento.</p>
             <div class="footer-cta-actions">
-              <a
-                href="https://wa.me/5548999148413"
-                class="btn-primary btn-block"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Solicitar Orçamento</a
-              >
-              <a href="../../index.html#contato" class="btn-ghost"
-                >Enviar detalhes do cenário</a
-              >
+              <a href="https://wa.me/5548999148413" class="btn-primary btn-block" target="_blank" rel="noopener noreferrer">Solicitar Orçamento</a>
+              <a href="../../index.html#contato" class="btn-ghost">Enviar detalhes do cenário</a>
             </div>
           </div>
         </div>
         <div class="footer-columns">
-
           <div class="footer-card">
             <p class="footer-card-label">Legal</p>
             <div class="footer-links">
@@ -487,172 +136,59 @@
           <div class="footer-card">
             <p class="footer-card-label">Contato</p>
             <div class="footer-contact">
-              <div class="footer-contact-item">
-                <span class="footer-contact-label">WhatsApp</span>
-                <a
-                  href="https://wa.me/5548999148413"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >(48) 99914-8413</a
-                >
-              </div>
-              <div class="footer-contact-item">
-                <span class="footer-contact-label">Telefone</span>
-                <a href="tel:+554833382929">(48) 3338-2929</a>
-              </div>
-              <div class="footer-contact-item">
-                <span class="footer-contact-label">E-mail</span>
-                <a href="mailto:4safety@4safety.com.br"
-                  >4safety@4safety.com.br</a
-                >
-              </div>
+              <div class="footer-contact-item"><span class="footer-contact-label">WhatsApp</span><a href="https://wa.me/5548999148413" target="_blank" rel="noopener noreferrer">(48) 99914-8413</a></div>
+              <div class="footer-contact-item"><span class="footer-contact-label">Telefone</span><a href="tel:+554833382929">(48) 3338-2929</a></div>
+              <div class="footer-contact-item"><span class="footer-contact-label">E-mail</span><a href="mailto:4safety@4safety.com.br">4safety@4safety.com.br</a></div>
             </div>
           </div>
-
         </div>
         <div class="footer-bottom">
-          <span class="footer-legal"
-            >© <span id="footer-year"></span>
-            <span class="footer-brand-name">4Safety</span> é o nome fantasia de
-            Ilha Norte Importacao e Exportacao - CNPJ 11.897.812/0001-06</span
-          >
-          <span class="footer-legal"
-            >Todos os direitos reservados // Desenvolvido por
-            <a
-              href="https://doismais.com.br/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Agência Dois Mais</a
-            ></span
-          >
+          <span class="footer-legal">© <span id="footer-year"></span> <span class="footer-brand-name">4Safety</span> é o nome fantasia de Ilha Norte Importacao e Exportacao - CNPJ 11.897.812/0001-06</span>
+          <span class="footer-legal">Todos os direitos reservados // Desenvolvido por <a href="https://doismais.com.br/" target="_blank" rel="noopener noreferrer">Agência Dois Mais</a></span>
         </div>
       </div>
     </footer>
-    <a
-          href="https://wa.me/5548999148413"
-          class="nav-cta"
-          target="_blank"
-          rel="noopener noreferrer"
-          >Solicitar Orçamento</a
-        >
-      </div>
-    </nav>
 
-    <!-- HERO -->
-    <section class="hero">
-      <div class="hero-bg"></div>
-      <div class="hero-grid"></div>
-      <div class="hero-brand-lines" aria-hidden="true"></div>
-      <div class="hero-placeholder" id="hero-slider">
-        <img
-          src="../../images/hero/hero-ambient-critico.jpg"
-          alt="Ambiente industrial crítico"
-          class="active"
-        />
-        <img
-          src="../../images/hero/hero-precision.png"
-          alt="Especificação técnica e precisão"
-        />
-        <img
-          src="../../images/hero/hero-team.png"
-          alt="Equipe estratégica 4Safety"
-        />
-        <img
-          src="../../images/hero/hero-safety.png"
-          alt="Segurança e organização industrial"
-        />
-      </div>
-      <div class="hero-content">
-        <p class="hero-eyebrow">Especialista em ambientes críticos</p>
-        <h1 class="hero-h1">
-          Sua operação segura começa pela <span>especificação</span> correta
-        </h1>
-        <p class="hero-sub">
-          Distribuímos soluções técnicas para gestão de risco em altura, espaços
-          confinados, fumigação e atmosferas perigosas. Marcas globais. CA
-          válido. Suporte de engenharia.
-        </p>
-        <div class="hero-actions">
-          <a
-            href="https://wa.me/5548999148413"
-            class="btn-primary"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" class="wa-icon">
-              <path
-                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
-              />
-              <path
-                d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.847L.057 23.571a.5.5 0 0 0 .611.61l5.763-1.498A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.006-1.368l-.36-.213-3.713.965.993-3.622-.233-.374A9.818 9.818 0 1 1 12 21.818z"
-              />
-            </svg>
-            Falar no WhatsApp
-          </a>
-
-    <!-- Cart JS Bundle -->
+    <!-- Scripts -->
     <script src="../../js/cart.js"></script>
-    
-  
-    <!-- Global Navigation Script -->
-    
     <script>
       document.getElementById("footer-year").textContent = new Date().getFullYear();
       
-      // ── MENU MOBILE ────────────────────────────────────────────────────────
+      function updateNavGlass() {
+        const nav = document.getElementById("main-nav");
+        if (nav) nav.classList.toggle("nav--scrolled", window.scrollY > 40);
+      }
+
       const toggle = document.getElementById("nav-toggle");
       const menu = document.getElementById("nav-menu");
       const overlay = document.getElementById("nav-overlay");
-
-      function toggleMenu() {
-        toggle.classList.toggle("active");
-        menu.classList.toggle("active");
-        overlay.classList.toggle("active");
-        document.body.classList.toggle("no-scroll");
-      }
-
       if (toggle && menu && overlay) {
+        const toggleMenu = () => {
+          toggle.classList.toggle("active");
+          menu.classList.toggle("active");
+          overlay.classList.toggle("active");
+          document.body.classList.toggle("no-scroll");
+        };
         toggle.addEventListener("click", toggleMenu);
         overlay.addEventListener("click", toggleMenu);
-
-        // Fecha ao clicar em link
-        menu.querySelectorAll("a").forEach((link) => {
-          link.addEventListener("click", toggleMenu);
-        });
+        menu.querySelectorAll("a").forEach(link => link.addEventListener("click", toggleMenu));
       }
 
       window.addEventListener("scroll", updateNavGlass, { passive: true });
       updateNavGlass();
 
-      // ── SCROLL REVEAL WAAPI ──────────────────────────────────────────────
       const reveals = document.querySelectorAll(".reveal");
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
-            const el = entry.target;
-            const siblings = [...el.parentElement.querySelectorAll(".reveal")];
-            const idx = siblings.indexOf(el);
-            const stagger = Math.min(idx * 75, 380);
-            el.animate(
-              [
-                { opacity: 0, transform: "translateY(22px)" },
-                { opacity: 1, transform: "translateY(0)" },
-              ],
-              {
-                duration: 580,
-                delay: stagger,
-                fill: "forwards",
-                easing: "cubic-bezier(0.22,1,0.36,1)",
-              },
-            );
-            observer.unobserve(el);
-          });
-        },
-        { threshold: 0.1, rootMargin: "0px 0px -36px 0px" },
-      );
-      reveals.forEach((el) => observer.observe(el));
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          const el = entry.target;
+          const stagger = Math.min([...el.parentElement.querySelectorAll(".reveal")].indexOf(el) * 75, 380);
+          el.animate([{ opacity: 0, transform: "translateY(22px)" }, { opacity: 1, transform: "translateY(0)" }], 
+            { duration: 580, delay: stagger, fill: "forwards", easing: "cubic-bezier(0.22,1,0.36,1)" });
+          observer.unobserve(el);
+        });
+      }, { threshold: 0.1, rootMargin: "0px 0px -36px 0px" });
+      reveals.forEach(el => observer.observe(el));
     </script>
-
   </body>
 </html>
