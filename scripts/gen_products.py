@@ -1,3 +1,7 @@
+"""
+Module for generating product pages from templates.
+Part of the 4Safety Project — NΞØ Protocol.
+"""
 import os
 
 # Configurações de Caminho
