@@ -394,12 +394,23 @@
           rgba(20, 18, 16, 0.08) 0%,
           rgba(20, 18, 16, 0.38) 100%
         );
+        z-index: 2;
       }
       .hero-placeholder img {
+        position: absolute;
+        inset: 0;
         width: 100%;
         height: 100%;
         object-fit: cover;
         object-position: center;
+        opacity: 0;
+        transition: opacity 1.8s ease-in-out, transform 8s linear;
+        transform: scale(1.05);
+      }
+      .hero-placeholder img.active {
+        opacity: 1;
+        transform: scale(1.15);
+        z-index: 1;
       }
       .hero-content {
         position: relative;
@@ -441,7 +452,7 @@
         font-weight: 800;
         line-height: 1.1;
         letter-spacing: -0.02em;
-        text-wrap: balance;
+        text-wrap-style: balance;
         margin-bottom: 1.25rem;
         opacity: 0;
       }
@@ -1907,10 +1918,23 @@
       <div class="hero-bg"></div>
       <div class="hero-grid"></div>
       <div class="hero-brand-lines" aria-hidden="true"></div>
-      <div class="hero-placeholder">
+      <div class="hero-placeholder" id="hero-slider">
         <img
           src="images/hero/hero-ambient-critico.jpg"
-          alt="Ambiente industrial crítico com equipe em operação"
+          alt="Ambiente industrial crítico"
+          class="active"
+        />
+        <img
+          src="images/hero/hero-precision.png"
+          alt="Especificação técnica e precisão"
+        />
+        <img
+          src="images/hero/hero-team.png"
+          alt="Equipe estratégica 4Safety"
+        />
+        <img
+          src="images/hero/hero-safety.png"
+          alt="Segurança e organização industrial"
         />
       </div>
       <div class="hero-content">
@@ -2918,6 +2942,28 @@
         card.addEventListener("mouseleave", () => {
           card.style.background = "rgba(255,255,255,0.04)";
         });
+      });
+
+      // Hero Slider Logic
+      function initHeroSlider() {
+        const slider = document.getElementById("hero-slider");
+        if (!slider) return;
+        const images = slider.querySelectorAll("img");
+        let currentIndex = 0;
+
+        function nextImage() {
+          images[currentIndex].classList.remove("active");
+          currentIndex = (currentIndex + 1) % images.length;
+          images[currentIndex].classList.add("active");
+        }
+
+        setInterval(nextImage, 5000); // Muda a cada 5 segundos
+      }
+
+      // Initialize all logic
+      document.addEventListener("DOMContentLoaded", () => {
+        initHeroSlider();
+        // Existing reveal logic if any can go here
       });
     </script>
   </body>
