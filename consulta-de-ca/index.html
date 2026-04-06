@@ -214,6 +214,11 @@
           linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
           linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
         background-size: 42px 42px;
+        -webkit-mask-image: radial-gradient(
+          ellipse at center,
+          black 32%,
+          transparent 82%
+        );
         mask-image: radial-gradient(
           ellipse at center,
           black 32%,
@@ -494,6 +499,13 @@
       .footer-card--nav .footer-links a {
         color: rgba(255, 255, 255, 0.92);
       }
+      .footer-card .btn-primary {
+        width: 100%;
+        justify-content: center;
+      }
+      .section-dark .section-sub {
+        color: rgba(255, 255, 255, 0.7);
+      }
       .footer-card-label {
         font-family: var(--font-mono);
         letter-spacing: 0.16em;
@@ -694,7 +706,7 @@
       <div class="section-inner">
         <p class="section-eyebrow">Referencia oficial</p>
         <h2 class="section-headline">Base normativa e padronização nacional</h2>
-        <p class="section-sub" style="color: rgba(255, 255, 255, 0.7)">
+        <p class="section-sub">
           A consulta do CA é centralizada e oficial. Isso protege sua operação e
           impede compra de EPI fora de validade.
         </p>
@@ -814,7 +826,6 @@
               class="btn-primary"
               target="_blank"
               rel="noopener noreferrer"
-              style="width: 100%"
               >Solicitar orçamento</a
             >
           </div>
