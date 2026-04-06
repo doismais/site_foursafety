@@ -1,5 +1,4 @@
 import os
-import re
 
 # Configurações de Caminho
 BASE_DIR = "/Users/nettomello/CODIGOS/projects/4safety"
@@ -16,7 +15,7 @@ products = [
         "title": "Tubo Colorimétrico Uniphos",
         "tag": "Detecção de Gás — NR-33",
         "desc": "Solução de alta precisão para análise quantitativa de gases em campo. Ideal para ambientes industriais e espaços confinados.",
-        "img": "../../images/products/produto-tubo-colorimetrico-uniphos.jpg",
+        "img": "images/products/produto-tubo-colorimetrico-uniphos.jpg",
         "meta": ["Alta Precisão", "Gases Tóxicos", "NR-33"],
         "specs": [
             ("Marca", "Uniphos"),
@@ -32,7 +31,7 @@ products = [
         "title": "Bomba de Detecção de Gás",
         "tag": "Detecção de Gás — NR-33",
         "desc": "Bombas manuais e automáticas projetadas para amostragem precisa com tubos colorimétricos em espaços confinados.",
-        "img": "../../images/products/produto-bomba-deteccao-gas.png",
+        "img": "images/products/produto-bomba-deteccao-gas.png",
         "meta": ["NR-33", "Amostragem Ativa", "Manual/Auto"],
         "specs": [
             ("Tipo", "Manual / Automática"),
@@ -48,7 +47,7 @@ products = [
         "title": "Detector de Gás Portátil",
         "tag": "Monitoramento Contínuo — NR-33",
         "desc": "Detector multigás robusto para monitoramento simultâneo de O2, CO, H2S e gases combustíveis (LEL).",
-        "img": "../../images/products/produto-detector-gas-portatil.png",
+        "img": "images/products/produto-detector-gas-portatil.png",
         "meta": ["IP68", "Alarmes 360°", "Até 4 Gases"],
         "specs": [
             ("Sensores", "Eletroquímicos"),
@@ -64,7 +63,7 @@ products = [
         "title": "Equipamentos de Fumigação",
         "tag": "Controle Fitossanitário",
         "desc": "Linha completa de aplicadores e dosadores para fumigação em silos, armazéns e contêineres.",
-        "img": "../images/products/produto-fumigacao.png",
+        "img": "images/products/produto-fumigacao.png",
         "meta": ["Norma MAPA", "Dosagem Precisa", "EPIs Inclusos"],
         "specs": [
             ("Uso", "Silos e Armazéns"),
@@ -80,7 +79,7 @@ products = [
         "title": "Proteção Respiratória",
         "tag": "Segurança Pulmonar — NR-6",
         "desc": "Máscaras semifaciais e faciais inteiras com sistemas de filtros intercambiáveis para máxima versatilidade.",
-        "img": "../images/products/produto-protecao-respiratoria.jpg",
+        "img": "images/products/produto-protecao-respiratoria.jpg",
         "meta": ["Silicone Soft", "Filtros P3", "NR-6"],
         "specs": [
             ("Tipo", "Facial / Semifacial"),
@@ -96,7 +95,7 @@ products = [
         "title": "Equipamentos para Altura",
         "tag": "Trabalho Seguro — NR-35",
         "desc": "Cinturões paraquedistas e dispositivos trava-quedas certificados para máxima segurança em planos elevados.",
-        "img": "../images/products/produto-equipamentos-altura.png",
+        "img": "images/products/produto-equipamentos-altura.png",
         "meta": ["NR-35", "NBR 15836", "Alta Resistência"],
         "specs": [
             ("Cinturão", "5 pontos de ajuste"),
@@ -112,7 +111,7 @@ products = [
         "title": "Botas e Calçados de Segurança",
         "tag": "Proteção para os Pés — NR-6",
         "desc": "Calçados profissionais com biqueira de proteção e solado antiderrapante para diversos ambientes de trabalho.",
-        "img": "../images/products/produto-botas-calzados.png",
+        "img": "images/products/produto-botas-calzados.png",
         "meta": ["Bidensidade", "Biqueira Composite", "NR-6"],
         "specs": [
             ("Material", "Couro Relax"),
@@ -128,7 +127,7 @@ products = [
         "title": "Protetor Auditivo",
         "tag": "Proteção contra Ruído — NR-15",
         "desc": "Protetores circum-auriculares (concha) e de inserção de alta atenuação para conforto prolongado.",
-        "img": "../images/products/produto-protetor-auditivo.png",
+        "img": "images/products/produto-protetor-auditivo.png",
         "meta": ["Alta Atenuação", "Hipoalergênico", "NR-15"],
         "specs": [
             ("Tipo", "Concha / Plug"),
@@ -144,7 +143,7 @@ products = [
         "title": "Óculos de Proteção",
         "tag": "Proteção Ocular — NR-6",
         "desc": "Lentes de policarbonato com tratamento anti-risco e anti-embaçante para clareza visual total.",
-        "img": "../images/products/produto-oculos-protecao.png",
+        "img": "images/products/produto-oculos-protecao.png",
         "meta": ["ANSI Z87.1", "Proteção UV", "Anti-embaçante"],
         "specs": [
             ("Lente", "Policarbonato"),
@@ -160,7 +159,7 @@ products = [
         "title": "Luvas de Proteção",
         "tag": "Proteção para as Mãos — NR-6",
         "desc": "Linha completa de luvas para riscos mecânicos, químicos e biológicos. Performance técnica por aplicação.",
-        "img": "../images/products/produto-luvas-protecao.png",
+        "img": "images/products/produto-luvas-protecao.png",
         "meta": ["EN 388", "Nitrílica/Látex", "Destreza"],
         "specs": [
             ("Aplicação", "Logística / Química"),
@@ -176,7 +175,7 @@ products = [
         "title": "Vestimentas Descartáveis",
         "tag": "Barreira de Proteção — Tyvek",
         "desc": "Macacões e aventais projetados para proteção contra partículas secas e sprays líquidos limitados.",
-        "img": "../images/products/produto-descartaveis.png",
+        "img": "images/products/produto-descartaveis.png",
         "meta": ["Tipo 5/6", "Anti-estático", "Respirável"],
         "specs": [
             ("Material", "Polietileno"),
@@ -213,7 +212,7 @@ def generate():
         html = template.replace("[[TITLE]]", p['title'])
         html = html.replace("[[TAG]]", p['tag'])
         html = html.replace("[[DESCRIPTION]]", p['desc'])
-        html = html.replace("[[IMAGE]]", p['img'])
+        html = html.replace("[[IMAGE]]", prefix + p['img'])
         html = html.replace("[[PREFIX]]", prefix)
         html = html.replace("[[META_BADGES]]", meta_html)
         html = html.replace("[[SPECS]]", specs_html)
