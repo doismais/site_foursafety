@@ -295,7 +295,7 @@
           min-height: calc(68px + env(safe-area-inset-top, 0px));
         }
         .nav-logo img {
-          height: 35px;
+          height: 39px;
         }
         .nav-menu {
           display: flex;
@@ -602,23 +602,90 @@
           object-position: 62% 30%;
         }
         .hero-content {
+          position: relative;
+          overflow: hidden;
           width: min(92vw, 560px);
           max-width: none;
           margin: -2.25rem auto 0;
           padding: 1.35rem 1rem 1rem;
           min-height: 330px;
-          border: 1px solid rgba(255, 255, 255, 0.08);
+          border: 1px solid rgba(214, 243, 255, 0.24);
           border-radius: 22px;
-          background: linear-gradient(
-            180deg,
-            rgba(24, 21, 18, 0.88) 0%,
-            rgba(20, 18, 16, 0.96) 100%
-          );
+          background:
+            linear-gradient(
+              180deg,
+              rgba(18, 20, 24, 0.34) 0%,
+              rgba(11, 13, 18, 0.46) 100%
+            ),
+            radial-gradient(
+              120% 92% at 8% 0%,
+              rgba(171, 234, 250, 0.16) 0%,
+              transparent 62%
+            ),
+            radial-gradient(
+              90% 80% at 110% 110%,
+              rgba(255, 118, 44, 0.08) 0%,
+              transparent 68%
+            );
           box-shadow:
-            0 24px 44px rgba(0, 0, 0, 0.28),
-            inset 0 1px 0 rgba(255, 255, 255, 0.04);
-          -webkit-backdrop-filter: blur(8px);
-          backdrop-filter: blur(8px);
+            0 20px 44px rgba(0, 0, 0, 0.26),
+            inset 0 1px 0 rgba(255, 255, 255, 0.14);
+          -webkit-backdrop-filter: saturate(210%) blur(18px) brightness(1.08);
+          backdrop-filter: saturate(210%) blur(18px) brightness(1.08);
+        }
+        .hero-content::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          border-radius: inherit;
+          padding: 1px;
+          background: linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.56) 0%,
+            rgba(181, 236, 255, 0.26) 38%,
+            rgba(130, 220, 245, 0.28) 66%,
+            rgba(255, 255, 255, 0.12) 100%
+          );
+          -webkit-mask:
+            linear-gradient(#000 0 0) content-box,
+            linear-gradient(#000 0 0);
+          -webkit-mask-composite: xor;
+          mask-composite: exclude;
+          opacity: 0.72;
+          pointer-events: none;
+          z-index: 0;
+        }
+        .hero-content::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          border-radius: inherit;
+          background:
+            linear-gradient(
+              114deg,
+              rgba(170, 240, 255, 0) 18%,
+              rgba(170, 240, 255, 0.16) 43%,
+              rgba(255, 255, 255, 0.03) 58%,
+              rgba(170, 240, 255, 0) 74%
+            ),
+            radial-gradient(
+              70% 50% at 18% -10%,
+              rgba(176, 244, 255, 0.24) 0%,
+              transparent 74%
+            ),
+            radial-gradient(
+              78% 62% at 112% 112%,
+              rgba(255, 132, 64, 0.14) 0%,
+              transparent 68%
+            );
+          mix-blend-mode: screen;
+          opacity: 0.74;
+          pointer-events: none;
+          z-index: 0;
+        }
+        .hero-content > * {
+          position: relative;
+          z-index: 1;
         }
         .hero-eyebrow {
           font-size: 0.62rem;
@@ -2226,12 +2293,12 @@
       <a href="index.html" class="nav-logo">
         <img
           class="nav-logo-default"
-          src="images/brand/Logo_4Safety-1.png"
+          src="images/brand/logo_refatorada.svg"
           alt="4Safety"
         />
         <img
           class="nav-logo-scrolled"
-          src="images/brand/Logo_4Safety-branco.png"
+          src="images/brand/logo_refatorada.svg"
           alt="4Safety"
           aria-hidden="true"
         />
