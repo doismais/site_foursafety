@@ -6,7 +6,7 @@
 
 :root {
   --nav-height: 80px;
-  --orange: #ff4e00;
+  --orange: #ff0000;
   --black: #161412;
   --ink: #141210;
   --g900: #252220;
@@ -171,8 +171,8 @@ nav.nav--scrolled .nav-logo-scrolled {
 }
 
 .btn-ghost:hover {
-  background: rgba(255, 78, 0, 0.04);
-  border-color: rgba(255, 78, 0, 0.24);
+  background: rgba(255, 0, 0, 0.04);
+  border-color: rgba(255, 0, 0, 0.24);
   transform: translateY(-1px);
 }
 
@@ -228,7 +228,7 @@ footer {
   position: relative;
   padding: 2rem 1.25rem 2.5rem;
   background:
-    radial-gradient(circle at top right, rgba(255, 78, 0, 0.12), transparent 40%),
+    radial-gradient(circle at top right, rgba(255, 0, 0, 0.12), transparent 40%),
     linear-gradient(180deg, #1a1714 0%, var(--ink) 100%);
   color: var(--white);
 }
@@ -284,14 +284,14 @@ footer {
   font-size: 0.62rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(255, 78, 0, 0.88);
+  color: rgba(255, 0, 0, 0.88);
 }
 
 .footer-micro::before {
   content: "";
   width: 18px;
   height: 1px;
-  background: rgba(255, 78, 0, 0.85);
+  background: rgba(255, 0, 0, 0.85);
 }
 
 .footer-card {
@@ -352,8 +352,8 @@ footer {
 }
 
 .footer-cta-card {
-  border-color: rgba(255, 78, 0, 0.16);
-  background: linear-gradient(180deg, rgba(255, 78, 0, 0.08) 0%, rgba(255, 78, 0, 0.02) 100%);
+  border-color: rgba(255, 0, 0, 0.16);
+  background: linear-gradient(180deg, rgba(255, 0, 0, 0.08) 0%, rgba(255, 0, 0, 0.02) 100%);
 }
 
 .footer-cta-headline {
@@ -498,7 +498,7 @@ footer {
   inset: 0;
   background: 
     radial-gradient(circle at 20% 30%, rgba(160, 220, 235, 0.12) 0%, transparent 45%),
-    radial-gradient(circle at 80% 70%, rgba(255, 78, 0, 0.05) 0%, transparent 45%);
+    radial-gradient(circle at 80% 70%, rgba(255, 0, 0, 0.05) 0%, transparent 45%);
   z-index: 0;
 }
 
@@ -655,14 +655,14 @@ footer {
   text-align: center;
   text-decoration: none;
   font-size: 1.1rem;
-  box-shadow: 0 16px 32px rgba(255, 78, 0, 0.25);
+  box-shadow: 0 16px 32px rgba(255, 0, 0, 0.25);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .btn-add-cart:hover {
   transform: scale(1.02) translateY(-4px);
-  box-shadow: 0 20px 40px rgba(255, 78, 0, 0.35);
+  box-shadow: 0 20px 40px rgba(255, 0, 0, 0.35);
   background: #ff5e00;
 }
 
@@ -797,8 +797,8 @@ footer {
 
 .related-card:hover {
   transform: translateY(-3px);
-  border-color: rgba(255, 78, 0, 0.22);
-  box-shadow: 0 16px 32px rgba(255, 78, 0, 0.08);
+  border-color: rgba(255, 0, 0, 0.22);
+  box-shadow: 0 16px 32px rgba(255, 0, 0, 0.08);
 }
 
 .related-card-media {

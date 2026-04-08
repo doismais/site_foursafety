@@ -51,13 +51,13 @@ document.addEventListener("DOMContentLoaded", () => {
       bottom: 6rem;
       width: 60px;
       height: 60px;
-      background: #ff4e00;
+      background: #ff0000;
       color: white;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 12px 30px rgba(255, 78, 0, 0.4);
+      box-shadow: 0 12px 30px rgba(255, 0, 0, 0.4);
       z-index: 999;
       cursor: pointer;
       transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .cart-item-details { flex: 1; display: flex; justify-content: space-between; align-items: center; }
     .cart-item-name { font-weight: 700; font-size: 0.85rem; padding-right: 10px; }
     .cart-item-remove { 
-      color: #ff4e00; 
+      color: #ff0000; 
       font-size: 0.7rem; 
       cursor: pointer; 
       font-weight: 700;
