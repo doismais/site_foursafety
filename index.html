@@ -677,6 +677,9 @@
           -webkit-mask:
             linear-gradient(#000 0 0) content-box,
             linear-gradient(#000 0 0);
+          mask:
+            linear-gradient(#000 0 0) content-box,
+            linear-gradient(#000 0 0);
           -webkit-mask-composite: xor;
           mask-composite: exclude;
           opacity: 0.72;
@@ -778,11 +781,11 @@
         background: linear-gradient(
           180deg,
           var(--institutional) 0%,
-          var(--institutional-deep) 100%
+          #cdc5ba 100%
         );
         border-top: 1px solid rgba(40, 36, 32, 0.1);
         border-bottom: 1px solid rgba(40, 36, 32, 0.12);
-        padding: 1.35rem 1.25rem;
+        padding: 2.5rem 1.25rem;
         overflow: hidden;
       }
       .trust-label {
@@ -792,13 +795,15 @@
         letter-spacing: 0.12em;
         text-transform: uppercase;
         text-align: center;
-        margin-bottom: 1rem;
+        margin-bottom: 2rem;
       }
       .trust-track {
         display: flex;
-        gap: 2.5rem;
+        gap: 4rem;
         align-items: center;
-        animation: marquee 40s linear infinite;
+        gap: 6rem;
+        align-items: center;
+        animation: marquee 60s linear infinite;
         white-space: nowrap;
         width: max-content;
         will-change: transform;
@@ -810,29 +815,34 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        height: 44px;
-        font-family: var(--font-display);
-        font-size: 0.8rem;
-        font-weight: 700;
-        color: rgba(35, 32, 28, 0.55);
-        letter-spacing: 0.05em;
-        transition: opacity 0.3s, filter 0.3s;
+        height: 80px;
+        flex: 0 0 auto;
+        min-width: 180px;
+        transition: opacity 0.3s;
         cursor: default;
       }
       .trust-item img {
-        height: 100%;
+        height: auto;
         width: auto;
-        max-height: 44px;
+        max-height: 52px;
+        max-width: 100%;
         object-fit: contain;
-        filter: brightness(0);
-        opacity: 0.55;
-        transition: opacity 0.3s;
+        filter: brightness(0) opacity(0.35);
+        transition: filter 0.3s ease, transform 0.3s ease;
+      }
+      .trust-item img[alt*="MSA"],
+      .trust-item img[alt*="Thermo"],
+      .trust-item img[alt*="Instantel"] {
+        max-height: 44px;
+        filter: brightness(0) opacity(0.45);
+      }
+      .trust-item img[alt*="ION"],
+      .trust-item img[alt*="GfG"] {
+        max-height: 58px;
       }
       .trust-item:hover img {
-        opacity: 0.9;
-      }
-      .trust-item:hover {
-        color: rgba(35, 32, 28, 0.9);
+        filter: brightness(0) opacity(1);
+        transform: scale(1.08);
       }
       .trust-marquee-wrap {
         overflow: hidden;
@@ -1515,6 +1525,15 @@
         margin-bottom: 1.45rem;
         max-width: 40ch;
       }
+      .parceiros-content .btn-primary {
+        width: fit-content;
+        padding: 0.6rem 1.4rem;
+        border-radius: 99px;
+        font-size: 0.82rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
       @media (max-width: 767px) {
         .parceiros {
           padding: 1.1rem var(--container-px) 3.4rem;
@@ -1552,8 +1571,7 @@
           margin-bottom: 1.2rem;
         }
         .parceiros-content .btn-primary {
-          width: 100%;
-          justify-content: center;
+          margin: 0 auto;
         }
       }
 
@@ -1929,10 +1947,15 @@
         );
         box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
       }
-      .footer-logo img {
-        height: 28px;
+      .footer-logo {
         display: block;
-        margin-bottom: 0.85rem;
+        margin-bottom: 2rem;
+      }
+      .footer-logo img {
+        width: 100%;
+        max-width: 440px;
+        height: auto;
+        display: block;
       }
       .footer-tagline {
         font-size: 0.98rem;
@@ -2829,7 +2852,7 @@
           <div class="footer-side footer-side--info">
             <div class="footer-brand reveal">
               <a href="#" class="footer-logo"
-                ><img src="images/brand/Logo_4Safety-bco_lja.png" alt="4Safety"
+                ><img src="images/brand/Logo_4Safety-branco.png" alt="4Safety"
               /></a>
               <p class="footer-tagline">
                 Segurança do trabalho com especificação técnica para ambientes
@@ -2871,29 +2894,6 @@
                       >4safety@4safety.com.br</a
                     >
                   </div>
-                </div>
-              </div>
-            </div>
-            <div class="footer-card footer-trust reveal">
-              <p class="footer-card-label">Compromisso técnico</p>
-              <div class="footer-trust-grid">
-                <div class="footer-trust-item">
-                  <span class="footer-trust-value">25+</span>
-                  <span class="footer-trust-text"
-                    >Marcas globais representadas</span
-                  >
-                </div>
-                <div class="footer-trust-item">
-                  <span class="footer-trust-value">100%</span>
-                  <span class="footer-trust-text"
-                    >Original, com ficha técnica e CA</span
-                  >
-                </div>
-                <div class="footer-trust-item">
-                  <span class="footer-trust-value">24h</span>
-                  <span class="footer-trust-text"
-                    >Orçamento técnico por especialista</span
-                  >
                 </div>
               </div>
             </div>
