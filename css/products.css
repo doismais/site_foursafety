@@ -69,7 +69,7 @@ body.no-scroll {
 }
 
 .nav-logo img {
-  height: 31px;
+  height: 37px;
   transition:
     opacity 0.28s ease,
     transform 0.28s ease,
@@ -446,7 +446,7 @@ footer {
 
 @media (min-width: 768px) {
   .nav-logo img {
-    height: 35px;
+    height: 42px;
   }
 
   .nav-menu {

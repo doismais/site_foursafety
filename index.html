@@ -121,23 +121,27 @@
       nav.nav--scrolled {
         background: linear-gradient(
           180deg,
-          rgba(255, 255, 255, 0.58) 0%,
-          var(--nav-aqua-tint) 55%,
-          rgba(160, 220, 235, 0.35) 100%
+          rgba(20, 18, 16, 0.82) 0%,
+          rgba(30, 28, 26, 0.78) 100%
         );
         -webkit-backdrop-filter: saturate(175%) blur(22px);
         backdrop-filter: saturate(175%) blur(22px);
         border-bottom: 1px solid rgba(255, 0, 0, 0.28);
         box-shadow:
-          inset 0 1px 0 rgba(255, 255, 255, 0.65),
-          inset 0 -1px 0 var(--nav-aqua-edge),
-          0 6px 28px rgba(30, 80, 95, 0.1);
+          inset 0 1px 0 rgba(255, 255, 255, 0.08),
+          0 6px 28px rgba(0, 0, 0, 0.18);
+      }
+      nav.nav--scrolled .nav-links a {
+        color: rgba(255, 255, 255, 0.85);
+      }
+      nav.nav--scrolled .nav-links a:hover {
+        color: var(--orange);
       }
       @supports not (
         (-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))
       ) {
         nav.nav--scrolled {
-          background: linear-gradient(180deg, #f0fbff 0%, #d8f0f6 100%);
+          background: linear-gradient(180deg, #1a1816 0%, #222020 100%);
         }
       }
       .nav-logo {
@@ -146,7 +150,7 @@
         width: fit-content;
       }
       .nav-logo img {
-        height: 31px;
+        height: 37px;
         display: block;
         transition:
           opacity 0.28s ease,
@@ -295,7 +299,7 @@
           min-height: calc(68px + env(safe-area-inset-top, 0px));
         }
         .nav-logo img {
-          height: 39px;
+          height: 47px;
         }
         .nav-menu {
           display: flex;
@@ -515,46 +519,70 @@
         border-color: rgba(255, 255, 255, 0.4);
         transform: translateY(-1px);
       }
-      .hero-scroll {
+      /* Hero arrows */
+      .hero-arrows {
         position: absolute;
-        bottom: 2rem;
-        left: 1.25rem;
+        bottom: 2.5rem;
+        right: var(--container-px, 1.25rem);
+        display: flex;
+        gap: 0.5rem;
+        z-index: 5;
+      }
+      .hero-arrow {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        background: rgba(255, 255, 255, 0.08);
+        color: rgba(255, 255, 255, 0.7);
         display: flex;
         align-items: center;
-        gap: 0.5rem;
-        font-family: var(--font-mono);
-        font-size: 0.65rem;
-        color: rgba(255, 255, 255, 0.25);
-        letter-spacing: 0.1em;
-        opacity: 0;
+        justify-content: center;
+        cursor: pointer;
+        transition: background 0.2s, border-color 0.2s, color 0.2s;
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
       }
-      .scroll-line {
-        width: 30px;
-        height: 1px;
-        background: rgba(255, 255, 255, 0.2);
-        position: relative;
-        overflow: hidden;
+      .hero-arrow:hover {
+        background: rgba(255, 255, 255, 0.15);
+        border-color: rgba(255, 255, 255, 0.45);
+        color: #fff;
       }
-      .scroll-line::after {
-        content: "";
+      /* Scroll-down indicator */
+      .hero-scroll-down {
         position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: var(--orange);
-        animation: scrollLine 2s ease-in-out infinite 1.5s;
+        bottom: 1.8rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 46px;
+        height: 46px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgba(255, 255, 255, 0.85);
+        z-index: 5;
+        animation: bounceDown 2s ease-in-out infinite;
+      }
+      .scroll-ring {
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        border: 2px solid rgba(255, 255, 255, 0.35);
+        animation: pulseRing 2s ease-in-out infinite;
+      }
+      @keyframes bounceDown {
+        0%, 100% { transform: translateX(-50%) translateY(0); }
+        50% { transform: translateX(-50%) translateY(8px); }
+      }
+      @keyframes pulseRing {
+        0% { transform: scale(1); opacity: 1; box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.4); }
+        70% { transform: scale(1.35); opacity: 0; box-shadow: 0 0 20px 6px rgba(255, 0, 0, 0.15); }
+        100% { transform: scale(1); opacity: 0; }
       }
       @keyframes scrollLine {
-        0% {
-          left: -100%;
-        }
-        50% {
-          left: 0;
-        }
-        100% {
-          left: 100%;
-        }
+        0% { left: -100%; }
+        50% { left: 0; }
+        100% { left: 100%; }
       }
       @media (max-width: 767px) {
         .hero {
@@ -715,8 +743,16 @@
           width: 100%;
           justify-content: center;
         }
-        .hero-scroll {
+        .hero-scroll-down {
           display: none;
+        }
+        .hero-arrows {
+          bottom: 1.5rem;
+          right: 1rem;
+        }
+        .hero-arrow {
+          width: 36px;
+          height: 36px;
         }
       }
       @media (min-width: 768px) {
@@ -731,8 +767,9 @@
           font-size: clamp(1rem, 1.2vw, 1.18rem);
           max-width: 42ch;
         }
-        .hero-scroll {
-          left: 2.5rem;
+        .hero-arrows {
+          bottom: 2.5rem;
+          right: 2.5rem;
         }
       }
 
@@ -1140,8 +1177,7 @@
       .produtos {
         background: linear-gradient(180deg, #fbf8f3 0%, #f3eee7 100%);
         color: #1c1916;
-        padding-left: var(--container-px);
-        padding-right: var(--container-px);
+        padding: 5rem var(--container-px);
       }
       .produtos .section-headline {
         color: #1c1916;
@@ -1150,108 +1186,111 @@
         color: #5f584f;
       }
       .produtos-header {
-        margin-bottom: 2rem;
-      }
-      .produtos-filter {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.7rem;
-        margin-bottom: 2.25rem;
-        align-items: center;
-      }
-      .filter-label {
-        font-family: var(--font-mono);
-        font-size: 0.6rem;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        color: #5f584f;
-        margin-right: 0.5rem;
-      }
-      .filter-select {
-        display: none;
-        width: min(100%, 320px);
-        padding: 0.8rem 1rem;
-        border-radius: 14px;
-        border: 1px solid rgba(28, 25, 22, 0.18);
-        background: rgba(255, 255, 255, 0.92);
-        font-family: var(--font-mono);
-        font-size: 0.7rem;
-        letter-spacing: 0.08em;
-        color: #3d3832;
-        appearance: none;
-        background-image:
-          linear-gradient(45deg, transparent 50%, #3d3832 50%),
-          linear-gradient(135deg, #3d3832 50%, transparent 50%);
-        background-position:
-          calc(100% - 18px) calc(50% - 4px),
-          calc(100% - 12px) calc(50% - 4px);
-        background-size:
-          6px 6px,
-          6px 6px;
-        background-repeat: no-repeat;
-        padding-right: 2.2rem;
-      }
-      .filter-btn {
-        font-family: var(--font-mono);
-        font-size: 0.68rem;
-        letter-spacing: 0.08em;
-        padding: 0.72rem 1rem;
-        border-radius: 999px;
-        border: 1px solid rgba(28, 25, 22, 0.14);
-        background: rgba(255, 255, 255, 0.78);
-        color: #3d3832;
-        cursor: pointer;
-        transition:
-          transform 0.2s,
-          border-color 0.2s,
-          background 0.2s,
-          color 0.2s;
-      }
-      .filter-btn:hover {
-        border-color: rgba(255, 0, 0, 0.35);
-        color: #1c1916;
-        transform: translateY(-1px);
-      }
-      .filter-btn.active {
-        background: var(--orange);
-        border-color: var(--orange);
-        color: var(--white);
-      }
-      @media (max-width: 720px) {
-        .produtos-filter {
-          flex-direction: column;
-          align-items: flex-start;
-        }
-        .filter-btn {
-          display: none;
-        }
-        .filter-select {
-          display: block;
-        }
+        margin-bottom: 2.5rem;
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
       }
       .produtos-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 1rem;
+        display: flex;
+        gap: 0.75rem;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 1rem;
       }
-      @media (min-width: 760px) {
+      .produtos-grid::-webkit-scrollbar { display: none; }
+      .produtos-grid .produto-card {
+        min-width: 280px;
+        flex: 0 0 85%;
+        scroll-snap-align: start;
+      }
+      @media (min-width: 1024px) {
         .produtos-grid {
-          grid-template-columns: 1fr 1fr;
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 2.5rem;
+          overflow: visible;
+          max-width: 1080px;
+          margin: 0 auto;
+          padding: 0 2rem;
+        }
+        .produtos-grid .produto-card {
+          min-width: unset;
+          flex: unset;
         }
       }
-      @media (min-width: 1180px) {
-        .produtos-grid {
-          grid-template-columns: 1fr 1fr 1fr;
-        }
+      .produtos-cta-wrap {
+        text-align: center;
+        margin-top: 3.5rem;
+      }
+      .btn-produtos-all {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        font-size: 1rem;
+        font-weight: 700;
+        padding: 1.1rem 3rem;
+        border: 1.5px solid #a10000;
+        background-color: #a10000;
+        background-image: linear-gradient(90deg, var(--white), var(--white));
+        background-repeat: no-repeat;
+        background-size: 0% 100%;
+        background-position: left center;
+        color: var(--white);
+        border-radius: 12px;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 
+          0 10px 25px rgba(161, 0, 0, 0.22),
+          0 0 12px rgba(255, 0, 0, 0.35);
+        transition:
+          background-size 0.4s cubic-bezier(0.3, 1, 0.3, 1),
+          color 0.3s ease,
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+      .btn-produtos-all::after {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(
+          45deg,
+          transparent 0%,
+          rgba(255, 255, 255, 0.08) 45%,
+          rgba(255, 255, 255, 0.18) 50%,
+          rgba(255, 255, 255, 0.08) 55%,
+          transparent 100%
+        );
+        transform: rotate(-45deg);
+        pointer-events: none;
+        z-index: 3;
+        transition: transform 0.6s ease-in-out;
+      }
+      .btn-produtos-all:hover::after {
+        transform: rotate(-45deg) translate(15%, 15%);
+      }
+      .btn-produtos-all:hover,
+      .btn-produtos-all:focus-visible {
+        color: #a10000;
+        background-size: 100% 100%;
+        transform: translateY(-2px);
+        box-shadow: 
+          0 14px 30px rgba(161, 0, 0, 0.3),
+          0 0 20px rgba(255, 0, 0, 0.6);
       }
       .produto-card {
         background: rgba(255, 255, 255, 0.92);
-        padding: 1rem;
+        padding: 0.85rem;
         position: relative;
         display: flex;
         flex-direction: column;
         border: 1px solid rgba(28, 25, 22, 0.08);
-        border-radius: 20px;
+        border-radius: 18px;
         box-shadow:
           0 16px 34px rgba(48, 38, 24, 0.08),
           inset 0 1px 0 rgba(255, 255, 255, 0.7);
@@ -2117,19 +2156,26 @@
         width: 52px;
         height: 52px;
         border-radius: 50%;
-        background: var(--orange);
+        background: #25D366;
         display: flex;
         align-items: center;
         justify-content: center;
         text-decoration: none;
-        box-shadow: 0 4px 20px rgba(255, 0, 0, 0.4);
+        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+        opacity: 0;
+        pointer-events: none;
         transition:
+          opacity 0.4s ease,
           transform 0.2s,
           box-shadow 0.2s;
       }
+      .wa-float.visible {
+        opacity: 1;
+        pointer-events: auto;
+      }
       .wa-float:hover {
         transform: scale(1.08);
-        box-shadow: 0 6px 28px rgba(255, 0, 0, 0.55);
+        box-shadow: 0 6px 28px rgba(37, 211, 102, 0.55);
       }
       .wa-float svg {
         width: 26px;
@@ -2194,8 +2240,6 @@
       }
       .cta-atuacao-icon-shell {
         width: min(72%, 320px);
-        aspect-ratio: 376 / 462;
-        overflow: hidden;
         background: transparent;
         display: flex;
         justify-content: center;
@@ -2203,10 +2247,7 @@
       }
       .cta-atuacao-icon-shell img {
         width: 100%;
-        height: 100%;
         display: block;
-        object-fit: cover;
-        object-position: top center;
         filter: drop-shadow(0 20px 40px rgba(255, 0, 0, 0.18));
       }
       .cta-atuacao-body {
@@ -2298,7 +2339,7 @@
         />
         <img
           class="nav-logo-scrolled"
-          src="images/brand/logo_refatorada.svg"
+          src="images/brand/Logo_4Safety-bco_lja.webp"
           alt="4Safety"
           aria-hidden="true"
         />
@@ -2316,11 +2357,11 @@
       <div class="nav-menu" id="nav-menu">
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
+          <li><a href="quem-somos/index.html">Quem somos</a></li>
           <li><a href="#solucoes">Soluções</a></li>
-          <li><a href="#produtos">Produtos</a></li>
+          <li><a href="produtos/index.html">Produtos</a></li>
           <li><a href="#parceiros">Parceiros</a></li>
           <li><a href="consulta-de-ca/index.html">Consulta CA</a></li>
-          <li><a href="quem-somos/index.html">Quem somos</a></li>
           <li><a href="#contato">Contato</a></li>
         </ul>
         <a
@@ -2366,7 +2407,18 @@
           <a href="#produtos" class="btn-primary">Ver produtos</a>
         </div>
       </div>
-      <div class="hero-scroll"><span class="scroll-line"></span>SCROLL</div>
+      <div class="hero-arrows">
+        <button class="hero-arrow hero-arrow--prev" aria-label="Banner anterior">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="hero-arrow hero-arrow--next" aria-label="Próximo banner">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+        </button>
+      </div>
+      <div class="hero-scroll-down" aria-label="Role para baixo">
+        <div class="scroll-ring"></div>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
     </section>
 
     <!-- CTA ATUAÇÃO -->
@@ -2451,30 +2503,8 @@
           Encontre o equipamento certo para cada risco
         </h2>
         <p class="section-sub">
-          Filtre por aplicação, veja o produto e peça orçamento direto. Todos os
-          itens com suporte técnico e linhas certificadas.
+          Produtos certificados com suporte técnico especializado para ambientes industriais.
         </p>
-      </div>
-      <div class="produtos-filter reveal">
-        <label class="filter-label" for="produtos-filter-select"
-          >Filtrar por aplicação</label
-        >
-        <select class="filter-select" id="produtos-filter-select">
-          <option value="all">Todos</option>
-          <option value="gas">Detecção de Gás</option>
-          <option value="respiratorio">Respiratório</option>
-          <option value="altura">Altura</option>
-          <option value="auditivo">Auditivo</option>
-          <option value="outros">Outros EPIs</option>
-        </select>
-        <button class="filter-btn active" data-filter="all">Todos</button>
-        <button class="filter-btn" data-filter="gas">Detecção de Gás</button>
-        <button class="filter-btn" data-filter="respiratorio">
-          Respiratório
-        </button>
-        <button class="filter-btn" data-filter="altura">Altura</button>
-        <button class="filter-btn" data-filter="auditivo">Auditivo</button>
-        <button class="filter-btn" data-filter="outros">Outros EPIs</button>
       </div>
       <div class="produtos-grid">
         <div class="produto-card reveal" data-cat="gas">
@@ -2498,8 +2528,7 @@
             </p>
           </a>
           <button
-            class="produto-cta"
-            style="border: none; cursor: pointer; display: block; width: 100%; border-radius: 99px;"
+            class="produto-cta produto-cta-btn"
             data-cart-add 
             data-product-name="Tubo Colorimétrico Uniphos"
             data-product-img="images/products/produto-tubo-colorimetrico-uniphos.jpg"
@@ -2566,78 +2595,9 @@
             Adicionar ao Orçamento
           </button>
         </div>
-        <div class="produto-card reveal" data-cat="outros">
-          <span class="badge-ca badge-ca-fixed">CA INMETRO</span>
-          <a href="produtos/calcados/index.html" class="produto-card-link">
-            <img class="produto-img" src="images/products/produto-botas-calzados.png" alt="Botas e Calçados" />
-            <div class="produto-badges"><span class="badge-norma">NR-6</span></div>
-            <h3 class="produto-headline">Botas e Calçados</h3>
-            <p class="produto-body">Calçados de segurança com bico de aço, antiderrapante e resistência química.</p>
-          </a>
-          <button class="produto-cta produto-cta-btn" data-cart-add data-product-name="Botas e Calçados" data-product-img="images/products/produto-botas-calzados.png" data-product-slug="calcados">
-            Adicionar ao Orçamento
-          </button>
-        </div>
-        <div class="produto-card reveal" data-cat="auditivo">
-          <span class="badge-ca badge-ca-fixed">CA INMETRO</span>
-          <a href="produtos/auditivo/index.html" class="produto-card-link">
-            <img class="produto-img" src="images/products/produto-protetor-auditivo.png" alt="Protetor Auditivo" />
-            <div class="produto-badges"><span class="badge-norma">NR-15 / NR-6</span></div>
-            <h3 class="produto-headline">Protetor Auditivo</h3>
-            <p class="produto-body">Protetores tipo concha e plug com NRRsf certificado para ambientes industriais.</p>
-          </a>
-          <button class="produto-cta produto-cta-btn" data-cart-add data-product-name="Protetor Auditivo" data-product-img="images/products/produto-protetor-auditivo.png" data-product-slug="auditivo">
-            Adicionar ao Orçamento
-          </button>
-        </div>
-        <div class="produto-card reveal" data-cat="outros">
-          <span class="badge-ca badge-ca-fixed">CA INMETRO</span>
-          <a href="produtos/visual/index.html" class="produto-card-link">
-            <img class="produto-img" src="images/products/produto-oculos-protecao.png" alt="Óculos de Proteção" />
-            <div class="produto-badges"><span class="badge-norma">NR-6</span></div>
-            <h3 class="produto-headline">Óculos de Proteção</h3>
-            <p class="produto-body">Proteção ocular contra impacto, radiação UV e respingos químicos.</p>
-          </a>
-          <button class="produto-cta produto-cta-btn" data-cart-add data-product-name="Óculos de Proteção" data-product-img="images/products/produto-oculos-protecao.png" data-product-slug="visual">
-            Adicionar ao Orçamento
-          </button>
-        </div>
-        <div class="produto-card reveal" data-cat="outros">
-          <span class="badge-ca badge-ca-fixed">CA INMETRO</span>
-          <a href="produtos/manual/index.html" class="produto-card-link">
-            <img class="produto-img" src="images/products/produto-luvas-protecao.png" alt="Luvas de Proteção" />
-            <div class="produto-badges"><span class="badge-norma">NR-6</span></div>
-            <h3 class="produto-headline">Luvas de Proteção</h3>
-            <p class="produto-body">Proteção para riscos mecânicos, químicos, térmicos e elétricos.</p>
-          </a>
-          <button class="produto-cta produto-cta-btn" data-cart-add data-product-name="Luvas de Proteção" data-product-img="images/products/produto-luvas-protecao.png" data-product-slug="manual">
-            Adicionar ao Orçamento
-          </button>
-        </div>
-        <div class="produto-card reveal" data-cat="outros">
-          <span class="badge-ca badge-ca-fixed">CA INMETRO</span>
-          <a href="produtos/descartaveis/index.html" class="produto-card-link">
-            <img class="produto-img" src="images/products/produto-descartaveis.png" alt="Descartáveis" />
-            <div class="produto-badges"><span class="badge-norma">NR-6</span></div>
-            <h3 class="produto-headline">Descartáveis</h3>
-            <p class="produto-body">Macacões Tyvek, toucas, protetores de calçado e kits para contaminantes.</p>
-          </a>
-          <button class="produto-cta produto-cta-btn" data-cart-add data-product-name="Descartáveis" data-product-img="images/products/produto-descartaveis.png" data-product-slug="descartaveis">
-            Adicionar ao Orçamento
-          </button>
-        </div>
-        <div class="produto-card reveal" data-cat="outros">
-          <span class="badge-ca badge-ca-fixed">CA INMETRO</span>
-          <a href="produtos/termica/index.html" class="produto-card-link">
-            <img class="produto-img" src="images/products/produto-protecao-termica.png" alt="Proteção Térmica" />
-            <div class="produto-badges"><span class="badge-norma">NR-6 / NR-15</span></div>
-            <h3 class="produto-headline">Proteção Térmica</h3>
-            <p class="produto-body">Luvas, aventais e roupas aluminizadas para exposição a calor intenso.</p>
-          </a>
-          <button class="produto-cta produto-cta-btn" data-cart-add data-product-name="Proteção Térmica" data-product-img="images/products/produto-protecao-termica.png" data-product-slug="termica">
-            Adicionar ao Orçamento
-          </button>
-        </div>
+      </div>
+      <div class="produtos-cta-wrap reveal">
+        <a href="produtos/index.html" class="btn-primary btn-produtos-all">Ver todos os produtos</a>
       </div>
     </section>
 
@@ -3064,14 +3024,15 @@
         { el: document.querySelector(".hero-h1"), delay: 420 },
         { el: document.querySelector(".hero-sub"), delay: 640 },
         { el: document.querySelector(".hero-actions"), delay: 860 },
-        { el: document.querySelector(".hero-scroll"), delay: 1100 },
+        { el: document.querySelector(".hero-scroll-down"), delay: 1100 },
       ];
       heroEls.forEach(({ el, delay }) => {
         if (!el) return;
+        const isScrollDown = el.classList.contains("hero-scroll-down");
         el.animate(
           [
-            { opacity: 0, transform: "translateY(28px)" },
-            { opacity: 1, transform: "translateY(0)" },
+            { opacity: 0, transform: isScrollDown ? "translateX(-50%) translateY(28px)" : "translateY(28px)" },
+            { opacity: 1, transform: isScrollDown ? "translateX(-50%) translateY(0)" : "translateY(0)" },
           ],
           {
             duration: 720,
@@ -3215,8 +3176,18 @@
         });
       }
 
-      window.addEventListener("scroll", updateNavGlass, { passive: true });
+      // ── WA FLOAT: oculta na hero, aparece após scroll ──────────────────
+      const waFloat = document.querySelector(".wa-float");
+      const heroSection = document.querySelector(".hero");
+      function updateWaFloat() {
+        if (!waFloat || !heroSection) return;
+        const heroBottom = heroSection.getBoundingClientRect().bottom;
+        waFloat.classList.toggle("visible", heroBottom <= 0);
+      }
+
+      window.addEventListener("scroll", () => { updateNavGlass(); updateWaFloat(); }, { passive: true });
       updateNavGlass();
+      updateWaFloat();
 
       // ── BACK TO TOP ──────────────────────────────────────────────────────
       const backToTop = document.querySelector(".back-to-top");
@@ -3232,9 +3203,9 @@
         .querySelector(".wa-float")
         .animate(
           [
-            { boxShadow: "0 4px 20px rgba(255, 0, 0, .38)" },
-            { boxShadow: "0 4px 32px rgba(255, 0, 0, .68)" },
-            { boxShadow: "0 4px 20px rgba(255, 0, 0, .38)" },
+            { boxShadow: "0 4px 20px rgba(37, 211, 102, .38)" },
+            { boxShadow: "0 4px 32px rgba(37, 211, 102, .68)" },
+            { boxShadow: "0 4px 20px rgba(37, 211, 102, .38)" },
           ],
           {
             duration: 2400,
@@ -3316,19 +3287,39 @@
           });
         }
 
-        function nextImage() {
+        function goTo(index) {
+          if (index === currentIndex) return;
           images[currentIndex].classList.remove("active");
-          currentIndex = (currentIndex + 1) % images.length;
+          currentIndex = index;
           const next = images[currentIndex];
           next.classList.add("active");
           transitionText(next);
+          resetAutoplay();
         }
+
+        function nextImage() {
+          goTo((currentIndex + 1) % images.length);
+        }
+
+        function prevImage() {
+          goTo((currentIndex - 1 + images.length) % images.length);
+        }
+
+        let autoplayTimer = setInterval(nextImage, 12000);
+        function resetAutoplay() {
+          clearInterval(autoplayTimer);
+          autoplayTimer = setInterval(nextImage, 12000);
+        }
+
+        const prevBtn = document.querySelector(".hero-arrow--prev");
+        const nextBtn = document.querySelector(".hero-arrow--next");
+        if (prevBtn) prevBtn.addEventListener("click", prevImage);
+        if (nextBtn) nextBtn.addEventListener("click", nextImage);
 
         titleEl.textContent = images[currentIndex].dataset.title || titleEl.textContent;
         subEl.textContent = images[currentIndex].dataset.sub || subEl.textContent;
 
         if (images.length < 2) return;
-        setInterval(nextImage, 12000); // Muda a cada 12 segundos
       }
 
       // Initialize all logic

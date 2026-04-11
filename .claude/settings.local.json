@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm install:*)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(curl -s http://127.0.0.1:8080/)"
+    ]
+  },
+  "enabledMcpjsonServers": [
+    "etherscan"
+  ],
+  "enableAllProjectMcpServers": true
+}
