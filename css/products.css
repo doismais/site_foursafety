@@ -310,7 +310,7 @@ footer {
 .footer-card-label {
   font-family: var(--font-mono);
   font-size: 0.62rem;
-  color: rgba(255, 255, 255, 0.36);
+  color: rgba(255, 255, 255, 0.82);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   margin-bottom: 0.95rem;
@@ -325,7 +325,7 @@ footer {
 .footer-links a,
 .footer-contact a {
   font-size: 0.92rem;
-  color: rgba(235, 230, 223, 0.78);
+  color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
   transition:
     color 0.2s ease,
@@ -354,7 +354,7 @@ footer {
   font-size: 0.58rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.82);
 }
 
 .footer-cta-card {
@@ -392,7 +392,7 @@ footer {
 
 .footer-legal {
   font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.28);
+  color: rgba(255, 255, 255, 0.72);
   font-family: var(--font-mono);
   line-height: 1.65;
 }
@@ -403,7 +403,7 @@ footer {
 }
 
 .footer-brand-name {
-  color: rgba(255, 255, 255, 0.72);
+  color: rgba(255, 255, 255, 0.9);
   font-family: var(--font-display);
   font-weight: 800;
 }

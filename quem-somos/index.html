@@ -490,7 +490,7 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        object-position: center 28%;
+        object-position: center center;
       }
       .hero-content {
         position: relative;
@@ -516,6 +516,9 @@
         background: var(--orange);
       }
       .hero-eyebrow {
+        display: flex;
+        width: fit-content;
+        margin-inline: auto;
         margin-bottom: 1.15rem;
       }
       .hero-h1 {
@@ -525,6 +528,8 @@
         line-height: 1.02;
         letter-spacing: -0.03em;
         max-width: 10ch;
+        text-align: center;
+        margin-inline: auto;
         margin-bottom: 1.1rem;
       }
       .hero-sub {
@@ -1248,13 +1253,13 @@
       <div class="hero-brand-lines" aria-hidden="true"></div>
       <div class="hero-visual">
         <img
-          src="../images/hero/hero-ambient-critico.jpg"
+          src="../images/hero_quem_somos.webp"
           alt="Equipe técnica em ambiente industrial"
         />
       </div>
       <div class="hero-content">
-        <p class="hero-eyebrow">Nossa empresa</p>
-        <h1 class="hero-h1">Especialistas em risco. Não em catálogo.</h1>
+        <p class="hero-eyebrow">Somos especialista em manter a sua operação segura.</p>
+        <h1 class="hero-h1">Em ambientes onde o risco existe, a segurança não pode falhar.</h1>
         <p class="hero-sub">
           A 4Safety nasceu para resolver um problema específico: a distância
           entre o produto disponível no mercado e o produto tecnicamente correto

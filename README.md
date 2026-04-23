@@ -45,6 +45,29 @@ make check
 make audit
 ```
 
+## Links do projeto
+
+### Produção (Vercel)
+
+- Home: `https://4safety.vercel.app/`
+- Quem somos: `https://4safety.vercel.app/quem-somos/`
+- Produtos: `https://4safety.vercel.app/produtos/`
+- Consulta de CA: `https://4safety.vercel.app/consulta-de-ca/`
+- Hub de links: `https://4safety.vercel.app/links/`
+
+### Âncoras de navegação (home)
+
+- Soluções: `https://4safety.vercel.app/#solucoes`
+- Parceiros: `https://4safety.vercel.app/#parceiros`
+- Contato: `https://4safety.vercel.app/#contato`
+- Produtos: `https://4safety.vercel.app/#produtos`
+
+### Links externos operacionais usados no site
+
+- WhatsApp comercial: `https://wa.me/5548999148413`
+- Consulta oficial de CA (MTE): `https://caepi.mte.gov.br/internet/ConsultaCAInternet.aspx`
+- Agência parceira (rodapé): `https://doismais.com.br/`
+
 ## Observações
 
 - O catálogo interno é automatizado, mas a vitrine de produtos exibida na home continua sendo mantida manualmente.
