@@ -410,15 +410,9 @@
         position: relative;
         overflow: hidden;
         min-height: 88svh;
-        padding: 7.5rem 1.25rem 3.5rem;
-        display: flex;
-        align-items: flex-end;
-        background: linear-gradient(
-          160deg,
-          #1a1714 0%,
-          var(--ink) 46%,
-          #0f0d0b 100%
-        );
+        padding: calc(68px + env(safe-area-inset-top, 0px)) 0 0;
+        display: block;
+        background: none;
       }
       .hero-bg {
         position: absolute;
@@ -468,23 +462,15 @@
         filter: drop-shadow(0 26px 48px rgba(255, 0, 0, 0.16));
       }
       .hero-visual {
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 50%;
-        height: 100%;
-        clip-path: polygon(18% 0, 100% 0, 100% 100%, 0 100%);
+        position: relative;
+        width: 100%;
+        height: min(88svh, 760px);
+        min-height: 420px;
+        clip-path: none;
         overflow: hidden;
       }
       .hero-visual::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-          270deg,
-          rgba(20, 18, 16, 0.1) 0%,
-          rgba(20, 18, 16, 0.42) 100%
-        );
+        display: none;
       }
       .hero-visual img {
         width: 100%;
@@ -578,7 +564,7 @@
       @media (max-width: 767px) {
         .hero {
           min-height: auto;
-          padding: calc(82px + env(safe-area-inset-top, 0px)) 0 1.75rem;
+          padding: calc(82px + env(safe-area-inset-top, 0px)) 0 0;
           display: block;
         }
         .hero-brand-lines {
@@ -591,11 +577,11 @@
         .hero-visual {
           position: relative;
           width: 100%;
-          height: 36svh;
-          min-height: 310px;
+          height: 62svh;
+          min-height: 280px;
           clip-path: none;
-          border-bottom-left-radius: 28px;
-          border-bottom-right-radius: 28px;
+          border-bottom-left-radius: 0;
+          border-bottom-right-radius: 0;
         }
         .hero-visual::after {
           background:
@@ -1248,33 +1234,11 @@
     </nav>
 
     <section class="hero">
-      <div class="hero-bg"></div>
-      <div class="hero-grid"></div>
-      <div class="hero-brand-lines" aria-hidden="true"></div>
       <div class="hero-visual">
         <img
           src="../images/hero_quem_somos.webp"
           alt="Equipe técnica em ambiente industrial"
         />
-      </div>
-      <div class="hero-content">
-        <p class="hero-eyebrow">Somos especialista em manter a sua operação segura.</p>
-        <h1 class="hero-h1">Em ambientes onde o risco existe, a segurança não pode falhar.</h1>
-        <p class="hero-sub">
-          A 4Safety nasceu para resolver um problema específico: a distância
-          entre o produto disponível no mercado e o produto tecnicamente correto
-          para cada risco.
-        </p>
-        <div class="hero-actions">
-          <a
-            href="https://wa.me/5548999148413"
-            class="btn-primary"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Solicitar Orçamento via WhatsApp</a
-          >
-          <a href="#historia" class="btn-ghost">Entender como operamos</a>
-        </div>
       </div>
     </section>
 
