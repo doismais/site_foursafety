@@ -478,6 +478,35 @@
         object-fit: cover;
         object-position: center center;
       }
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 1rem;
+        pointer-events: none;
+      }
+      .hero-title-line {
+        font-family: var(--font-display);
+        font-size: clamp(1.5rem, 3vw, 2.5rem);
+        font-weight: 800;
+        line-height: 1.12;
+        color: var(--white);
+        text-shadow: 0 8px 22px rgba(0, 0, 0, 0.45);
+        margin-bottom: 0.45rem;
+      }
+      .hero-sub-line {
+        font-family: var(--font-display);
+        font-size: clamp(1.05rem, 1.8vw, 1.55rem);
+        font-weight: 700;
+        line-height: 1.2;
+        color: var(--white);
+        text-shadow: 0 8px 22px rgba(0, 0, 0, 0.45);
+      }
       .hero-content {
         position: relative;
         z-index: 2;
@@ -625,6 +654,11 @@
         .btn-primary,
         .btn-ghost {
           width: 100%;
+        }
+      }
+      @media (min-width: 768px) {
+        .hero-title-line {
+          white-space: nowrap;
         }
       }
 
@@ -1179,6 +1213,10 @@
       }
 
       .reveal {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .reveal.reveal-pending {
         opacity: 0;
         transform: translateY(24px);
       }
@@ -1239,6 +1277,10 @@
           src="../images/hero_quem_somos.webp"
           alt="Equipe técnica em ambiente industrial"
         />
+        <div class="hero-overlay">
+          <p class="hero-title-line">Somos especialista em manter a sua operação segura.</p>
+          <p class="hero-sub-line">Em ambientes onde o risco existe, a segurança não pode falhar.</p>
+        </div>
       </div>
     </section>
 
@@ -1588,27 +1630,33 @@
         new Date().getFullYear();
 
       const reveals = document.querySelectorAll(".reveal");
-      const revealObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
-            entry.target.animate(
-              [
-                { opacity: 0, transform: "translateY(22px)" },
-                { opacity: 1, transform: "translateY(0)" },
-              ],
-              {
-                duration: 580,
-                fill: "forwards",
-                easing: "cubic-bezier(0.22,1,0.36,1)",
-              },
-            );
-            revealObserver.unobserve(entry.target);
-          });
-        },
-        { threshold: 0.12, rootMargin: "0px 0px -36px 0px" },
-      );
-      reveals.forEach((el) => revealObserver.observe(el));
+      if ("IntersectionObserver" in window && typeof Element.prototype.animate === "function") {
+        const revealObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              entry.target.animate(
+                [
+                  { opacity: 0, transform: "translateY(22px)" },
+                  { opacity: 1, transform: "translateY(0)" },
+                ],
+                {
+                  duration: 580,
+                  fill: "forwards",
+                  easing: "cubic-bezier(0.22,1,0.36,1)",
+                },
+              );
+              entry.target.classList.remove("reveal-pending");
+              revealObserver.unobserve(entry.target);
+            });
+          },
+          { threshold: 0.12, rootMargin: "0px 0px -36px 0px" },
+        );
+        reveals.forEach((el) => {
+          el.classList.add("reveal-pending");
+          revealObserver.observe(el);
+        });
+      }
 
       const nav = document.getElementById("main-nav");
       const syncNav = () => {
