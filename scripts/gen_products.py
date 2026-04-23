@@ -96,7 +96,7 @@ products = [
         "category": "respiratorio",
         "title": "Proteção Respiratória",
         "tag": "Segurança Pulmonar — NR-6",
-        "desc": "Máscaras semifaciais e faciais inteiras com sistemas de filtros intercambiáveis para máxima versatilidade.",
+        "desc": "Representamos alguns tipos de máscaras respiratórias. A disponibilidade e a indicação da linha ideal são confirmadas sob consulta técnica.",
         "img": "images/products/produto-protecao-respiratoria.jpg",
         "meta": ["Silicone Soft", "Filtros P3", "NR-6"],
         "specs": [

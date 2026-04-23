@@ -51,7 +51,6 @@ BRAND_TOKENS {
   }
 
   contato {
-    telefone_fixo      : "(48) 3338-2929"
     telefone_comercial : "(48) 99914-8413"
     email              : "4safety@4safety.com.br"
     horario            : "Seg–Sex, 08h às 18h"
@@ -241,7 +240,6 @@ footer:
     - { label: "Contato", href: "/contato" }
   contato:
     whatsapp: "https://wa.me/5548999148413"
-    telefone: "(48) 3338-2929"
     email: "4safety@4safety.com.br"
     horario: "Seg–Sex, 08h às 18h"
   legal: "© 2025 4Safety. CNPJ 11.897.812/0001-06. Todos os direitos reservados."
@@ -830,12 +828,6 @@ section_info:
         label: "WhatsApp",
         value: "(48) 99914-8413",
         href: "https://wa.me/5548999148413",
-      }
-    - {
-        icon: phone,
-        label: "Telefone",
-        value: "(48) 3338-2929",
-        href: "tel:+554833382929",
       }
     - {
         icon: email,
