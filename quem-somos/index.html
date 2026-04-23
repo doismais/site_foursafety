@@ -409,8 +409,9 @@
       .hero {
         position: relative;
         overflow: hidden;
-        min-height: 88svh;
-        padding: calc(68px + env(safe-area-inset-top, 0px)) 0 0;
+        min-height: auto;
+        padding: calc(82px + env(safe-area-inset-top, 0px)) var(--container-px)
+          1.25rem;
         display: block;
         background: none;
       }
@@ -463,9 +464,13 @@
       }
       .hero-visual {
         position: relative;
-        width: 100%;
-        height: min(88svh, 760px);
-        min-height: 420px;
+        width: min(100%, 1220px);
+        height: min(68svh, 560px);
+        min-height: 360px;
+        margin: 0 auto;
+        border: 6px solid rgba(255, 255, 255, 0.92);
+        border-radius: 22px;
+        box-shadow: 0 22px 48px rgba(0, 0, 0, 0.34);
         clip-path: none;
         overflow: hidden;
       }
@@ -593,7 +598,8 @@
       @media (max-width: 767px) {
         .hero {
           min-height: auto;
-          padding: calc(82px + env(safe-area-inset-top, 0px)) 0 0;
+          padding: calc(82px + env(safe-area-inset-top, 0px)) var(--container-px)
+            0.9rem;
           display: block;
         }
         .hero-brand-lines {
@@ -606,11 +612,11 @@
         .hero-visual {
           position: relative;
           width: 100%;
-          height: 62svh;
+          height: 42svh;
           min-height: 280px;
+          border: 4px solid rgba(255, 255, 255, 0.92);
+          border-radius: 16px;
           clip-path: none;
-          border-bottom-left-radius: 0;
-          border-bottom-right-radius: 0;
         }
         .hero-visual::after {
           background:
