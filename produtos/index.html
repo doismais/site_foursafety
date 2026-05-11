@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>Produtos | 4Safety — Catálogo de Segurança do Trabalho</title>
-    <meta name="description" content="Catálogo completo de EPIs e equipamentos de segurança do trabalho com certificação Inmetro. Detecção de gás, proteção respiratória, altura e mais." />
+    <meta name="description" content="Catálogo técnico de EPIs e equipamentos de segurança do trabalho com suporte comercial e documentação confirmada conforme aplicação." />
     <meta property="og:title" content="Produtos | 4Safety — Catálogo de Segurança do Trabalho" />
-    <meta property="og:description" content="Catálogo completo de EPIs e equipamentos de segurança do trabalho com certificação Inmetro." />
+    <meta property="og:description" content="Catálogo técnico de EPIs e equipamentos de segurança do trabalho com suporte comercial e documentação confirmada conforme aplicação." />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://4safety.vercel.app/images/OG-image.png" />
     <meta property="og:url" content="https://4safety.vercel.app/produtos/" />
@@ -244,6 +244,49 @@
         margin-top: -0.5rem;
         margin-bottom: 0.5rem;
       }
+      .brand-lines {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 1.5rem var(--container-px) 0;
+        background: var(--white);
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      .brand-line-card {
+        border: 1px solid rgba(28, 25, 22, 0.1);
+        border-radius: 14px;
+        padding: 1.2rem;
+        background: #fbf8f3;
+      }
+      .brand-line-label {
+        font-family: var(--font-mono);
+        font-size: 0.62rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--orange);
+        margin-bottom: 0.5rem;
+      }
+      .brand-line-card h2 {
+        font-family: var(--font-display);
+        font-size: 1.16rem;
+        line-height: 1.16;
+        color: var(--black);
+        margin: 0 0 0.5rem;
+      }
+      .brand-line-card p {
+        color: var(--g700);
+        line-height: 1.55;
+        margin: 0 0 0.85rem;
+      }
+      .brand-line-card a {
+        color: var(--orange);
+        font-weight: 800;
+        text-decoration: none;
+      }
+      @media (min-width: 760px) {
+        .brand-lines { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      }
 
       /* WA Float */
       .wa-float {
@@ -309,15 +352,30 @@
           <li><a href="../consulta-de-ca/index.html">Consulta CA</a></li>
           <li><a href="../index.html#contato">Contato</a></li>
         </ul>
-        <a href="https://wa.me/5548999148413" class="nav-cta" target="_blank" rel="noopener noreferrer">Solicitar Orçamento</a>
+        <a href="https://wa.me/5548999148413" class="nav-cta" target="_blank" rel="noopener noreferrer">Falar com a 4Safety</a>
       </div>
     </nav>
 
     <div class="catalog-header">
-      <p class="catalog-eyebrow reveal">Catálogo completo</p>
+      <p class="catalog-eyebrow reveal">Catálogo técnico</p>
       <h1 class="catalog-headline reveal">Nossos Produtos</h1>
-      <p class="catalog-sub reveal">EPIs e equipamentos de segurança com certificação Inmetro, suporte técnico e entrega para todo o Brasil.</p>
+      <p class="catalog-sub reveal">EPIs e equipamentos de segurança com suporte técnico, documentação sob consulta e entrega para todo o Brasil.</p>
     </div>
+
+    <section class="brand-lines" aria-label="Linhas estratégicas">
+      <article class="brand-line-card reveal">
+        <p class="brand-line-label">UNIPHOS no Brasil</p>
+        <h2>Tubos colorimétricos e amostragem</h2>
+        <p>Produtos consolidados por aplicação para facilitar a escolha técnica sem multiplicar variações desnecessárias.</p>
+        <a href="deteccao-de-gas/tubo-colorimetrico/index.html">Ver produto UNIPHOS</a>
+      </article>
+      <article class="brand-line-card reveal">
+        <p class="brand-line-label">AIR SAFETY</p>
+        <h2>Categoria estratégica sob consulta</h2>
+        <p>Espaço preparado para priorizar produtos com competitividade e valor agregado assim que a lista final for confirmada.</p>
+        <a href="../index.html#contato">Solicitar indicação comercial</a>
+      </article>
+    </section>
 
     <div class="catalog-filter">
       <span class="filter-label">Filtrar por aplicação</span>
@@ -327,6 +385,8 @@
         <option value="respiratorio">Respiratório</option>
         <option value="altura">Altura</option>
         <option value="auditivo">Auditivo</option>
+        <option value="uniphos">UNIPHOS</option>
+        <option value="fumigacao">Fumigação</option>
         <option value="outros">Outros EPIs</option>
       </select>
       <button class="filter-btn active" data-filter="all">Todos</button>
@@ -334,13 +394,15 @@
       <button class="filter-btn" data-filter="respiratorio">Respiratório</button>
       <button class="filter-btn" data-filter="altura">Altura</button>
       <button class="filter-btn" data-filter="auditivo">Auditivo</button>
+      <button class="filter-btn" data-filter="uniphos">UNIPHOS</button>
+      <button class="filter-btn" data-filter="fumigacao">Fumigação</button>
       <button class="filter-btn" data-filter="outros">Outros EPIs</button>
     </div>
 
     <p class="catalog-results" id="catalog-results"></p>
 
     <div class="catalog-grid" id="catalog-grid">
-      <div class="produto-card reveal" data-cat="gas">
+      <div class="produto-card reveal" data-cat="gas uniphos">
         <a href="deteccao-de-gas/tubo-colorimetrico/index.html" class="produto-card-link">
           <img class="produto-img" src="../images/products/produto-tubo-colorimetrico-uniphos.jpg" alt="Tubo Colorimétrico Uniphos" loading="lazy" />
           <div class="produto-badges"><span class="badge-norma">NR-33 / NR-15</span></div>
@@ -370,7 +432,7 @@
         <button class="produto-cta" data-cart-add data-product-name="Detector de Gás Portátil" data-product-img="../images/products/produto-detector-gas-portatil.png" data-product-slug="detector-portatil">Adicionar ao Orçamento</button>
       </div>
 
-      <div class="produto-card reveal" data-cat="outros">
+      <div class="produto-card reveal" data-cat="outros fumigacao">
         <a href="fumigacao/index.html" class="produto-card-link">
           <img class="produto-img" src="../images/products/produto-fumigacao.png" alt="Equipamentos de Fumigação" loading="lazy" />
           <div class="produto-badges"><span class="badge-norma">MAPA / ANVISA</span></div>
@@ -378,6 +440,16 @@
           <p class="produto-body">Aplicadores, dosadores e EPIs para fumigação de silos e armazéns industriais.</p>
         </a>
         <button class="produto-cta" data-cart-add data-product-name="Equipamentos de Fumigação" data-product-img="../images/products/produto-fumigacao.png" data-product-slug="fumigacao">Adicionar ao Orçamento</button>
+      </div>
+
+      <div class="produto-card reveal" data-cat="outros fumigacao">
+        <a href="fumigacao/lona-sob-medida/index.html" class="produto-card-link">
+          <img class="produto-img" src="../images/products/produto-fumigacao.png" alt="Lona de Fumigação Sob Medida" loading="lazy" />
+          <div class="produto-badges"><span class="badge-norma">Sob medida</span></div>
+          <h3 class="produto-headline">Lona de Fumigação Sob Medida</h3>
+          <p class="produto-body">Projeto dimensionado por aplicação, medidas e condição operacional, com acesso direto à fábrica.</p>
+        </a>
+        <button class="produto-cta" data-cart-add data-product-name="Lona de Fumigação Sob Medida" data-product-img="../images/products/produto-fumigacao.png" data-product-slug="lona-fumigacao">Adicionar ao Orçamento</button>
       </div>
 
       <div class="produto-card reveal" data-cat="respiratorio">
@@ -395,7 +467,7 @@
           <img class="produto-img" src="../images/products/produto-equipamentos-altura.png" alt="Equipamentos para Altura" loading="lazy" />
           <div class="produto-badges"><span class="badge-norma">NR-35</span></div>
           <h3 class="produto-headline">Equipamentos para Altura</h3>
-          <p class="produto-body">Trava-quedas, cinturões paraquedistas e sistemas de ancoragem certificados.</p>
+          <p class="produto-body">Trava-quedas, cinturões paraquedistas e sistemas de ancoragem com documentação sob consulta.</p>
         </a>
         <button class="produto-cta" data-cart-add data-product-name="Equipamentos para Altura" data-product-img="../images/products/produto-equipamentos-altura.png" data-product-slug="altura">Adicionar ao Orçamento</button>
       </div>
@@ -415,7 +487,7 @@
           <img class="produto-img" src="../images/products/produto-protetor-auditivo.png" alt="Protetor Auditivo" loading="lazy" />
           <div class="produto-badges"><span class="badge-norma">NR-15 / NR-6</span></div>
           <h3 class="produto-headline">Protetor Auditivo</h3>
-          <p class="produto-body">Protetores tipo concha e plug com NRRsf certificado para ambientes industriais.</p>
+          <p class="produto-body">Protetores tipo concha e plug selecionados conforme exposição ocupacional.</p>
         </a>
         <button class="produto-cta" data-cart-add data-product-name="Protetor Auditivo" data-product-img="../images/products/produto-protetor-auditivo.png" data-product-slug="auditivo">Adicionar ao Orçamento</button>
       </div>
@@ -470,10 +542,10 @@
           </div>
           <div class="footer-card footer-cta-card">
             <p class="footer-card-label">Último passo útil</p>
-            <h3 class="footer-cta-headline">Precisa fechar a especificação ainda hoje?</h3>
+            <h3 class="footer-cta-headline">Precisa alinhar a especificação técnica?</h3>
             <p class="footer-cta-sub">Fale direto com a equipe comercial e reduza o tempo entre dúvida, escolha técnica e orçamento.</p>
             <div class="footer-cta-actions">
-              <a href="https://wa.me/5548999148413" class="btn-primary btn-block" target="_blank" rel="noopener noreferrer">Solicitar Orçamento</a>
+              <a href="https://wa.me/5548999148413" class="btn-primary btn-block" target="_blank" rel="noopener noreferrer">Falar com Luis Claudio</a>
               <a href="../index.html#contato" class="btn-ghost">Enviar detalhes do cenário</a>
             </div>
           </div>
@@ -482,13 +554,13 @@
           <div class="footer-card">
             <p class="footer-card-label">Legal</p>
             <div class="footer-links">
-              <span class="footer-legal">Atendimento: Seg–Sex, 08h às 18h</span>
+              <span class="footer-legal">Atendimento: Segunda a Sexta, 08h às 18h</span>
             </div>
           </div>
           <div class="footer-card">
             <p class="footer-card-label">Contato</p>
             <div class="footer-contact">
-              <div class="footer-contact-item"><span class="footer-contact-label">WhatsApp</span><a href="https://wa.me/5548999148413" target="_blank" rel="noopener noreferrer">(48) 99914-8413</a></div>
+              <div class="footer-contact-item"><span class="footer-contact-label">WhatsApp comercial</span><a href="https://wa.me/5548999148413" target="_blank" rel="noopener noreferrer">Luis Claudio · +55 48 99914-8413</a></div>
               <div class="footer-contact-item"><span class="footer-contact-label">E-mail</span><a href="mailto:4safety@4safety.com.br">4safety@4safety.com.br</a></div>
             </div>
           </div>
@@ -510,7 +582,8 @@
 
     <script src="../js/cart.js"></script>
     <script>
-      document.getElementById("footer-year").textContent = new Date().getFullYear();
+      const footerYear = document.getElementById("footer-year");
+      if (footerYear) footerYear.textContent = new Date().getFullYear();
 
       // Nav glass
       function updateNavGlass() {
@@ -558,7 +631,8 @@
 
         let count = 0;
         cards.forEach(card => {
-          const show = f === "all" || card.dataset.cat === f;
+          const categories = (card.dataset.cat || "").split(/\s+/);
+          const show = f === "all" || categories.includes(f);
           if (show) {
             card.style.display = "flex";
             card.animate([{ opacity: 0, transform: "scale(.96)" }, { opacity: 1, transform: "scale(1)" }],

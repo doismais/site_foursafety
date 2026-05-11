@@ -9,6 +9,20 @@
     <meta property="og:description" content="Solução de alta precisão para análise quantitativa de gases em campo. Ideal para ambientes industriais e espaços confinados." />
     <meta property="og:type" content="product" />
     <meta property="og:image" content="../../../images/products/produto-tubo-colorimetrico-uniphos.jpg" />
+    <script type="application/ld+json">
+{
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Tubo Colorimétrico Uniphos",
+      "description": "Solução de alta precisão para análise quantitativa de gases em campo. Ideal para ambientes industriais e espaços confinados.",
+      "image": "https://4safety.vercel.app/images/products/produto-tubo-colorimetrico-uniphos.jpg",
+      "url": "https://4safety.vercel.app/produtos/deteccao-de-gas/tubo-colorimetrico/",
+      "brand": {
+            "@type": "Brand",
+            "name": "4Safety"
+      }
+}
+    </script>
     
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&family=Source+Sans+3:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../../../css/products.css" />
@@ -58,7 +72,7 @@
           <li><a href="../../../consulta-de-ca/index.html">Consulta CA</a></li>
           <li><a href="../../../index.html#contato">Contato</a></li>
         </ul>
-        <a href="https://wa.me/5548999148413" class="nav-cta" target="_blank" rel="noopener noreferrer">Solicitar Orçamento</a>
+        <a href="https://wa.me/5548999148413" class="nav-cta" target="_blank" rel="noopener noreferrer">Falar com a 4Safety</a>
       </div>
     </nav>
 
@@ -72,7 +86,7 @@
           <div class="product-tag">Detecção de Gás — NR-33</div>
           <h1 class="product-title">Tubo Colorimétrico Uniphos</h1>
           <p class="product-description">Solução de alta precisão para análise quantitativa de gases em campo. Ideal para ambientes industriais e espaços confinados.</p>
-          <div class="product-meta"><span class="meta-badge">Alta Precisão</span><span class="meta-badge">Gases Tóxicos</span><span class="meta-badge">NR-33</span></div>
+          <div class="product-meta"><span class="meta-badge">UNIPHOS</span><span class="meta-badge">Gases Tóxicos</span><span class="meta-badge">NR-33</span></div>
           <div class="product-actions">
             <a href="#" class="btn-add-cart btn-primary" data-cart-add data-product-name="Tubo Colorimétrico Uniphos" data-product-img="../../../images/products/produto-tubo-colorimetrico-uniphos.jpg">
                Adicionar ao Orçamento
@@ -109,7 +123,7 @@
             </div>
             <div class="spec-row">
               <span class="spec-label">Fabricação</span>
-              <span class="spec-value">Conformidade Global</span>
+              <span class="spec-value">Padrão internacional</span>
             </div>
             </div></div>
           </div>
@@ -162,14 +176,14 @@
           <div class="footer-brand">
             <a href="../../../index.html#" class="footer-logo"><img src="../../../images/brand/Logo_4Safety-branco.png" alt="4Safety" /></a>
             <p class="footer-tagline">Segurança do trabalho com especificação técnica para ambientes críticos, operações industriais e decisões que não admitem erro.</p>
-            <p class="footer-micro">Distribuição técnica com resposta rápida</p>
+            <p class="footer-micro">Proteção e performance profissional</p>
           </div>
           <div class="footer-card footer-cta-card">
             <p class="footer-card-label">Último passo útil</p>
-            <h3 class="footer-cta-headline">Precisa fechar a especificação ainda hoje?</h3>
+            <h3 class="footer-cta-headline">Precisa alinhar a especificação técnica?</h3>
             <p class="footer-cta-sub">Fale direto com a equipe comercial e reduza o tempo entre dúvida, escolha técnica e orçamento.</p>
             <div class="footer-cta-actions">
-              <a href="https://wa.me/5548999148413" class="btn-primary btn-block" target="_blank" rel="noopener noreferrer">Solicitar Orçamento</a>
+              <a href="https://wa.me/5548999148413" class="btn-primary btn-block" target="_blank" rel="noopener noreferrer">Falar com Luis Claudio</a>
               <a href="../../../index.html#contato" class="btn-ghost">Enviar detalhes do cenário</a>
             </div>
           </div>
@@ -178,7 +192,7 @@
           <div class="footer-card">
             <p class="footer-card-label">Legal</p>
             <div class="footer-links">
-              <span class="footer-legal">Atendimento: Seg–Sex, 08h às 18h</span>
+              <span class="footer-legal">Atendimento: Segunda a Sexta, 08h às 18h</span>
               <a href="../../../index.html#">Política de Privacidade</a>
               <a href="../../../index.html#">Termos de Uso</a>
               <a href="../../../index.html#">LGPD</a>
@@ -187,7 +201,7 @@
           <div class="footer-card">
             <p class="footer-card-label">Contato</p>
             <div class="footer-contact">
-              <div class="footer-contact-item"><span class="footer-contact-label">WhatsApp</span><a href="https://wa.me/5548999148413" target="_blank" rel="noopener noreferrer">(48) 99914-8413</a></div>
+              <div class="footer-contact-item"><span class="footer-contact-label">WhatsApp comercial</span><a href="https://wa.me/5548999148413" target="_blank" rel="noopener noreferrer">Luis Claudio · +55 48 99914-8413</a></div>
               <div class="footer-contact-item"><span class="footer-contact-label">E-mail</span><a href="mailto:4safety@4safety.com.br">4safety@4safety.com.br</a></div>
             </div>
           </div>
@@ -199,7 +213,8 @@
     <!-- Scripts -->
     <script src="../../../js/cart.js"></script>
     <script>
-      document.getElementById("footer-year").textContent = new Date().getFullYear();
+      const footerYear = document.getElementById("footer-year");
+      if (footerYear) footerYear.textContent = new Date().getFullYear();
       
       function updateNavGlass() {
         const nav = document.getElementById("main-nav");

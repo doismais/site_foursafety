@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "Bomba de Detecção de Gás": "/images/products/produto-bomba-deteccao-gas.png",
     "Detector de Gás Portátil": "/images/products/produto-detector-gas-portatil.png",
     "Equipamentos de Fumigação": "/images/products/produto-fumigacao.png",
+    "Lona de Fumigação Sob Medida": "/images/products/produto-fumigacao.png",
     "Proteção Respiratória": "/images/products/produto-protecao-respiratoria.jpg",
     "Equipamentos para Altura": "/images/products/produto-equipamentos-altura.png",
     "Botas e Calçados": "/images/products/produto-botas-calzados.png",
@@ -224,7 +225,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <h2 class="cart-title">Sua Cotação</h2>
           <div id="cart-items-list" class="cart-items"></div>
           <div class="cart-footer">
-            <a href="#" id="cart-to-wa" class="btn-wa-final">Solicitar Orçamento no WhatsApp</a>
+            <a href="#" id="cart-to-wa" class="btn-wa-final">Enviar lista pelo WhatsApp</a>
           </div>
         </div>
       `;

@@ -2,6 +2,7 @@
 Module for generating product pages from templates.
 Part of the 4Safety Project — NΞØ Protocol.
 """
+import json
 import os
 
 # Configurações de Caminho
@@ -22,13 +23,13 @@ products = [
         "tag": "Detecção de Gás — NR-33",
         "desc": "Solução de alta precisão para análise quantitativa de gases em campo. Ideal para ambientes industriais e espaços confinados.",
         "img": "images/products/produto-tubo-colorimetrico-uniphos.jpg",
-        "meta": ["Alta Precisão", "Gases Tóxicos", "NR-33"],
+        "meta": ["UNIPHOS", "Gases Tóxicos", "NR-33"],
         "specs": [
             ("Marca", "Uniphos"),
             ("Amostragem", "Manual (Bomba)"),
             ("Validade", "2 anos"),
             ("Gases", "+150 tipos"),
-            ("Fabricação", "Conformidade Global")
+            ("Fabricação", "Padrão internacional")
         ],
         "related": ["bomba-deteccao", "detector-portatil", "respiratorio"],
         "depth": 3
@@ -64,7 +65,7 @@ products = [
         "specs": [
             ("Sensores", "Eletroquímicos"),
             ("Bateria", "Lítio (18h+)"),
-            ("Certificação", "INMETRO Ex ia"),
+            ("Documentação", "Conforme modelo indicado"),
             ("Gases", "O2, LEL, CO, H2S"),
             ("Display", "LCD iluminado")
         ],
@@ -79,16 +80,35 @@ products = [
         "tag": "Controle Fitossanitário",
         "desc": "Linha completa de aplicadores e dosadores para fumigação em silos, armazéns e contêineres.",
         "img": "images/products/produto-fumigacao.png",
-        "meta": ["Norma MAPA", "Dosagem Precisa", "EPIs Inclusos"],
+        "meta": ["MAPA / ANVISA", "Dosagem Precisa", "Sob Consulta"],
         "specs": [
             ("Uso", "Silos e Armazéns"),
             ("Equipamento", "Dosadores Fosfina"),
-            ("Certificação", "ANVISA / MAPA"),
+            ("Documentação", "Conforme aplicação"),
             ("Tecnologia", "Aplicação Controlada"),
             ("Suporte", "Treinamento Técnico")
         ],
-        "related": ["descartaveis", "respiratorio", "manual"],
+        "related": ["lona-fumigacao", "descartaveis", "respiratorio"],
         "depth": 2
+    },
+    {
+        "path": "produtos/fumigacao/lona-sob-medida/index.html",
+        "slug": "lona-fumigacao",
+        "category": "fumigacao",
+        "title": "Lona de Fumigação Sob Medida",
+        "tag": "Fumigação — Projeto sob medida",
+        "desc": "Lonas de fumigação dimensionadas conforme aplicação, medidas e condição operacional. A 4Safety conduz a especificação com acesso direto à fábrica.",
+        "img": "images/products/produto-fumigacao.png",
+        "meta": ["Sob Medida", "Acesso à Fábrica", "Sob Consulta"],
+        "specs": [
+            ("Aplicação", "Silos, armazéns e cargas"),
+            ("Medidas", "Definidas por projeto"),
+            ("Material", "Definido conforme operação"),
+            ("Fábrica", "Acesso direto sob consulta"),
+            ("Venda", "Condições alinhadas por demanda")
+        ],
+        "related": ["fumigacao", "respiratorio", "manual"],
+        "depth": 3
     },
     {
         "path": "produtos/respiratorio/index.html",
@@ -115,7 +135,7 @@ products = [
         "category": "altura",
         "title": "Equipamentos para Altura",
         "tag": "Trabalho Seguro — NR-35",
-        "desc": "Cinturões paraquedistas e dispositivos trava-quedas certificados para máxima segurança em planos elevados.",
+        "desc": "Cinturões paraquedistas e dispositivos trava-quedas selecionados conforme risco e documentação do modelo indicado.",
         "img": "images/products/produto-equipamentos-altura.png",
         "meta": ["NR-35", "NBR 15836", "Alta Resistência"],
         "specs": [
@@ -123,7 +143,7 @@ products = [
             ("Material", "Poliéster Tenacidade"),
             ("Ferragem", "Aço Carbono"),
             ("Trava-quedas", "Corda / Cabo Aço"),
-            ("CA", "Certificação Ativa")
+            ("Documentação", "Conforme modelo indicado")
         ],
         "related": ["calcados", "visual", "manual"],
         "depth": 2
@@ -231,7 +251,7 @@ products = [
         "tag": "Ambientes de Calor Extremo",
         "desc": "EPIs aluminizados e de aramida para proteção contra calor radiante, chamas e respingos de metal fundido.",
         "img": "images/products/produto-protecao-termica.png",
-        "meta": ["Conformidade NR-15", "Conformidade NR-33", "Certificação Inmetro"],
+        "meta": ["Conformidade NR-15", "Calor Extremo", "Sob Consulta"],
         "specs": [
             ("Vestimenta", "Capa, Calça e Capuz"),
             ("Luvas", "Aramida com Carbono"),
@@ -276,6 +296,21 @@ def build_related_html(product, prefix):
             </a>""")
     return "".join(related_cards)
 
+def build_product_schema(product):
+    schema = {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": product["title"],
+        "description": product["desc"],
+        "image": f"https://4safety.vercel.app/{product['img']}",
+        "url": f"https://4safety.vercel.app/{product['path'].replace('index.html', '')}",
+        "brand": {
+            "@type": "Brand",
+            "name": "4Safety",
+        },
+    }
+    return json.dumps(schema, ensure_ascii=False, indent=6)
+
 def generate():
     template = load_template()
     print(f"🚀 Gerando {len(products)} páginas de produtos...")
@@ -301,6 +336,7 @@ def generate():
         html = html.replace("[[META_BADGES]]", meta_html)
         html = html.replace("[[SPECS]]", specs_html)
         html = html.replace("[[RELATED_PRODUCTS]]", related_html)
+        html = html.replace("[[PRODUCT_SCHEMA]]", build_product_schema(p))
         
         with open(p_path, 'w', encoding='utf-8') as f:
             f.write(html)

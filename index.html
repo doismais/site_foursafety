@@ -9,7 +9,7 @@
     <title>4Safety — Soluções Técnicas em Segurança do Trabalho</title>
     <meta
       name="description"
-      content="Soluções técnicas para segurança ocupacional com foco em ambientes críticos, certificação e marcas globais."
+      content="Soluções técnicas para segurança ocupacional com foco em ambientes críticos, documentação sob consulta e marcas globais."
     />
     <meta
       property="og:title"
@@ -17,7 +17,7 @@
     />
     <meta
       property="og:description"
-      content="Soluções técnicas para segurança ocupacional com foco em ambientes críticos, certificação e marcas globais."
+      content="Soluções técnicas para segurança ocupacional com foco em ambientes críticos, documentação sob consulta e marcas globais."
     />
     <meta property="og:type" content="website" />
     <meta
@@ -35,6 +35,34 @@
       name="twitter:image"
       content="https://4safety.vercel.app/images/OG-image.png"
     />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "4Safety",
+        "url": "https://4safety.vercel.app/",
+        "logo": "https://4safety.vercel.app/images/brand/logo_refatorada.svg",
+        "email": "4safety@4safety.com.br",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+55-48-99914-8413",
+          "contactType": "commercial",
+          "availableLanguage": "Portuguese",
+          "hoursAvailable": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday"
+            ],
+            "opens": "08:00",
+            "closes": "18:00"
+          }
+        }
+      }
+    </script>
     <link
       href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&family=Source+Sans+3:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
@@ -150,7 +178,7 @@
         width: fit-content;
       }
       .nav-logo img {
-        height: 46px;
+        height: 52px;
         display: block;
         transition:
           opacity 0.28s ease,
@@ -439,7 +467,7 @@
         display: flex;
         align-items: center;
         gap: 0.5rem;
-        opacity: 0;
+        opacity: 1;
       }
       .hero-eyebrow::before {
         content: "";
@@ -455,24 +483,24 @@
         letter-spacing: -0.02em;
         text-wrap-style: balance;
         margin-bottom: 0.9rem;
-        opacity: 0;
+        opacity: 1;
       }
       .hero-h1 span {
         color: var(--orange);
       }
       .hero-sub {
         font-size: clamp(0.95rem, 1.3vw, 1.25rem);
-        color: rgba(235, 230, 223, 0.9);
+        color: var(--white);
         line-height: 1.5;
         max-width: 44ch;
         margin-bottom: 1.45rem;
-        opacity: 0;
+        opacity: 1;
       }
       .hero-actions {
         display: flex;
         flex-wrap: wrap;
         gap: 0.75rem;
-        opacity: 0;
+        opacity: 1;
       }
       .btn-primary {
         background: var(--orange);
@@ -733,7 +761,7 @@
           font-size: 0.96rem;
           line-height: 1.7;
           min-height: calc(1.7em * 2);
-          color: rgba(235, 230, 223, 0.72);
+          color: var(--white);
           margin-bottom: 1.25rem;
         }
         .hero-actions {
@@ -750,12 +778,7 @@
           display: none;
         }
         .hero-arrows {
-          bottom: 1.5rem;
-          right: 1rem;
-        }
-        .hero-arrow {
-          width: 36px;
-          height: 36px;
+          display: none;
         }
       }
       @media (min-width: 768px) {
@@ -1117,7 +1140,7 @@
       }
       .glass-desc {
         font-size: 0.82rem;
-        color: rgba(255, 255, 255, 0.4);
+        color: var(--white);
         line-height: 1.5;
       }
       @media (min-width: 768px) {
@@ -1460,6 +1483,56 @@
       .produto-cta::after {
         content: "›";
         font-size: 1rem;
+      }
+
+      /* ── MARCAS ESTRATÉGICAS ── */
+      .brand-lines {
+        background: var(--white);
+        color: var(--black);
+        padding: 4rem var(--container-px);
+      }
+      .brand-lines-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        max-width: 1100px;
+        margin: 2rem auto 0;
+      }
+      .brand-line-card {
+        border: 1px solid rgba(40, 36, 32, 0.1);
+        border-radius: 16px;
+        padding: 1.35rem;
+        background: #fbf8f3;
+      }
+      .brand-line-label {
+        font-family: var(--font-mono);
+        font-size: 0.62rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--orange);
+        margin-bottom: 0.65rem;
+      }
+      .brand-line-card h3 {
+        font-family: var(--font-display);
+        font-size: 1.24rem;
+        line-height: 1.15;
+        margin-bottom: 0.65rem;
+        color: var(--black);
+      }
+      .brand-line-card p {
+        color: var(--g700);
+        line-height: 1.6;
+        margin-bottom: 1rem;
+      }
+      .brand-line-link {
+        color: var(--orange);
+        font-weight: 800;
+        text-decoration: none;
+      }
+      @media (min-width: 760px) {
+        .brand-lines-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
       }
 
 
@@ -1960,7 +2033,7 @@
       .footer-tagline {
         font-size: 0.98rem;
         line-height: 1.6;
-        color: rgba(235, 230, 223, 0.76);
+        color: var(--white);
         max-width: 30rem;
       }
       .footer-micro {
@@ -2071,7 +2144,7 @@
       .footer-cta-sub {
         font-size: 0.9rem;
         line-height: 1.6;
-        color: rgba(235, 230, 223, 0.68);
+        color: var(--white);
         margin-bottom: 1rem;
       }
       .footer-cta-actions {
@@ -2341,8 +2414,8 @@
 
       /* ── REVEAL ── */
       .reveal {
-        opacity: 0;
-        transform: translateY(24px);
+        opacity: 1;
+        transform: translateY(0);
       }
 
       /* ── WA SVG INLINE ── */
@@ -2392,7 +2465,7 @@
           class="nav-cta"
           target="_blank"
           rel="noopener noreferrer"
-          >Solicitar Orçamento</a
+          >Falar com a 4Safety</a
         >
       </div>
     </nav>
@@ -2407,7 +2480,7 @@
           src="images/hero/0001.webp"
           alt="Profissional com EPI em ambiente industrial"
           data-title="Somos a 4Safety."
-          data-sub="Proteção, Detecção e Performance Profissional."
+          data-sub="4SAFETY: PROTEÇÃO E PERFORMANCE PROFISSIONAL"
           class="active"
         />
         <img
@@ -2419,13 +2492,13 @@
         <img
           src="images/hero/0003.webp"
           alt="Profissional com respirador e capacete"
-          data-title="Itens de Segurança e EPIs com certificação do Inmetro"
-          data-sub="Clique abaixo e veja toda a nossa linha de produtos"
+          data-title="Equipamentos para riscos operacionais reais"
+          data-sub="Catálogo técnico com documentação confirmada conforme aplicação."
         />
       </div>
       <div class="hero-content">
         <h1 class="hero-h1">Somos a 4Safety.</h1>
-        <p class="hero-sub">Proteção, Detecção e Performance Profissional.</p>
+        <p class="hero-sub">4SAFETY: PROTEÇÃO E PERFORMANCE PROFISSIONAL</p>
         <div class="hero-actions">
           <a href="#produtos" class="btn-primary">Ver produtos</a>
         </div>
@@ -2485,11 +2558,10 @@
         </div>
         <div class="glass-grid">
           <div class="glass-card reveal">
-            <div class="glass-number">+<span>30</span></div>
-            <div class="glass-label">Marcas globais</div>
+            <div class="glass-number"><span>15</span></div>
+            <div class="glass-label">Anos de mercado</div>
             <div class="glass-desc">
-              Distribuidores autorizados com importação direta e garantia
-              original
+              Atuação contínua em equipamentos de proteção individual e coletiva
             </div>
           </div>
           <div class="glass-card reveal">
@@ -2501,17 +2573,17 @@
             </div>
           </div>
           <div class="glass-card reveal">
-            <div class="glass-number">100<span>%</span></div>
-            <div class="glass-label">Conformidade técnica</div>
+            <div class="glass-number">+<span>30</span></div>
+            <div class="glass-label">Marcas globais</div>
             <div class="glass-desc">
-              EPIs especificados com rastreabilidade documental e validação de aplicação
+              Portfólio com marcas reconhecidas e documentação alinhada por aplicação
             </div>
           </div>
           <div class="glass-card reveal">
-            <div class="glass-number"><span>100</span>%</div>
+            <div class="glass-number"><span>1</span></div>
             <div class="glass-label">Atendimento consultivo</div>
             <div class="glass-desc">
-              Retorno comercial conforme a complexidade do cenário e da especificação técnica
+              Canal comercial direto com Luis Claudio por WhatsApp e e-mail
             </div>
           </div>
         </div>
@@ -2526,7 +2598,7 @@
           Encontre o equipamento certo para cada risco
         </h2>
         <p class="section-sub">
-          Produtos certificados com suporte técnico especializado para ambientes industriais.
+          Produtos selecionados com suporte técnico e documentação confirmada conforme aplicação.
         </p>
       </div>
       <div class="produtos-grid">
@@ -2590,6 +2662,17 @@
             Adicionar ao Orçamento
           </button>
         </div>
+        <div class="produto-card reveal" data-cat="outros">
+          <a href="produtos/fumigacao/lona-sob-medida/index.html" class="produto-card-link">
+            <img class="produto-img" src="images/products/produto-fumigacao.png" alt="Lona de Fumigação Sob Medida" />
+            <div class="produto-badges"><span class="badge-norma">Sob medida</span></div>
+            <h3 class="produto-headline">Lona de Fumigação Sob Medida</h3>
+            <p class="produto-body">Projeto dimensionado por aplicação, medidas e condição operacional, com acesso direto à fábrica.</p>
+          </a>
+          <button class="produto-cta produto-cta-btn" data-cart-add data-product-name="Lona de Fumigação Sob Medida" data-product-img="images/products/produto-fumigacao.png" data-product-slug="lona-fumigacao">
+            Adicionar ao Orçamento
+          </button>
+        </div>
         <div class="produto-card reveal" data-cat="respiratorio">
           <a href="produtos/respiratorio/index.html" class="produto-card-link">
             <img class="produto-img" src="images/products/produto-protecao-respiratoria.jpg" alt="Proteção Respiratória" />
@@ -2615,6 +2698,36 @@
       </div>
       <div class="produtos-cta-wrap reveal">
         <a href="produtos/index.html" class="btn-primary btn-produtos-all">Ver todos os produtos</a>
+      </div>
+    </section>
+
+
+    <!-- MARCAS ESTRATÉGICAS -->
+    <section class="brand-lines" id="marcas-estrategicas">
+      <div class="produtos-header reveal">
+        <p class="section-eyebrow">Marcas estratégicas</p>
+        <h2 class="section-headline">Linhas com curadoria técnica</h2>
+        <p class="section-sub">
+          Categorias organizadas para consulta comercial B2B, sem tratar certificações como argumento genérico.
+        </p>
+      </div>
+      <div class="brand-lines-grid">
+        <article class="brand-line-card reveal">
+          <p class="brand-line-label">UNIPHOS no Brasil</p>
+          <h3>Tubos colorimétricos e amostragem em campo</h3>
+          <p>
+            Linha dedicada para análise de gases com produtos consolidados em páginas únicas quando a variação depende da aplicação.
+          </p>
+          <a class="brand-line-link" href="produtos/deteccao-de-gas/tubo-colorimetrico/index.html">Ver linha UNIPHOS</a>
+        </article>
+        <article class="brand-line-card reveal">
+          <p class="brand-line-label">AIR SAFETY</p>
+          <h3>Produtos estratégicos sob consulta técnica</h3>
+          <p>
+            Categoria preparada para priorizar itens com competitividade e valor agregado conforme a lista final de produtos.
+          </p>
+          <a class="brand-line-link" href="produtos/index.html">Consultar indicação comercial</a>
+        </article>
       </div>
     </section>
 
@@ -2656,8 +2769,8 @@
           <span class="sc-badge">MAPA / ANVISA</span>
           <h3 class="sc-headline">Fumigação Industrial</h3>
           <p class="sc-body">
-            Equipamentos homologados para aplicação de fumigantes em silos,
-            armazéns e contêineres.
+            Equipamentos, EPIs e lonas sob medida para aplicação de fumigantes
+            em silos, armazéns e contêineres.
           </p>
           <a href="#produtos" class="sc-cta">Ver equipamentos</a>
         </div>
@@ -2665,8 +2778,8 @@
           <span class="sc-badge">NR-15</span>
           <h3 class="sc-headline">Controle de Ruído</h3>
           <p class="sc-body">
-            Dosimetria, protetores auditivos com CA e medições para conformidade
-            ocupacional.
+            Dosimetria, proteção auditiva e documentação técnica conforme o
+            modelo indicado para a operação.
           </p>
           <a href="#produtos" class="sc-cta">Ver equipamentos</a>
         </div>
@@ -2806,7 +2919,7 @@
     </div>
 
     <!-- CTA BLOCK -->
-    <div class="cta-block">
+    <div class="cta-block" hidden>
       <h2 class="cta-block-headline">Precisa de um orçamento técnico?</h2>
       <p class="cta-block-sub">
         Descreva o cenário ou o produto. Luis Claudio responde com a
@@ -2850,14 +2963,14 @@
                 Segurança do trabalho com especificação técnica para ambientes
                 críticos, operações industriais e decisões que não admitem erro.
               </p>
-              <p class="footer-micro">Distribuição técnica com resposta rápida</p>
+              <p class="footer-micro">Proteção e performance profissional</p>
             </div>
             <div class="footer-columns">
               <div class="footer-card reveal">
                 <p class="footer-card-label">Legal</p>
                 <div class="footer-links">
                   <span class="footer-legal"
-                    >Atendimento: Seg–Sex, 08h às 18h</span
+                    >Atendimento: Segunda a Sexta, 08h às 18h</span
                   >
                   <a href="#">Política de Privacidade</a>
                   <a href="#">Termos de Uso</a>
@@ -2868,12 +2981,12 @@
                 <p class="footer-card-label">Contato</p>
                 <div class="footer-contact">
                   <div class="footer-contact-item">
-                    <span class="footer-contact-label">WhatsApp</span>
+                    <span class="footer-contact-label">WhatsApp comercial</span>
                     <a
                       href="https://wa.me/5548999148413"
                       target="_blank"
                       rel="noopener noreferrer"
-                      >(48) 99914-8413</a
+                      >Luis Claudio · +55 48 99914-8413</a
                     >
                   </div>
                   <div class="footer-contact-item">
@@ -2895,24 +3008,27 @@
             </h2>
             <p class="footer-form-sub">
               Fale direto com a equipe comercial e reduza o tempo entre dúvida,
-              escolha técnica e orçamento.
+              escolha técnica e orçamento, com retorno conforme a complexidade
+              do cenário.
             </p>
             <div class="footer-form">
               <div class="form-group">
-                <label class="form-label">Nome</label>
-                <input class="form-input" type="text" placeholder="Seu nome" />
+                <label class="form-label" for="contact-name">Nome</label>
+                <input id="contact-name" class="form-input" type="text" placeholder="Seu nome" />
               </div>
               <div class="form-group">
-                <label class="form-label">Empresa</label>
+                <label class="form-label" for="contact-company">Empresa</label>
                 <input
+                  id="contact-company"
                   class="form-input"
                   type="text"
                   placeholder="Empresa (opcional)"
                 />
               </div>
               <div class="form-group">
-                <label class="form-label">E-mail</label>
+                <label class="form-label" for="contact-email">E-mail</label>
                 <input
+                  id="contact-email"
                   class="form-input"
                   type="email"
                   placeholder="seu@email.com.br"
@@ -2928,13 +3044,14 @@
                 </select>
               </div>
               <div class="form-group">
-                <label class="form-label">Descreva o ambiente ou produto</label>
+                <label class="form-label" for="contact-message">Descreva o ambiente ou produto</label>
                 <textarea
+                  id="contact-message"
                   class="form-textarea"
                   placeholder="Ex: preciso de detector multi-gás para espaço confinado, equipe de 5 pessoas..."
                 ></textarea>
               </div>
-              <button type="button" class="btn-primary btn-block">
+              <button type="button" class="btn-primary btn-block" id="contact-submit">
                 Enviar mensagem
               </button>
             </div>
@@ -2949,11 +3066,6 @@
               <span class="footer-brand-name">4Safety</span>
               <span class="footer-legal-sep">·</span>
               Todos os direitos reservados
-            </span>
-            <span class="footer-legal footer-legal--micro">
-              Nome fantasia de Ilha Norte Importação e Exportação
-              <span class="footer-legal-sep">—</span>
-              CNPJ 11.897.812/0001-06
             </span>
           </div>
           <div class="footer-bottom-right">
@@ -3185,6 +3297,28 @@
       };
       window.addEventListener("scroll", syncBackToTop, { passive: true });
       syncBackToTop();
+
+      // ── FORMULÁRIO COMERCIAL: CLICK-TO-CHAT ─────────────────────────────
+      const contactSubmit = document.getElementById("contact-submit");
+      if (contactSubmit) {
+        contactSubmit.addEventListener("click", () => {
+          const name = document.getElementById("contact-name")?.value?.trim();
+          const company = document.getElementById("contact-company")?.value?.trim();
+          const email = document.getElementById("contact-email")?.value?.trim();
+          const subject = document.getElementById("form-assunto")?.value?.trim();
+          const message = document.getElementById("contact-message")?.value?.trim();
+          const lines = [
+            "Olá, 4Safety.",
+            "Gostaria de atendimento comercial.",
+            name ? `Nome: ${name}` : "",
+            company ? `Empresa: ${company}` : "",
+            email ? `E-mail: ${email}` : "",
+            subject ? `Assunto: ${subject}` : "",
+            message ? `Cenário/produto: ${message}` : "",
+          ].filter(Boolean);
+          window.open(`https://wa.me/5548999148413?text=${encodeURIComponent(lines.join("\n"))}`, "_blank", "noopener");
+        });
+      }
 
       // ── WA FLOAT PULSE ───────────────────────────────────────────────────
       document
