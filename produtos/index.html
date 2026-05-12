@@ -15,6 +15,230 @@
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&family=Source+Sans+3:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../css/products.css" />
     <style>
+/* ── NAV: topo = branco 100%; após rolagem = glass aqua ── */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: env(safe-area-inset-top, 0px)
+          max(var(--container-px), env(safe-area-inset-right)) 0
+          max(var(--container-px), env(safe-area-inset-left));
+        min-height: calc(60px + env(safe-area-inset-top, 0px));
+        height: auto;
+        background: var(--white);
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+        border-bottom: 1px solid rgba(40, 36, 32, 0.08);
+        box-shadow: 0 1px 0 rgba(255, 255, 255, 1);
+        transition:
+          background 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+          border-color 0.4s ease,
+          box-shadow 0.45s ease,
+          -webkit-backdrop-filter 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+          backdrop-filter 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      nav.nav--scrolled {
+        background: linear-gradient(
+          180deg,
+          rgba(20, 18, 16, 0.82) 0%,
+          rgba(30, 28, 26, 0.78) 100%
+        );
+        -webkit-backdrop-filter: saturate(175%) blur(22px);
+        backdrop-filter: saturate(175%) blur(22px);
+        border-bottom: 1px solid rgba(255, 0, 0, 0.28);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.08),
+          0 6px 28px rgba(0, 0, 0, 0.18);
+      }
+      nav.nav--scrolled .nav-links a {
+        color: rgba(255, 255, 255, 0.85);
+      }
+      nav.nav--scrolled .nav-links a:hover {
+        color: var(--orange);
+      }
+      @supports not (
+        (-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))
+      ) {
+        nav.nav--scrolled {
+          background: linear-gradient(180deg, #1a1816 0%, #222020 100%);
+        }
+      }
+      .nav-logo {
+        position: relative;
+        display: block;
+        width: fit-content;
+      }
+      .nav-logo img {
+        height: 52px;
+        display: block;
+        transition:
+          opacity 0.28s ease,
+          transform 0.28s ease,
+          filter 0.28s ease;
+      }
+      .nav-logo-default {
+        opacity: 1;
+      }
+      .nav-logo-scrolled {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        filter: drop-shadow(0 1px 10px rgba(0, 0, 0, 0.18));
+      }
+      nav.nav--scrolled .nav-logo-default {
+        opacity: 0;
+        transform: translateY(-2px);
+      }
+      nav.nav--scrolled .nav-logo-scrolled {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .nav-cta {
+        background: var(--orange);
+        color: var(--white);
+        font-family: var(--font-body);
+        font-size: 0.8rem;
+        font-weight: 500;
+        border: none;
+        border-radius: 6px;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        text-decoration: none;
+        white-space: nowrap;
+        transition: opacity 0.2s;
+      }
+      .nav-cta:hover {
+        opacity: 0.88;
+      }
+      .nav-links {
+        display: flex;
+        gap: 1.5rem;
+        list-style: none;
+      }
+      .nav-links a {
+        color: var(--g700);
+        font-size: 0.85rem;
+        text-decoration: none;
+        transition: color 0.2s;
+        font-weight: 500;
+      }
+      .nav-links a:hover {
+        color: var(--orange);
+      }
+
+      /* Hamburguer & Mobile Menu */
+      .nav-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 5px;
+        z-index: 101;
+      }
+      .nav-toggle span {
+        width: 24px;
+        height: 2px;
+        background: var(--orange);
+        transition: 0.3s;
+        border-radius: 2px;
+      }
+      .nav-toggle.active span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+      .nav-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+      .nav-toggle.active span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+
+      @media (max-width: 767px) {
+        .nav-toggle {
+          display: flex;
+        }
+        .nav-menu {
+          position: fixed;
+          top: 0;
+          right: -100%;
+          width: 80%;
+          max-width: 320px;
+          height: 100vh;
+          background: var(--white);
+          z-index: 100;
+          display: flex;
+          flex-direction: column;
+          padding: 6rem 2rem 2rem;
+          transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+          box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+        }
+        .nav-menu.active {
+          right: 0;
+        }
+        .nav-overlay {
+          position: fixed;
+          inset: 0;
+          background: rgba(0,0,0,0.4);
+          -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
+          z-index: 99;
+          opacity: 0;
+          visibility: hidden;
+          transition: 0.3s;
+        }
+        .nav-overlay.active {
+          opacity: 1;
+          visibility: visible;
+        }
+
+        body.no-scroll {
+          overflow: hidden;
+        }
+        .nav-links {
+          flex-direction: column;
+          gap: 2rem;
+          margin-bottom: 3rem;
+        }
+        .nav-links a {
+          font-size: 1.25rem;
+        }
+        .nav-cta {
+          width: 100%;
+          text-align: center;
+          padding: 1rem;
+        }
+      }
+
+      @media (min-width: 768px) {
+        nav {
+          padding: env(safe-area-inset-top, 0px)
+            max(var(--container-px), env(safe-area-inset-right)) 0
+            max(var(--container-px), env(safe-area-inset-left));
+          min-height: calc(68px + env(safe-area-inset-top, 0px));
+        }
+        .nav-logo img {
+          height: 58px;
+        }
+        .nav-menu {
+          display: flex;
+          align-items: center;
+          gap: 2.5rem;
+        }
+        .nav-links a {
+          font-weight: 700;
+        }
+        .nav-cta {
+          font-weight: 700;
+        }
+      }
+
+      /* ── HERO
       nav {
         position: fixed; top: 0; left: 0; right: 0; z-index: 100;
         display: flex; align-items: center; justify-content: space-between;
@@ -335,24 +559,45 @@
   <body>
     <nav id="main-nav">
       <a href="../index.html" class="nav-logo">
-        <img class="nav-logo-default" src="../images/brand/logo_refatorada.svg" alt="4Safety" />
-        <img class="nav-logo-scrolled" src="../images/brand/Logo_4Safety-bco_lja.webp" alt="4Safety" aria-hidden="true" />
+        <img
+          class="nav-logo-default"
+          src="../images/brand/logo_refatorada.svg"
+          alt="4Safety"
+        />
+        <img
+          class="nav-logo-scrolled"
+          src="../images/brand/Logo_4Safety-bco_lja.webp"
+          alt="4Safety"
+          aria-hidden="true"
+        />
       </a>
+
+      <!-- Menu Mobile Trigger -->
       <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu">
-        <span></span><span></span><span></span>
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
+
       <div class="nav-overlay" id="nav-overlay"></div>
+
       <div class="nav-menu" id="nav-menu">
         <ul class="nav-links">
           <li><a href="../index.html">Home</a></li>
           <li><a href="../quem-somos/index.html">Quem somos</a></li>
           <li><a href="../index.html#solucoes">Soluções</a></li>
-          <li><a href="./index.html" class="active">Produtos</a></li>
+          <li><a href="produtos/index.html">Produtos</a></li>
           <li><a href="../index.html#parceiros">Parceiros</a></li>
           <li><a href="../consulta-de-ca/index.html">Consulta CA</a></li>
           <li><a href="../index.html#contato">Contato</a></li>
         </ul>
-        <a href="https://wa.me/5548999148413" class="nav-cta" target="_blank" rel="noopener noreferrer">Falar com a 4Safety</a>
+        <a
+          href="https://wa.me/5548999148413"
+          class="nav-cta"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Falar com a 4Safety</a
+        >
       </div>
     </nav>
 
@@ -442,14 +687,14 @@
         <button class="produto-cta" data-cart-add data-product-name="Equipamentos de Fumigação" data-product-img="../images/products/produto-fumigacao.png" data-product-slug="fumigacao">Adicionar ao Orçamento</button>
       </div>
 
-      <div class="produto-card reveal" data-cat="outros fumigacao">
+      <div class="produto-card reveal" data-cat="outros">
         <a href="fumigacao/lona-sob-medida/index.html" class="produto-card-link">
-          <img class="produto-img" src="../images/products/produto-fumigacao.png" alt="Lona de Fumigação Sob Medida" loading="lazy" />
+          <img class="produto-img" src="../images/products/produto-lona-fumigacao.png" alt="Lona de Fumigação Sob Medida" loading="lazy" />
           <div class="produto-badges"><span class="badge-norma">Sob medida</span></div>
           <h3 class="produto-headline">Lona de Fumigação Sob Medida</h3>
           <p class="produto-body">Projeto dimensionado por aplicação, medidas e condição operacional, com acesso direto à fábrica.</p>
         </a>
-        <button class="produto-cta" data-cart-add data-product-name="Lona de Fumigação Sob Medida" data-product-img="../images/products/produto-fumigacao.png" data-product-slug="lona-fumigacao">Adicionar ao Orçamento</button>
+        <button class="produto-cta" data-cart-add data-product-name="Lona de Fumigação Sob Medida" data-product-img="../images/products/produto-lona-fumigacao.png" data-product-slug="lona-fumigacao">Adicionar ao Orçamento</button>
       </div>
 
       <div class="produto-card reveal" data-cat="respiratorio">
@@ -663,5 +908,52 @@
       }, { threshold: 0.1, rootMargin: "0px 0px -36px 0px" });
       reveals.forEach(el => observer.observe(el));
     </script>
-  </body>
+<!-- Global Navigation Script -->
+<script id="global-nav-script">
+  (() => {
+    const nav = document.getElementById("main-nav");
+    const toggle = document.getElementById("nav-toggle");
+    const menu = document.getElementById("nav-menu");
+    const overlay = document.getElementById("nav-overlay");
+
+    function updateNavGlass() {
+      if (!nav) return;
+      nav.classList.toggle("nav--scrolled", window.scrollY > 40);
+    }
+
+    function closeMenu() {
+      if (!toggle || !menu || !overlay) return;
+      toggle.classList.remove("active");
+      menu.classList.remove("active");
+      overlay.classList.remove("active");
+      document.body.classList.remove("no-scroll");
+    }
+
+    function toggleMenu() {
+      if (!toggle || !menu || !overlay) return;
+      const isActive = !menu.classList.contains("active");
+      toggle.classList.toggle("active", isActive);
+      menu.classList.toggle("active", isActive);
+      overlay.classList.toggle("active", isActive);
+      document.body.classList.toggle("no-scroll", isActive);
+    }
+
+    if (toggle && menu && overlay) {
+      toggle.addEventListener("click", toggleMenu);
+      overlay.addEventListener("click", closeMenu);
+      menu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", closeMenu);
+      });
+    }
+
+    window.addEventListener("scroll", updateNavGlass, { passive: true });
+    updateNavGlass();
+  })();
+</script>
+
+
+
+
+
+</body>
 </html>

@@ -27,12 +27,15 @@ Site institucional e comercial estático da 4Safety, com foco em segurança do t
 ## Automação real do projeto
 
 ### Geração de catálogo
+
 `scripts/gen_products.py` gera as páginas de `produtos/` usando `templates/product.template.html`.
 
 ### Sincronização de navegação
+
 `scripts/sync_nav.py` sincroniza apenas a navegação, o CSS do nav e o bloco de JS correspondente entre páginas HTML.
 
 ### Validação
+
 `make check` executa `scripts/check.sh`, que hoje valida todas as páginas HTML encontradas no repositório.
 
 ## Comandos úteis

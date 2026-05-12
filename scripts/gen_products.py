@@ -98,7 +98,7 @@ products = [
         "title": "Lona de Fumigação Sob Medida",
         "tag": "Fumigação — Projeto sob medida",
         "desc": "Lonas de fumigação dimensionadas conforme aplicação, medidas e condição operacional. A 4Safety conduz a especificação com acesso direto à fábrica.",
-        "img": "images/products/produto-fumigacao.png",
+        "img": "images/products/produto-lona-fumigacao.png",
         "meta": ["Sob Medida", "Acesso à Fábrica", "Sob Consulta"],
         "specs": [
             ("Aplicação", "Silos, armazéns e cargas"),

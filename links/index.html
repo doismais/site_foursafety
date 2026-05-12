@@ -58,7 +58,8 @@
       nav.nav--scrolled {
         background: linear-gradient(
           180deg,
-          rgba(20, 18, 16, 0.82) 0%, rgba(30, 28, 26, 0.78) 100%
+          rgba(20, 18, 16, 0.82) 0%,
+          rgba(30, 28, 26, 0.78) 100%
         );
         -webkit-backdrop-filter: saturate(175%) blur(22px);
         backdrop-filter: saturate(175%) blur(22px);
@@ -86,7 +87,7 @@
         width: fit-content;
       }
       .nav-logo img {
-        height: 46px;
+        height: 52px;
         display: block;
         transition:
           opacity 0.28s ease,
@@ -241,6 +242,12 @@
           display: flex;
           align-items: center;
           gap: 2.5rem;
+        }
+        .nav-links a {
+          font-weight: 700;
+        }
+        .nav-cta {
+          font-weight: 700;
         }
       }
 
@@ -459,7 +466,7 @@
         />
         <img
           class="nav-logo-scrolled"
-          src="../images/brand/Logo_4Safety-branco.png"
+          src="../images/brand/Logo_4Safety-bco_lja.webp"
           alt="4Safety"
           aria-hidden="true"
         />
@@ -479,7 +486,7 @@
           <li><a href="../index.html">Home</a></li>
           <li><a href="../quem-somos/index.html">Quem somos</a></li>
           <li><a href="../index.html#solucoes">Soluções</a></li>
-          <li><a href="../produtos/index.html">Produtos</a></li>
+          <li><a href="produtos/index.html">Produtos</a></li>
           <li><a href="../index.html#parceiros">Parceiros</a></li>
           <li><a href="../consulta-de-ca/index.html">Consulta CA</a></li>
           <li><a href="../index.html#contato">Contato</a></li>
@@ -835,31 +842,53 @@
       window.addEventListener("scroll", updateNavGlass, { passive: true });
       updateNavGlass();
     </script>
-  
-    <!-- Global Navigation Script -->
-    <script>
-      // ── MENU MOBILE ────────────────────────────────────────────────────────
-      const toggle = document.getElementById("nav-toggle");
-      const menu = document.getElementById("nav-menu");
-      const overlay = document.getElementById("nav-overlay");
+<!-- Global Navigation Script -->
+<script id="global-nav-script">
+  (() => {
+    const nav = document.getElementById("main-nav");
+    const toggle = document.getElementById("nav-toggle");
+    const menu = document.getElementById("nav-menu");
+    const overlay = document.getElementById("nav-overlay");
 
-      function toggleMenu() {
-        toggle.classList.toggle("active");
-        menu.classList.toggle("active");
-        overlay.classList.toggle("active");
-        document.body.classList.toggle("no-scroll");
-      }
+    function updateNavGlass() {
+      if (!nav) return;
+      nav.classList.toggle("nav--scrolled", window.scrollY > 40);
+    }
 
-      if (toggle && menu && overlay) {
-        toggle.addEventListener("click", toggleMenu);
-        overlay.addEventListener("click", toggleMenu);
+    function closeMenu() {
+      if (!toggle || !menu || !overlay) return;
+      toggle.classList.remove("active");
+      menu.classList.remove("active");
+      overlay.classList.remove("active");
+      document.body.classList.remove("no-scroll");
+    }
 
-        // Fecha ao clicar em link
-        menu.querySelectorAll("a").forEach((link) => {
-          link.addEventListener("click", toggleMenu);
-        });
-      }
+    function toggleMenu() {
+      if (!toggle || !menu || !overlay) return;
+      const isActive = !menu.classList.contains("active");
+      toggle.classList.toggle("active", isActive);
+      menu.classList.toggle("active", isActive);
+      overlay.classList.toggle("active", isActive);
+      document.body.classList.toggle("no-scroll", isActive);
+    }
 
-    </script>
+    if (toggle && menu && overlay) {
+      toggle.addEventListener("click", toggleMenu);
+      overlay.addEventListener("click", closeMenu);
+      menu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", closeMenu);
+      });
+    }
+
+    window.addEventListener("scroll", updateNavGlass, { passive: true });
+    updateNavGlass();
+  })();
+</script>
+
+
+
+
+
+
   </body>
 </html>
