@@ -2445,6 +2445,12 @@
 
       /* ── REVEAL ── */
       .reveal {
+        opacity: 0;
+        transform: translateY(22px);
+        transition: opacity 0.58s cubic-bezier(0.22, 1, 0.36, 1), transform 0.58s cubic-bezier(0.22, 1, 0.36, 1);
+        will-change: opacity, transform;
+      }
+      .reveal.is-visible {
         opacity: 1;
         transform: translateY(0);
       }
@@ -3310,28 +3316,24 @@
         );
       });
 
-      // ── SCROLL REVEAL WAAPI ──────────────────────────────────────────────
+      // ── SCROLL REVEAL CSS ────────────────────────────────────────────────
       const reveals = document.querySelectorAll(".reveal");
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
             if (!entry.isIntersecting) return;
             const el = entry.target;
+            
+            // Mantém o efeito stagger calculando o delay dinâmico
             const siblings = [...el.parentElement.querySelectorAll(".reveal")];
             const idx = siblings.indexOf(el);
             const stagger = Math.min(idx * 75, 380);
-            el.animate(
-              [
-                { opacity: 0, transform: "translateY(22px)" },
-                { opacity: 1, transform: "translateY(0)" },
-              ],
-              {
-                duration: 580,
-                delay: stagger,
-                fill: "forwards",
-                easing: "cubic-bezier(0.22,1,0.36,1)",
-              },
-            );
+            
+            if (stagger > 0) {
+              el.style.transitionDelay = `${stagger}ms`;
+            }
+            
+            el.classList.add("is-visible");
             observer.unobserve(el);
           });
         },
@@ -3349,11 +3351,33 @@
             const span = el.querySelector("span");
             if (!span) return;
             const originalText = span.textContent;
-            if (originalText.includes(":")) return; // Pula animação para textos como 1:1
+            
+            // Trata animação para formatos como "1:1" (Ex: Atendimento consultivo)
+            if (originalText.includes(":")) {
+              const parts = originalText.split(":");
+              const target1 = parseInt(parts[0]);
+              const target2 = parseInt(parts[1]);
+              if (!isNaN(target1) && !isNaN(target2)) {
+                let current1 = 0;
+                let current2 = 0;
+                const step1 = Math.ceil(target1 / 40) || 1;
+                const step2 = Math.ceil(target2 / 40) || 1;
+                
+                const timer = setInterval(() => {
+                  current1 = Math.min(current1 + step1, target1);
+                  current2 = Math.min(current2 + step2, target2);
+                  span.textContent = `${current1}:${current2}`;
+                  if (current1 >= target1 && current2 >= target2) clearInterval(timer);
+                }, 30);
+                countObserver.unobserve(el);
+                return;
+              }
+            }
+
             const target = parseInt(originalText);
             if (isNaN(target)) return;
             let current = 0;
-            const step = Math.ceil(target / 40);
+            const step = Math.ceil(target / 40) || 1;
             const timer = setInterval(() => {
               current = Math.min(current + step, target);
               span.textContent = current;

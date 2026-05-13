@@ -85,7 +85,15 @@ def get_footer_html(content):
     return match[1] if match else None
 
 
+def get_footer_css(content):
+    """Extrai o bloco de CSS dedicado ao Footer do index.html."""
+    # Pega o bloco de CSS do Footer
+    match = re.search(r"(/\* ── FOOTER ── \*/.*?)(?=\s*/\* ── WA FLOAT)", content, re.DOTALL)
+    return match[1] if match else None
+
+
 def main():
+    """Função principal que coordena a sincronização de Nav e Footer."""
     print("Iniciando sincronização global da Navegação (HTML, CSS, JS)...")
     
     if not os.path.exists(INDEX_PATH):
@@ -98,6 +106,7 @@ def main():
     master_nav_html = get_nav_html(master_content)
     master_css = get_nav_css(master_content)
     master_footer_html = get_footer_html(master_content)
+    master_footer_css = get_footer_css(master_content)
 
     if not master_nav_html:
         print("Erro: Não foi possível extrair o HTML do Nav do index.html")
@@ -165,6 +174,15 @@ def main():
                     local_footer = local_footer.replace('href="index.html#', f'href="{prefix}index.html#')
 
                 content = re.sub(r"<footer.*?>.*?</footer>", local_footer, content, flags=re.DOTALL)
+
+                # 2.6 Aplicar CSS do Footer
+                if master_footer_css:
+                    pattern = r"(/\* ── FOOTER ── \*/.*?)(?=\s*/\* ── WA FLOAT)"
+                    if re.search(pattern, content, re.DOTALL):
+                        content = re.sub(pattern, master_footer_css, content, flags=re.DOTALL)
+                    else:
+                        # Se não tiver o bloco, insere no final do style
+                        content = content.replace("</style>", f"\n{master_footer_css}\n</style>")
 
                 # 3. Aplicar Script JS em bloco dedicado e isolado (sem tocar scripts existentes)
                 if NAV_SCRIPT_BLOCK_RE.search(content):

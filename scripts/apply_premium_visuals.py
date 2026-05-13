@@ -14,7 +14,7 @@ def extract_section(content, start_tag, end_tag):
 
 
 def get_footer(content):
-    match = re.search(r"(<footer>.*?</footer>)", content, re.DOTALL)
+    match = re.search(r"(<footer.*?>.*?</footer>)", content, re.DOTALL)
     return match.group(1) if match else None
 
 
@@ -27,7 +27,7 @@ def get_wa_float(content):
 def get_reveal_script(content):
     # Pega a parte do script que contém o IntersectionObserver
     match = re.search(
-        r"(// ── SCROLL REVEAL WAAPI ──.*?observer\.observe\(el\)\);)",
+        r"(// ── SCROLL REVEAL.*?observer\.observe\(el\)\);)",
         content,
         re.DOTALL,
     )
