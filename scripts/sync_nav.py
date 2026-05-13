@@ -64,7 +64,7 @@ LEGACY_NAV_SCRIPT_RE = re.compile(
 def get_nav_html(content):
     # Pega o bloco <nav>...</nav>
     match = re.search(r"(<nav id=\"main-nav\".*?>.*?</nav>)", content, re.DOTALL)
-    return match.group(1) if match else None
+    return match[1] if match else None
 
 
 def get_nav_css(content):
@@ -79,6 +79,12 @@ def get_nav_css(content):
     return None
 
 
+def get_footer_html(content):
+    # Pega o bloco <footer>...</footer>
+    match = re.search(r"(<footer id=\"contato\".*?>.*?</footer>)", content, re.DOTALL)
+    return match[1] if match else None
+
+
 def main():
     print("Iniciando sincronização global da Navegação (HTML, CSS, JS)...")
     
@@ -91,12 +97,16 @@ def main():
 
     master_nav_html = get_nav_html(master_content)
     master_css = get_nav_css(master_content)
+    master_footer_html = get_footer_html(master_content)
 
     if not master_nav_html:
         print("Erro: Não foi possível extrair o HTML do Nav do index.html")
         return
     if not master_css:
         print("Erro: Não foi possível extrair o CSS do Nav do index.html")
+        return
+    if not master_footer_html:
+        print("Erro: Não foi possível extrair o HTML do Footer do index.html")
         return
 
     print("Componentes extraídos com sucesso. Sincronizando arquivos...")
@@ -138,6 +148,23 @@ def main():
 
                 # 2. Aplicar Nav HTML
                 content = re.sub(r"<nav.*?>.*?</nav>", local_nav, content, flags=re.DOTALL)
+
+                # 2.5 Aplicar Footer HTML
+                local_footer = master_footer_html
+                # Corrigir hrefs comuns no footer também
+                local_footer = local_footer.replace('href="index.html"', f'href="{prefix}index.html"')
+                local_footer = local_footer.replace('href="consulta-de-ca/', f'href="{prefix}consulta-de-ca/')
+                local_footer = local_footer.replace('href="quem-somos/', f'href="{prefix}quem-somos/')
+                local_footer = local_footer.replace('href="contato/', f'href="{prefix}contato/')
+                # Corrigir imagens
+                local_footer = local_footer.replace('src="images/', f'src="{prefix}images/')
+                
+                # Se for uma âncora (#produtos), ela deve ir para index.html#produtos se não estiver na home
+                if prefix != "":
+                    local_footer = local_footer.replace('href="#', f'href="{prefix}index.html#')
+                    local_footer = local_footer.replace('href="index.html#', f'href="{prefix}index.html#')
+
+                content = re.sub(r"<footer.*?>.*?</footer>", local_footer, content, flags=re.DOTALL)
 
                 # 3. Aplicar Script JS em bloco dedicado e isolado (sem tocar scripts existentes)
                 if NAV_SCRIPT_BLOCK_RE.search(content):
