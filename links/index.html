@@ -17,18 +17,24 @@
       content="Acesso direto aos canais e soluções da 4Safety. Orçamento, consulta de CA e portfólio técnico em um só lugar."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://4safety.vercel.app/images/OG-image.png" />
+    <meta
+      property="og:image"
+      content="https://4safety.vercel.app/images/OG-image.png"
+    />
     <meta property="og:image:alt" content="Links diretos 4Safety" />
     <meta property="og:url" content="https://4safety.vercel.app/links/" />
     <link rel="canonical" href="https://4safety.vercel.app/links/" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="https://4safety.vercel.app/images/OG-image.png" />
+    <meta
+      name="twitter:image"
+      content="https://4safety.vercel.app/images/OG-image.png"
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&family=Source+Sans+3:wght@400;600;700;800&display=swap"
       rel="stylesheet"
     />
     <style>
-/* ── NAV: topo = branco 100%; após rolagem = glass aqua ── */
+      /* ── NAV: topo = branco 100%; após rolagem = glass aqua ── */
       nav {
         position: fixed;
         top: 0;
@@ -69,7 +75,7 @@
           0 6px 28px rgba(0, 0, 0, 0.18);
       }
       nav.nav--scrolled .nav-links a {
-        color: rgba(255, 255, 255, 0.85);
+        color: #ffffff;
       }
       nav.nav--scrolled .nav-links a:hover {
         color: var(--orange);
@@ -189,7 +195,7 @@
           flex-direction: column;
           padding: 6rem 2rem 2rem;
           transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-          box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+          box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
         }
         .nav-menu.active {
           right: 0;
@@ -197,7 +203,7 @@
         .nav-overlay {
           position: fixed;
           inset: 0;
-          background: rgba(0,0,0,0.4);
+          background: rgba(0, 0, 0, 0.4);
           -webkit-backdrop-filter: blur(4px);
           backdrop-filter: blur(4px);
           z-index: 99;
@@ -329,7 +335,7 @@
       }
       .hero-sub {
         font-size: clamp(1rem, 1.1vw, 1.2rem);
-        color: rgba(255, 255, 255, 0.72);
+        color: #ffffff;
         line-height: 1.55;
         max-width: 68ch;
       }
@@ -539,7 +545,7 @@
                 </span>
                 <span class="link-text">
                   <span class="link-label">WhatsApp</span>
-                  <span class="link-sub">Atendimento comercial com Luis Claudio</span>
+                  <span class="link-sub">Atendimento comercial</span>
                 </span>
               </a>
               <a
@@ -761,7 +767,9 @@
                 </span>
                 <span class="link-text">
                   <span class="link-label">WhatsApp comercial</span>
-                  <span class="link-sub">Luis Claudio · +55 48 99914-8413</span>
+                  <span class="link-sub"
+                    >Atendimento Comercial · +55 48 99914-8413</span
+                  >
                 </span>
               </a>
               <a href="mailto:4safety@4safety.com.br" class="link-item">
@@ -884,6 +892,14 @@
     updateNavGlass();
   })();
 </script>
+
+
+
+
+
+
+
+
 
 
 

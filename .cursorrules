@@ -1,0 +1,29 @@
+# 4Safety - Regras Canônicas (NΞØ Protocol)
+
+Este arquivo define as regras canônicas para o desenvolvimento e manutenção do projeto 4Safety.
+Sempre siga estas regras ao modificar o código.
+
+## 1. Estrutura de Arquivos e Rotas (Estático)
+
+- O projeto é um site estático (HTML/CSS/JS).
+- **Links para Produtos**: Na página de listagem (`produtos/index.html`), os links para os produtos devem ser **absolutos em relação à raiz** (ex: `/produtos/deteccao-de-gas/tubo-colorimetrico/index.html`) para evitar problemas com a presença ou ausência de barra invertida (`/`) na URL.
+- **Templates**: No arquivo `templates/product.template.html`, use a variável `[[PREFIX]]` para calcular caminhos relativos de volta à raiz, em vez de hardcodar `../`.
+
+## 2. Geração de Produtos
+
+- As páginas de produtos são geradas a partir do script `scripts/gen_products.py`.
+- Sempre que houver mudanças no `templates/product.template.html` ou no array de produtos em `scripts/gen_products.py`, execute o script para atualizar as páginas.
+- Se o comando `make build` falhar no ambiente local (por exemplo, erro de sandbox do Python), execute diretamente com o Python do sistema: `/usr/bin/python3 scripts/gen_products.py`.
+
+## 3. Segurança e Protocolo Git (NΞØ Protocol)
+
+- **Sempre** execute `pnpm audit` antes de fazer commit para verificar vulnerabilidades (conforme indicado no `AGENTS.md`).
+- **Sempre** verifique erros de lint ou valide o HTML com os scripts disponíveis (ex: `scripts/check.sh`).
+- **Sempre** siga os Conventional Commits (`feat:`, `fix:`, `docs:`, etc.).
+- Se houver mudanças que requerem build (no caso de haver algum bundler futuramente ou para rodar scripts de validação), verifique se foi bem-sucedido antes de avançar.
+
+## 4. Estilo e Acessibilidade
+
+- Mantenha a semântica HTML5.
+- Use IDs únicos para elementos interativos.
+- Preserve a responsividade e o design "premium" definido.

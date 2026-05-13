@@ -160,7 +160,7 @@
           0 6px 28px rgba(0, 0, 0, 0.18);
       }
       nav.nav--scrolled .nav-links a {
-        color: rgba(255, 255, 255, 0.85);
+        color: #ffffff;
       }
       nav.nav--scrolled .nav-links a:hover {
         color: var(--orange);
@@ -280,7 +280,7 @@
           flex-direction: column;
           padding: 6rem 2rem 2rem;
           transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-          box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+          box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
         }
         .nav-menu.active {
           right: 0;
@@ -288,7 +288,7 @@
         .nav-overlay {
           position: fixed;
           inset: 0;
-          background: rgba(0,0,0,0.4);
+          background: rgba(0, 0, 0, 0.4);
           -webkit-backdrop-filter: blur(4px);
           backdrop-filter: blur(4px);
           z-index: 99;
@@ -432,7 +432,9 @@
         object-fit: cover;
         object-position: center;
         opacity: 0;
-        transition: opacity 1.35s ease-in-out, transform 9s linear;
+        transition:
+          opacity 1.35s ease-in-out,
+          transform 9s linear;
         transform: scale(1.03);
       }
       .hero-placeholder img.active {
@@ -492,9 +494,9 @@
         font-size: clamp(0.95rem, 1.3vw, 1.25rem);
         color: var(--white);
         line-height: 1.5;
-        max-width: 44ch;
         margin-bottom: 1.45rem;
         opacity: 1;
+        white-space: nowrap;
       }
       .hero-actions {
         display: flex;
@@ -562,12 +564,15 @@
         border-radius: 50%;
         border: 1px solid rgba(255, 255, 255, 0.25);
         background: rgba(255, 255, 255, 0.08);
-        color: rgba(255, 255, 255, 0.7);
+        color: #ffffff;
         display: flex;
         align-items: center;
         justify-content: center;
         cursor: pointer;
-        transition: background 0.2s, border-color 0.2s, color 0.2s;
+        transition:
+          background 0.2s,
+          border-color 0.2s,
+          color 0.2s;
         backdrop-filter: blur(6px);
         -webkit-backdrop-filter: blur(6px);
       }
@@ -587,7 +592,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        color: rgba(255, 255, 255, 0.85);
+        color: #ffffff;
         z-index: 5;
         animation: bounceDown 2s ease-in-out infinite;
       }
@@ -599,18 +604,40 @@
         animation: pulseRing 2s ease-in-out infinite;
       }
       @keyframes bounceDown {
-        0%, 100% { transform: translateX(-50%) translateY(0); }
-        50% { transform: translateX(-50%) translateY(8px); }
+        0%,
+        100% {
+          transform: translateX(-50%) translateY(0);
+        }
+        50% {
+          transform: translateX(-50%) translateY(8px);
+        }
       }
       @keyframes pulseRing {
-        0% { transform: scale(1); opacity: 1; box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.4); }
-        70% { transform: scale(1.35); opacity: 0; box-shadow: 0 0 20px 6px rgba(255, 0, 0, 0.15); }
-        100% { transform: scale(1); opacity: 0; }
+        0% {
+          transform: scale(1);
+          opacity: 1;
+          box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.4);
+        }
+        70% {
+          transform: scale(1.35);
+          opacity: 0;
+          box-shadow: 0 0 20px 6px rgba(255, 0, 0, 0.15);
+        }
+        100% {
+          transform: scale(1);
+          opacity: 0;
+        }
       }
       @keyframes scrollLine {
-        0% { left: -100%; }
-        50% { left: 0; }
-        100% { left: 100%; }
+        0% {
+          left: -100%;
+        }
+        50% {
+          left: 0;
+        }
+        100% {
+          left: 100%;
+        }
       }
       @media (max-width: 767px) {
         .hero {
@@ -791,7 +818,6 @@
         }
         .hero-sub {
           font-size: clamp(1rem, 1.2vw, 1.18rem);
-          max-width: 42ch;
         }
         .hero-arrows {
           bottom: 2.5rem;
@@ -851,7 +877,9 @@
         max-width: 100%;
         object-fit: contain;
         filter: brightness(0) opacity(0.35);
-        transition: filter 0.3s ease, transform 0.3s ease;
+        transition:
+          filter 0.3s ease,
+          transform 0.3s ease;
       }
       .trust-item img[alt*="MSA"],
       .trust-item img[alt*="Thermo"],
@@ -890,7 +918,8 @@
       }
       .section-eyebrow {
         font-family: var(--font-mono);
-        font-size: 0.65rem;
+        font-size: 1rem;
+        font-weight: 700;
         color: var(--orange);
         letter-spacing: 0.2em;
         text-transform: uppercase;
@@ -901,8 +930,8 @@
       }
       .section-eyebrow::before {
         content: "";
-        width: 16px;
-        height: 1px;
+        width: 24px;
+        height: 2px;
         background: var(--orange);
       }
       .section-headline {
@@ -1132,14 +1161,14 @@
       }
       .glass-label {
         font-family: var(--font-mono);
-        font-size: 0.65rem;
+        font-size: 0.85rem;
         color: var(--g400);
         letter-spacing: 0.12em;
         text-transform: uppercase;
         margin-bottom: 0.75rem;
       }
       .glass-desc {
-        font-size: 0.82rem;
+        font-size: 0.92rem;
         color: var(--white);
         line-height: 1.5;
       }
@@ -1232,7 +1261,9 @@
         -webkit-overflow-scrolling: touch;
         padding-bottom: 1rem;
       }
-      .produtos-grid::-webkit-scrollbar { display: none; }
+      .produtos-grid::-webkit-scrollbar {
+        display: none;
+      }
       .produtos-grid .produto-card {
         min-width: 280px;
         flex: 0 0 85%;
@@ -1275,7 +1306,7 @@
         border-radius: 12px;
         position: relative;
         overflow: hidden;
-        box-shadow: 
+        box-shadow:
           0 10px 25px rgba(161, 0, 0, 0.22),
           0 0 12px rgba(255, 0, 0, 0.35);
         transition:
@@ -1312,7 +1343,7 @@
         color: #a10000;
         background-size: 100% 100%;
         transform: translateY(-2px);
-        box-shadow: 
+        box-shadow:
           0 14px 30px rgba(161, 0, 0, 0.3),
           0 0 20px rgba(255, 0, 0, 0.6);
       }
@@ -1535,7 +1566,6 @@
         }
       }
 
-
       /* ── PARCEIROS ── */
 
       .parceiros {
@@ -1677,7 +1707,7 @@
         z-index: 1;
       }
       .cta-block-sub {
-        color: rgba(255, 255, 255, 0.85);
+        color: #ffffff;
         font-size: 0.95rem;
         line-height: 1.6;
         margin-bottom: 2rem;
@@ -1958,7 +1988,7 @@
       .footer-trust-text {
         font-size: 0.78rem;
         line-height: 1.4;
-        color: rgba(235, 230, 223, 0.7);
+        color: #ffffff;
       }
       @media (min-width: 560px) {
         .footer-trust-grid {
@@ -1999,7 +2029,7 @@
       .footer-form-sub {
         font-size: 0.92rem;
         line-height: 1.6;
-        color: rgba(235, 230, 223, 0.7);
+        color: #ffffff;
         margin-bottom: 1.4rem;
         max-width: 32rem;
       }
@@ -2076,12 +2106,12 @@
         color: rgba(255, 0, 0, 0.9);
       }
       .footer-card--nav .footer-links a {
-        color: rgba(255, 255, 255, 0.92);
+        color: #ffffff;
       }
       .footer-card-label {
         font-family: var(--font-mono);
         font-size: 0.62rem;
-        color: rgba(255, 255, 255, 0.82);
+        color: #ffffff;
         letter-spacing: 0.14em;
         text-transform: uppercase;
         margin-bottom: 0.95rem;
@@ -2187,20 +2217,20 @@
       }
       .footer-legal {
         font-size: 0.72rem;
-        color: rgba(255, 255, 255, 0.72);
+        color: #ffffff;
         font-family: var(--font-mono);
         line-height: 1.65;
         letter-spacing: 0.02em;
       }
       .footer-legal--primary {
         font-size: 0.78rem;
-        color: rgba(255, 255, 255, 0.88);
+        color: #ffffff;
         letter-spacing: 0.06em;
         text-transform: uppercase;
       }
       .footer-legal--micro {
         font-size: 0.66rem;
-        color: rgba(255, 255, 255, 0.72);
+        color: #ffffff;
         letter-spacing: 0.04em;
       }
       .footer-legal-sep {
@@ -2252,7 +2282,7 @@
         width: 52px;
         height: 52px;
         border-radius: 50%;
-        background: #25D366;
+        background: #25d366;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -2504,21 +2534,57 @@
         </div>
       </div>
       <div class="hero-arrows">
-        <button class="hero-arrow hero-arrow--prev" aria-label="Banner anterior">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        <button
+          class="hero-arrow hero-arrow--prev"
+          aria-label="Banner anterior"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
         </button>
         <button class="hero-arrow hero-arrow--next" aria-label="Próximo banner">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="9 6 15 12 9 18" />
+          </svg>
         </button>
       </div>
-      <div class="hero-scroll-down" aria-label="Role para baixo">
+      <a href="#cta-atuacao" class="hero-scroll-down" aria-label="Role para baixo">
         <div class="scroll-ring"></div>
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-      </div>
+        <svg
+          width="22"
+          height="22"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+      </a>
     </section>
 
     <!-- CTA ATUAÇÃO -->
-    <section class="cta-atuacao">
+    <section class="cta-atuacao" id="cta-atuacao">
       <div class="cta-atuacao-inner">
         <div class="cta-atuacao-media reveal">
           <div class="cta-atuacao-icon-shell">
@@ -2553,7 +2619,7 @@
         <div class="glass-header reveal">
           <p class="section-eyebrow">4Safety em números</p>
           <h2 class="section-headline">
-            Resultados que<br />constroem confiança
+            Resultados que constroem confiança
           </h2>
         </div>
         <div class="glass-grid">
@@ -2576,14 +2642,15 @@
             <div class="glass-number">+<span>30</span></div>
             <div class="glass-label">Marcas globais</div>
             <div class="glass-desc">
-              Portfólio com marcas reconhecidas e documentação alinhada por aplicação
+              Portfólio com marcas reconhecidas e documentação alinhada por
+              aplicação
             </div>
           </div>
           <div class="glass-card reveal">
-            <div class="glass-number"><span>1</span></div>
+            <div class="glass-number"><span>1:1</span></div>
             <div class="glass-label">Atendimento consultivo</div>
             <div class="glass-desc">
-              Canal comercial direto com Luis Claudio por WhatsApp e e-mail
+              Atendimento imediato e sem burocracia por WhatsApp e documentado por e-mail
             </div>
           </div>
         </div>
@@ -2595,10 +2662,11 @@
       <div class="produtos-header reveal">
         <p class="section-eyebrow">Portfólio técnico</p>
         <h2 class="section-headline">
-          Encontre o equipamento certo para cada risco
+          Encontre o equipamento certo para a sua operação.
         </h2>
         <p class="section-sub">
-          Produtos selecionados com suporte técnico e documentação confirmada conforme aplicação.
+          Produtos selecionados com suporte técnico e documentação confirmada
+          conforme aplicação.
         </p>
       </div>
       <div class="produtos-grid">
@@ -2623,117 +2691,191 @@
           </a>
           <button
             class="produto-cta produto-cta-btn"
-            data-cart-add 
+            data-cart-add
             data-product-name="Tubo Colorimétrico Uniphos"
             data-product-img="images/products/produto-tubo-colorimetrico-uniphos.jpg"
             data-product-slug="tubo-colorimetrico"
-            >Adicionar ao Orçamento</button>
-        </div>
-        <div class="produto-card reveal" data-cat="gas">
-          <a href="produtos/deteccao-de-gas/bomba-deteccao/index.html" class="produto-card-link">
-            <img class="produto-img" src="images/products/produto-bomba-deteccao-gas.png" alt="Bomba de Detecção de Gás" />
-            <div class="produto-badges"><span class="badge-norma">NR-33</span></div>
-            <h3 class="produto-headline">Bomba de Detecção de Gás</h3>
-            <p class="produto-body">Bombas manuais e automáticas para amostragem com tubos colorimétricos em espaços confinados.</p>
-          </a>
-          <button class="produto-cta produto-cta-btn" data-cart-add data-product-name="Bomba de Detecção de Gás" data-product-img="images/products/produto-bomba-deteccao-gas.png" data-product-slug="bomba-deteccao">
+          >
             Adicionar ao Orçamento
           </button>
         </div>
         <div class="produto-card reveal" data-cat="gas">
-          <a href="produtos/deteccao-de-gas/detector-portatil/index.html" class="produto-card-link">
-            <img class="produto-img" src="images/products/produto-detector-gas-portatil.png" alt="Detector de Gás Portátil" />
-            <div class="produto-badges"><span class="badge-norma">NR-33</span></div>
-            <h3 class="produto-headline">Detector de Gás Portátil</h3>
-            <p class="produto-body">Monitoramento contínuo de O₂, CO, H₂S e gases explosivos. Alarme sonoro e visual.</p>
+          <a
+            href="produtos/deteccao-de-gas/bomba-deteccao/index.html"
+            class="produto-card-link"
+          >
+            <img
+              class="produto-img"
+              src="images/products/produto-bomba-deteccao-gas.png"
+              alt="Bomba de Detecção de Gás"
+            />
+            <div class="produto-badges">
+              <span class="badge-norma">NR-33</span>
+            </div>
+            <h3 class="produto-headline">Bomba de Detecção de Gás</h3>
+            <p class="produto-body">
+              Bombas manuais e automáticas para amostragem com tubos
+              colorimétricos em espaços confinados.
+            </p>
           </a>
-          <button class="produto-cta produto-cta-btn" data-cart-add data-product-name="Detector de Gás Portátil" data-product-img="images/products/produto-detector-gas-portatil.png" data-product-slug="detector-portatil">
+          <button
+            class="produto-cta produto-cta-btn"
+            data-cart-add
+            data-product-name="Bomba de Detecção de Gás"
+            data-product-img="images/products/produto-bomba-deteccao-gas.png"
+            data-product-slug="bomba-deteccao"
+          >
+            Adicionar ao Orçamento
+          </button>
+        </div>
+        <div class="produto-card reveal" data-cat="gas">
+          <a
+            href="produtos/deteccao-de-gas/detector-portatil/index.html"
+            class="produto-card-link"
+          >
+            <img
+              class="produto-img"
+              src="images/products/produto-detector-gas-portatil.png"
+              alt="Detector de Gás Portátil"
+            />
+            <div class="produto-badges">
+              <span class="badge-norma">NR-33</span>
+            </div>
+            <h3 class="produto-headline">Detector de Gás Portátil</h3>
+            <p class="produto-body">
+              Monitoramento contínuo de O₂, CO, H₂S e gases explosivos. Alarme
+              sonoro e visual.
+            </p>
+          </a>
+          <button
+            class="produto-cta produto-cta-btn"
+            data-cart-add
+            data-product-name="Detector de Gás Portátil"
+            data-product-img="images/products/produto-detector-gas-portatil.png"
+            data-product-slug="detector-portatil"
+          >
             Adicionar ao Orçamento
           </button>
         </div>
         <div class="produto-card reveal" data-cat="outros">
           <a href="produtos/fumigacao/index.html" class="produto-card-link">
-            <img class="produto-img" src="images/products/produto-fumigacao.png" alt="Equipamentos de Fumigação" />
-            <div class="produto-badges"><span class="badge-norma">MAPA / ANVISA</span></div>
+            <img
+              class="produto-img"
+              src="images/products/produto-fumigacao.png"
+              alt="Equipamentos de Fumigação"
+            />
+            <div class="produto-badges">
+              <span class="badge-norma">MAPA / ANVISA</span>
+            </div>
             <h3 class="produto-headline">Equipamentos de Fumigação</h3>
-            <p class="produto-body">Aplicadores, dosadores e EPIs para fumigação de silos e armazéns industriais.</p>
+            <p class="produto-body">
+              Aplicadores, dosadores e EPIs para fumigação de silos e armazéns
+              industriais.
+            </p>
           </a>
-          <button class="produto-cta produto-cta-btn" data-cart-add data-product-name="Equipamentos de Fumigação" data-product-img="images/products/produto-fumigacao.png" data-product-slug="fumigacao">
+          <button
+            class="produto-cta produto-cta-btn"
+            data-cart-add
+            data-product-name="Equipamentos de Fumigação"
+            data-product-img="images/products/produto-fumigacao.png"
+            data-product-slug="fumigacao"
+          >
             Adicionar ao Orçamento
           </button>
         </div>
         <div class="produto-card reveal" data-cat="outros">
-          <a href="produtos/fumigacao/lona-sob-medida/index.html" class="produto-card-link">
-            <img class="produto-img" src="images/products/produto-lona-fumigacao.png" alt="Lona de Fumigação Sob Medida" />
-            <div class="produto-badges"><span class="badge-norma">Sob medida</span></div>
+          <a
+            href="produtos/fumigacao/lona-sob-medida/index.html"
+            class="produto-card-link"
+          >
+            <img
+              class="produto-img"
+              src="images/products/produto-lona-fumigacao.png"
+              alt="Lona de Fumigação Sob Medida"
+            />
+            <div class="produto-badges">
+              <span class="badge-norma">Sob medida</span>
+            </div>
             <h3 class="produto-headline">Lona de Fumigação Sob Medida</h3>
-            <p class="produto-body">Projeto dimensionado por aplicação, medidas e condição operacional, com acesso direto à fábrica.</p>
+            <p class="produto-body">
+              Projeto dimensionado por aplicação, medidas e condição
+              operacional, com acesso direto à fábrica.
+            </p>
           </a>
-          <button class="produto-cta produto-cta-btn" data-cart-add data-product-name="Lona de Fumigação Sob Medida" data-product-img="images/products/produto-lona-fumigacao.png" data-product-slug="lona-fumigacao">
+          <button
+            class="produto-cta produto-cta-btn"
+            data-cart-add
+            data-product-name="Lona de Fumigação Sob Medida"
+            data-product-img="images/products/produto-lona-fumigacao.png"
+            data-product-slug="lona-fumigacao"
+          >
             Adicionar ao Orçamento
           </button>
         </div>
         <div class="produto-card reveal" data-cat="respiratorio">
           <a href="produtos/respiratorio/index.html" class="produto-card-link">
-            <img class="produto-img" src="images/products/produto-protecao-respiratoria.jpg" alt="Proteção Respiratória" />
-            <div class="produto-badges"><span class="badge-norma">NR-6 / NR-9</span></div>
+            <img
+              class="produto-img"
+              src="images/products/produto-protecao-respiratoria.jpg"
+              alt="Proteção Respiratória"
+            />
+            <div class="produto-badges">
+              <span class="badge-norma">NR-6 / NR-9</span>
+            </div>
             <h3 class="produto-headline">Proteção Respiratória</h3>
-            <p class="produto-body">Representamos alguns tipos de máscaras respiratórias. A disponibilidade e a indicação da linha ideal são confirmadas sob consulta técnica.</p>
+            <p class="produto-body">
+              Representamos alguns tipos de máscaras respiratórias. A
+              disponibilidade e a indicação da linha ideal são confirmadas sob
+              consulta técnica.
+            </p>
           </a>
-          <button class="produto-cta produto-cta-btn" data-cart-add data-product-name="Proteção Respiratória" data-product-img="images/products/produto-protecao-respiratoria.jpg" data-product-slug="respiratorio">
+          <button
+            class="produto-cta produto-cta-btn"
+            data-cart-add
+            data-product-name="Proteção Respiratória"
+            data-product-img="images/products/produto-protecao-respiratoria.jpg"
+            data-product-slug="respiratorio"
+          >
             Adicionar ao Orçamento
           </button>
         </div>
         <div class="produto-card reveal" data-cat="altura">
           <a href="produtos/altura/index.html" class="produto-card-link">
-            <img class="produto-img" src="images/products/produto-equipamentos-altura.png" alt="Equipamentos para Altura" />
-            <div class="produto-badges"><span class="badge-norma">NR-35</span></div>
+            <img
+              class="produto-img"
+              src="images/products/produto-equipamentos-altura.png"
+              alt="Equipamentos para Altura"
+            />
+            <div class="produto-badges">
+              <span class="badge-norma">NR-35</span>
+            </div>
             <h3 class="produto-headline">Equipamentos para Altura</h3>
-            <p class="produto-body">Trava-quedas, cinturões paraquedistas e sistemas de ancoragem certificados.</p>
+            <p class="produto-body">
+              Trava-quedas, cinturões paraquedistas e sistemas de ancoragem
+              certificados.
+            </p>
           </a>
-          <button class="produto-cta produto-cta-btn" data-cart-add data-product-name="Equipamentos para Altura" data-product-img="images/products/produto-equipamentos-altura.png" data-product-slug="altura">
+          <button
+            class="produto-cta produto-cta-btn"
+            data-cart-add
+            data-product-name="Equipamentos para Altura"
+            data-product-img="images/products/produto-equipamentos-altura.png"
+            data-product-slug="altura"
+          >
             Adicionar ao Orçamento
           </button>
         </div>
       </div>
       <div class="produtos-cta-wrap reveal">
-        <a href="produtos/index.html" class="btn-primary btn-produtos-all">Ver todos os produtos</a>
+        <a href="produtos/index.html" class="btn-primary btn-produtos-all"
+          >Ver todos os produtos</a
+        >
       </div>
     </section>
 
-
-    <!-- MARCAS ESTRATÉGICAS -->
-    <section class="brand-lines" id="marcas-estrategicas">
-      <div class="produtos-header reveal">
-        <p class="section-eyebrow">Marcas estratégicas</p>
-        <h2 class="section-headline">Linhas com curadoria técnica</h2>
-        <p class="section-sub">
-          Categorias organizadas para consulta comercial B2B, sem tratar certificações como argumento genérico.
-        </p>
-      </div>
-      <div class="brand-lines-grid">
-        <article class="brand-line-card reveal">
-          <p class="brand-line-label">UNIPHOS no Brasil</p>
-          <h3>Tubos colorimétricos e amostragem em campo</h3>
-          <p>
-            Linha dedicada para análise de gases com produtos consolidados em páginas únicas quando a variação depende da aplicação.
-          </p>
-          <a class="brand-line-link" href="produtos/deteccao-de-gas/tubo-colorimetrico/index.html">Ver linha UNIPHOS</a>
-        </article>
-        <article class="brand-line-card reveal">
-          <p class="brand-line-label">AIR SAFETY</p>
-          <h3>Produtos estratégicos sob consulta técnica</h3>
-          <p>
-            Categoria preparada para priorizar itens com competitividade e valor agregado conforme a lista final de produtos.
-          </p>
-          <a class="brand-line-link" href="produtos/index.html">Consultar indicação comercial</a>
-        </article>
-      </div>
-    </section>
 
 
     <!-- CENÁRIOS -->
-
 
     <!-- CENÁRIOS -->
     <section class="scenarios" id="solucoes">
@@ -2743,7 +2885,8 @@
           Segurança, qualidade<br />e confiabilidade.
         </h2>
         <p class="section-sub">
-          Atuamos em diversas frentes da segurança preventiva e preditiva, veja abaixo e saiba mais.
+          Atuamos em diversas frentes da segurança preventiva e preditiva, veja
+          abaixo e saiba mais.
         </p>
       </div>
       <div class="scenarios-grid">
@@ -2812,7 +2955,8 @@
             Segurança, qualidade e confiabilidade.
           </h2>
           <p class="parceiros-sub">
-            Atuamos em diversas frentes da segurança preventiva e preditiva, veja abaixo e saiba mais.
+            Atuamos em diversas frentes da segurança preventiva e preditiva,
+            veja abaixo e saiba mais.
           </p>
           <a href="#produtos" class="btn-primary">Ver produtos</a>
         </div>
@@ -2831,7 +2975,10 @@
               loading="lazy"
           /></span>
           <span class="trust-item"
-            ><img src="images/parceiros/gfg.svg" alt="GfG Instrumentation" loading="lazy"
+            ><img
+              src="images/parceiros/gfg.svg"
+              alt="GfG Instrumentation"
+              loading="lazy"
           /></span>
           <span class="trust-item"
             ><img
@@ -2852,10 +2999,16 @@
               loading="lazy"
           /></span>
           <span class="trust-item"
-            ><img src="images/parceiros/msa.svg" alt="MSA Safety" loading="lazy"
+            ><img
+              src="images/parceiros/msa.svg"
+              alt="MSA Safety"
+              loading="lazy"
           /></span>
           <span class="trust-item"
-            ><img src="images/parceiros/svantek.png" alt="Svantek" loading="lazy"
+            ><img
+              src="images/parceiros/svantek.png"
+              alt="Svantek"
+              loading="lazy"
           /></span>
           <span class="trust-item"
             ><img
@@ -2876,7 +3029,10 @@
               loading="lazy"
           /></span>
           <span class="trust-item"
-            ><img src="images/parceiros/gfg.svg" alt="GfG Instrumentation" loading="lazy"
+            ><img
+              src="images/parceiros/gfg.svg"
+              alt="GfG Instrumentation"
+              loading="lazy"
           /></span>
           <span class="trust-item"
             ><img
@@ -2897,10 +3053,16 @@
               loading="lazy"
           /></span>
           <span class="trust-item"
-            ><img src="images/parceiros/msa.svg" alt="MSA Safety" loading="lazy"
+            ><img
+              src="images/parceiros/msa.svg"
+              alt="MSA Safety"
+              loading="lazy"
           /></span>
           <span class="trust-item"
-            ><img src="images/parceiros/svantek.png" alt="Svantek" loading="lazy"
+            ><img
+              src="images/parceiros/svantek.png"
+              alt="Svantek"
+              loading="lazy"
           /></span>
           <span class="trust-item"
             ><img
@@ -2922,7 +3084,7 @@
     <div class="cta-block" hidden>
       <h2 class="cta-block-headline">Precisa de um orçamento técnico?</h2>
       <p class="cta-block-sub">
-        Descreva o cenário ou o produto. Luis Claudio responde com a
+        Descreva o cenário ou o produto. Nossa equipe responde com a
         especificação correta.
       </p>
       <div class="cta-block-actions">
@@ -2973,8 +3135,6 @@
                     >Atendimento: Segunda a Sexta, 08h às 18h</span
                   >
                   <a href="#">Política de Privacidade</a>
-                  <a href="#">Termos de Uso</a>
-                  <a href="#">LGPD</a>
                 </div>
               </div>
               <div class="footer-card reveal">
@@ -2986,7 +3146,7 @@
                       href="https://wa.me/5548999148413"
                       target="_blank"
                       rel="noopener noreferrer"
-                      >Luis Claudio · +55 48 99914-8413</a
+                      >Atendimento Comercial · +55 48 99914-8413</a
                     >
                   </div>
                   <div class="footer-contact-item">
@@ -3014,7 +3174,12 @@
             <div class="footer-form">
               <div class="form-group">
                 <label class="form-label" for="contact-name">Nome</label>
-                <input id="contact-name" class="form-input" type="text" placeholder="Seu nome" />
+                <input
+                  id="contact-name"
+                  class="form-input"
+                  type="text"
+                  placeholder="Seu nome"
+                />
               </div>
               <div class="form-group">
                 <label class="form-label" for="contact-company">Empresa</label>
@@ -3044,14 +3209,20 @@
                 </select>
               </div>
               <div class="form-group">
-                <label class="form-label" for="contact-message">Descreva o ambiente ou produto</label>
+                <label class="form-label" for="contact-message"
+                  >Descreva o ambiente ou produto</label
+                >
                 <textarea
                   id="contact-message"
                   class="form-textarea"
                   placeholder="Ex: preciso de detector multi-gás para espaço confinado, equipe de 5 pessoas..."
                 ></textarea>
               </div>
-              <button type="button" class="btn-primary btn-block" id="contact-submit">
+              <button
+                type="button"
+                class="btn-primary btn-block"
+                id="contact-submit"
+              >
                 Enviar mensagem
               </button>
             </div>
@@ -3066,10 +3237,16 @@
               <span class="footer-brand-name">4Safety</span>
               <span class="footer-legal-sep">·</span>
               Todos os direitos reservados
+              <span class="footer-legal-sep">·</span>
+              <a href="#">Termos de Uso</a>
+              <span class="footer-legal-sep">·</span>
+              <a href="#">LGPD</a>
             </span>
           </div>
           <div class="footer-bottom-right">
-            <span class="footer-legal footer-legal--micro">Feito com rigor técnico em Florianópolis/SC</span>
+            <span class="footer-legal footer-legal--micro"
+              >Feito com rigor técnico em Florianópolis/SC</span
+            >
             <span class="footer-legal footer-legal--primary">
               Desenvolvido por
               <a
@@ -3131,8 +3308,18 @@
         const isScrollDown = el.classList.contains("hero-scroll-down");
         el.animate(
           [
-            { opacity: 0, transform: isScrollDown ? "translateX(-50%) translateY(28px)" : "translateY(28px)" },
-            { opacity: 1, transform: isScrollDown ? "translateX(-50%) translateY(0)" : "translateY(0)" },
+            {
+              opacity: 0,
+              transform: isScrollDown
+                ? "translateX(-50%) translateY(28px)"
+                : "translateY(28px)",
+            },
+            {
+              opacity: 1,
+              transform: isScrollDown
+                ? "translateX(-50%) translateY(0)"
+                : "translateY(0)",
+            },
           ],
           {
             duration: 720,
@@ -3181,7 +3368,9 @@
             const el = entry.target;
             const span = el.querySelector("span");
             if (!span) return;
-            const target = parseInt(span.textContent);
+            const originalText = span.textContent;
+            if (originalText.includes(":")) return; // Pula animação para textos como 1:1
+            const target = parseInt(originalText);
             if (isNaN(target)) return;
             let current = 0;
             const step = Math.ceil(target / 40);
@@ -3285,7 +3474,14 @@
         waFloat.classList.toggle("visible", heroBottom <= 0);
       }
 
-      window.addEventListener("scroll", () => { updateNavGlass(); updateWaFloat(); }, { passive: true });
+      window.addEventListener(
+        "scroll",
+        () => {
+          updateNavGlass();
+          updateWaFloat();
+        },
+        { passive: true },
+      );
       updateNavGlass();
       updateWaFloat();
 
@@ -3303,10 +3499,16 @@
       if (contactSubmit) {
         contactSubmit.addEventListener("click", () => {
           const name = document.getElementById("contact-name")?.value?.trim();
-          const company = document.getElementById("contact-company")?.value?.trim();
+          const company = document
+            .getElementById("contact-company")
+            ?.value?.trim();
           const email = document.getElementById("contact-email")?.value?.trim();
-          const subject = document.getElementById("form-assunto")?.value?.trim();
-          const message = document.getElementById("contact-message")?.value?.trim();
+          const subject = document
+            .getElementById("form-assunto")
+            ?.value?.trim();
+          const message = document
+            .getElementById("contact-message")
+            ?.value?.trim();
           const lines = [
             "Olá, 4Safety.",
             "Gostaria de atendimento comercial.",
@@ -3316,7 +3518,11 @@
             subject ? `Assunto: ${subject}` : "",
             message ? `Cenário/produto: ${message}` : "",
           ].filter(Boolean);
-          window.open(`https://wa.me/5548999148413?text=${encodeURIComponent(lines.join("\n"))}`, "_blank", "noopener");
+          window.open(
+            `https://wa.me/5548999148413?text=${encodeURIComponent(lines.join("\n"))}`,
+            "_blank",
+            "noopener",
+          );
         });
       }
 
@@ -3364,7 +3570,11 @@
           const nextTitle = nextImage.dataset.title || "";
           const nextSub = nextImage.dataset.sub || "";
 
-          const fadeOut = { duration: 220, easing: "ease-out", fill: "forwards" };
+          const fadeOut = {
+            duration: 220,
+            easing: "ease-out",
+            fill: "forwards",
+          };
           const fadeIn = {
             duration: 360,
             easing: "cubic-bezier(0.22,1,0.36,1)",
@@ -3438,8 +3648,10 @@
         if (prevBtn) prevBtn.addEventListener("click", prevImage);
         if (nextBtn) nextBtn.addEventListener("click", nextImage);
 
-        titleEl.textContent = images[currentIndex].dataset.title || titleEl.textContent;
-        subEl.textContent = images[currentIndex].dataset.sub || subEl.textContent;
+        titleEl.textContent =
+          images[currentIndex].dataset.title || titleEl.textContent;
+        subEl.textContent =
+          images[currentIndex].dataset.sub || subEl.textContent;
 
         if (images.length < 2) return;
       }
