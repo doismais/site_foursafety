@@ -1,0 +1,45 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="LGPD | 4Safety" description="Lei Geral de Proteção de Dados (LGPD) na 4Safety.">
+  <main class="legal-page">
+    <div class="legal-content reveal">
+      <p class="section-eyebrow">Legal</p>
+      <h1 class="legal-title">Lei Geral de Proteção de Dados (LGPD)</h1>
+      <div class="legal-body">
+        <p>Esta página contém as informações sobre como a 4Safety cumpre a LGPD. O conteúdo completo será inserido em breve.</p>
+        <p>Última atualização: Maio de 2026</p>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .legal-page {
+    padding: 140px var(--spacing-md) var(--spacing-xl);
+    display: flex;
+    justify-content: center;
+    min-height: 60vh;
+  }
+  
+  .legal-content {
+    max-width: 800px;
+    width: 100%;
+  }
+  
+  .legal-title {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--color-foreground);
+  }
+  
+  .legal-body {
+    color: var(--color-muted);
+    line-height: 1.8;
+  }
+  
+  .legal-body p {
+    margin-bottom: 1.5rem;
+  }
+</style>

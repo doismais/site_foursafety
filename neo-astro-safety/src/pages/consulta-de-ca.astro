@@ -1,0 +1,293 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Consulta de CA | 4Safety — Certificado de Aprovação MTE" description="Consulte o Certificado de Aprovação (CA) de EPIs no sistema oficial. Verifique validade, fabricante e escopo de proteção.">
+  
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Conformidade normativa</p>
+      <h1 class="hero-h1">Consulte o CA antes de especificar</h1>
+      <p class="hero-sub">
+        O Certificado de Aprovação é obrigatório para todo EPI comercializado
+        no Brasil. Verifique a validade diretamente no sistema oficial do
+        Ministério do Trabalho e Emprego.
+      </p>
+      <div class="hero-actions">
+        <a
+          class="btn-primary"
+          href="https://caepi.mte.gov.br/internet/ConsultaCAInternet.aspx"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Acessar consulta oficial</a
+        >
+        <a class="btn-ghost" href="#como-consultar">Como consultar</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO CONSULTAR -->
+  <section class="section" id="como-consultar">
+    <div class="section-inner">
+      <p class="section-eyebrow">Como consultar</p>
+      <h2 class="section-headline">
+        Passos simples para validar um EPI com CA
+      </h2>
+      <p class="section-sub">
+        O processo é direto. O que muda o resultado é a disciplina de
+        consultar sempre antes de especificar ou comprar.
+      </p>
+      <div class="steps-grid">
+        <div class="step-card">
+          <p class="step-num">Passo 01</p>
+          <h3 class="step-title">Digite o número do CA</h3>
+          <p class="step-body">
+            Use o número do certificado informado no produto ou embalagem.
+          </p>
+        </div>
+        <div class="step-card">
+          <p class="step-num">Passo 02</p>
+          <h3 class="step-title">Valide fabricante e escopo</h3>
+          <p class="step-body">
+            O sistema informa fabricante, descrição do EPI, escopo e validade.
+          </p>
+        </div>
+        <div class="step-card">
+          <p class="step-num">Passo 03</p>
+          <h3 class="step-title">CA vencido = risco legal</h3>
+          <p class="step-body">
+            CA vencido significa EPI fora de conformidade e passivo em
+            auditorias.
+          </p>
+        </div>
+      </div>
+      <div class="consulta-card">
+        <p>
+          A consulta deve ser feita no sistema oficial do Ministério do
+          Trabalho e Emprego. Use o botão abaixo para abrir a página correta.
+        </p>
+        <a
+          class="btn-primary"
+          href="https://caepi.mte.gov.br/internet/ConsultaCAInternet.aspx"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Abrir consulta de CA</a
+        >
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  /* Estilos específicos da página Consulta de CA */
+  
+  .hero {
+    position: relative;
+    overflow: hidden;
+    min-height: 82svh;
+    padding: 7.5rem 1.25rem 3.5rem;
+    display: flex;
+    align-items: flex-end;
+    background: linear-gradient(
+      155deg,
+      #1a1714 0%,
+      var(--ink) 50%,
+      #0f0d0b 100%
+    );
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(
+        ellipse 46% 54% at 84% 18%,
+        rgba(255, 0, 0, 0.12) 0%,
+        transparent 60%
+      ),
+      radial-gradient(
+        ellipse 32% 55% at 12% 90%,
+        rgba(193, 134, 81, 0.08) 0%,
+        transparent 58%
+      );
+  }
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 42px 42px;
+    -webkit-mask-image: radial-gradient(
+      ellipse at center,
+      black 32%,
+      transparent 82%
+    );
+    mask-image: radial-gradient(
+      ellipse at center,
+      black 32%,
+      transparent 82%
+    );
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 640px;
+  }
+  .hero-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--orange);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    margin-bottom: 1.1rem;
+  }
+  .hero-eyebrow::before {
+    content: "";
+    width: 18px;
+    height: 1px;
+    background: var(--orange);
+  }
+  .hero-h1 {
+    font-size: clamp(2.4rem, 3.4vw, 3.6rem);
+    font-weight: 800;
+    line-height: 1.04;
+    margin-bottom: 1.2rem;
+    color: var(--white);
+  }
+  .hero-sub {
+    color: #ffffff;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+  .hero-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+  .btn-primary,
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.85rem 1.4rem;
+    border-radius: 999px;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+  .btn-primary {
+    background: var(--orange);
+    color: var(--white);
+    box-shadow: 0 10px 26px rgba(255, 0, 0, 0.2);
+  }
+  .btn-ghost {
+    color: var(--white);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+  }
+  .btn-ghost:hover {
+    border-color: rgba(255, 255, 255, 0.65);
+  }
+
+  .section {
+    padding: 5rem 1.25rem;
+    background: var(--white);
+    color: var(--black);
+  }
+  .section-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+  .section-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.64rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--orange);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    margin-bottom: 1rem;
+  }
+  .section-eyebrow::before {
+    content: "";
+    width: 18px;
+    height: 1px;
+    background: var(--orange);
+  }
+  .section-headline {
+    font-size: clamp(1.8rem, 2.6vw, 2.4rem);
+    font-weight: 800;
+    margin-bottom: 1rem;
+  }
+  .section-sub {
+    color: var(--g700);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+  }
+
+  .steps-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+  }
+  .step-card {
+    background: var(--paper);
+    border-radius: 1.2rem;
+    padding: 1.4rem;
+    border: 1px solid rgba(40, 36, 32, 0.08);
+    box-shadow: 0 10px 26px rgba(40, 36, 32, 0.06);
+  }
+  .step-num {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    color: var(--orange);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+  .step-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+  }
+  .step-body {
+    color: var(--g700);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .consulta-card {
+    margin-top: 2.5rem;
+    padding: 1.6rem;
+    border-radius: 1.4rem;
+    background: linear-gradient(145deg, #fff7f2 0%, #ffffff 100%);
+    border: 1px solid rgba(255, 0, 0, 0.18);
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  .consulta-card p {
+    color: var(--g700);
+    line-height: 1.6;
+  }
+
+  @media (min-width: 720px) {
+    .steps-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .hero-actions {
+      flex-direction: row;
+    }
+  }
+</style>

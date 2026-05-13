@@ -1351,15 +1351,15 @@
   <body>
     <!-- Navigation -->
     <nav id="main-nav">
-      <a href="../../index.html" class="nav-logo">
+      <a href="../index.html" class="nav-logo">
         <img
           class="nav-logo-default"
-          src="../../images/brand/logo_refatorada.svg"
+          src="../images/brand/logo_refatorada.svg"
           alt="4Safety"
         />
         <img
           class="nav-logo-scrolled"
-          src="../../images/brand/Logo_4Safety-01.webp"
+          src="../images/brand/Logo_4Safety-01.webp"
           alt="4Safety"
           aria-hidden="true"
         />
@@ -1376,12 +1376,12 @@
 
       <div class="nav-menu" id="nav-menu">
         <ul class="nav-links">
-          <li><a href="../../index.html">Home</a></li>
-          <li><a href="../../quem-somos/index.html">Sobre</a></li>
-          <li><a href="../../index.html#solucoes">Soluções</a></li>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../quem-somos/index.html">Sobre</a></li>
+          <li><a href="../index.html#solucoes">Soluções</a></li>
           <li><a href="produtos/index.html">Produtos</a></li>
-          <li><a href="../../consulta-de-ca/index.html">Consulta</a></li>
-          <li><a href="../../index.html#contato">Contato</a></li>
+          <li><a href="../consulta-de-ca/index.html">Consulta</a></li>
+          <li><a href="../index.html#contato">Contato</a></li>
         </ul>
         <a
           href="https://wa.me/5548999148413"
@@ -1424,7 +1424,7 @@
           <div class="product-section-block">
             <div class="product-section-head reveal">
               <p class="product-section-kicker">Ficha rápida</p>
-              <h2 class="specs-title reveal">Especificações Técnicas</h2>
+              <h2 class="specs-title">Especificações Técnicas</h2>
               <p class="product-section-sub">Tudo o que a equipe precisa conferir antes de fechar aplicação, norma e compra.</p>
             </div>
             <div class="specs-card">
@@ -1456,7 +1456,7 @@
           <div class="product-section-block">
             <div class="product-section-head reveal">
               <p class="product-section-kicker">Sugestões de produtos</p>
-              <h2 class="specs-title reveal">Monte um kit mais completo</h2>
+              <h2 class="specs-title">Monte um kit mais completo</h2>
               <p class="product-section-sub">Itens que normalmente entram junto na mesma operação ou complementam a especificação técnica.</p>
             </div>
             <div class="related-grid">
@@ -1501,8 +1501,8 @@
         <div class="footer-main">
           <div class="footer-side footer-side--info">
             <div class="footer-brand reveal">
-              <a href="../../index.html" class="footer-logo"
-                ><img src="../../images/brand/Logo_4Safety-04.webp" alt="4Safety"
+              <a href="../index.html" class="footer-logo"
+                ><img src="../images/brand/Logo_4Safety-04.webp" alt="4Safety"
               /></a>
               <p class="footer-tagline">
                 Segurança do trabalho com especificação técnica para ambientes
@@ -1603,11 +1603,11 @@
               <span class="footer-legal-sep">·</span>
               Todos os direitos reservados
               <span class="footer-legal-sep">·</span>
-              <a href="../../index.html#">Termos de Uso</a>
+              <a href="../index.html#">Termos de Uso</a>
               <span class="footer-legal-sep">·</span>
-              <a href="../../index.html#">LGPD</a>
+              <a href="../index.html#">LGPD</a>
               <span class="footer-legal-sep">·</span>
-              <a href="../../index.html#">Política de Privacidade</a>
+              <a href="../index.html#">Política de Privacidade</a>
             </span>
           </div>
           <div class="footer-bottom-right">
@@ -1725,72 +1725,6 @@
 
 
 
-
-
-    <script>
-      document.getElementById("footer-year").textContent = new Date().getFullYear();
-      
-      // ── MENU MOBILE ────────────────────────────────────────────────────────
-      const toggle = document.getElementById("nav-toggle");
-      const menu = document.getElementById("nav-menu");
-      const overlay = document.getElementById("nav-overlay");
-
-      function toggleMenu() {
-        toggle.classList.toggle("active");
-        menu.classList.toggle("active");
-        overlay.classList.toggle("active");
-        document.body.classList.toggle("no-scroll");
-      }
-
-      if (toggle && menu && overlay) {
-        toggle.addEventListener("click", toggleMenu);
-        overlay.addEventListener("click", toggleMenu);
-
-        // Fecha ao clicar em link
-        menu.querySelectorAll("a").forEach((link) => {
-          link.addEventListener("click", toggleMenu);
-        });
-      }
-
-      // ── WA FLOAT: oculta na hero, aparece após scroll ──────────────────
-      const waFloat = document.querySelector(".wa-float");
-      const heroSection = document.querySelector(".hero");
-      function updateWaFloat() {
-        if (!waFloat || !heroSection) return;
-        const heroBottom = heroSection.getBoundingClientRect().bottom;
-        waFloat.classList.toggle("visible", heroBottom <= 0);
-      }
-
-      window.addEventListener(
-        "scroll",
-        () => {
-          updateNavGlass();
-
-      // ── SCROLL REVEAL CSS ────────────────────────────────────────────────
-      const reveals = document.querySelectorAll(".reveal");
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
-            const el = entry.target;
-            
-            // Mantém o efeito stagger calculando o delay dinâmico
-            const siblings = [...el.parentElement.querySelectorAll(".reveal")];
-            const idx = siblings.indexOf(el);
-            const stagger = Math.min(idx * 75, 380);
-            
-            if (stagger > 0) {
-              el.style.transitionDelay = `${stagger}ms`;
-            }
-            
-            el.classList.add("is-visible");
-            observer.unobserve(el);
-          });
-        },
-        { threshold: 0.1, rootMargin: "0px 0px -36px 0px" },
-      );
-      reveals.forEach((el) => observer.observe(el));
-    </script>
 
 </body>
 </html>

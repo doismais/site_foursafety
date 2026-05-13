@@ -1,0 +1,487 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Produtos | 4Safety — Catálogo de Segurança do Trabalho" description="Catálogo técnico de EPIs e equipamentos de segurança do trabalho com suporte comercial e documentação confirmada conforme aplicação.">
+  
+  <div class="catalog-header">
+    <p class="catalog-eyebrow reveal">Catálogo técnico</p>
+    <h1 class="catalog-headline reveal">Nossos Produtos</h1>
+    <p class="catalog-sub reveal">EPIs e equipamentos de segurança com suporte técnico, documentação sob consulta e entrega para todo o Brasil.</p>
+  </div>
+
+  <section class="brand-lines" aria-label="Linhas estratégicas">
+    <article class="brand-line-card reveal">
+      <p class="brand-line-label">UNIPHOS no Brasil</p>
+      <h2>Tubos colorimétricos e amostragem</h2>
+      <p>Produtos consolidados por aplicação para facilitar a escolha técnica sem multiplicar variações desnecessárias.</p>
+      <a href="/produtos/deteccao-de-gas/tubo-colorimetrico">Ver produto UNIPHOS</a>
+    </article>
+    <article class="brand-line-card reveal">
+      <p class="brand-line-label">AIR SAFETY</p>
+      <h2>Categoria estratégica sob consulta</h2>
+      <p>Espaço preparado para priorizar produtos com competitividade e valor agregado assim que a lista final for confirmada.</p>
+      <a href="/#contato">Solicitar indicação comercial</a>
+    </article>
+  </section>
+
+  <div class="catalog-filter">
+    <span class="filter-label">Filtrar por aplicação</span>
+    <select class="filter-select" id="catalog-filter-select">
+      <option value="all">Todos</option>
+      <option value="gas">Detecção de Gás</option>
+      <option value="respiratorio">Respiratório</option>
+      <option value="altura">Altura</option>
+      <option value="auditivo">Auditivo</option>
+      <option value="uniphos">UNIPHOS</option>
+      <option value="fumigacao">Fumigação</option>
+      <option value="outros">Outros EPIs</option>
+    </select>
+    <button class="filter-btn active" data-filter="all">Todos</button>
+    <button class="filter-btn" data-filter="gas">Detecção de Gás</button>
+    <button class="filter-btn" data-filter="respiratorio">Respiratório</button>
+    <button class="filter-btn" data-filter="altura">Altura</button>
+    <button class="filter-btn" data-filter="auditivo">Auditivo</button>
+    <button class="filter-btn" data-filter="uniphos">UNIPHOS</button>
+    <button class="filter-btn" data-filter="fumigacao">Fumigação</button>
+    <button class="filter-btn" data-filter="outros">Outros EPIs</button>
+  </div>
+
+  <p class="catalog-results" id="catalog-results"></p>
+
+  <div class="catalog-grid" id="catalog-grid">
+    <div class="produto-card reveal" data-cat="gas uniphos">
+      <a href="/produtos/deteccao-de-gas/tubo-colorimetrico" class="produto-card-link">
+        <img class="produto-img" src="/images/products/produto-tubo-colorimetrico-uniphos.jpg" alt="Tubo Colorimétrico Uniphos" loading="lazy" />
+        <div class="produto-badges"><span class="badge-norma">NR-33 / NR-15</span></div>
+        <h3 class="produto-headline">Tubo Colorimétrico Uniphos</h3>
+        <p class="produto-body">Análise quantitativa de atmosfera — detecção de gases tóxicos e explosivos em campo.</p>
+      </a>
+      <button class="produto-cta" data-cart-add data-product-name="Tubo Colorimétrico Uniphos" data-product-img="/images/products/produto-tubo-colorimetrico-uniphos.jpg" data-product-slug="tubo-colorimetrico">Adicionar ao Orçamento</button>
+    </div>
+
+    <div class="produto-card reveal" data-cat="gas">
+      <a href="/produtos/deteccao-de-gas/bomba-deteccao" class="produto-card-link">
+        <img class="produto-img" src="/images/products/produto-bomba-deteccao-gas.png" alt="Bomba de Detecção de Gás" loading="lazy" />
+        <div class="produto-badges"><span class="badge-norma">NR-33</span></div>
+        <h3 class="produto-headline">Bomba de Detecção de Gás</h3>
+        <p class="produto-body">Bombas manuais e automáticas para amostragem com tubos colorimétricos em espaços confinados.</p>
+      </a>
+      <button class="produto-cta" data-cart-add data-product-name="Bomba de Detecção de Gás" data-product-img="/images/products/produto-bomba-deteccao-gas.png" data-product-slug="bomba-deteccao">Adicionar ao Orçamento</button>
+    </div>
+
+    <div class="produto-card reveal" data-cat="gas">
+      <a href="/produtos/deteccao-de-gas/detector-portatil" class="produto-card-link">
+        <img class="produto-img" src="/images/products/produto-detector-gas-portatil.png" alt="Detector de Gás Portátil" loading="lazy" />
+        <div class="produto-badges"><span class="badge-norma">NR-33</span></div>
+        <h3 class="produto-headline">Detector de Gás Portátil</h3>
+        <p class="produto-body">Monitoramento contínuo de O₂, CO, H₂S e gases explosivos. Alarme sonoro e visual.</p>
+      </a>
+      <button class="produto-cta" data-cart-add data-product-name="Detector de Gás Portátil" data-product-img="/images/products/produto-detector-gas-portatil.png" data-product-slug="detector-portatil">Adicionar ao Orçamento</button>
+    </div>
+
+    <div class="produto-card reveal" data-cat="outros fumigacao">
+      <a href="/produtos/fumigacao" class="produto-card-link">
+        <img class="produto-img" src="/images/products/produto-fumigacao.png" alt="Equipamentos de Fumigação" loading="lazy" />
+        <div class="produto-badges"><span class="badge-norma">MAPA / ANVISA</span></div>
+        <h3 class="produto-headline">Equipamentos de Fumigação</h3>
+        <p class="produto-body">Aplicadores, dosadores e EPIs para fumigação de silos e armazéns industriais.</p>
+      </a>
+      <button class="produto-cta" data-cart-add data-product-name="Equipamentos de Fumigação" data-product-img="/images/products/produto-fumigacao.png" data-product-slug="fumigacao">Adicionar ao Orçamento</button>
+    </div>
+
+    <div class="produto-card reveal" data-cat="outros">
+      <a href="/produtos/fumigacao/lona-sob-medida" class="produto-card-link">
+        <img class="produto-img" src="/images/products/produto-lona-fumigacao.png" alt="Lona de Fumigação Sob Medida" loading="lazy" />
+        <div class="produto-badges"><span class="badge-norma">Sob medida</span></div>
+        <h3 class="produto-headline">Lona de Fumigação Sob Medida</h3>
+        <p class="produto-body">Projeto dimensionado por aplicação, medidas e condição operacional, com acesso direto à fábrica.</p>
+      </a>
+      <button class="produto-cta" data-cart-add data-product-name="Lona de Fumigação Sob Medida" data-product-img="/images/products/produto-lona-fumigacao.png" data-product-slug="lona-fumigacao">Adicionar ao Orçamento</button>
+    </div>
+
+    <div class="produto-card reveal" data-cat="respiratorio">
+      <a href="/produtos/respiratorio" class="produto-card-link">
+        <img class="produto-img" src="/images/products/produto-protecao-respiratoria.jpg" alt="Proteção Respiratória" loading="lazy" />
+        <div class="produto-badges"><span class="badge-norma">NR-6 / NR-9</span></div>
+        <h3 class="produto-headline">Proteção Respiratória</h3>
+        <p class="produto-body">Representamos alguns tipos de máscaras respiratórias. A disponibilidade e a indicação da linha ideal são confirmadas sob consulta técnica.</p>
+      </a>
+      <button class="produto-cta" data-cart-add data-product-name="Proteção Respiratória" data-product-img="/images/products/produto-protecao-respiratoria.jpg" data-product-slug="respiratorio">Adicionar ao Orçamento</button>
+    </div>
+
+    <div class="produto-card reveal" data-cat="altura">
+      <a href="/produtos/altura" class="produto-card-link">
+        <img class="produto-img" src="/images/products/produto-equipamentos-altura.png" alt="Equipamentos para Altura" loading="lazy" />
+        <div class="produto-badges"><span class="badge-norma">NR-35</span></div>
+        <h3 class="produto-headline">Equipamentos para Altura</h3>
+        <p class="produto-body">Trava-quedas, cinturões paraquedistas e sistemas de ancoragem com documentação sob consulta.</p>
+      </a>
+      <button class="produto-cta" data-cart-add data-product-name="Equipamentos para Altura" data-product-img="/images/products/produto-equipamentos-altura.png" data-product-slug="altura">Adicionar ao Orçamento</button>
+    </div>
+
+    <div class="produto-card reveal" data-cat="outros">
+      <a href="/produtos/calcados" class="produto-card-link">
+        <img class="produto-img" src="/images/products/produto-botas-calzados.png" alt="Botas e Calçados" loading="lazy" />
+        <div class="produto-badges"><span class="badge-norma">NR-6</span></div>
+        <h3 class="produto-headline">Botas e Calçados</h3>
+        <p class="produto-body">Calçados de segurança com bico de aço, antiderrapante e resistência química.</p>
+      </a>
+      <button class="produto-cta" data-cart-add data-product-name="Botas e Calçados" data-product-img="/images/products/produto-botas-calzados.png" data-product-slug="calcados">Adicionar ao Orçamento</button>
+    </div>
+
+    <div class="produto-card reveal" data-cat="auditivo">
+      <a href="/produtos/auditivo" class="produto-card-link">
+        <img class="produto-img" src="/images/products/produto-protetor-auditivo.png" alt="Protetor Auditivo" loading="lazy" />
+        <div class="produto-badges"><span class="badge-norma">NR-15 / NR-6</span></div>
+        <h3 class="produto-headline">Protetor Auditivo</h3>
+        <p class="produto-body">Protetores tipo concha e plug selecionados conforme exposição ocupacional.</p>
+      </a>
+      <button class="produto-cta" data-cart-add data-product-name="Protetor Auditivo" data-product-img="/images/products/produto-protetor-auditivo.png" data-product-slug="auditivo">Adicionar ao Orçamento</button>
+    </div>
+
+    <div class="produto-card reveal" data-cat="outros">
+      <a href="/produtos/visual" class="produto-card-link">
+        <img class="produto-img" src="/images/products/produto-oculos-protecao.png" alt="Óculos de Proteção" loading="lazy" />
+        <div class="produto-badges"><span class="badge-norma">NR-6</span></div>
+        <h3 class="produto-headline">Óculos de Proteção</h3>
+        <p class="produto-body">Proteção ocular contra impacto, radiação UV e respingos químicos.</p>
+      </a>
+      <button class="produto-cta" data-cart-add data-product-name="Óculos de Proteção" data-product-img="/images/products/produto-oculos-protecao.png" data-product-slug="visual">Adicionar ao Orçamento</button>
+    </div>
+
+    <div class="produto-card reveal" data-cat="outros">
+      <a href="/produtos/manual" class="produto-card-link">
+        <img class="produto-img" src="/images/products/produto-luvas-protecao.png" alt="Luvas de Proteção" loading="lazy" />
+        <div class="produto-badges"><span class="badge-norma">NR-6</span></div>
+        <h3 class="produto-headline">Luvas de Proteção</h3>
+        <p class="produto-body">Proteção para riscos mecânicos, químicos, térmicos e elétricos.</p>
+      </a>
+      <button class="produto-cta" data-cart-add data-product-name="Luvas de Proteção" data-product-img="/images/products/produto-luvas-protecao.png" data-product-slug="manual">Adicionar ao Orçamento</button>
+    </div>
+
+    <div class="produto-card reveal" data-cat="outros">
+      <a href="/produtos/descartaveis" class="produto-card-link">
+        <img class="produto-img" src="/images/products/produto-descartaveis.png" alt="Descartáveis" loading="lazy" />
+        <div class="produto-badges"><span class="badge-norma">NR-6</span></div>
+        <h3 class="produto-headline">Descartáveis</h3>
+        <p class="produto-body">Macacões Tyvek, toucas, protetores de calçado e kits para contaminantes.</p>
+      </a>
+      <button class="produto-cta" data-cart-add data-product-name="Descartáveis" data-product-img="/images/products/produto-descartaveis.png" data-product-slug="descartaveis">Adicionar ao Orçamento</button>
+    </div>
+
+    <div class="produto-card reveal" data-cat="outros">
+      <a href="/produtos/termica" class="produto-card-link">
+        <img class="produto-img" src="/images/products/produto-protecao-termica.png" alt="Proteção Térmica" loading="lazy" />
+        <div class="produto-badges"><span class="badge-norma">NR-6 / NR-15</span></div>
+        <h3 class="produto-headline">Proteção Térmica</h3>
+        <p class="produto-body">Luvas, aventais e roupas aluminizadas para exposição a calor intenso.</p>
+      </a>
+      <button class="produto-cta" data-cart-add data-product-name="Proteção Térmica" data-product-img="/images/products/produto-protecao-termica.png" data-product-slug="termica">Adicionar ao Orçamento</button>
+    </div>
+  </div>
+
+  <!-- Script do Carrinho -->
+  <script is:inline src="/js/cart.js"></script>
+
+  <!-- Script de Filtro e Reveal -->
+  <script>
+    document.addEventListener('astro:page-load', () => {
+      // Filter logic
+      const filterBtns = document.querySelectorAll(".filter-btn");
+      const filterSelect = document.getElementById("catalog-filter-select");
+      const cards = document.querySelectorAll(".produto-card");
+      const resultsEl = document.getElementById("catalog-results");
+
+      function applyFilter(f) {
+        filterBtns.forEach(b => b.classList.remove("active"));
+        const activeBtn = document.querySelector(`.filter-btn[data-filter="${f}"]`);
+        if (activeBtn) activeBtn.classList.add("active");
+        if (filterSelect) filterSelect.value = f;
+
+        let count = 0;
+        cards.forEach(card => {
+          const categories = (card.dataset.cat || "").split(/\s+/);
+          const show = f === "all" || categories.includes(f);
+          if (show) {
+            card.style.display = "flex";
+            card.animate([{ opacity: 0, transform: "scale(.96)" }, { opacity: 1, transform: "scale(1)" }],
+              { duration: 280, fill: "forwards", easing: "ease-out" });
+            count++;
+          } else {
+            card.style.display = "none";
+          }
+        });
+        if (resultsEl) resultsEl.textContent = `${count} produto${count !== 1 ? "s" : ""} encontrado${count !== 1 ? "s" : ""}`;
+      }
+
+      filterBtns.forEach(btn => btn.addEventListener("click", () => applyFilter(btn.dataset.filter)));
+      if (filterSelect) filterSelect.addEventListener("change", () => applyFilter(filterSelect.value));
+      
+      // Inicializa o filtro
+      applyFilter("all");
+
+      // Reveal
+      const reveals = document.querySelectorAll(".reveal");
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          const el = entry.target;
+          const stagger = Math.min([...el.parentElement.querySelectorAll(".reveal")].indexOf(el) * 75, 380);
+          el.animate([{ opacity: 0, transform: "translateY(22px)" }, { opacity: 1, transform: "translateY(0)" }],
+            { duration: 580, delay: stagger, fill: "forwards", easing: "cubic-bezier(0.22,1,0.36,1)" });
+          observer.unobserve(el);
+        });
+      }, { threshold: 0.1, rootMargin: "0px 0px -36px 0px" });
+      
+      reveals.forEach(el => observer.observe(el));
+    });
+  </script>
+
+</Layout>
+
+<style>
+  /* Estilos específicos da página de Produtos (Catálogo) */
+  
+  /* Page header */
+  .catalog-header {
+    padding: calc(var(--nav-height) + 2.5rem) var(--container-px) 2rem;
+    background: var(--white);
+    text-align: center;
+  }
+  .catalog-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 0.5rem;
+  }
+  .catalog-headline {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 800;
+    color: var(--black);
+    margin: 0 0 0.75rem;
+    line-height: 1.15;
+  }
+  .catalog-sub {
+    font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+    color: var(--g700);
+    max-width: 52ch;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* Filters */
+  .catalog-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    justify-content: center;
+    padding: 1rem var(--container-px) 1.5rem;
+    background: var(--white);
+    position: sticky;
+    top: calc(60px + env(safe-area-inset-top, 0px));
+    z-index: 50;
+    border-bottom: 1px solid rgba(28, 25, 22, 0.06);
+  }
+  .filter-label {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--g400);
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0.25rem;
+  }
+  .filter-select {
+    display: none;
+    width: min(100%, 320px);
+    padding: 0.8rem 1rem;
+    border-radius: 14px;
+    border: 1px solid rgba(28, 25, 22, 0.18);
+    background: rgba(255, 255, 255, 0.92);
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    color: #3d3832;
+    appearance: none;
+    background-image: linear-gradient(45deg, transparent 50%, #3d3832 50%), linear-gradient(135deg, #3d3832 50%, transparent 50%);
+    background-position: calc(100% - 18px) calc(50% - 4px), calc(100% - 12px) calc(50% - 4px);
+    background-size: 6px 6px, 6px 6px;
+    background-repeat: no-repeat;
+    padding-right: 2.2rem;
+  }
+  .filter-btn {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    padding: 0.6rem 1rem;
+    border-radius: 999px;
+    border: 1px solid rgba(28, 25, 22, 0.12);
+    background: rgba(255, 255, 255, 0.78);
+    color: #3d3832;
+    cursor: pointer;
+    transition: transform 0.2s, border-color 0.2s, background 0.2s, color 0.2s;
+  }
+  .filter-btn:hover { border-color: rgba(255, 0, 0, 0.35); color: #1c1916; transform: translateY(-1px); }
+  .filter-btn.active { background: var(--orange); border-color: var(--orange); color: var(--white); }
+  
+  @media (max-width: 720px) {
+    .catalog-filter { flex-direction: column; align-items: center; }
+    .filter-btn { display: none; }
+    .filter-select { display: block; }
+  }
+
+  /* Product grid */
+  .catalog-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    padding: 2rem var(--container-px) 4rem;
+    background: linear-gradient(180deg, #fbf8f3 0%, #f3eee7 100%);
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  @media (min-width: 600px) { .catalog-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; } }
+  @media (min-width: 1024px) { 
+    .catalog-grid { 
+      grid-template-columns: repeat(3, 1fr); 
+      gap: 2.5rem; 
+      max-width: 1100px;
+      padding: 3rem 2rem 5rem;
+    } 
+  }
+
+  /* Product card */
+  .produto-card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 0.75rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(28, 25, 22, 0.06);
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(48, 38, 24, 0.06);
+    transition: transform 0.22s, box-shadow 0.22s;
+  }
+  .produto-card:hover { transform: translateY(-3px); box-shadow: 0 14px 32px rgba(48, 38, 24, 0.12); }
+  
+  .produto-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .produto-img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 0.75rem;
+    background: #f5f2ed;
+  }
+  .produto-badges { display: flex; gap: 0.4rem; margin-bottom: 0.4rem; flex-wrap: wrap; }
+  .badge-norma {
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: rgba(28, 25, 22, 0.06);
+    color: var(--g700);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+  }
+  .produto-headline {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--black);
+    margin: 0 0 0.3rem;
+    line-height: 1.3;
+  }
+  .produto-body {
+    font-size: 0.78rem;
+    line-height: 1.5;
+    color: var(--g700);
+    margin: 0;
+    flex: 1;
+  }
+  .produto-cta {
+    margin-top: 0.75rem;
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 0.7rem 1rem;
+    border-radius: 99px;
+    border: none;
+    background: var(--orange);
+    color: var(--white);
+    cursor: pointer;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .produto-cta:hover { opacity: 0.88; }
+
+  /* Results count */
+  .catalog-results {
+    text-align: center;
+    padding: 0 var(--container-px);
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: var(--g400);
+    margin-top: -0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .brand-lines {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1.5rem var(--container-px) 0;
+    background: var(--white);
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .brand-line-card {
+    border: 1px solid rgba(28, 25, 22, 0.1);
+    border-radius: 14px;
+    padding: 1.2rem;
+    background: #fbf8f3;
+  }
+  .brand-line-label {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 0.5rem;
+  }
+  .brand-line-card h2 {
+    font-family: var(--font-display);
+    font-size: 1.16rem;
+    line-height: 1.16;
+    color: var(--black);
+    margin: 0 0 0.5rem;
+  }
+  .brand-line-card p {
+    color: var(--g700);
+    line-height: 1.55;
+    margin: 0 0 0.85rem;
+  }
+  .brand-line-card a {
+    color: var(--orange);
+    font-weight: 800;
+    text-decoration: none;
+  }
+  @media (min-width: 760px) {
+    .brand-lines { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+</style>

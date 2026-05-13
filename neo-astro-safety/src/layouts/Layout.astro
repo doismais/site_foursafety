@@ -1,0 +1,140 @@
+---
+// Layout.astro
+const { title = "4Safety — Soluções Técnicas em Segurança do Trabalho", description = "Soluções técnicas para segurança ocupacional com foco em ambientes críticos, documentação sob consulta e marcas globais." } = Astro.props;
+import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { ClientRouter } from 'astro:transitions';
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>{title}</title>
+    <ClientRouter />
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://4safety.vercel.app/images/OG-image.png" />
+    <meta property="og:image:alt" content={title} />
+    <meta property="og:url" content="https://4safety.vercel.app/" />
+    <link rel="canonical" href="https://4safety.vercel.app/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://4safety.vercel.app/images/OG-image.png" />
+    
+    <!-- Preconnect para Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Google Tag Manager (Slot) -->
+    <script is:inline>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-XXXXXX'); // <-- Substitua pelo ID real
+    </script>
+    <!-- End Google Tag Manager -->
+    
+    <!-- Proteção e Silenciamento de Console em Produção -->
+    <script is:inline>
+      if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+        const noop = () => {};
+        window.console.log = noop;
+        window.console.warn = noop;
+        window.console.error = noop;
+        window.console.info = noop;
+        window.console.debug = noop;
+      }
+    </script>
+    
+    <!-- Segurança Básica -->
+    <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'none';">
+    
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "4Safety",
+        "url": "https://4safety.vercel.app/",
+        "logo": "https://4safety.vercel.app/images/brand/logo_refatorada.svg",
+        "email": "4safety@4safety.com.br",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Av. Pref. Osmar Cunha, 183, Bl B, Ático",
+          "addressLocality": "Centro",
+          "addressRegion": "SC",
+          "postalCode": "88015-100",
+          "addressCountry": "BR"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+55-48-99914-8413",
+          "contactType": "commercial",
+          "availableLanguage": "Portuguese",
+          "hoursAvailable": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday"
+            ],
+            "opens": "08:00",
+            "closes": "18:00"
+          }
+        }
+      }
+    </script>
+    
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&family=Source+Sans+3:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXX"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <Nav />
+    <slot />
+    <Footer />
+    
+    <!-- Scripts Globais -->
+    <script is:inline>
+      document.addEventListener('astro:page-load', () => {
+        // ── SCROLL REVEAL CSS ────────────────────────────────────────────────
+        const reveals = document.querySelectorAll(".reveal");
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              const el = entry.target;
+              
+              const siblings = [...el.parentElement.querySelectorAll(".reveal")];
+              const idx = siblings.indexOf(el);
+              const stagger = Math.min(idx * 75, 380);
+              
+              if (stagger > 0) {
+                el.style.transitionDelay = `${stagger}ms`;
+              }
+              
+              el.classList.add("is-visible");
+              observer.unobserve(el);
+            });
+          },
+          { threshold: 0.1, rootMargin: "0px 0px -36px 0px" },
+        );
+        reveals.forEach((el) => observer.observe(el));
+      });
+    </script>
+  </body>
+</html>

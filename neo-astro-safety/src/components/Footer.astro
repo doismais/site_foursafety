@@ -1,0 +1,222 @@
+---
+// Footer.astro
+const currentYear = new Date().getFullYear();
+---
+
+<footer id="contato">
+  <div class="footer-inner">
+    <div class="footer-main">
+      <div class="footer-side footer-side--info">
+        <div class="footer-brand reveal">
+          <a href="/" class="footer-logo">
+            <img src="/images/brand/Logo_4Safety-04.webp" alt="4Safety" />
+          </a>
+        </div>
+        <div class="footer-columns">
+          <div class="footer-card reveal" style="grid-column: 1 / -1;">
+            <div class="footer-contact">
+              <div class="footer-contact-item">
+                <span class="footer-contact-label">WhatsApp comercial</span>
+                <a
+                  href="https://wa.me/5548999148413"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Atendimento Comercial · +55 48 99914-8413</a
+                >
+              </div>
+              <div class="footer-contact-item">
+                <span class="footer-contact-label">E-mail</span>
+                <a href="mailto:4safety@4safety.com.br"
+                  >4safety@4safety.com.br</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-side footer-side--form reveal">
+        <p class="section-eyebrow">Fale com a 4Safety</p>
+        <h2 class="footer-form-headline">
+          Orçamento técnico<br />conforme o seu cenário
+        </h2>
+        <p class="footer-form-sub">
+          Fale direto com a equipe comercial e reduza o tempo entre dúvida,
+          escolha técnica e orçamento, com retorno conforme a complexidade
+          do cenário.
+        </p>
+        <div class="footer-form">
+          <div class="form-group">
+            <label class="form-label" for="contact-name">Nome</label>
+            <input id="contact-name" class="form-input" type="text" placeholder="Seu nome" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="contact-company">Empresa</label>
+            <input
+              id="contact-company"
+              class="form-input"
+              type="text"
+              placeholder="Empresa (opcional)"
+            />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="contact-email">E-mail</label>
+            <input
+              id="contact-email"
+              class="form-input"
+              type="email"
+              placeholder="seu@email.com.br"
+            />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="form-assunto">Assunto</label>
+            <select class="form-select" id="form-assunto" name="assunto">
+              <option>Orçamento</option>
+              <option>Especificação técnica</option>
+              <option>Dúvida sobre CA</option>
+              <option>Outro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="contact-message">Descreva o ambiente ou produto</label>
+            <textarea
+              id="contact-message"
+              class="form-textarea"
+              placeholder="Ex: preciso de detector multi-gás para espaço confinado, equipe de 5 pessoas..."
+            ></textarea>
+          </div>
+          <button type="button" class="btn-primary btn-block" id="contact-submit">
+            Enviar mensagem
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-bottom-left">
+        <span class="footer-legal footer-legal--primary">
+          © <span id="footer-year">{currentYear}</span>
+          <script is:inline>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
+          <span class="footer-legal-sep">·</span>
+          <span class="footer-brand-name">4Safety</span>
+          <span class="footer-legal-sep">·</span>
+          <a href="/termos-de-uso">Termos de Uso</a>
+          <span class="footer-legal-sep">·</span>
+          <a href="/lgpd">LGPD</a>
+          <span class="footer-legal-sep">·</span>
+          <a href="/politica-de-privacidade">Política de Privacidade</a>
+        </span>
+      </div>
+      <div class="footer-bottom-right">
+        <span class="footer-legal footer-legal--primary">
+          Desenvolvido por
+          <a
+            href="https://doismais.com.br/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Agência Dois Mais</a
+          >
+        </span>
+      </div>
+    </div>
+    
+    <address class="footer-address" style="display: block; width: 100%; text-align: center; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.75rem; color: rgba(255,255,255,0.4); font-style: normal;" itemscope itemtype="https://schema.org/PostalAddress">
+      <span itemprop="streetAddress">Av. Pref. Osmar Cunha, 183, Bl B, Ático</span>, 
+      <span itemprop="addressLocality">Centro</span>, 
+      <span itemprop="addressRegion">Florianópolis/SC</span>, 
+      CEP <span itemprop="postalCode">88015-100</span>
+    </address>
+  </div>
+</footer>
+
+<a href="#top" class="back-to-top" aria-label="Voltar ao topo">
+  <svg viewBox="0 0 24 24" fill="none">
+    <path
+      d="M12 5l-6 6m6-6 6 6M12 5v14"
+      stroke="currentColor"
+      stroke-width="1.8"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+</a>
+
+<!-- WA FLOAT -->
+<a
+  href="https://wa.me/5548999148413"
+  class="wa-float"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Falar no WhatsApp"
+>
+  <svg viewBox="0 0 24 24" fill="white">
+    <path
+      d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
+    />
+    <path
+      d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.847L.057 23.571a.5.5 0 0 0 .611.61l5.763-1.498A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.006-1.368l-.36-.213-3.713.965.993-3.622-.233-.374A9.818 9.818 0 1 1 12 21.818z"
+    />
+  </svg>
+</a>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    // ── BACK TO TOP & WA FLOAT VISIBILITY ────────────────────────────────
+    const backToTop = document.querySelector('.back-to-top');
+    const waFloat = document.querySelector('.wa-float');
+    
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        if (backToTop) backToTop.classList.add('show');
+        if (waFloat) waFloat.classList.add('visible');
+      } else {
+        if (backToTop) backToTop.classList.remove('show');
+        if (waFloat) waFloat.classList.remove('visible');
+      }
+    });
+
+    // ── WA FLOAT PULSE ───────────────────────────────────────────────────
+    const waFloatElement = document.querySelector(".wa-float");
+    if (waFloatElement) {
+      waFloatElement.animate(
+        [
+          { boxShadow: "0 4px 20px rgba(37, 211, 102, .38)" },
+          { boxShadow: "0 4px 32px rgba(37, 211, 102, .68)" },
+          { boxShadow: "0 4px 20px rgba(37, 211, 102, .38)" },
+        ],
+        {
+          duration: 2400,
+          iterations: Infinity,
+          easing: "ease-in-out",
+          delay: 2200,
+        },
+      );
+    }
+
+    // ── FORMULÁRIO COMERCIAL: CLICK-TO-CHAT ─────────────────────────────
+    const contactSubmit = document.getElementById("contact-submit");
+    if (contactSubmit) {
+      contactSubmit.addEventListener("click", () => {
+        const name = (document.getElementById("contact-name") as HTMLInputElement)?.value?.trim();
+        const company = (document.getElementById("contact-company") as HTMLInputElement)?.value?.trim();
+        const email = (document.getElementById("contact-email") as HTMLInputElement)?.value?.trim();
+        const subject = (document.getElementById("form-assunto") as HTMLSelectElement)?.value?.trim();
+        const message = (document.getElementById("contact-message") as HTMLTextAreaElement)?.value?.trim();
+        const lines = [
+          "Olá, 4Safety.",
+          "Gostaria de atendimento comercial.",
+          name ? `Nome: ${name}` : "",
+          company ? `Empresa: ${company}` : "",
+          email ? `E-mail: ${email}` : "",
+          subject ? `Assunto: ${subject}` : "",
+          message ? `Cenário/produto: ${message}` : "",
+        ].filter(Boolean);
+        window.open(
+          `https://wa.me/5548999148413?text=${encodeURIComponent(lines.join("\n"))}`,
+          "_blank",
+          "noopener",
+        );
+      });
+    }
+  });
+</script>

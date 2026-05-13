@@ -1,0 +1,126 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import '../../styles/products.css';
+---
+
+<Layout title="Botas e Calçados de Segurança | 4Safety — Especialistas em Segurança" description="Calçados profissionais com biqueira de proteção e soladoantiderrapante para diversos ambientes de trabalho.">
+  
+  <main class="product-hero">
+    <div class="product-grid">
+      <div class="product-gallery reveal">
+        <img src="/images/products/produto-botas-calzados.png" alt="Botas e Calçados de Segurança" />
+      </div>
+      <div class="product-info reveal">
+        <div class="product-tag">Proteção dos Pés — NR-6</div>
+        <h1 class="product-title">Botas e Calçados</h1>
+        <p class="product-description">Calçados profissionais com biqueira de proteção e soladoantiderrapante para diversos ambientes de trabalho.</p>
+        <div class="product-meta">
+          <span class="meta-badge">NR-6</span>
+          <span class="meta-badge">Antiderrapante</span>
+          <span class="meta-badge">Biqueira de Aço/Composite</span>
+        </div>
+        <div class="product-actions">
+          <button class="btn-add-cart btn-primary" data-cart-add data-product-name="Botas e Calçados" data-product-img="/images/products/produto-botas-calzados.png">
+             Adicionar ao Orçamento
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Specs Section -->
+    <section class="product-specs">
+      <div class="section-inner product-sections-stack">
+        <div class="product-section-block">
+          <div class="product-section-head reveal">
+            <p class="product-section-kicker">Ficha rápida</p>
+            <h2 class="specs-title">Especificações Técnicas</h2>
+            <p class="product-section-sub">Tudo o que a equipe precisa conferir antes de fechar aplicação, norma e compra.</p>
+          </div>
+          <div class="specs-card">
+            <div class="specs-list">
+              <div class="spec-row">
+                <span class="spec-label">Tipo</span>
+                <span class="spec-value">Botinas / Sapatos / Botas de PVC</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Material</span>
+                <span class="spec-value">Couro / PVC</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Biqueira</span>
+                <span class="spec-value">Aço ou Composite (Opcional)</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Normas</span>
+                <span class="spec-value">ISO 20345 / 20347</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="product-section-block">
+          <div class="product-section-head reveal">
+            <p class="product-section-kicker">Sugestões de produtos</p>
+            <h2 class="specs-title">Monte um kit mais completo</h2>
+            <p class="product-section-sub">Itens que normalmente entram junto na mesma operação ou complementam a especificação técnica.</p>
+          </div>
+          <div class="related-grid">
+            <a class="related-card" href="/produtos/altura">
+              <div class="related-card-media">
+                <img src="/images/products/produto-equipamentos-altura.png" alt="Equipamentos para Altura" />
+              </div>
+              <div class="related-card-copy">
+                <span class="related-card-tag">Trabalho em Altura — NR-35</span>
+                <h3>Equipamentos para Altura</h3>
+                <p>Cinturões paraquedistas e dispositivos trava-quedasselecionados conforme risco e documentação do modelo indicado.</p>
+              </div>
+            </a>
+            <a class="related-card" href="/produtos/respiratorio">
+              <div class="related-card-media">
+                <img src="/images/products/produto-protecao-respiratoria.jpg" alt="Proteção Respiratória" />
+              </div>
+              <div class="related-card-copy">
+                <span class="related-card-tag">Segurança Pulmonar — NR-6</span>
+                <h3>Proteção Respiratória</h3>
+                <p>Representamos alguns tipos de máscaras respiratórias.A disponibilidade e a indicação da linha ideal são confirmadas sobconsulta técnica.</p>
+              </div>
+            </a>
+            <a class="related-card" href="/produtos/deteccao-de-gas/detector-portatil">
+              <div class="related-card-media">
+                <img src="/images/products/produto-detector-gas-portatil.png" alt="Detector de Gás Portátil" />
+              </div>
+              <div class="related-card-copy">
+                <span class="related-card-tag">Monitoramento Contínuo — NR-33</span>
+                <h3>Detector de Gás Portátil</h3>
+                <p>Detector multigás para monitoramento simultâneo de O2, CO, H2S e gases combustíveis (LEL).</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Script do Carrinho -->
+  <script is:inline src="/js/cart.js"></script>
+
+  <!-- Script de Reveal -->
+  <script>
+    document.addEventListener('astro:page-load', () => {
+      const reveals = document.querySelectorAll(".reveal");
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          const el = entry.target;
+          const stagger = Math.min([...el.parentElement.querySelectorAll(".reveal")].indexOf(el) * 75, 380);
+          el.animate([{ opacity: 0, transform: "translateY(22px)" }, { opacity: 1, transform: "translateY(0)" }],
+            { duration: 580, delay: stagger, fill: "forwards", easing: "cubic-bezier(0.22,1,0.36,1)" });
+          observer.unobserve(el);
+        });
+      }, { threshold: 0.1, rootMargin: "0px 0px -36px 0px" });
+      
+      reveals.forEach(el => observer.observe(el));
+    });
+  </script>
+
+</Layout>

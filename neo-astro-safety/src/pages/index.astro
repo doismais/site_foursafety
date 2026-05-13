@@ -1,0 +1,24 @@
+---
+// index.astro
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import CtaAtuacao from '../components/CtaAtuacao.astro';
+import Numeros from '../components/Numeros.astro';
+import Produtos from '../components/Produtos.astro';
+import Cenarios from '../components/Cenarios.astro';
+import Parceiros from '../components/Parceiros.astro';
+---
+
+<Layout title="4Safety — Soluções Técnicas em Segurança do Trabalho" description="Soluções técnicas para segurança ocupacional com foco em ambientes críticos, documentação sob consulta e marcas globais.">
+  <main>
+    <Hero />
+    <CtaAtuacao />
+    <Numeros />
+    <Produtos />
+    <Cenarios />
+    <Parceiros />
+  </main>
+  
+  <!-- Global Cart Script -->
+  <script src="/js/cart.js" is:inline></script>
+</Layout>

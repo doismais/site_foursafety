@@ -1,0 +1,110 @@
+---
+// Numeros.astro
+---
+
+<div class="glass-section">
+  <div class="glass-inner">
+    <div class="glass-header reveal">
+      <p class="section-eyebrow">4Safety em números</p>
+      <h2 class="section-headline">Resultados que constroem confiança</h2>
+    </div>
+    <div class="glass-grid">
+      <div class="glass-card reveal">
+        <div class="glass-number"><span>15</span></div>
+        <div class="glass-label">Anos de mercado</div>
+        <div class="glass-desc">
+          Atuação contínua em equipamentos de proteção individual e coletiva
+        </div>
+      </div>
+      <div class="glass-card reveal">
+        <div class="glass-number"><span>12</span></div>
+        <div class="glass-label">Linhas de produto</div>
+        <div class="glass-desc">
+          Portfólio técnico especializado para ambientes críticos e
+          industriais
+        </div>
+      </div>
+      <div class="glass-card reveal">
+        <div class="glass-number">+<span>30</span></div>
+        <div class="glass-label">Marcas globais</div>
+        <div class="glass-desc">
+          Portfólio com marcas reconhecidas e documentação alinhada por
+          aplicação
+        </div>
+      </div>
+      <div class="glass-card reveal">
+        <div class="glass-number"><span>1:1</span></div>
+        <div class="glass-label">Atendimento consultivo</div>
+        <div class="glass-desc">
+          Atendimento imediato e sem burocracia por WhatsApp e documentado
+          por e-mail
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    // ── GLASS CARDS COUNTER ANIMATION ───────────────────────────────────
+    const counters = document.querySelectorAll(".glass-number");
+    const countObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const el = entry.target;
+          const span = el.querySelector("span");
+          if (!span) return;
+          const originalText = span.textContent;
+          
+          if (originalText.includes(":")) {
+            const parts = originalText.split(":");
+            const target1 = parseInt(parts[0]);
+            const target2 = parseInt(parts[1]);
+            if (!isNaN(target1) && !isNaN(target2)) {
+              let current1 = 0;
+              let current2 = 0;
+              const step1 = Math.ceil(target1 / 40) || 1;
+              const step2 = Math.ceil(target2 / 40) || 1;
+              
+              const timer = setInterval(() => {
+                current1 = Math.min(current1 + step1, target1);
+                current2 = Math.min(current2 + step2, target2);
+                span.textContent = `${current1}:${current2}`;
+                if (current1 >= target1 && current2 >= target2) clearInterval(timer);
+              }, 30);
+              countObserver.unobserve(el);
+              return;
+            }
+          }
+
+          const target = parseInt(originalText);
+          if (isNaN(target)) return;
+          let current = 0;
+          const step = Math.ceil(target / 40) || 1;
+          const timer = setInterval(() => {
+            current = Math.min(current + step, target);
+            span.textContent = current;
+            if (current >= target) clearInterval(timer);
+          }, 30);
+          countObserver.unobserve(el);
+        });
+      },
+      { threshold: 0.5 },
+    );
+    counters.forEach((el) => countObserver.observe(el));
+
+    // ── GLASS CARDS HOVER GLOW ───────────────────────────────────────────
+    document.querySelectorAll(".glass-card").forEach((card) => {
+      card.addEventListener("mousemove", (e) => {
+        const r = card.getBoundingClientRect();
+        const x = ((e.clientX - r.left) / r.width) * 100;
+        const y = ((e.clientY - r.top) / r.height) * 100;
+        card.style.background = `radial-gradient(circle at ${x}% ${y}%, rgba(255, 0, 0, 0.08) 0%, rgba(255,255,255,0.04) 60%)`;
+      });
+      card.addEventListener("mouseleave", () => {
+        card.style.background = "rgba(255,255,255,0.04)";
+      });
+    });
+  });
+</script>
