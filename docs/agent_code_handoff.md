@@ -82,7 +82,7 @@ Luis Claudio
 +55 48 99914-8413
 
 **Email**
-[4safety@4safety.com.br](mailto:4safety@4safety.com.br)
+[foursafety.mkt@gmail.com](mailto:foursafety.mkt@gmail.com)
 
 **Atendimento**
 Segunda a Sexta — 08h às 18h
@@ -275,7 +275,7 @@ WhatsApp como canal principal.
 ```txt
 WhatsApp: +55 48 99914-8413
 Responsável: Luis Claudio
-Email: 4safety@4safety.com.br
+Email: foursafety.mkt@gmail.com
 Horário: Segunda a Sexta — 08h às 18h
 ```
 

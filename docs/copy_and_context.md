@@ -52,7 +52,7 @@ BRAND_TOKENS {
 
   contato {
     telefone_comercial : "(48) 99914-8413"
-    email              : "4safety@4safety.com.br"
+    email              : "foursafety.mkt@gmail.com"
     horario            : "Seg–Sex, 08h às 18h"
     cnpj               : "11.897.812/0001-06"
   }
@@ -222,7 +222,7 @@ section_cta:
     href: "https://wa.me/5548999148413"
   cta_secondary:
     label: "Enviar por e-mail"
-    href: "mailto:4safety@4safety.com.br"
+    href: "mailto:foursafety.mkt@gmail.com"
   visual_hint: "Background #FF4E00. Texto branco. Sem bordas decorativas."
 
 # ─── FOOTER ─────────────────────────────────────────────────────────
@@ -503,7 +503,7 @@ section_cta:
     href: "https://wa.me/5548999148413"
   cta_secondary:
     label: "Enviar por e-mail"
-    href: "mailto:4safety@4safety.com.br"
+    href: "mailto:foursafety.mkt@gmail.com"
 ```
 
 ---
@@ -832,8 +832,8 @@ section_info:
     - {
         icon: email,
         label: "E-mail",
-        value: "4safety@4safety.com.br",
-        href: "mailto:4safety@4safety.com.br",
+        value: "foursafety.mkt@gmail.com",
+        href: "mailto:foursafety.mkt@gmail.com",
       }
     - { icon: clock, label: "Atendimento", value: "Seg–Sex, 08h às 18h" }
 ```
