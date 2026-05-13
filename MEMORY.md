@@ -15,16 +15,24 @@ Version: v1.0.0
 
 - **Migração para Astro**: O projeto foi migrado de HTML estático para
   Astro para facilitar a manutenção e reutilização de componentes.
-- **URLs Limpas**: Decidimos remover o `/index.html` de todas as rotas e links
+- **URLs Limpas**: Removemos `/index.html` de todas as rotas e links
   internos, aproveitando o roteamento baseado em arquivos do Astro.
 - **Páginas de Produtos**: Todas as páginas de produtos específicos foram
-  migradas para Astro e estão funcionais em `src/pages/produtos/`.
-- **Estilos Isolados**: O CSS específico das páginas de produtos foi movido
-  para `src/styles/products.css`.
-- **SEO Avançado**: Adicionamos o endereço no footer com Microdata e no JSON-LD
-  do Layout para fortalecer o SEO local.
-- **Rastreamento**: Adicionamos slots para o Google Tag Manager e tags de
-  preconnect para fontes no `Layout.astro`.
+  migradas para Astro em `src/pages/produtos/`.
+- **Estilos Isolados**: CSS específico das páginas de produtos em
+  `src/styles/products.css`. Estilos globais em `src/styles/global.css`.
+- **SEO Avançado**: Endereço no footer com Microdata e JSON-LD no Layout.
+- **Rastreamento**: Slots para Google Tag Manager no `Layout.astro`.
+- **TypeScript Limpo**: Todos os 38 erros de tipo corrigidos nos componentes
+  e páginas. `make check` passa com 0 erros.
+- **Makefile Completo**: Adicionado `make check` (validação de tipos) e
+  integrado ao `make safe-push` (audit → check → build → status).
+- **Footer Reorganizado**: Dois blocos alinhados: copyright + links legais
+  (linha 1) e endereço + crédito (linha 2).
+- **Cenários (Onde Atuamos)**: Grid 2 colunas no mobile com ícones SVG
+  por categoria.
+- **Hero Mobile**: Imagem de fundo 100% altura da tela, sem retornoângulo
+  de glassmorphism.
 
 ────────────────────────────────────────
 
@@ -38,9 +46,9 @@ Version: v1.0.0
 
 ## ◬ Próximos Passos
 
-1. Validar o build final localmente (aguardando ambiente do usuário).
-2. Adicionar as tags reais do GTM e Pixel quando fornecidas pelo gestor.
-3. Seguir com o protocolo de Commit e Push Seguro.
+1. Adicionar as tags reais do GTM e Pixel quando fornecidas pelo gestor.
+2. Continuar melhorias de UX mobile conforme feedback.
+3. Monitorar performance via Vercel Analytics após deploy.
 
 ────────────────────────────────────────
 

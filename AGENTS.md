@@ -60,8 +60,10 @@ src/
 
 Sempre siga o fluxo de segurança antes de enviar mudanças:
 1. Verifique vulnerabilidades com `pnpm audit`.
-2. Valide o build com `pnpm build` (ou `make build`).
-3. Siga o padrão Conventional Commits.
+2. Valide tipos com `make check` (`pnpm run check`).
+3. Valide o build com `make build`.
+4. Siga o padrão Conventional Commits.
+5. Ou use `make safe-push` para executar tudo automaticamente.
 
 ────────────────────────────────────────
 

@@ -86,7 +86,7 @@
           const step = Math.ceil(target / 40) || 1;
           const timer = setInterval(() => {
             current = Math.min(current + step, target);
-            span.textContent = current;
+            span.textContent = String(current);
             if (current >= target) clearInterval(timer);
           }, 30);
           countObserver.unobserve(el);
@@ -98,14 +98,15 @@
 
     // ── GLASS CARDS HOVER GLOW ───────────────────────────────────────────
     document.querySelectorAll(".glass-card").forEach((card) => {
-      card.addEventListener("mousemove", (e) => {
-        const r = card.getBoundingClientRect();
+      const htmlCard = card as HTMLElement;
+      htmlCard.addEventListener("mousemove", (e: MouseEvent) => {
+        const r = htmlCard.getBoundingClientRect();
         const x = ((e.clientX - r.left) / r.width) * 100;
         const y = ((e.clientY - r.top) / r.height) * 100;
-        card.style.background = `radial-gradient(circle at ${x}% ${y}%, rgba(255, 0, 0, 0.08) 0%, rgba(255,255,255,0.04) 60%)`;
+        htmlCard.style.background = `radial-gradient(circle at ${x}% ${y}%, rgba(255, 0, 0, 0.08) 0%, rgba(255,255,255,0.04) 60%)`;
       });
-      card.addEventListener("mouseleave", () => {
-        card.style.background = "rgba(255,255,255,0.04)";
+      htmlCard.addEventListener("mouseleave", () => {
+        htmlCard.style.background = "rgba(255,255,255,0.04)";
       });
     });
   });

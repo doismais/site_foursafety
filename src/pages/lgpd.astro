@@ -1,45 +1,97 @@
 ---
 import Layout from '../layouts/Layout.astro';
+const title = "LGPD | 4Safety";
+const description = "Informações sobre tratamento de dados pessoais e LGPD na 4Safety.";
 ---
 
-<Layout title="LGPD | 4Safety" description="Lei Geral de Proteção de Dados (LGPD) na 4Safety.">
-  <main class="legal-page">
-    <div class="legal-content reveal">
-      <p class="section-eyebrow">Legal</p>
-      <h1 class="legal-title">Lei Geral de Proteção de Dados (LGPD)</h1>
-      <div class="legal-body">
-        <p>Esta página contém as informações sobre como a 4Safety cumpre a LGPD. O conteúdo completo será inserido em breve.</p>
-        <p>Última atualização: Maio de 2026</p>
-      </div>
-    </div>
-  </main>
-</Layout>
+<Layout {title} {description}>
+<main class="legal-page">
+  <section class="container">
+    <h1>LGPD — Lei Geral de Proteção de Dados</h1>
 
-<style>
-  .legal-page {
-    padding: 140px var(--spacing-md) var(--spacing-xl);
-    display: flex;
-    justify-content: center;
-    min-height: 60vh;
-  }
-  
-  .legal-content {
-    max-width: 800px;
-    width: 100%;
-  }
-  
-  .legal-title {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    color: var(--color-foreground);
-  }
-  
-  .legal-body {
-    color: var(--color-muted);
-    line-height: 1.8;
-  }
-  
-  .legal-body p {
-    margin-bottom: 1.5rem;
-  }
-</style>
+    <p>
+      A 4Safety trata dados pessoais em conformidade com a Lei nº 13.709/2018, conhecida como Lei Geral de Proteção de Dados Pessoais.
+    </p>
+
+    <p>
+      Nosso compromisso é tratar dados com finalidade legítima, transparência, segurança, necessidade e respeito aos direitos dos titulares.
+    </p>
+
+    <h2>1. Controladora</h2>
+    <p>
+      A controladora dos dados é a empresa inscrita no CNPJ nº <strong>11.897.812/0001-06</strong>, responsável pela marca 4Safety.
+    </p>
+
+    <p>
+      Endereço: Av. Pref. Osmar Cunha, 183, Bloco B, Ático, Centro, Florianópolis/SC, CEP 88015-100.
+    </p>
+
+    <h2>2. Canal para solicitações LGPD</h2>
+    <p>
+      Solicitações relacionadas a dados pessoais devem ser enviadas para:
+      <a href="mailto:foursafety.mkt@gmail.com">foursafety.mkt@gmail.com</a>.
+    </p>
+
+    <h2>3. Quais dados podem ser tratados</h2>
+    <p>
+      Podemos tratar dados como nome, telefone, e-mail, empresa, cargo, mensagem enviada, histórico de atendimento, interesse comercial, dados de orçamento e informações técnicas de navegação.
+    </p>
+
+    <h2>4. Bases legais</h2>
+    <p>O tratamento poderá ocorrer com base em:</p>
+
+    <ul>
+      <li>execução de contrato ou procedimentos preliminares relacionados a orçamento;</li>
+      <li>cumprimento de obrigação legal ou regulatória;</li>
+      <li>legítimo interesse para atendimento, segurança, melhoria do site e relacionamento comercial;</li>
+      <li>consentimento, quando necessário;</li>
+      <li>exercício regular de direitos em processos administrativos, judiciais ou arbitrais.</li>
+    </ul>
+
+    <h2>5. Finalidades</h2>
+    <p>Os dados são tratados para:</p>
+
+    <ul>
+      <li>atender solicitações comerciais;</li>
+      <li>enviar propostas e orçamentos;</li>
+      <li>responder dúvidas sobre produtos e soluções;</li>
+      <li>melhorar o site e a navegação;</li>
+      <li>cumprir obrigações legais;</li>
+      <li>proteger direitos da empresa, clientes e parceiros.</li>
+    </ul>
+
+    <h2>6. Direitos do titular</h2>
+    <p>
+      O titular pode solicitar, quando aplicável:
+    </p>
+
+    <ul>
+      <li>confirmação da existência de tratamento;</li>
+      <li>acesso aos dados pessoais;</li>
+      <li>correção de dados incompletos, inexatos ou desatualizados;</li>
+      <li>anonimização, bloqueio ou eliminação de dados desnecessários ou tratados em desconformidade;</li>
+      <li>portabilidade dos dados;</li>
+      <li>informações sobre compartilhamento;</li>
+      <li>revogação do consentimento;</li>
+      <li>oposição ao tratamento, quando cabível.</li>
+    </ul>
+
+    <h2>7. Prazo de resposta</h2>
+    <p>
+      As solicitações serão analisadas e respondidas em prazo razoável, conforme a complexidade do pedido e os requisitos legais aplicáveis.
+    </p>
+
+    <h2>8. Segurança</h2>
+    <p>
+      A 4Safety adota medidas razoáveis de segurança para proteger dados pessoais contra acessos não autorizados, perda, alteração, divulgação ou qualquer forma de tratamento inadequado.
+    </p>
+
+    <h2>9. Atualizações</h2>
+    <p>
+      Esta página poderá ser atualizada sempre que houver mudanças legais, regulatórias ou operacionais relacionadas ao tratamento de dados pessoais.
+    </p>
+
+    <p><strong>Última atualização:</strong> maio de 2026.</p>
+  </section>
+</main>
+</Layout>

@@ -37,12 +37,15 @@ astro.config.mjs     # Configuração do Astro
 
 Todos os comandos devem ser executados a partir da raiz do projeto:
 
-| Comando | Ação |
-| :--- | :--- |
-| `pnpm install` | Instala as dependências |
-| `pnpm dev` | Inicia o servidor de desenvolvimento local |
-| `pnpm build` | Gera o site estático para produção em `./dist/` |
-| `pnpm preview` | Visualiza o build localmente |
+| Comando          | Ação                                                     |
+| :--------------- | :------------------------------------------------------- |
+| `make install`   | Instala as dependências via `pnpm install`               |
+| `make dev`       | Inicia o servidor de desenvolvimento em `localhost:4321` |
+| `make build`     | Gera o site estático para produção em `./dist/`          |
+| `make preview`   | Visualiza o build localmente                             |
+| `make clean`     | Limpa o cache e arquivos temporários                     |
+| `make check`     | Valida tipos TypeScript e arquivos `.astro`              |
+| `make safe-push` | Protocolo NΞØ: Audit → Check → Build → Status          |
 
 ────────────────────────────────────────
 

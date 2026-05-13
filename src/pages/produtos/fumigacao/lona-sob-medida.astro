@@ -112,7 +112,7 @@ import '../../../styles/products.css';
         entries.forEach(entry => {
           if (!entry.isIntersecting) return;
           const el = entry.target;
-          const stagger = Math.min([...el.parentElement.querySelectorAll(".reveal")].indexOf(el) * 75, 380);
+          const stagger = Math.min([...(el.parentElement?.querySelectorAll(".reveal") ?? [])].indexOf(el) * 75, 380);
           el.animate([{ opacity: 0, transform: "translateY(22px)" }, { opacity: 1, transform: "translateY(0)" }],
             { duration: 580, delay: stagger, fill: "forwards", easing: "cubic-bezier(0.22,1,0.36,1)" });
           observer.unobserve(el);

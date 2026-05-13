@@ -134,22 +134,25 @@
       if (images.length && titleEl && subEl) {
         let currentIndex = 0;
 
-        function transitionText(nextImage) {
+        function transitionText(nextImage: HTMLImageElement) {
           const nextTitle = nextImage.dataset.title || "";
           const nextSub = nextImage.dataset.sub || "";
 
-          const fadeOut = {
+          const fadeOut: KeyframeAnimationOptions = {
             duration: 220,
             easing: "ease-out",
-            fill: "forwards",
+            fill: "forwards" as FillMode,
           };
-          const fadeIn = {
+          const fadeIn: KeyframeAnimationOptions = {
             duration: 360,
             easing: "cubic-bezier(0.22,1,0.36,1)",
-            fill: "forwards",
+            fill: "forwards" as FillMode,
           };
 
-          const titleOut = titleEl.animate(
+          const htmlTitleEl = titleEl as HTMLElement;
+          const htmlSubEl = subEl as HTMLElement;
+
+          const titleOut = htmlTitleEl.animate(
             [
               { opacity: 1, transform: "translateY(0)" },
               { opacity: 0, transform: "translateY(10px)" },
@@ -157,7 +160,7 @@
             fadeOut,
           );
 
-          const subOut = subEl.animate(
+          const subOut = htmlSubEl.animate(
             [
               { opacity: 1, transform: "translateY(0)" },
               { opacity: 0, transform: "translateY(10px)" },
@@ -166,10 +169,10 @@
           );
 
           Promise.all([titleOut.finished, subOut.finished]).then(() => {
-            titleEl.textContent = nextTitle;
-            subEl.textContent = nextSub;
+            htmlTitleEl.textContent = nextTitle;
+            htmlSubEl.textContent = nextSub;
 
-            titleEl.animate(
+            htmlTitleEl.animate(
               [
                 { opacity: 0, transform: "translateY(10px)" },
                 { opacity: 1, transform: "translateY(0)" },
@@ -177,7 +180,7 @@
               fadeIn,
             );
 
-            subEl.animate(
+            htmlSubEl.animate(
               [
                 { opacity: 0, transform: "translateY(10px)" },
                 { opacity: 1, transform: "translateY(0)" },
@@ -187,7 +190,7 @@
           });
         }
 
-        function goTo(index) {
+        function goTo(index: number) {
           if (index === currentIndex) return;
           images[currentIndex].classList.remove("active");
           currentIndex = index;

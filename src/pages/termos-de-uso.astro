@@ -1,45 +1,103 @@
 ---
 import Layout from '../layouts/Layout.astro';
+const title = "Termos de Uso | 4Safety";
+const description = "Termos de Uso do site da 4Safety.";
 ---
 
-<Layout title="Termos de Uso | 4Safety" description="Termos de uso do site 4Safety.">
-  <main class="legal-page">
-    <div class="legal-content reveal">
-      <p class="section-eyebrow">Legal</p>
-      <h1 class="legal-title">Termos de Uso</h1>
-      <div class="legal-body">
-        <p>Esta página contém os termos de uso do site da 4Safety. O conteúdo completo será inserido em breve.</p>
-        <p>Última atualização: Maio de 2026</p>
-      </div>
-    </div>
-  </main>
-</Layout>
+<Layout {title} {description}>
+<main class="legal-page">
+  <section class="container">
+    <h1>Termos de Uso</h1>
 
-<style>
-  .legal-page {
-    padding: 140px var(--spacing-md) var(--spacing-xl);
-    display: flex;
-    justify-content: center;
-    min-height: 60vh;
-  }
-  
-  .legal-content {
-    max-width: 800px;
-    width: 100%;
-  }
-  
-  .legal-title {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    color: var(--color-foreground);
-  }
-  
-  .legal-body {
-    color: var(--color-muted);
-    line-height: 1.8;
-  }
-  
-  .legal-body p {
-    margin-bottom: 1.5rem;
-  }
-</style>
+    <p>
+      Estes Termos regulam o acesso e uso do site da 4Safety. Ao navegar neste site, o usuário declara estar ciente e de acordo com as condições abaixo.
+    </p>
+
+    <h2>1. Identificação</h2>
+    <p>
+      Este site é operado pela empresa inscrita no CNPJ nº <strong>11.897.812/0001-06</strong>, responsável pela marca 4Safety.
+    </p>
+
+    <p>
+      Endereço: Av. Pref. Osmar Cunha, 183, Bloco B, Ático, Centro, Florianópolis/SC, CEP 88015-100.
+    </p>
+
+    <p>
+      Contato: <a href="mailto:foursafety.mkt@gmail.com">foursafety.mkt@gmail.com</a>.
+    </p>
+
+    <h2>2. Finalidade do site</h2>
+    <p>
+      O site tem finalidade institucional e comercial, apresentando informações sobre a 4Safety, seus produtos, soluções, segmentos atendidos e canais de contato.
+    </p>
+
+    <p>
+      As informações disponíveis no site não substituem análise técnica, proposta comercial formal, contrato ou validação específica para cada aplicação.
+    </p>
+
+    <h2>3. Solicitações de orçamento</h2>
+    <p>
+      O envio de formulário, mensagem por WhatsApp ou contato por e-mail não gera obrigação automática de fornecimento, reserva de produto, preço definitivo ou contratação.
+    </p>
+
+    <p>
+      Orçamentos, prazos, condições comerciais, disponibilidade e especificações devem ser confirmados formalmente pela equipe da 4Safety.
+    </p>
+
+    <h2>4. Uso permitido</h2>
+    <p>
+      O usuário compromete-se a utilizar o site de forma lícita, ética e compatível com sua finalidade, não praticando atos que possam comprometer a segurança, disponibilidade, integridade ou funcionamento da plataforma.
+    </p>
+
+    <h2>5. Propriedade intelectual</h2>
+    <p>
+      Marcas, textos, imagens, layouts, elementos visuais, conteúdos e demais materiais presentes no site pertencem à 4Safety ou a terceiros licenciantes, quando aplicável.
+    </p>
+
+    <p>
+      É proibida a reprodução, cópia, distribuição, modificação ou uso comercial não autorizado de qualquer conteúdo do site.
+    </p>
+
+    <h2>6. Links externos</h2>
+    <p>
+      O site poderá conter links para páginas externas, como WhatsApp, mapas, fabricantes, parceiros ou redes sociais. A 4Safety não se responsabiliza por conteúdos, políticas ou práticas de sites de terceiros.
+    </p>
+
+    <h2>7. Informações técnicas e produtos</h2>
+    <p>
+      As informações sobre produtos, aplicações, marcas e especificações são apresentadas para fins informativos e comerciais.
+    </p>
+
+    <p>
+      A indicação adequada de produtos depende da análise do cenário, aplicação, disponibilidade, normas aplicáveis e validação técnica/comercial.
+    </p>
+
+    <h2>8. Disponibilidade do site</h2>
+    <p>
+      A 4Safety busca manter o site disponível e atualizado, mas não garante funcionamento ininterrupto, livre de erros, falhas técnicas, indisponibilidades temporárias ou ataques externos.
+    </p>
+
+    <h2>9. Responsabilidade do usuário</h2>
+    <p>
+      O usuário é responsável pela veracidade das informações fornecidas em formulários, mensagens e contatos comerciais.
+    </p>
+
+    <h2>10. Privacidade e dados pessoais</h2>
+    <p>
+      O tratamento de dados pessoais é regulado pela Política de Privacidade e pela página de LGPD disponíveis neste site.
+    </p>
+
+    <h2>11. Alterações nos Termos</h2>
+    <p>
+      A 4Safety poderá alterar estes Termos a qualquer momento para refletir mudanças legais, comerciais, técnicas ou operacionais.
+    </p>
+
+    <h2>12. Foro</h2>
+    <p>
+      Fica eleito o foro da comarca de Florianópolis/SC para dirimir eventuais controvérsias relacionadas a estes Termos, salvo disposição legal em contrário.
+    </p>
+
+    <p><strong>Última atualização:</strong> maio de 2026.</p>
+  </section>
+</main>
+</Layout>
