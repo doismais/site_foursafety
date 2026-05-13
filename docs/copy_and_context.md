@@ -240,9 +240,9 @@ footer:
     - { label: "Contato", href: "/contato" }
   contato:
     whatsapp: "https://wa.me/5548999148413"
-    email: "4safety@4safety.com.br"
+    email: "foursafety.mkt@gmail.com"
     horario: "Seg–Sex, 08h às 18h"
-  legal: "© 2025 4Safety. CNPJ 11.897.812/0001-06. Todos os direitos reservados."
+  legal: "© 2026 4Safety. CNPJ 11.897.812/0001-06. Todos os direitos reservados."
 ```
 
 ---
