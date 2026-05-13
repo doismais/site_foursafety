@@ -1,23 +1,17 @@
 {
-  "name": "4safety-site",
-  "version": "1.0.0",
-  "description": "Premium industrial safety catalogue and consultancy site",
-  "main": "index.html",
-  "scripts": {
-    "dev": "make dev",
-    "serve": "make serve",
-    "build": "echo 'Build successful (static site)'",
-    "check": "make check",
-    "audit": "pnpm audit",
-    "color:sync:dry": "node scripts/sync_color.mjs --old ff4e00 --new ff0000",
-    "color:sync:apply": "node scripts/sync_color.mjs --old ff4e00 --new ff0000 --apply"
+  "name": "neo-astro-safety",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
   },
-  "keywords": [
-    "safety",
-    "consultancy",
-    "industrial",
-    "epi"
-  ],
-  "author": "NΞØ Protocol",
-  "license": "ISC"
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^6.3.1"
+  }
 }
