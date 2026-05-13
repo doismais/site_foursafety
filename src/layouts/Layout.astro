@@ -1,6 +1,6 @@
 ---
 // Layout.astro
-const { title = "4Safety — Soluções Técnicas em Segurança do Trabalho", description = "Soluções técnicas para segurança ocupacional com foco em ambientes críticos, documentação sob consulta e marcas globais." } = Astro.props;
+const { title = "PROTEÇÃO, DETECÇÃO E PERFORMANCE", description = "Somos especialistas em manter a sua operação segura." } = Astro.props;
 import '../styles/global.css';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
@@ -15,18 +15,21 @@ import { ClientRouter } from 'astro:transitions';
       name="viewport"
       content="width=device-width, initial-scale=1.0, viewport-fit=cover"
     />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
     <ClientRouter />
     <meta name="description" content={description} />
+    <meta name="author" content="Dois Mais Agency" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://4safety.vercel.app/images/OG-image.png" />
+    <meta property="og:image" content="https://4safety.vercel.app/images/og-image.png" />
     <meta property="og:image:alt" content={title} />
     <meta property="og:url" content="https://4safety.vercel.app/" />
     <link rel="canonical" href="https://4safety.vercel.app/" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="https://4safety.vercel.app/images/OG-image.png" />
+    <meta name="twitter:image" content="https://4safety.vercel.app/images/og-image.png" />
     
     <!-- Preconnect para Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

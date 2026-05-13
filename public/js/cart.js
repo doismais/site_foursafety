@@ -1,25 +1,31 @@
 /**
- * 4Safety — NΞØ PROTOCOL
+ * 4Safety — DOIS MAIS AGENCY
  * Global Cart Logic (localStorage-based)
  * Supports: Home -> Product Page -> Cart -> WhatsApp
  */
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("astro:page-load", () => {
   const CART_KEY = "4safety_cart";
   const PRODUCT_IMAGE_MAP = {
-    "Tubo Colorimétrico Uniphos": "/images/products/produto-tubo-colorimetrico-uniphos.jpg",
-    "Bomba de Detecção de Gás": "/images/products/produto-bomba-deteccao-gas.png",
-    "Detector de Gás Portátil": "/images/products/produto-detector-gas-portatil.png",
+    "Tubo Colorimétrico Uniphos":
+      "/images/products/produto-tubo-colorimetrico-uniphos.jpg",
+    "Bomba de Detecção de Gás":
+      "/images/products/produto-bomba-deteccao-gas.png",
+    "Detector de Gás Portátil":
+      "/images/products/produto-detector-gas-portatil.png",
     "Equipamentos de Fumigação": "/images/products/produto-fumigacao.png",
     "Lona de Fumigação Sob Medida": "/images/products/produto-fumigacao.png",
-    "Proteção Respiratória": "/images/products/produto-protecao-respiratoria.jpg",
-    "Equipamentos para Altura": "/images/products/produto-equipamentos-altura.png",
+    "Proteção Respiratória":
+      "/images/products/produto-protecao-respiratoria.jpg",
+    "Equipamentos para Altura":
+      "/images/products/produto-equipamentos-altura.png",
     "Botas e Calçados": "/images/products/produto-botas-calzados.png",
-    "Botas e Calçados de Segurança": "/images/products/produto-botas-calzados.png",
+    "Botas e Calçados de Segurança":
+      "/images/products/produto-botas-calzados.png",
     "Protetor Auditivo": "/images/products/produto-protetor-auditivo.png",
     "Óculos de Proteção": "/images/products/produto-oculos-protecao.png",
     "Luvas de Proteção": "/images/products/produto-luvas-protecao.png",
-    "Descartáveis": "/images/products/produto-descartaveis.png",
+    Descartáveis: "/images/products/produto-descartaveis.png",
     "Vestimentas Descartáveis": "/images/products/produto-descartaveis.png",
     "Proteção Térmica": "/images/products/produto-protecao-termica.png",
   };
@@ -151,7 +157,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const updateCartCount = () => {
     const countEl = document.getElementById("cart-count");
     if (countEl) countEl.innerText = cart.length;
-    
+
     const fab = document.getElementById("cart-fab");
     if (fab) fab.style.display = cart.length > 0 ? "flex" : "none";
   };
@@ -169,7 +175,9 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    list.innerHTML = cart.map((item, index) => `
+    list.innerHTML = cart
+      .map(
+        (item, index) => `
       <div class="cart-item">
         <img src="${resolveProductImage(item)}" alt="${item.name}">
         <div class="cart-item-details">
@@ -177,9 +185,11 @@ document.addEventListener("DOMContentLoaded", () => {
           <div class="cart-item-remove" data-index="${index}">Remover</div>
         </div>
       </div>
-    `).join("");
+    `,
+      )
+      .join("");
 
-    list.querySelectorAll(".cart-item-remove").forEach(btn => {
+    list.querySelectorAll(".cart-item-remove").forEach((btn) => {
       btn.addEventListener("click", (e) => {
         const idx = e.target.getAttribute("data-index");
         removeItem(idx);
@@ -193,7 +203,7 @@ document.addEventListener("DOMContentLoaded", () => {
     updateCartCount();
     renderItems();
     if (cart.length === 0) {
-        setTimeout(toggleModal, 500);
+      setTimeout(toggleModal, 500);
     }
     updateAddButtons();
   };
@@ -249,18 +259,20 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const updateAddButtons = () => {
-    document.querySelectorAll("[data-cart-add]").forEach(btn => {
+    document.querySelectorAll("[data-cart-add]").forEach((btn) => {
       const name = btn.getAttribute("data-product-name");
-      const isAdded = cart.some(item => item.name === name);
-      btn.innerText = isAdded ? "Item Adicionado" : (btn.getAttribute("data-original-text") || "Adicionar à Cotação");
+      const isAdded = cart.some((item) => item.name === name);
+      btn.innerText = isAdded
+        ? "Item Adicionado"
+        : btn.getAttribute("data-original-text") || "Adicionar à Cotação";
       if (isAdded) {
-          btn.style.opacity = "0.6";
-          btn.style.background = "#ebe6df";
-          btn.style.color = "#161412";
+        btn.style.opacity = "0.6";
+        btn.style.background = "#ebe6df";
+        btn.style.color = "#161412";
       } else {
-          btn.style.opacity = "";
-          btn.style.background = "";
-          btn.style.color = "";
+        btn.style.opacity = "";
+        btn.style.background = "";
+        btn.style.color = "";
       }
     });
   };
@@ -278,20 +290,20 @@ document.addEventListener("DOMContentLoaded", () => {
           name: btn.getAttribute("data-product-name"),
           img: btn.getAttribute("data-product-img"),
         }),
-        slug: btn.getAttribute("data-product-slug")
+        slug: btn.getAttribute("data-product-slug"),
       };
-      if (!cart.some(item => item.name === product.name)) {
-          cart.push(product);
-          localStorage.setItem(CART_KEY, JSON.stringify(cart));
-          updateCartCount();
-          updateAddButtons();
+      if (!cart.some((item) => item.name === product.name)) {
+        cart.push(product);
+        localStorage.setItem(CART_KEY, JSON.stringify(cart));
+        updateCartCount();
+        updateAddButtons();
       } else {
-          toggleModal();
+        toggleModal();
       }
     }
   });
 
-  document.querySelectorAll("[data-cart-add]").forEach(btn => {
+  document.querySelectorAll("[data-cart-add]").forEach((btn) => {
     btn.setAttribute("data-original-text", btn.innerText);
   });
   updateAddButtons();
