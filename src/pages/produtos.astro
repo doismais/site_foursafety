@@ -8,12 +8,12 @@ import Layout from '../layouts/Layout.astro';
   <section class="hero">
     <div class="hero-visual">
       <img
-        src="/images/hero_quem_somos.webp"
+        src="/images/0006.png"
         alt="Equipe técnica em ambiente industrial"
       />
       <div class="hero-overlay">
-        <p class="hero-title-line">Somos especialistas em manter a sua operação segura.</p>
-        <p class="hero-sub-line">Em ambientes onde o risco existe, a segurança não pode falhar.</p>
+        <p class="hero-title-line">Alta performance em proteção profissional.</p>
+        <p class="hero-sub-line">Equipamentos certificados para garantir a segurança onde o risco não permite falhas.</p>
       </div>
     </div>
   </section>
@@ -485,13 +485,30 @@ import Layout from '../layouts/Layout.astro';
   }
   
   @media (max-width: 767px) {
+    .hero {
+      height: auto !important;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      padding-bottom: 1rem !important;
+      background: var(--white) !important;
+    }
     .hero-visual {
       position: relative;
-      width: 100%;
-      height: auto;
+      width: 100% !important;
+      margin: 0 !important;
+      height: auto !important;
       min-height: 0;
-      border-radius: 18px;
       clip-path: none;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 0 !important;
+    }
+    .hero-visual img {
+      border-radius: 0 !important;
+      width: 100% !important;
     }
     .hero-visual::after {
       display: none;
@@ -514,19 +531,42 @@ import Layout from '../layouts/Layout.astro';
       text-shadow: none;
       opacity: 1;
     }
-    .hero {
-      height: auto !important;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      padding-bottom: 1rem !important;
-      background: var(--white) !important;
+
+    /* Bento Grid para Catálogo no Mobile */
+    .catalog-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 0.75rem !important;
+      padding: 1.5rem 0.75rem 4rem !important;
     }
-    .hero-visual {
-      height: auto !important;
-      display: flex;
-      flex-direction: column;
-      margin-bottom: 0 !important;
+    .produto-card {
+      padding: 0.6rem !important;
+      border-radius: 14px !important;
+      background: rgba(255, 255, 255, 0.95) !important;
+      display: flex !important;
+      flex-direction: column !important;
+    }
+    /* Efeito Bento: A cada 3 cards, 1 fica em largura total */
+    .produto-card:nth-child(3n+1) {
+      grid-column: span 2 !important;
+    }
+    .produto-body {
+      display: none !important;
+    }
+    .produto-headline {
+      font-size: 0.8rem !important;
+      margin: 0.3rem 0 !important;
+      line-height: 1.2 !important;
+    }
+    .badge-norma {
+      font-size: 0.5rem !important;
+      padding: 0.15rem 0.3rem !important;
+    }
+    .produto-cta {
+      font-size: 0.7rem !important;
+      padding: 0.6rem !important;
+      margin-top: auto !important;
+      border-radius: 8px !important;
+      width: 100% !important;
     }
   }
 </style>
