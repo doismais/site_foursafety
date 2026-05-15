@@ -3,24 +3,25 @@
 Este arquivo define as regras canônicas para o desenvolvimento e manutenção do projeto 4Safety.
 Sempre siga estas regras ao modificar o código.
 
-## 1. Estrutura de Arquivos e Rotas (Estático)
+## 1. Arquitetura e Rotas (Astro)
 
-- O projeto é um site estático (HTML/CSS/JS).
-- **Links para Produtos**: Na página de listagem (`produtos/index.html`), os links para os produtos devem ser **absolutos em relação à raiz** (ex: `/produtos/deteccao-de-gas/tubo-colorimetrico/index.html`) para evitar problemas com a presença ou ausência de barra invertida (`/`) na URL.
-- **Templates**: No arquivo `templates/product.template.html`, use a variável `[[PREFIX]]` para calcular caminhos relativos de volta à raiz, em vez de hardcodar `../`.
+- O projeto foi migrado de HTML estático para **Astro**.
+- **Páginas**: Novas páginas devem ser criadas em `src/pages/` como arquivos `.astro`. Não misture arquivos HTML legados na pasta `public` sem autorização.
+- **Links Internos**: Use o padrão de URLs limpas (sem `/index.html`). O Astro resolve as rotas automaticamente baseado no nome do arquivo.
+- **Páginas de Produtos**: Devem ficar em `src/pages/produtos/` para manter URLs limpas e fáceis de gerenciar.
 
-## 2. Geração de Produtos
+## 2. Componentes e Estilos
 
-- As páginas de produtos são geradas a partir do script `scripts/gen_products.py`.
-- Sempre que houver mudanças no `templates/product.template.html` ou no array de produtos em `scripts/gen_products.py`, execute o script para atualizar as páginas.
-- Se o comando `make build` falhar no ambiente local (por exemplo, erro de sandbox do Python), execute diretamente com o Python do sistema: `/usr/bin/python3 scripts/gen_products.py`.
+- **Reutilização**: Use componentes Astro em `src/components/` para elementos repetitivos (Nav, Footer, etc.).
+- **Identidade Visual**: Mantenha os estilos premium, glassmorphism e micro-animações.
+- **Estilos**: Estilos específicos de produto devem ir para `src/styles/products.css`. Estilos globais ficam em `src/styles/global.css`.
 
 ## 3. Segurança e Protocolo Git (NΞØ Protocol)
 
-- **Sempre** execute `pnpm audit` antes de fazer commit para verificar vulnerabilidades (conforme indicado no `AGENTS.md`).
-- **Sempre** verifique erros de lint ou valide o HTML com os scripts disponíveis (ex: `scripts/check.sh`).
+- **Sempre** execute as validações locais antes de qualquer commit.
+- Use **`make safe-push`** para executar o fluxo completo: `pnpm audit` (segurança), `make check` (validação de tipos e arquivos Astro) e `make build` (teste de build de produção).
+- **Nunca** faça push se houver erros de build ou vulnerabilidades críticas.
 - **Sempre** siga os Conventional Commits (`feat:`, `fix:`, `docs:`, etc.).
-- Se houver mudanças que requerem build (no caso de haver algum bundler futuramente ou para rodar scripts de validação), verifique se foi bem-sucedido antes de avançar.
 
 ## 4. Estilo e Acessibilidade
 

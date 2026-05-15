@@ -100,4 +100,70 @@ const description = "Termos de Uso do site da 4Safety.";
     <p><strong>Última atualização:</strong> maio de 2026.</p>
   </section>
 </main>
+
+<style>
+  .legal-page {
+    padding: 8rem var(--container-px) 4rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .legal-page h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 2.6rem);
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 2rem;
+    line-height: 1.1;
+  }
+  
+  .legal-page h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+    font-weight: 700;
+    color: var(--orange);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .legal-page p {
+    color: var(--g100);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+  
+  .legal-page ul {
+    list-style: none;
+    margin-bottom: 1.5rem;
+    padding-left: 0.5rem;
+  }
+  
+  .legal-page li {
+    color: var(--g100);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 1.5rem;
+  }
+  
+  .legal-page li::before {
+    content: "→";
+    color: var(--orange);
+    position: absolute;
+    left: 0;
+  }
+  
+  .legal-page a {
+    color: var(--orange);
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  
+  .legal-page a:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+  }
+</style>
 </Layout>

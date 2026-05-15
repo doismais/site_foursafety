@@ -33,6 +33,9 @@ Version: v1.0.0
   por categoria.
 - **Hero Mobile**: Imagem de fundo 100% altura da tela, sem retornoângulo
   de glassmorphism.
+- **Correção de CSP**: Removida a tag `<meta>` de CSP com `frame-ancestors` do `Layout.astro` (inválida em meta tags) e migrada para cabeçalhos reais no `vercel.json`.
+- **Cabeçalhos de Segurança**: Adicionados `Content-Security-Policy` (frame-ancestors), `X-Frame-Options` e `X-Content-Type-Options` no `vercel.json`.
+- **Ajuste Mobile na Consulta de CA**: Corrigido alinhamento do Hero no mobile na página de consulta de CA para centralizar o eyebrow e os textos, resolvendo a desconfiguração visual.
 
 ────────────────────────────────────────
 
@@ -60,10 +63,6 @@ Version: v1.0.0
 Core Architect · NΞØ Protocol
 neo@neoprotocol.space
 
-"Code is law. Expand until
-chaos becomes protocol."
-
-Security by design.
-Exploits find no refuge here.
+"Code is law. 
 ────────────────────────────────────────
 ```

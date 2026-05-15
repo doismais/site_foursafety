@@ -37,7 +37,7 @@ neo-astro-safety/
 └── astro.config.mjs     # Configuração do Astro
 ```
 
-As páginas de produtos estão sendo migradas para dentro de `src/pages/produtos/`
+As páginas de produtos estão localizadas dentro de `src/pages/produtos/`
 para manter URLs limpas e fáceis de gerenciar.
 
 ────────────────────────────────────────

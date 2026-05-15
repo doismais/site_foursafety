@@ -75,10 +75,6 @@ Sempre siga o fluxo de segurança antes de enviar mudanças:
 Core Architect · NΞØ Protocol
 neo@neoprotocol.space
 
-"Code is law. Expand until
-chaos becomes protocol."
-
-Security by design.
-Exploits find no refuge here.
+"Code is law. "
 ────────────────────────────────────────
 ```

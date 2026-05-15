@@ -7,7 +7,7 @@ procedimentos de automação para o projeto 4Safety (Astro).
 
 ## Requisitos de Ambiente
 
-- **Node.js 20+**: Runtime principal do projeto.
+- **Node.js 22+**: Runtime principal do projeto.
 - **pnpm**: Gerenciador de pacotes. Instale com `npm i -g pnpm` se necessário.
 - **Astro**: Framework SSG. Já incluído como dependência do projeto.
 
@@ -73,7 +73,7 @@ Fluxo obrigatório antes de qualquer push:
 4. Commit com mensagem no padrão Conventional Commits (`feat:`, `fix:`, etc.).
 5. Push — o deploy contínuo acontece automaticamente via Vercel.
 
-Ou simplesmente: **`make safe-push`** executa os passos 2–4 e exibe o status.
+Ou simplesmente: **`make safe-push`** executa a auditoria, a verificação de tipos e o build, exibindo o status do git no final.
 
 ────────────────────────────────────────
 
