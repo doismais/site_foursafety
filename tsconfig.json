@@ -3,8 +3,6 @@
   "include": [".astro/types.d.ts", "**/*"],
   "exclude": ["dist"],
   "compilerOptions": {
-    "jsx": "react",
-    "jsxImportSource": "react",
     "allowJs": true,
     "esModuleInterop": true,
     "skipLibCheck": true,

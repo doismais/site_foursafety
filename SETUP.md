@@ -25,8 +25,8 @@ Todos os comandos devem ser executados a partir da raiz do projeto via `make`:
 | `make preview`   | Visualiza o build de produção localmente                 |
 | `make clean`     | Limpa o cache e arquivos temporários do Astro            |
 | `make check`     | Valida tipos TypeScript e arquivos `.astro`              |
-| `make safe-push` | Protocolo NΞØ: Audit → Check → Build → Status           |
-
+| `make safe-push` | Protocolo NΞØ: Audit → Check → Build → Status            |
+  
 ────────────────────────────────────────
 
 ## Estrutura de Arquivos
