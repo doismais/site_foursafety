@@ -12,9 +12,7 @@ import Layout from '../layouts/Layout.astro';
       <p class="hero-eyebrow">Conformidade normativa</p>
       <h1 class="hero-h1">Consulte o CA antes de especificar</h1>
       <p class="hero-sub">
-        O Certificado de Aprovação é obrigatório para todo EPI comercializado
-        no Brasil. Verifique a validade diretamente no sistema oficial do
-        Ministério do Trabalho e Emprego.
+        O Certificado de Aprovação é obrigatório para todo EPI comercializado no Brasil. Verifique a validade diretamente no sistema oficial do Ministério do Trabalho e Emprego.
       </p>
       <div class="hero-actions">
         <a
@@ -89,9 +87,11 @@ import Layout from '../layouts/Layout.astro';
     position: relative;
     overflow: hidden;
     min-height: 82svh;
-    padding: 7.5rem 1.25rem 3.5rem;
+    padding: 7.5rem var(--container-px) 3.5rem;
     display: flex;
-    align-items: flex-end;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
     background: linear-gradient(
       155deg,
       #1a1714 0%,
@@ -136,6 +136,8 @@ import Layout from '../layouts/Layout.astro';
     position: relative;
     z-index: 2;
     max-width: 640px;
+    text-align: left;
+    margin-right: auto;
   }
   .hero-eyebrow {
     font-family: var(--font-mono);
@@ -194,12 +196,48 @@ import Layout from '../layouts/Layout.astro';
     color: var(--white);
     border: 1px solid rgba(255, 255, 255, 0.35);
   }
-  .btn-ghost:hover {
-    border-color: rgba(255, 255, 255, 0.65);
+  
+  @media (max-width: 719px) {
+    .hero {
+      min-height: auto;
+      padding: 6rem var(--container-px) 3rem;
+    }
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .hero-eyebrow {
+      align-self: flex-start;
+      text-align: left;
+    }
+    .hero-h1 {
+      font-size: 1.8rem;
+      text-align: center;
+    }
+    .hero-sub {
+      font-size: 0.9rem;
+      text-align: center;
+    }
+    .hero-actions {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: 100%;
+    }
+    .btn-primary, .btn-ghost {
+      align-self: center !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      width: auto !important;
+      max-width: 320px;
+    }
   }
 
   .section {
-    padding: 5rem 1.25rem;
+    padding: 5rem var(--container-px);
     background: var(--white);
     color: var(--black);
   }
@@ -280,6 +318,47 @@ import Layout from '../layouts/Layout.astro';
   .consulta-card p {
     color: var(--g700);
     line-height: 1.6;
+  }
+
+  @media (max-width: 719px) {
+    .hero {
+      min-height: auto;
+      padding: 6rem var(--container-px) 3rem;
+    }
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .hero-eyebrow {
+      align-self: flex-start;
+      text-align: left;
+    }
+    .hero-h1 {
+      font-size: 1.8rem;
+      white-space: normal;
+      text-align: center;
+    }
+    .hero-sub {
+      font-size: 0.9rem;
+      white-space: normal;
+      text-align: center;
+    }
+    .hero-actions {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: 100%;
+    }
+    .btn-primary, .btn-ghost {
+      align-self: center !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      width: auto !important;
+      max-width: 320px;
+    }
   }
 
   @media (min-width: 720px) {

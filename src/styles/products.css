@@ -18,7 +18,8 @@
   --white: #fff;
   --nav-aqua-tint: rgba(175, 230, 245, 0.42);
   --nav-aqua-edge: rgba(90, 170, 195, 0.22);
-  --font-display: "Source Sans 3", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display:
+    "Source Sans 3", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-body: "Source Sans 3", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: "JetBrains Mono", monospace;
   --container-px: 1.25rem;
@@ -85,15 +86,6 @@ body.no-scroll {
   inset: 0;
   opacity: 0;
   filter: drop-shadow(0 1px 10px rgba(0, 0, 0, 0.18));
-}
-
-nav.nav--scrolled .nav-logo-default {
-  opacity: 0;
-  transform: translateY(-2px);
-}
-
-nav.nav--scrolled .nav-logo-scrolled {
-  opacity: 1;
 }
 
 .nav-menu {
@@ -228,7 +220,11 @@ footer {
   position: relative;
   padding: 2rem 1.25rem 2.5rem;
   background:
-    radial-gradient(circle at top right, rgba(255, 0, 0, 0.12), transparent 40%),
+    radial-gradient(
+      circle at top right,
+      rgba(255, 0, 0, 0.12),
+      transparent 40%
+    ),
     linear-gradient(180deg, #1a1714 0%, var(--ink) 100%);
   color: var(--white);
 }
@@ -358,7 +354,11 @@ footer {
 
 .footer-cta-card {
   border-color: rgba(255, 0, 0, 0.16);
-  background: linear-gradient(180deg, rgba(255, 0, 0, 0.08) 0%, rgba(255, 0, 0, 0.02) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 0, 0, 0.08) 0%,
+    rgba(255, 0, 0, 0.02) 100%
+  );
 }
 
 .footer-cta-headline {
@@ -480,8 +480,9 @@ footer {
 .reveal {
   opacity: 1;
   transform: translateY(0);
-  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-              transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transition:
+    opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .reveal.active {
   opacity: 1;
@@ -501,9 +502,17 @@ footer {
   content: "";
   position: absolute;
   inset: 0;
-  background: 
-    radial-gradient(circle at 20% 30%, rgba(160, 220, 235, 0.12) 0%, transparent 45%),
-    radial-gradient(circle at 80% 70%, rgba(255, 0, 0, 0.05) 0%, transparent 45%);
+  background:
+    radial-gradient(
+      circle at 20% 30%,
+      rgba(160, 220, 235, 0.12) 0%,
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(255, 0, 0, 0.05) 0%,
+      transparent 45%
+    );
   z-index: 0;
 }
 
@@ -511,8 +520,9 @@ footer {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
   background-size: 40px 40px;
   mask-image: radial-gradient(circle at center, black, transparent 80%);
   -webkit-mask-image: radial-gradient(circle at center, black, transparent 80%);
@@ -538,17 +548,23 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 
+  box-shadow:
     0 20px 60px rgba(0, 0, 0, 0.08),
     inset 0 0 0 1px rgba(0, 0, 0, 0.03);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
 }
 
 .product-gallery::before {
   content: "";
   position: absolute;
   inset: -20%;
-  background: radial-gradient(circle at center, rgba(160, 220, 235, 0.2), transparent 70%);
+  background: radial-gradient(
+    circle at center,
+    rgba(160, 220, 235, 0.2),
+    transparent 70%
+  );
   opacity: 0;
   transition: opacity 0.4s ease;
 }
@@ -569,7 +585,7 @@ footer {
   height: 90%;
   object-fit: contain;
   transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-  filter: drop-shadow(0 10px 30px rgba(0,0,0,0.1));
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.1));
 }
 
 .product-gallery:hover img {
@@ -737,7 +753,11 @@ footer {
 }
 
 .specs-card {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, var(--white) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.92) 0%,
+    var(--white) 100%
+  );
   border: 1px solid rgba(22, 20, 18, 0.06);
   border-radius: 2rem;
   padding: 1rem;

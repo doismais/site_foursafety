@@ -4,25 +4,18 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="Produtos | 4Safety — Catálogo de Segurança do Trabalho" description="Catálogo técnico de EPIs e equipamentos de segurança do trabalho com suporte comercial e documentação confirmada conforme aplicação.">
   
-  <div class="catalog-header">
-    <p class="catalog-eyebrow reveal">Catálogo técnico</p>
-    <h1 class="catalog-headline reveal">Nossos Produtos</h1>
-    <p class="catalog-sub reveal">EPIs e equipamentos de segurança com suporte técnico, documentação sob consulta e entrega para todo o Brasil.</p>
-  </div>
-
-  <section class="brand-lines" aria-label="Linhas estratégicas">
-    <article class="brand-line-card reveal">
-      <p class="brand-line-label">UNIPHOS no Brasil</p>
-      <h2>Tubos colorimétricos e amostragem</h2>
-      <p>Produtos consolidados por aplicação para facilitar a escolha técnica sem multiplicar variações desnecessárias.</p>
-      <a href="/produtos/deteccao-de-gas/tubo-colorimetrico">Ver produto UNIPHOS</a>
-    </article>
-    <article class="brand-line-card reveal">
-      <p class="brand-line-label">AIR SAFETY</p>
-      <h2>Categoria estratégica sob consulta</h2>
-      <p>Espaço preparado para priorizar produtos com competitividade e valor agregado assim que a lista final for confirmada.</p>
-      <a href="/#contato">Solicitar indicação comercial</a>
-    </article>
+  <!-- HERO BANNER -->
+  <section class="hero">
+    <div class="hero-visual">
+      <img
+        src="/images/hero_quem_somos.webp"
+        alt="Equipe técnica em ambiente industrial"
+      />
+      <div class="hero-overlay">
+        <p class="hero-title-line">Somos especialistas em manter a sua operação segura.</p>
+        <p class="hero-sub-line">Em ambientes onde o risco existe, a segurança não pode falhar.</p>
+      </div>
+    </div>
   </section>
 
   <div class="catalog-filter">
@@ -47,9 +40,10 @@ import Layout from '../layouts/Layout.astro';
     <button class="filter-btn" data-filter="outros">Outros EPIs</button>
   </div>
 
-  <p class="catalog-results" id="catalog-results"></p>
-
-  <div class="catalog-grid" id="catalog-grid">
+  <section class="catalog-section">
+    <p class="catalog-results" id="catalog-results"></p>
+    
+    <div class="catalog-grid" id="catalog-grid">
     <div class="produto-card reveal" data-cat="gas uniphos">
       <a href="/produtos/deteccao-de-gas/tubo-colorimetrico" class="produto-card-link">
         <img class="produto-img" src="/images/products/produto-tubo-colorimetrico-uniphos.jpg" alt="Tubo Colorimétrico Uniphos" title="Tubo Colorimétrico Uniphos" loading="lazy" />
@@ -180,6 +174,7 @@ import Layout from '../layouts/Layout.astro';
       <button class="produto-cta" data-cart-add data-product-name="Proteção Térmica" data-product-img="/images/products/produto-protecao-termica.png" data-product-slug="termica">Adicionar ao Orçamento</button>
     </div>
   </div>
+  </section>
 
   <!-- Script do Carrinho -->
   <script is:inline src="/js/cart.js"></script>
@@ -245,33 +240,77 @@ import Layout from '../layouts/Layout.astro';
   /* Estilos específicos da página de Produtos (Catálogo) */
   
   /* Page header */
-  .catalog-header {
-    padding: calc(var(--nav-height) + 2.5rem) var(--container-px) 2rem;
+  .hero {
+    position: relative;
+    overflow: hidden;
+    min-height: auto;
+    padding: calc(86px + env(safe-area-inset-top, 0px)) var(--container-px) 1.5rem;
+    display: block;
     background: var(--white);
-    text-align: center;
   }
-  .catalog-eyebrow {
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--orange);
-    margin-bottom: 0.5rem;
-  }
-  .catalog-headline {
-    font-family: var(--font-display);
-    font-size: clamp(1.8rem, 4vw, 2.8rem);
-    font-weight: 800;
-    color: var(--black);
-    margin: 0 0 0.75rem;
-    line-height: 1.15;
-  }
-  .catalog-sub {
-    font-size: clamp(0.9rem, 1.2vw, 1.1rem);
-    color: var(--g700);
-    max-width: 52ch;
+  .hero-visual {
+    position: relative;
+    width: min(100%, 1180px);
+    height: auto;
+    min-height: 0;
     margin: 0 auto;
-    line-height: 1.6;
+    clip-path: none;
+    animation: fadeInUp 1s ease-out forwards;
+    opacity: 0;
+  }
+  .hero-visual::after {
+    display: none;
+  }
+  .hero-visual img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center center;
+    border-radius: 28px;
+    filter: drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.4));
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    text-align: center;
+    padding: 1rem;
+    padding-bottom: 7%;
+    pointer-events: none;
+  }
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .hero-title-line {
+    font-family: var(--font-display);
+    font-size: clamp(1.2rem, 2.5vw, 2.2rem);
+    font-weight: 800;
+    line-height: 1.15;
+    color: var(--white);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    margin-bottom: 0.5rem;
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+  .hero-sub-line {
+    font-family: var(--font-display);
+    font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--white);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    animation: fadeInUp 0.8s ease-out 0.3s forwards;
+    opacity: 0;
   }
 
   /* Filters */
@@ -337,12 +376,15 @@ import Layout from '../layouts/Layout.astro';
   }
 
   /* Product grid */
+  .catalog-section {
+    background: linear-gradient(180deg, #fbf8f3 0%, #f3eee7 100%);
+    width: 100%;
+  }
   .catalog-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 0.75rem;
-    padding: 2rem var(--container-px) 4rem;
-    background: linear-gradient(180deg, #fbf8f3 0%, #f3eee7 100%);
+    padding: 4rem var(--container-px) 6rem;
     max-width: 1400px;
     margin: 0 auto;
   }
@@ -442,47 +484,49 @@ import Layout from '../layouts/Layout.astro';
     margin-bottom: 0.5rem;
   }
   
-  .brand-lines {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    padding: 1.5rem var(--container-px) 0;
-    background: var(--white);
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-  .brand-line-card {
-    border: 1px solid rgba(28, 25, 22, 0.1);
-    border-radius: 14px;
-    padding: 1.2rem;
-    background: #fbf8f3;
-  }
-  .brand-line-label {
-    font-family: var(--font-mono);
-    font-size: 0.62rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--orange);
-    margin-bottom: 0.5rem;
-  }
-  .brand-line-card h2 {
-    font-family: var(--font-display);
-    font-size: 1.16rem;
-    line-height: 1.16;
-    color: var(--black);
-    margin: 0 0 0.5rem;
-  }
-  .brand-line-card p {
-    color: var(--g700);
-    line-height: 1.55;
-    margin: 0 0 0.85rem;
-  }
-  .brand-line-card a {
-    color: var(--orange);
-    font-weight: 800;
-    text-decoration: none;
-  }
-  @media (min-width: 760px) {
-    .brand-lines { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  @media (max-width: 767px) {
+    .hero-visual {
+      position: relative;
+      width: 100%;
+      height: auto;
+      min-height: 0;
+      border-radius: 18px;
+      clip-path: none;
+    }
+    .hero-visual::after {
+      display: none;
+    }
+    .hero-overlay {
+      position: relative;
+      inset: auto;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      background: transparent;
+      box-shadow: none;
+      border: none;
+    }
+    .hero-title-line {
+      color: var(--black);
+      text-shadow: none;
+    }
+    .hero-sub-line {
+      color: var(--black);
+      text-shadow: none;
+      opacity: 1;
+    }
+    .hero {
+      height: auto !important;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding-bottom: 1rem !important;
+      background: var(--white) !important;
+    }
+    .hero-visual {
+      height: auto !important;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 0 !important;
+    }
   }
 </style>

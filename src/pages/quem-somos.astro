@@ -24,17 +24,15 @@ import Layout from '../layouts/Layout.astro';
       <div class="historia-grid" style="display: flex; justify-content: center; text-align: center;">
         <div class="historia-copy reveal" style="max-width: 800px;">
           <p>
-            Ser ética com clientes e sociedade, capacitar tecnicamente seus
-            colaboradores e manter-se atualizada sobre aspectos legais e
-            inovações da área são os valores que nos norteiam.
+            Há 15 anos a 4Safety segue no mercado de equipamentos de proteção individual e coletiva.
           </p>
           <p>
-            Identificar dificuldades e demandas dos clientes, entregar a
-            melhor solução a preços justos, de forma ágil e confiável, é a
-            missão da nossa empresa. Investir em parcerias duradouras com
-            clientes, fornecedores e colaboradores, identificar novas
-            tecnologias e crescer de forma orgânica e sustentável é o modo que
-            escolhemos atuar em um mercado em constante transformação.
+            Ser éticos com os clientes e a sociedade, capacitar seus colaboradores tecnicamente
+            e atualizar-se sobre aspectos legais e inovações na área em que atua são os valores que nos norteiam.
+          </p>
+          <p>
+            Identificar as dificuldades e demandas dos clientes, entregar a melhor solução
+            a preços justos, de forma ágil e confiável é a missão da nossa Empresa. Investir em parcerias duradouras com clientes, fornecedores e colaboradores, identificar novas tecnologias, crescer de forma orgânica e sustentável é o modo que escolhemos atuar em um mercado em constante transformação.
           </p>
         </div>
       </div>
@@ -479,40 +477,48 @@ import Layout from '../layouts/Layout.astro';
     .hero-visual {
       position: relative;
       width: 100%;
-      aspect-ratio: 16 / 9;
       height: auto;
       min-height: 0;
       border-radius: 18px;
       clip-path: none;
     }
     .hero-visual::after {
-      background:
-        linear-gradient(
-          180deg,
-          rgba(20, 18, 16, 0.05) 0%,
-          rgba(20, 18, 16, 0.2) 36%,
-          rgba(20, 18, 16, 0.86) 100%
-        ),
-        linear-gradient(
-          90deg,
-          rgba(20, 18, 16, 0.28) 0%,
-          rgba(20, 18, 16, 0.03) 40%,
-          rgba(20, 18, 16, 0.35) 100%
-        );
+      display: none;
     }
-    .hero-content {
-      margin: -2.4rem 1rem 0;
-      padding: 1.35rem 1rem 1rem;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 22px;
-      background: linear-gradient(
-        180deg,
-        rgba(24, 21, 18, 0.88) 0%,
-        rgba(20, 18, 16, 0.96) 100%
-      );
-      box-shadow:
-        0 24px 44px rgba(0, 0, 0, 0.28),
-        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    .hero-overlay {
+      position: relative;
+      inset: auto;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      background: transparent;
+      box-shadow: none;
+      border: none;
+    }
+    .hero-title-line {
+      color: var(--black);
+      text-shadow: none;
+    }
+    .hero-sub-line {
+      color: var(--black);
+      text-shadow: none;
+      opacity: 1;
+    }
+    .hero {
+      height: auto !important;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding-bottom: 1rem !important;
+      background: var(--white) !important;
+    }
+    .hero-visual {
+      height: auto !important;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 0 !important;
+    }
+    .historia {
+      padding-top: 1rem !important;
     }
     .hero-h1 {
       font-size: clamp(2rem, 9vw, 3.2rem);

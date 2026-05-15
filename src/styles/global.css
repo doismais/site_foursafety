@@ -77,32 +77,9 @@ nav {
     backdrop-filter 0.45s cubic-bezier(0.4, 0, 0.2, 1);
 }
 nav.nav--scrolled {
-  background: linear-gradient(
-    180deg,
-    rgba(20, 18, 16, 0.82) 0%,
-    rgba(30, 28, 26, 0.78) 100%
-  );
+  background: rgba(255, 255, 255, 0.85);
   -webkit-backdrop-filter: saturate(175%) blur(22px);
   backdrop-filter: saturate(175%) blur(22px);
-  border-bottom: 1px solid rgba(255, 0, 0, 0.28);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.08),
-    0 6px 28px rgba(0, 0, 0, 0.18);
-}
-@media (min-width: 768px) {
-  nav.nav--scrolled .nav-links a {
-    color: #ffffff;
-  }
-  nav.nav--scrolled .nav-links a:hover {
-    color: var(--orange);
-  }
-}
-@supports not (
-  (-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))
-) {
-  nav.nav--scrolled {
-    background: linear-gradient(180deg, #1a1816 0%, #222020 100%);
-  }
 }
 .nav-logo {
   position: relative;
@@ -128,14 +105,7 @@ nav.nav--scrolled {
   filter: drop-shadow(0 1px 10px rgba(0, 0, 0, 0.18));
   transform: scale(1) translateX(0);
 }
-nav.nav--scrolled .nav-logo-default {
-  opacity: 0;
-  transform: translateY(-2px);
-}
-nav.nav--scrolled .nav-logo-scrolled {
-  opacity: 1;
-  transform: scale(1.1) translateX(6px);
-}
+
 .nav-cta {
   background: var(--orange);
   color: var(--white);
