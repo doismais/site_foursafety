@@ -10,8 +10,6 @@ import Layout from '../layouts/Layout.astro';
       <img src="/images/hero_consulta_ca.png" alt="Profissional consultando documentação CA" />
       <div class="hero-gradient"></div>
     </div>
-    <div class="hero-bg"></div>
-    <div class="hero-grid"></div>
     <div class="hero-content">
       <p class="hero-eyebrow">Conformidade normativa</p>
       <h1 class="hero-h1">Consulte o CA antes de especificar</h1>
@@ -113,16 +111,15 @@ import Layout from '../layouts/Layout.astro';
     height: 100%;
     object-fit: cover;
     object-position: center 20%;
-    opacity: 0.5;
-    mix-blend-mode: luminosity;
+    opacity: 0.85;
   }
   .hero-gradient {
     position: absolute;
     inset: 0;
     background: linear-gradient(
-      105deg,
-      #1a1714 0%,
-      rgba(26, 23, 20, 0.75) 45%,
+      90deg,
+      rgba(26, 23, 20, 0.8) 0%,
+      rgba(26, 23, 20, 0.3) 45%,
       transparent 100%
     );
   }
