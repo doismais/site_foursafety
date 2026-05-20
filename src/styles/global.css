@@ -1127,6 +1127,8 @@ section {
   -webkit-overflow-scrolling: touch;
   overscroll-behavior-x: contain;
   padding-bottom: 1rem;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 1.5rem, black calc(100% - 1.5rem), transparent);
+  mask-image: linear-gradient(to right, transparent, black 1.5rem, black calc(100% - 1.5rem), transparent);
 }
 .produtos-grid::-webkit-scrollbar {
   display: none;
