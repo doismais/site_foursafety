@@ -10,7 +10,16 @@
     </h2>
     <p class="section-sub">Produtos selecionados com suporte técnico e documentação confirmada conforme aplicação.</p>
   </div>
-  <div class="produtos-grid">
+  <div class="produtos-carousel-wrapper">
+    <div class="produtos-arrows">
+      <button class="hero-arrow produtos-arrow--prev" aria-label="Produtos anteriores">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </button>
+      <button class="hero-arrow produtos-arrow--next" aria-label="Próximos produtos">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </button>
+    </div>
+    <div class="produtos-grid" id="produtos-slider">
     <div class="produto-card" data-cat="all">
       <a
         href="/produtos/altura"
@@ -389,9 +398,65 @@
       </button>
     </div>
   </div>
+  </div>
   <div class="produtos-cta-wrap">
     <a href="/produtos" class="btn-primary btn-produtos-all"
       >Ver todos os produtos</a
     >
   </div>
 </section>
+
+<style>
+  .produtos-carousel-wrapper {
+    position: relative;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+  .produtos-arrows {
+    display: none;
+  }
+  @media (min-width: 1024px) {
+    .produtos-arrows {
+      display: flex;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: calc(100% + 4rem);
+      left: -2rem;
+      justify-content: space-between;
+      pointer-events: none;
+      z-index: 5;
+    }
+    .produtos-arrows .hero-arrow {
+      pointer-events: auto;
+      border-color: rgba(0, 0, 0, 0.1);
+      background: rgba(255, 255, 255, 0.6);
+      color: var(--black);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      width: 48px;
+      height: 48px;
+    }
+    .produtos-arrows .hero-arrow:hover {
+      background: #ffffff;
+      border-color: rgba(0, 0, 0, 0.15);
+      color: var(--orange);
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const slider = document.getElementById('produtos-slider');
+    const prevBtn = document.querySelector('.produtos-arrow--prev');
+    const nextBtn = document.querySelector('.produtos-arrow--next');
+
+    if (slider && prevBtn && nextBtn) {
+      prevBtn.addEventListener('click', () => {
+        slider.scrollBy({ left: -320, behavior: 'smooth' });
+      });
+      nextBtn.addEventListener('click', () => {
+        slider.scrollBy({ left: 320, behavior: 'smooth' });
+      });
+    }
+  });
+</script>
