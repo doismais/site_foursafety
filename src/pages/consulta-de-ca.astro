@@ -8,6 +8,7 @@ import Layout from '../layouts/Layout.astro';
   <section class="hero">
     <div class="hero-image">
       <img src="/images/hero_consulta_ca.png" alt="Profissional consultando documentação CA" />
+      <div class="hero-tint"></div>
       <div class="hero-gradient"></div>
     </div>
     <div class="hero-content">
@@ -112,6 +113,12 @@ import Layout from '../layouts/Layout.astro';
     object-fit: cover;
     object-position: center 20%;
     opacity: 0.85;
+  }
+  .hero-tint {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, rgba(255, 0, 0, 0.4) 0%, rgba(255, 80, 0, 0.2) 100%);
+    mix-blend-mode: multiply;
   }
   .hero-gradient {
     position: absolute;
