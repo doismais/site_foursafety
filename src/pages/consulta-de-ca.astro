@@ -6,6 +6,10 @@ import Layout from '../layouts/Layout.astro';
   
   <!-- HERO -->
   <section class="hero">
+    <div class="hero-image">
+      <img src="/images/hero_consulta_ca.png" alt="Profissional consultando documentação CA" />
+      <div class="hero-gradient"></div>
+    </div>
     <div class="hero-bg"></div>
     <div class="hero-grid"></div>
     <div class="hero-content">
@@ -97,6 +101,29 @@ import Layout from '../layouts/Layout.astro';
       #1a1714 0%,
       var(--ink) 50%,
       #0f0d0b 100%
+    );
+  }
+  .hero-image {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+    opacity: 0.5;
+    mix-blend-mode: luminosity;
+  }
+  .hero-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      105deg,
+      #1a1714 0%,
+      rgba(26, 23, 20, 0.75) 45%,
+      transparent 100%
     );
   }
   .hero-bg {
