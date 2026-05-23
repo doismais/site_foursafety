@@ -3,7 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import '../../styles/products.css';
 ---
 
-<Layout title="Cinturões | 4Safety" description="Cintos Mineiro, Retardante à Chama, em Aramida, Paraquedista e Abdominal para diferentes aplicações e posicionamento.">
+<Layout title="Tubos Detectores | 4Safety" description="Ideais para medições rápidas e específicas em campo.">
   
   <main class="product-hero">
     <div style="max-width: 1240px; margin: 0 auto 2rem; position: relative; z-index: 10;">
@@ -11,35 +11,27 @@ import '../../styles/products.css';
     </div>
     <div class="product-grid">
       <div class="product-gallery reveal">
-        <div class="carousel-container">
-          <div class="carousel-wrapper" id="carousel-cinturoes">
-            <img src="/images/products/cinturoes/11.png" alt="Cinturões" class="carousel-slide" />
-          <img src="/images/products/cinturoes/12.png" alt="Cinturões" class="carousel-slide" />
-          <img src="/images/products/cinturoes/13.png" alt="Cinturões" class="carousel-slide" />
-          </div>
-          <button class="carousel-btn prev-btn" data-target="carousel-cinturoes">❮</button>
-          <button class="carousel-btn next-btn" data-target="carousel-cinturoes">❯</button>
-        </div>
+        <img src="/images/products/detectores_gas/1.png" alt="Tubos Detectores" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 10px;" />
       </div>
       <div class="product-info reveal">
-        <div class="product-tag">Altura</div>
-        <h1 class="product-title">Cinturões</h1>
-        <p class="product-description" style="margin-bottom: 1.5rem;">Cintos Mineiro, Retardante à Chama, em Aramida, Paraquedista e Abdominal para diferentes aplicações e posicionamento.</p>
+        <div class="product-tag">Segurança</div>
+        <h1 class="product-title">Tubos Detectores</h1>
+        <p class="product-description" style="margin-bottom: 1.5rem;">Ideais para medições rápidas e específicas em campo.</p>
         
         <div class="product-details-inline" style="background: rgba(255, 255, 255, 0.5); padding: 1.25rem; border-radius: 12px; border: 1px solid rgba(28, 25, 22, 0.08); margin-bottom: 1.5rem;">
           <p class="product-section-kicker" style="font-size: 0.6rem; color: var(--orange); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.3rem; font-family: var(--font-mono); font-weight: 600;">Ficha rápida</p>
           <h2 class="specs-title" style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.8rem; font-family: var(--font-display);">Detalhes do Produto</h2>
           <div style="font-size: 0.85rem; line-height: 1.6; color: var(--g700);">
-            <p class="product-section-sub">Oferecemos uma linha completa de cinturões de segurança desenvolvidos para diferentes aplicações em trabalho em altura e posicionamento. Contamos com modelos como Cinto Mineiro, Retardante à Chama, em Aramida, para Maçariqueiro e Soldador, Paraquedista, Paraquedista Abdominal e Abdominal, cada um projetado para atender exigências específicas de resistência, conforto e proteção.</p><p class="product-section-sub" style="margin-top: 1rem;">Fabricados com materiais de alta durabilidade, costuras reforçadas e argolas em aço de alta resistência, nossos cinturões garantem segurança, estabilidade e desempenho mesmo nas condições mais exigentes, atendendo às normas técnicas e proporcionando confiança total ao profissional em campo.</p>
+            <p class="product-section-sub">A 4Safety oferece três tipos de detectores de gás para diferentes necessidades operacionais:<br><strong>Tubos detectores</strong>, ideais para medições rápidas e específicas;<br><strong>Detectores portáteis</strong>, para monitoramento em campo e espaços confinados;<br><strong>Detectores fixos</strong>, que realizam controle contínuo do ambiente com alertas em tempo real.</p><p class="product-section-sub" style="margin-top: 1rem;">Além disso, disponibilizamos toda a linha de acessórios, sensores, peças de reposição e controladores, garantindo integração completa, confiabilidade e continuidade operacional.</p><p class="product-section-sub" style="margin-top: 1rem;">Proteja pessoas e operações com tecnologia confiável e precisa.</p>
           </div>
         </div>
 
         <div class="product-meta" style="margin-bottom: 1rem;">
-          <span class="meta-badge">Altura</span>
+          <span class="meta-badge">Segurança</span>
           <span class="meta-badge">Disponibilidade: Sob consulta</span>
         </div>
         <div class="product-actions">
-          <button class="btn-add-cart btn-primary" data-cart-add data-product-name="Cinturões" data-product-img="/images/products/cinturoes/11.png" data-product-slug="cinturoes" style="width: 100%;">
+          <button class="btn-add-cart btn-primary" data-cart-add data-product-name="Tubos Detectores" data-product-img="/images/products/detectores_gas/1.png" data-product-slug="tubos-detectores" style="width: 100%;">
              Adicionar ao Orçamento
           </button>
         </div>
@@ -93,57 +85,6 @@ import '../../styles/products.css';
     });
   </script>
 
-  <style>
-  .carousel-container {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 4/3;
-    overflow: hidden;
-    border-radius: 10px;
-  }
-  .carousel-wrapper {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    width: 100%;
-    height: 100%;
-    scrollbar-width: none;
-  }
-  .carousel-wrapper::-webkit-scrollbar {
-    display: none;
-  }
-  .carousel-slide {
-    flex: 0 0 100%;
-    width: 100%;
-    height: 100%;
-    scroll-snap-align: start;
-    object-fit: cover;
-  }
-  .carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.8);
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    z-index: 10;
-    transition: background 0.3s, color 0.3s;
-  }
-  .carousel-btn.prev-btn {
-    left: 10px;
-  }
-  .carousel-btn.next-btn {
-    right: 10px;
-  }
-</style>
+  
 
 </Layout>
