@@ -306,7 +306,7 @@ nav.nav--scrolled {
   top: -14%;
   width: min(92vw, 540px);
   aspect-ratio: 2691 / 2844;
-  background: url("/images/decor/lines-4safety.png") no-repeat center /
+  background: url("/images/decor/lines-4safety.webp") no-repeat center /
     contain;
   opacity: 0.3;
   mix-blend-mode: screen;
@@ -1804,7 +1804,7 @@ footer::before {
   bottom: -5rem;
   width: min(44vw, 280px);
   aspect-ratio: 2691 / 2844;
-  background: url("/images/decor/lines-4safety.png") no-repeat center /
+  background: url("/images/decor/lines-4safety.webp") no-repeat center /
     contain;
   opacity: 0.25;
   pointer-events: none;
