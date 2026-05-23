@@ -3,6 +3,12 @@
 Este arquivo define as regras canônicas para o desenvolvimento e manutenção do projeto 4Safety.
 Sempre siga estas regras ao modificar o código.
 
+## 🛑 DIRETRIZ CRÍTICA PARA AGENTES DE IA (FREEZE DE LAYOUT) 🛑
+
+1. **PROIBIDO REESCREVER LAYOUTS INTEIROS**: Se o usuário pedir uma alteração pontual (ex: "mude a fonte", "ajuste a cor", "conserte um typo"), altere **APENAS** a linha ou o bloco específico necessário. **NÃO regere, reescreva ou altere a estrutura HTML/CSS** de arquivos chave como `produtos.astro` ou as 13 páginas de produtos individuais.
+2. **LOCK DE ARQUITETURA E UX**: A estrutura atual de layout (como o grid lateral com "Ficha Rápida", classes como `.product-hero`, `.product-info`, `.catalog-filter`) está **ESTRITAMENTE CONSOLIDADA**. Modificações estruturais globais estão **bloqueadas** e exigem confirmação explícita em múltiplas etapas.
+3. **MUDANÇAS CIRÚRGICAS**: Você deve agir como um cirurgião de código. Faça a menor mudança possível para atender ao pedido.
+
 ## 1. Arquitetura e Rotas (Astro)
 
 - O projeto foi migrado de HTML estático para **Astro**.
