@@ -1,0 +1,160 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import '../../styles/products.css';
+---
+
+<Layout title="Lonas de Fumigação Sob Medida | 4Safety" description="Lonas personalizadas, resistentes e funcionais, para melhor vedação em processos de fumigação.">
+  
+  <main class="product-hero">
+    <div style="max-width: 1240px; margin: 0 auto 2rem; position: relative; z-index: 10;">
+      <a href="/produtos" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--g700); text-decoration: none; font-weight: 600; font-family: var(--font-body); font-size: 0.95rem; transition: color 0.2s;" onmouseover="this.style.color='var(--orange)'" onmouseout="this.style.color='var(--g700)'"><span style="font-size: 1.2rem;">&larr;</span> Voltar para Produtos</a>
+    </div>
+    <div class="product-grid">
+      <div class="product-gallery reveal">
+        <div class="carousel-container">
+          <div class="carousel-wrapper" id="carousel-lonas-sob-medida">
+            <img src="/images/products/lonas_fumigacao/18.png" alt="Lonas de Fumigação Sob Medida" class="carousel-slide" />
+          <img src="/images/products/lonas_fumigacao/19.png" alt="Lonas de Fumigação Sob Medida" class="carousel-slide" />
+          <img src="/images/products/lonas_fumigacao/20.png" alt="Lonas de Fumigação Sob Medida" class="carousel-slide" />
+          </div>
+          <button class="carousel-btn prev-btn" data-target="carousel-lonas-sob-medida">❮</button>
+          <button class="carousel-btn next-btn" data-target="carousel-lonas-sob-medida">❯</button>
+        </div>
+      </div>
+      <div class="product-info reveal">
+        <div class="product-tag">Fumigação</div>
+        <h1 class="product-title">Lonas de Fumigação Sob Medida</h1>
+        <p class="product-description">Lonas personalizadas, resistentes e funcionais, para melhor vedação em processos de fumigação.</p>
+        <div class="product-meta">
+          <span class="meta-badge">Fumigação</span>
+        </div>
+        <div class="product-actions">
+          <button class="btn-add-cart btn-primary" data-cart-add data-product-name="Lonas de Fumigação Sob Medida" data-product-img="/images/products/lonas_fumigacao/18.png" data-product-slug="lonas-sob-medida">
+             Adicionar ao Orçamento
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Specs Section -->
+    <section class="product-specs">
+      <div class="section-inner product-sections-stack">
+        <div class="product-section-block">
+          <div class="product-section-head reveal">
+            <p class="product-section-kicker">Ficha rápida</p>
+            <h2 class="specs-title">Detalhes do Produto</h2>
+            <p class="product-section-sub">Na 4Safety, desenvolvemos lonas de fumigação sob medida para atender diferentes tipos de operações, cargas, estruturas e necessidades do cliente.</p><p class="product-section-sub" style="margin-top: 1rem;">Trabalhamos com soluções personalizadas, resistentes e funcionais, pensadas para garantir melhor vedação, proteção e segurança durante o processo de fumigação. Cada lona pode ser produzida conforme as dimensões, aplicação e especificações necessárias para o seu uso.</p><p class="product-section-sub" style="margin-top: 1rem;">Seja para uso em armazéns, contêineres, cargas, silos ou áreas específicas, a 4Safety entrega lonas de fumigação feitas para oferecer eficiência, durabilidade e confiança em cada operação.</p>
+          </div>
+          <div class="specs-card">
+            <div class="specs-list">
+              <div class="spec-row">
+                <span class="spec-label">Disponibilidade</span>
+                <span class="spec-value">Sob consulta</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Script do Carrinho -->
+  <script is:inline src="/js/cart.js"></script>
+
+  <!-- Script de Reveal & Carousel -->
+  <script>
+    document.addEventListener('astro:page-load', () => {
+      const reveals = document.querySelectorAll(".reveal");
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          const el = entry.target;
+          const stagger = Math.min([...(el.parentElement?.querySelectorAll(".reveal") ?? [])].indexOf(el) * 75, 380);
+          el.animate([{ opacity: 0, transform: "translateY(22px)" }, { opacity: 1, transform: "translateY(0)" }],
+            { duration: 580, delay: stagger, fill: "forwards", easing: "cubic-bezier(0.22,1,0.36,1)" });
+          observer.unobserve(el);
+        });
+      }, { threshold: 0.1, rootMargin: "0px 0px -36px 0px" });
+      
+      reveals.forEach(el => observer.observe(el));
+
+      // Carousel logic
+      const prevBtns = document.querySelectorAll('.prev-btn');
+      const nextBtns = document.querySelectorAll('.next-btn');
+      
+      prevBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const targetId = btn.getAttribute('data-target');
+          if (targetId) {
+            const c = document.getElementById(targetId);
+            if(c) c.scrollBy({ left: -c.clientWidth, behavior: 'smooth' });
+          }
+        });
+      });
+      
+      nextBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const targetId = btn.getAttribute('data-target');
+          if (targetId) {
+            const c = document.getElementById(targetId);
+            if(c) c.scrollBy({ left: c.clientWidth, behavior: 'smooth' });
+          }
+        });
+      });
+    });
+  </script>
+
+  <style>
+  .carousel-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+  .carousel-wrapper {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    height: 100%;
+    scrollbar-width: none;
+  }
+  .carousel-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+  .carousel-slide {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+    scroll-snap-align: start;
+    object-fit: cover;
+  }
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 10;
+    transition: background 0.3s, color 0.3s;
+  }
+  .carousel-btn.prev-btn {
+    left: 10px;
+  }
+  .carousel-btn.next-btn {
+    right: 10px;
+  }
+</style>
+
+</Layout>

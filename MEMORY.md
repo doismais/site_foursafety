@@ -19,6 +19,10 @@ Version: v1.0.0
   internos, aproveitando o roteamento baseado em arquivos do Astro.
 - **Páginas de Produtos**: Todas as páginas de produtos específicos foram
   migradas para Astro em `src/pages/produtos/`.
+- **Expansão do Catálogo**: Produtos separados em 13 páginas independentes 
+  com conteúdo detalhado injetado via dados ricos (sem carrosseis genéricos).
+- **Simplificação de UX**: Remoção de filtros complexos na página `/produtos` 
+  para exibir a vitrine direta.
 - **Estilos Isolados**: CSS específico das páginas de produtos em
   `src/styles/products.css`. Estilos globais em `src/styles/global.css`.
 - **SEO Avançado**: Endereço no footer com Microdata e JSON-LD no Layout.

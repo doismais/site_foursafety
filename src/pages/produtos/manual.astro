@@ -6,6 +6,9 @@ import '../../styles/products.css';
 <Layout title="Luvas de Proteção | 4Safety — Especialistas em Segurança" description="Linha completa de luvas para riscos mecânicos, químicos e biológicos. Performance técnica por aplicação.">
   
   <main class="product-hero">
+    <div style="max-width: 1240px; margin: 0 auto 2rem; position: relative; z-index: 10;">
+      <a href="/produtos" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--g700); text-decoration: none; font-weight: 600; font-family: var(--font-body); font-size: 0.95rem; transition: color 0.2s;" onmouseover="this.style.color='var(--orange)'" onmouseout="this.style.color='var(--g700)'"><span style="font-size: 1.2rem;">&larr;</span> Voltar para Produtos</a>
+    </div>
     <div class="product-grid">
       <div class="product-gallery reveal">
         <img src="/images/products/produto-luvas-protecao.png" alt="Luvas de Proteção" />
@@ -106,21 +109,30 @@ import '../../styles/products.css';
 
   <!-- Script de Reveal -->
   <script>
-    document.addEventListener('astro:page-load', () => {
-      const reveals = document.querySelectorAll(".reveal");
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) return;
-          const el = entry.target;
-          const stagger = Math.min([...(el.parentElement?.querySelectorAll(".reveal") ?? [])].indexOf(el) * 75, 380);
-          el.animate([{ opacity: 0, transform: "translateY(22px)" }, { opacity: 1, transform: "translateY(0)" }],
-            { duration: 580, delay: stagger, fill: "forwards", easing: "cubic-bezier(0.22,1,0.36,1)" });
-          observer.unobserve(el);
-        });
-      }, { threshold: 0.1, rootMargin: "0px 0px -36px 0px" });
-      
-      reveals.forEach(el => observer.observe(el));
+  document.addEventListener('astro:page-load', () => {
+    const prevBtns = document.querySelectorAll('.prev-btn');
+    const nextBtns = document.querySelectorAll('.next-btn');
+    
+    prevBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetId = btn.getAttribute('data-target');
+        if (targetId) {
+          const c = document.getElementById(targetId);
+          if(c) c.scrollBy({ left: -c.clientWidth, behavior: 'smooth' });
+        }
+      });
     });
-  </script>
+    
+    nextBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetId = btn.getAttribute('data-target');
+        if (targetId) {
+          const c = document.getElementById(targetId);
+          if(c) c.scrollBy({ left: c.clientWidth, behavior: 'smooth' });
+        }
+      });
+    });
+  });
+</script>
 
 </Layout>

@@ -1,0 +1,101 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import '../../styles/products.css';
+---
+
+<Layout title="Talabartes | 4Safety" description="Retardante à Chama, Aramida, Y com absorvedor, I com absorvedor, Posicionamento e Cesto Aéreo.">
+  
+  <main class="product-hero">
+    <div style="max-width: 1240px; margin: 0 auto 2rem; position: relative; z-index: 10;">
+      <a href="/produtos" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--g700); text-decoration: none; font-weight: 600; font-family: var(--font-body); font-size: 0.95rem; transition: color 0.2s;" onmouseover="this.style.color='var(--orange)'" onmouseout="this.style.color='var(--g700)'"><span style="font-size: 1.2rem;">&larr;</span> Voltar para Produtos</a>
+    </div>
+    <div class="product-grid">
+      <div class="product-gallery reveal">
+        <img src="/images/products/talabartes.png" alt="Talabartes" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 10px;" />
+      </div>
+      <div class="product-info reveal">
+        <div class="product-tag">Altura</div>
+        <h1 class="product-title">Talabartes</h1>
+        <p class="product-description">Retardante à Chama, Aramida, Y com absorvedor, I com absorvedor, Posicionamento e Cesto Aéreo.</p>
+        <div class="product-meta">
+          <span class="meta-badge">Altura</span>
+        </div>
+        <div class="product-actions">
+          <button class="btn-add-cart btn-primary" data-cart-add data-product-name="Talabartes" data-product-img="/images/products/talabartes.png" data-product-slug="talabartes">
+             Adicionar ao Orçamento
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Specs Section -->
+    <section class="product-specs">
+      <div class="section-inner product-sections-stack">
+        <div class="product-section-block">
+          <div class="product-section-head reveal">
+            <p class="product-section-kicker">Ficha rápida</p>
+            <h2 class="specs-title">Detalhes do Produto</h2>
+            <p class="product-section-sub">Nossa linha de talabartes foi desenvolvida para oferecer segurança, resistência e versatilidade nas mais diversas aplicações em trabalho em altura. Contamos com modelos Retardante à Chama, em Aramida, opções de Segurança em Y com absorvedor, Segurança em I com absorvedor, além de versões para Posicionamento e uso em Cesto Aéreo.</p><p class="product-section-sub" style="margin-top: 1rem;">Cada modelo é fabricado com materiais de alta performance, costuras reforçadas e conectores de alta resistência, garantindo retenção eficiente em caso de queda, controle de movimentação e maior durabilidade mesmo em ambientes exigentes, sempre em conformidade com as normas técnicas de segurança.</p>
+          </div>
+          <div class="specs-card">
+            <div class="specs-list">
+              <div class="spec-row">
+                <span class="spec-label">Disponibilidade</span>
+                <span class="spec-value">Sob consulta</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Script do Carrinho -->
+  <script is:inline src="/js/cart.js"></script>
+
+  <!-- Script de Reveal & Carousel -->
+  <script>
+    document.addEventListener('astro:page-load', () => {
+      const reveals = document.querySelectorAll(".reveal");
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          const el = entry.target;
+          const stagger = Math.min([...(el.parentElement?.querySelectorAll(".reveal") ?? [])].indexOf(el) * 75, 380);
+          el.animate([{ opacity: 0, transform: "translateY(22px)" }, { opacity: 1, transform: "translateY(0)" }],
+            { duration: 580, delay: stagger, fill: "forwards", easing: "cubic-bezier(0.22,1,0.36,1)" });
+          observer.unobserve(el);
+        });
+      }, { threshold: 0.1, rootMargin: "0px 0px -36px 0px" });
+      
+      reveals.forEach(el => observer.observe(el));
+
+      // Carousel logic
+      const prevBtns = document.querySelectorAll('.prev-btn');
+      const nextBtns = document.querySelectorAll('.next-btn');
+      
+      prevBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const targetId = btn.getAttribute('data-target');
+          if (targetId) {
+            const c = document.getElementById(targetId);
+            if(c) c.scrollBy({ left: -c.clientWidth, behavior: 'smooth' });
+          }
+        });
+      });
+      
+      nextBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const targetId = btn.getAttribute('data-target');
+          if (targetId) {
+            const c = document.getElementById(targetId);
+            if(c) c.scrollBy({ left: c.clientWidth, behavior: 'smooth' });
+          }
+        });
+      });
+    });
+  </script>
+
+  
+
+</Layout>

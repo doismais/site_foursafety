@@ -1,14 +1,14 @@
 # 4Safety — Content Architecture v2.0
 
-# Plug-and-play para agente de desenvolvimento
+## Plug-and-play para agente de desenvolvimento
 
-# Reposicionamento: operador de conformidade e risco → produto é OUTPUT de diagnóstico técnico
+## Reposicionamento: operador de conformidade e risco → produto é OUTPUT de diagnóstico técnico
 
 ---
 
 ## DESIGN SYSTEM TOKENS
 
-```
+```bash
 BRAND_TOKENS {
   logo_horizontal : "https://res.cloudinary.com/dqhheouq9/image/upload/q_auto/f_auto/v1775058467/Logo_4Safety-1_fsksep.png"
   logo_icon       : "https://res.cloudinary.com/dqhheouq9/image/upload/q_auto/f_auto/v1775058865/ico_4Safety-2_rzke4p.png"
@@ -63,7 +63,7 @@ BRAND_TOKENS {
 
 ## REGRAS DE COPY (aplicar em todas as páginas)
 
-```
+```bash
 COPY_RULES {
   voz          : técnica, direta, sem floreio
   tom          : autoridade de especialista — não de vendedor
@@ -932,7 +932,7 @@ cluster_ca:
 
 ## NOTAS PARA O AGENTE DE DESENVOLVIMENTO
 
-```
+```bash
 AGENT_INSTRUCTIONS {
 
   STACK SUGERIDA
