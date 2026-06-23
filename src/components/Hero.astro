@@ -11,7 +11,7 @@
       src="/images/hero/0001.webp"
       alt="Profissional com EPI em ambiente industrial"
       data-title="Somos a 4SAFETY"
-      data-sub="PROTEÇÃO, DETECÇÃO E PERFORMANCE"
+      data-sub="Proteção e Performance profissional."
       class="active"
     />
     <img
@@ -29,7 +29,7 @@
   </div>
   <div class="hero-content">
     <h1 class="hero-h1">Somos a 4Safety.</h1>
-    <p class="hero-sub">PROTEÇÃO, DETECÇÃO E PERFORMANCE</p>
+    <p class="hero-sub">Proteção e Performance profissional.</p>
     <div class="hero-actions">
       <a href="#produtos" class="btn-primary">Ver produtos</a>
     </div>
@@ -89,7 +89,7 @@
 </section>
 
 <script>
-  document.addEventListener('astro:page-load', () => {
+  function initHero() {
     // ── HERO WAAPI ENTRANCE ──────────────────────────────────────────────
     const heroEls = [
       { el: document.querySelector(".hero-eyebrow"), delay: 200 },
@@ -223,5 +223,13 @@
         subEl.textContent = images[currentIndex].dataset.sub || subEl.textContent;
       }
     }
-  });
+  }
+
+  document.addEventListener('astro:page-load', initHero);
+  // Fallback para garantir init no primeiro carregamento com View Transitions
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHero);
+  } else {
+    initHero();
+  }
 </script>
