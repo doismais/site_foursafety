@@ -1,3 +1,10 @@
+# ========================================
+#          4SAFETY · MAKEFILE
+# ========================================
+# Status: ACTIVE
+# Version: v1.0.4
+# ========================================
+
 PNPM ?= pnpm
 
 .DEFAULT_GOAL := help
@@ -13,7 +20,7 @@ help:
 	@echo "make preview    # Visualiza o build de produção localmente"
 	@echo "make clean      # Limpa o cache e arquivos temporários do Astro"
 	@echo "make check      # Valida tipos TypeScript + arquivos Astro"
-	@echo "make safe-push  # Protocolo NΞØ: Audit -> Check -> Build -> Status"
+	@echo "make safe-push  # NΞØ Protocol: Audit -> Check -> Build -> Status"
 
 install:
 	@echo "Instalando dependências..."

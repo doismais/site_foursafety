@@ -1,3 +1,7 @@
+---
+name: 4safety-routine
+description: Regras de operação, rotina e limites técnicos para atuar no repositório do projeto 4Safety Astro. Acionada automaticamente em tarefas neste projeto.
+---
 <!-- markdownlint-disable MD003 MD007 MD013 MD022 MD023 MD025 MD029 MD032 MD033 MD034 -->
 
 # Skill 4safety
@@ -7,7 +11,7 @@
          4SAFETY · SKILL
 ========================================
 Status: ACTIVE
-Version: v1.0.0
+Version: v1.0.4
 ========================================
 ```
 
@@ -19,6 +23,7 @@ Como agir ao receber uma tarefa neste projeto:
    - `AGENTS.md` para regras de comportamento.
    - `CONTEXT.md` para entender onde você está.
    - `MEMORY.md` para saber o que já foi decidido.
+   - `SETUP.md` para instruções de ambiente e configurações do projeto.
 
 2. **Execute a menor mudança funcional**:
    - Não reescreva arquivos inteiros se puder fazer uma edição pontual.

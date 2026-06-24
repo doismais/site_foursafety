@@ -3,7 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import '../../styles/products.css';
 ---
 
-<Layout title="Trava-quedas | 4Safety" description="Modelos para corda, cabo de aço e retrátil, garantindo segurança em linhas de vida verticais e estruturas fixas.">
+<Layout title="Capacete Focus B | 4Safety" description="Indicado para trabalhos com energia elétrica, resgate e alpinismo. ABS com tratamento UV.">
   
   <main class="product-hero">
     <div style="max-width: 1240px; margin: 0 auto 2rem; position: relative; z-index: 10;">
@@ -11,28 +11,29 @@ import '../../styles/products.css';
     </div>
     <div class="product-grid">
       <div class="product-gallery reveal">
-        <img src="/images/products/trava-quedas.webp" alt="Trava-quedas" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 10px;" />
+        <img src="/images/products/capacete_focus_a/capacete_focus_a2.webp" alt="Capacete Focus B" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 10px;" />
       </div>
       <div class="product-info reveal">
-        <div class="product-tag">Altura</div>
-        <h1 class="product-title">Trava-quedas</h1>
-        <p class="product-description" style="margin-bottom: 1.5rem;">Modelos para corda, cabo de aço e retrátil, garantindo segurança em linhas de vida verticais e estruturas fixas.</p>
+        <div class="product-tag">CA 17.098</div>
+        <h1 class="product-title">Capacete Focus B</h1>
+        <p class="product-description" style="margin-bottom: 1.5rem;">O Capacete Focus B é indicado para trabalhos com energia elétrica e também para atividades como escalada, resgate, alpinismo e espeleologia. Fabricado em ABS com tratamento UV.</p>
         
         <div class="product-details-inline" style="background: rgba(255, 255, 255, 0.5); padding: 1.25rem; border-radius: 12px; border: 1px solid rgba(28, 25, 22, 0.08); margin-bottom: 1.5rem;">
           <p class="product-section-kicker" style="font-size: 0.6rem; color: var(--orange); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.3rem; font-family: var(--font-mono); font-weight: 600;">Ficha rápida</p>
           <h2 class="specs-title" style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.8rem; font-family: var(--font-display);">Detalhes do Produto</h2>
           <div style="font-size: 0.85rem; line-height: 1.6; color: var(--g700);">
-            <p class="product-section-sub">Oferecemos trava-quedas para corda, cabo de aço e modelo retrátil, cada um indicado para uma necessidade específica.</p><p class="product-section-sub" style="margin-top: 1rem;">O modelo para corda é ideal para linhas de vida verticais e trabalhos com acesso por corda. O de cabo de aço é usado em estruturas fixas, como escadas marinheiro e torres. Já o retrátil proporciona mais mobilidade, acompanhando o movimento do usuário e reduzindo a distância de queda.</p><p class="product-section-sub" style="margin-top: 1rem;">Todos garantem segurança e conformidade para o trabalho em altura.</p>
+            <p class="product-section-sub">O Capacete Focus B é indicado para trabalhos com energia elétrica e também para atividades como escalada, resgate, alpinismo e espeleologia. Fabricado em ABS com tratamento UV, é leve, confortável e conta com fitas antialérgicas, testeira acolchoada, suporte para lanterna e encaixes para viseira, protetor auricular e protetor de nuca.</p>
+            <p class="product-section-sub" style="margin-top: 1rem;">Possui CA nº 17.098, atende à Norma NBR 8221:2019 e tem certificação válida até 16/07/2028.</p>
           </div>
         </div>
 
         <div class="product-meta" style="margin-bottom: 1rem;">
-          <span class="meta-badge">Altura</span>
+          <span class="meta-badge">Capacetes</span>
           <span class="meta-badge">Disponibilidade: Sob consulta</span>
         </div>
         <div class="product-actions">
-          <button class="btn-add-cart btn-primary" data-cart-add data-product-name="Trava-quedas" data-product-img="/images/products/trava-quedas.webp" data-product-slug="trava-quedas" style="width: 100%;">
-             Adicionar ao Orçamento
+          <button class="btn-add-cart btn-primary" data-cart-add data-product-name="Capacete Focus B" data-product-img="/images/products/capacete_focus_a/capacete_focus_a2.webp" data-product-slug="capacete-focus-b" style="width: 100%;">
+             Solicitar mais informações
           </button>
         </div>
       </div>
@@ -42,7 +43,7 @@ import '../../styles/products.css';
   <!-- Script do Carrinho -->
   <script is:inline src="/js/cart.js"></script>
 
-  <!-- Script de Reveal & Carousel -->
+  <!-- Script de Reveal -->
   <script>
     document.addEventListener('astro:page-load', () => {
       const reveals = document.querySelectorAll(".reveal");
@@ -58,33 +59,7 @@ import '../../styles/products.css';
       }, { threshold: 0.1, rootMargin: "0px 0px -36px 0px" });
       
       reveals.forEach(el => observer.observe(el));
-
-      // Carousel logic
-      const prevBtns = document.querySelectorAll('.prev-btn');
-      const nextBtns = document.querySelectorAll('.next-btn');
-      
-      prevBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-          const targetId = btn.getAttribute('data-target');
-          if (targetId) {
-            const c = document.getElementById(targetId);
-            if(c) c.scrollBy({ left: -c.clientWidth, behavior: 'smooth' });
-          }
-        });
-      });
-      
-      nextBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-          const targetId = btn.getAttribute('data-target');
-          if (targetId) {
-            const c = document.getElementById(targetId);
-            if(c) c.scrollBy({ left: c.clientWidth, behavior: 'smooth' });
-          }
-        });
-      });
     });
   </script>
-
-  
 
 </Layout>

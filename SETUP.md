@@ -83,3 +83,17 @@ Ou simplesmente: **`make safe-push`** executa a auditoria, a verificação de ti
 - O cache do Vite fica em `node_modules/.vite/`. Limpe com `make clean` em caso
   de erros `504 Outdated Optimize Dep` no servidor de dev.
 - O deploy é feito via **Vercel** com build automático a partir do branch `main`.
+
+### Autenticação do Git (Push)
+
+Caso haja erro de autenticação (`Invalid username or token`) ao fazer push para o repositório, você pode usar o `GITHUB_TOKEN` já configurado no seu `.env` rodando o seguinte comando:
+
+```bash
+set -a; source .env; set +a; git push https://doismais:${GITHUB_TOKEN}@github.com/doismais/site_foursafety.git main
+```
+
+```bash
+git add .
+git commit -m "fix: finaliza ajustes finos do PDF, converte banner para png e atualiza textos"
+set -a; source .env; set +a; git push https://doismais:${GITHUB_TOKEN}@github.com/doismais/site_foursafety.git main
+```

@@ -7,7 +7,7 @@
          4SAFETY · MEMORY
 ========================================
 Status: ACTIVE
-Version: v1.0.0
+Version: v1.0.4
 ========================================
 ```
 
@@ -40,6 +40,9 @@ Version: v1.0.0
 - **Correção de CSP**: Removida a tag `<meta>` de CSP com `frame-ancestors` do `Layout.astro` (inválida em meta tags) e migrada para cabeçalhos reais no `vercel.json`.
 - **Cabeçalhos de Segurança**: Adicionados `Content-Security-Policy` (frame-ancestors), `X-Frame-Options` e `X-Content-Type-Options` no `vercel.json`.
 - **Ajuste Mobile na Consulta de CA**: Corrigido alinhamento do Hero no mobile na página de consulta de CA para centralizar o eyebrow e os textos, resolvendo a desconfiguração visual.
+- **Compatibilidade Safari/iOS**: Inclusão de prefixos `-webkit-user-select` em classes de interação global para garantir bloqueio de seleção de texto nativa nos dispositivos Apple mais antigos (Safari 3+ e iOS Safari).
+- **Galeria de Produtos com Miniaturas**: Refatoração do componente `.product-gallery` para suportar múltiplas imagens (via troca de fonte no clique), implementado primariamente para o produto Tubo Colorimétrico, que passou a ter 6 imagens disponíveis.
+- **Microcopy (CTA do Produto)**: Alteração do texto do botão do carrinho de "Adicionar ao Orçamento" para "Solicitar mais informações", a pedido do cliente (foco em gerar conversa ao invés de atrito de compra direta).
 
 ────────────────────────────────────────
 

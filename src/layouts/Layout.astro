@@ -116,7 +116,7 @@ import { ClientRouter } from 'astro:transitions';
       rel="preload"
       as="style"
       href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&family=Source+Sans+3:wght@400;500;600;700;800&display=swap"
-      onload="this.onload=null;this.rel='stylesheet'"
+      onload="this.removeAttribute('onload'); this.setAttribute('rel', 'stylesheet');"
     />
     <noscript>
       <link

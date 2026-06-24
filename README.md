@@ -55,7 +55,8 @@ Se você é um agente de IA operando neste projeto, leia obrigatoriamente:
 - `AGENTS.md`
 - `CONTEXT.md`
 - `MEMORY.md`
-- `SKILL.md`
+- `SETUP.md`
+- `SKILL.md` (agora autocarregada em `.agents/skills/4safety/`)
 
 ────────────────────────────────────────
 
