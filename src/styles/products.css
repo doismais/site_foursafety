@@ -524,8 +524,8 @@ footer {
     linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
   background-size: 40px 40px;
-  mask-image: radial-gradient(circle at center, black, transparent 80%);
   -webkit-mask-image: radial-gradient(circle at center, black, transparent 80%);
+  mask-image: radial-gradient(circle at center, black, transparent 80%);
   opacity: 0.4;
   z-index: 1;
 }
