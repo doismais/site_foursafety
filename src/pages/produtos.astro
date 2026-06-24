@@ -259,21 +259,21 @@ import Layout from '../layouts/Layout.astro';
       const cards = document.querySelectorAll(".produto-card");
       const resultsEl = document.getElementById("catalog-results");
 
-      function applyFilter(f) {
+      function applyFilter(f: string) {
         filterBtns.forEach(b => b.classList.remove("active"));
         const activeBtn = document.querySelector(`.filter-btn[data-filter="${f}"]`);
         if (activeBtn) activeBtn.classList.add("active");
-        if (filterSelect) filterSelect.value = f;
+        if (filterSelect) (filterSelect as HTMLSelectElement).value = f;
 
         let count = 0;
         cards.forEach(card => {
-          const htmlCard = card;
+          const htmlCard = card as HTMLElement;
           const categories = (htmlCard.dataset.cat || "").split(/\s+/);
           const show = f === "all" || categories.includes(f);
           if (show) {
             htmlCard.style.display = "flex";
               htmlCard.animate([{ opacity: 0, transform: "scale(.96)" }, { opacity: 1, transform: "scale(1)" }],
-              { duration: 280, fill: "forwards", easing: "ease-out" });
+              { duration: 280, fill: "forwards" as FillMode, easing: "ease-out" });
             count++;
           } else {
             htmlCard.style.display = "none";
@@ -282,8 +282,8 @@ import Layout from '../layouts/Layout.astro';
         if (resultsEl) resultsEl.textContent = `${count} produto${count !== 1 ? "s" : ""} encontrado${count !== 1 ? "s" : ""}`;
       }
 
-      filterBtns.forEach(btn => btn.addEventListener("click", () => applyFilter(btn.dataset.filter || "all")));
-      if (filterSelect) filterSelect.addEventListener("change", () => applyFilter(filterSelect.value));
+      filterBtns.forEach(btn => btn.addEventListener("click", () => applyFilter((btn as HTMLElement).dataset.filter || "all")));
+      if (filterSelect) filterSelect.addEventListener("change", () => applyFilter((filterSelect as HTMLSelectElement).value));
       
       // Inicializa o filtro
       applyFilter("all");
@@ -296,7 +296,7 @@ import Layout from '../layouts/Layout.astro';
           const el = entry.target;
           const stagger = Math.min([...(el.parentElement?.querySelectorAll(".reveal") ?? [])].indexOf(el) * 75, 380);
           el.animate([{ opacity: 0, transform: "translateY(22px)" }, { opacity: 1, transform: "translateY(0)" }],
-            { duration: 580, delay: stagger, fill: "forwards", easing: "cubic-bezier(0.22,1,0.36,1)" });
+            { duration: 580, delay: stagger, fill: "forwards" as FillMode, easing: "cubic-bezier(0.22,1,0.36,1)" });
           observer.unobserve(el);
         });
       }, { threshold: 0.1, rootMargin: "0px 0px -36px 0px" });

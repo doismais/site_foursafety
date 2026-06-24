@@ -21,8 +21,7 @@
   --nav-aqua-edge: rgba(90, 170, 195, 0.22);
   --font-display:
     "Source Sans 3", -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-body:
-    "Source Sans 3", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: "Source Sans 3", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: "JetBrains Mono", monospace;
   --container-px: 2.5rem;
   --container-max-w: 1100px;
@@ -255,12 +254,7 @@ nav.nav--scrolled {
   padding: 7rem var(--container-px) 3rem;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(
-    165deg,
-    #1a1714 0%,
-    var(--ink) 42%,
-    #100e0c 100%
-  );
+  background: linear-gradient(165deg, #1a1714 0%, var(--ink) 42%, #100e0c 100%);
 }
 .hero-bg {
   position: absolute;
@@ -294,11 +288,7 @@ nav.nav--scrolled {
     black 30%,
     transparent 80%
   );
-  mask-image: radial-gradient(
-    ellipse at center,
-    black 30%,
-    transparent 80%
-  );
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
 }
 .hero-brand-lines {
   position: absolute;
@@ -306,8 +296,7 @@ nav.nav--scrolled {
   top: -14%;
   width: min(92vw, 540px);
   aspect-ratio: 2691 / 2844;
-  background: url("/images/decor/lines-4safety.webp") no-repeat center /
-    contain;
+  background: url("/images/decor/lines-4safety.webp") no-repeat center / contain;
   opacity: 0.3;
   mix-blend-mode: screen;
   pointer-events: none;
@@ -477,8 +466,8 @@ nav.nav--scrolled {
     background 0.2s,
     border-color 0.2s,
     color 0.2s;
-  backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
 }
 .hero-arrow:hover {
   background: rgba(255, 255, 255, 0.15);
@@ -601,8 +590,8 @@ nav.nav--scrolled {
     border: none;
     background: none;
     box-shadow: none;
-    backdrop-filter: none;
     -webkit-backdrop-filter: none;
+    backdrop-filter: none;
   }
 
   .hero-content > * {
@@ -673,11 +662,7 @@ nav.nav--scrolled {
 
 /* ── TRUST BAR (faixa institucional clara) ── */
 .trust {
-  background: linear-gradient(
-    180deg,
-    var(--institutional) 0%,
-    #cdc5ba 100%
-  );
+  background: linear-gradient(180deg, var(--institutional) 0%, #cdc5ba 100%);
   border-top: 1px solid rgba(40, 36, 32, 0.1);
   border-bottom: 1px solid rgba(40, 36, 32, 0.12);
   padding: 2.5rem 1.25rem;
@@ -919,12 +904,7 @@ section {
   position: relative;
   overflow: hidden;
   padding: 5rem 1.25rem;
-  background: linear-gradient(
-    145deg,
-    #12100e 0%,
-    #1a1714 38%,
-    #141210 100%
-  );
+  background: linear-gradient(145deg, #12100e 0%, #1a1714 38%, #141210 100%);
 }
 .glass-section::before {
   content: "";
@@ -1124,11 +1104,22 @@ section {
   gap: 0.75rem;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
   overscroll-behavior-x: contain;
   padding-bottom: 1rem;
-  -webkit-mask-image: linear-gradient(to right, transparent, black 1.5rem, black calc(100% - 1.5rem), transparent);
-  mask-image: linear-gradient(to right, transparent, black 1.5rem, black calc(100% - 1.5rem), transparent);
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 1.5rem,
+    black calc(100% - 1.5rem),
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 1.5rem,
+    black calc(100% - 1.5rem),
+    transparent
+  );
 }
 .produtos-grid::-webkit-scrollbar {
   display: none;
@@ -1280,7 +1271,6 @@ section {
   object-fit: contain;
   object-position: center;
   padding: 1rem;
-  -webkit-user-drag: none;
   -webkit-user-select: none;
   user-select: none;
   pointer-events: none;
@@ -1804,8 +1794,7 @@ footer::before {
   bottom: -5rem;
   width: min(44vw, 280px);
   aspect-ratio: 2691 / 2844;
-  background: url("/images/decor/lines-4safety.webp") no-repeat center /
-    contain;
+  background: url("/images/decor/lines-4safety.webp") no-repeat center / contain;
   opacity: 0.25;
   pointer-events: none;
 }
@@ -2365,7 +2354,9 @@ footer::before {
 .reveal {
   opacity: 0;
   transform: translateY(22px);
-  transition: opacity 0.58s cubic-bezier(0.22, 1, 0.36, 1), transform 0.58s cubic-bezier(0.22, 1, 0.36, 1);
+  transition:
+    opacity 0.58s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.58s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: opacity, transform;
 }
 .reveal.is-visible {
