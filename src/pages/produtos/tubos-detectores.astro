@@ -10,8 +10,20 @@ import '../../styles/products.css';
       <a href="/produtos" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--g700); text-decoration: none; font-weight: 600; font-family: var(--font-body); font-size: 0.95rem; transition: color 0.2s;" onmouseover="this.style.color='var(--orange)'" onmouseout="this.style.color='var(--g700)'"><span style="font-size: 1.2rem;">&larr;</span> Voltar para Produtos</a>
     </div>
     <div class="product-grid">
-      <div class="product-gallery reveal">
-        <img src="/images/products/detectores_gas/1.webp" alt="Tubos Detectores" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 10px;" />
+      <div class="product-gallery reveal" style="position: relative;">
+        <div id="gallery-slider" style="display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; -ms-overflow-style: none; scrollbar-width: none; border-radius: 10px;">
+          <img src="/images/products/tubos_colorimetricos/Uniphos-Tubes-1.jpg" alt="Tubo Detector Uniphos" style="flex: 0 0 100%; width: 100%; aspect-ratio: 4/3; object-fit: cover; scroll-snap-align: start;" />
+          <img src="/images/products/tubos_colorimetricos/Uniphos-Tubes-2.jpg" alt="Tubo Detector Uniphos 2" style="flex: 0 0 100%; width: 100%; aspect-ratio: 4/3; object-fit: cover; scroll-snap-align: start;" />
+          <img src="/images/products/tubos_colorimetricos/Uniphos-Tubes-3.jpg" alt="Tubo Detector Uniphos 3" style="flex: 0 0 100%; width: 100%; aspect-ratio: 4/3; object-fit: cover; scroll-snap-align: start;" />
+          <img src="/images/products/tubos_colorimetricos/Uniphos-Tubes-4.jpg" alt="Tubo Detector Uniphos 4" style="flex: 0 0 100%; width: 100%; aspect-ratio: 4/3; object-fit: cover; scroll-snap-align: start;" />
+          <img src="/images/products/tubos_colorimetricos/Uniphos-Tubes-5.jpg" alt="Tubo Detector Uniphos 5" style="flex: 0 0 100%; width: 100%; aspect-ratio: 4/3; object-fit: cover; scroll-snap-align: start;" />
+        </div>
+        <button class="prev-btn" data-target="gallery-slider" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); background: rgba(255,255,255,0.8); border: none; border-radius: 50%; width: 40px; height: 40px; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1); z-index: 10;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <button class="next-btn" data-target="gallery-slider" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); background: rgba(255,255,255,0.8); border: none; border-radius: 50%; width: 40px; height: 40px; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1); z-index: 10;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
       </div>
       <div class="product-info reveal">
         <div class="product-tag">Segurança</div>
