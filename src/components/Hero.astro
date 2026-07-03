@@ -8,36 +8,40 @@
   <div class="hero-brand-lines" aria-hidden="true"></div>
   <div class="hero-placeholder" id="hero-slider">
     <img
-      src="/images/hero/TUBOS_COLORI.png"
-      alt="Tubos colorimétricos para análise em campo"
-      data-title="Tubos colorimétricos para análise em campo"
-      data-sub="Medição pontual, prática e confiável para diferentes gases e vapores."
+      src="/images/hero/SLIDER_01.png"
+      alt="Profissional com EPI em ambiente industrial"
+      data-title="<strong>Somos a 4SAFETY</strong>"
+      data-sub="Proteção e Performance e profissional."
+      data-link="/produtos"
       class="active"
     />
     <img
-      src="/images/hero/SLIDER_02.png"
+      src="/images/hero/SLIDER-02.png"
       alt="Técnico com EPI em área industrial"
-      data-title="Sua operação segura começa pela especificação correta"
-      data-sub="Conheça nossos produtos de detecção preventiva e preditiva."
+      data-title="<strong>Equipamentos para Fumigação com Detecção Segura de Gases</strong>"
+      data-sub="Detectores e medidores de gases para monitoramento, controle e segurança em operações de fumigação industrial."
+      data-link="/produtos?filter=fumigacao"
     />
     <img
       src="/images/hero/SLIDER_03.png"
       alt="Profissional com respirador e capacete"
-      data-title="Equipamentos para riscos operacionais reais"
+      data-title="<strong>Equipamentos para riscos operacionais reais</strong>"
       data-sub="Catálogo técnico com documentação confirmada conforme aplicação."
+      data-link="/produtos"
     />
     <img
-      src="/images/hero/SLIDER_01.png"
-      alt="Profissional com EPI em ambiente industrial"
-      data-title="Somos a 4SAFETY"
-      data-sub="Proteção e Performance e profissional."
+      src="/images/hero/TUBOS_COLORI.png"
+      alt="Distribuidor autorizado UNIPHOS & Tubos KwikDraw"
+      data-title="Distribuidor autorizado <strong>UNIPHOS & Tubos KwikDraw</strong>"
+      data-sub="Medição pontual, prática e confiável para diferentes gases e vapores."
+      data-link="/produtos/deteccao-de-gas/tubo-colorimetrico"
     />
   </div>
   <div class="hero-content">
-    <h1 class="hero-h1">Somos a 4Safety.</h1>
+    <h1 class="hero-h1"><strong>Somos a 4SAFETY</strong></h1>
     <p class="hero-sub">Proteção e Performance e profissional.</p>
     <div class="hero-actions">
-      <a href="#produtos" class="btn-primary">Ver produtos</a>
+      <a href="/produtos" class="btn-primary">Ver produtos</a>
     </div>
   </div>
   <div class="hero-arrows">
@@ -106,6 +110,8 @@
     ];
     heroEls.forEach(({ el, delay }) => {
       if (!el) return;
+      // Garante que o elemento está invisível antes de animar
+      (el as HTMLElement).style.opacity = "0";
       const isScrollDown = el.classList.contains("hero-scroll-down");
       el.animate(
         [
@@ -143,6 +149,7 @@
         function transitionText(nextImage: HTMLImageElement) {
           const nextTitle = nextImage.dataset.title || "";
           const nextSub = nextImage.dataset.sub || "";
+          const nextLink = nextImage.dataset.link || "/produtos";
 
           const fadeOut: KeyframeAnimationOptions = {
             duration: 220,
@@ -157,6 +164,13 @@
 
           const htmlTitleEl = titleEl as HTMLElement;
           const htmlSubEl = subEl as HTMLElement;
+          const linkEl = document.querySelector(".hero-actions .btn-primary") as HTMLAnchorElement;
+
+          // Cancela animações anteriores para evitar conflito de opacidade
+          htmlTitleEl.getAnimations().forEach((a) => a.cancel());
+          htmlSubEl.getAnimations().forEach((a) => a.cancel());
+          htmlTitleEl.style.opacity = "1";
+          htmlSubEl.style.opacity = "1";
 
           const titleOut = htmlTitleEl.animate(
             [
@@ -175,8 +189,12 @@
           );
 
           Promise.all([titleOut.finished, subOut.finished]).then(() => {
-            htmlTitleEl.textContent = nextTitle;
-            htmlSubEl.textContent = nextSub;
+            htmlTitleEl.innerHTML = nextTitle;
+            htmlSubEl.innerHTML = nextSub;
+            if (linkEl) linkEl.href = nextLink;
+
+            htmlTitleEl.style.opacity = "0";
+            htmlSubEl.style.opacity = "0";
 
             htmlTitleEl.animate(
               [
@@ -196,6 +214,13 @@
           });
         }
 
+        function setBrandLines(index: number) {
+          const brandLines = document.querySelector(".hero-brand-lines") as HTMLElement;
+          if (!brandLines) return;
+          brandLines.style.transition = "opacity 0.8s ease";
+          brandLines.style.opacity = index === 0 ? "0" : "0.8";
+        }
+
         function goTo(index: number) {
           if (index === currentIndex) return;
           images[currentIndex].classList.remove("active");
@@ -203,6 +228,7 @@
           const next = images[currentIndex];
           next.classList.add("active");
           transitionText(next);
+          setBrandLines(currentIndex);
           resetAutoplay();
         }
 
@@ -225,8 +251,16 @@
         if (prevBtn) prevBtn.addEventListener("click", prevImage);
         if (nextBtn) nextBtn.addEventListener("click", nextImage);
 
-        titleEl.textContent = images[currentIndex].dataset.title || titleEl.textContent;
-        subEl.textContent = images[currentIndex].dataset.sub || subEl.textContent;
+        titleEl.innerHTML = images[currentIndex].dataset.title || titleEl.innerHTML;
+        subEl.innerHTML = images[currentIndex].dataset.sub || subEl.innerHTML;
+        
+        const linkEl = document.querySelector(".hero-actions .btn-primary") as HTMLAnchorElement;
+        if (linkEl) {
+          linkEl.href = images[currentIndex].dataset.link || "/produtos";
+        }
+
+        // Estado inicial das brand lines
+        setBrandLines(currentIndex);
       }
     }
   }

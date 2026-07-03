@@ -17,6 +17,7 @@ import { ClientRouter } from 'astro:transitions';
     />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="manifest" href="/images/site.webmanifest" />
     <title>{title}</title>
     <ClientRouter />
     <meta name="description" content={description} />
@@ -58,6 +59,17 @@ import { ClientRouter } from 'astro:transitions';
       j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
       })(window,document,'script','dataLayer','GTM-XXXXXX'); // <-- Substitua pelo ID real
+    </script>
+
+    <!-- Service Worker Registration -->
+    <script is:inline>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(error => {
+            console.error('ServiceWorker registration failed: ', error);
+          });
+        });
+      }
     </script>
     <!-- End Google Tag Manager -->
     
