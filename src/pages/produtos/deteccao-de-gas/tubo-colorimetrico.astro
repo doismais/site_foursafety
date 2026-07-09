@@ -6,30 +6,22 @@ import '../../../styles/products.css';
 <Layout title="Tubo Colorimétrico Uniphos | 4Safety — Especialistas em Segurança" description="Os tubos detectores Uniphos são utilizados com a bomba manual de pistão de precisão ASP-40 para realizar medições rápidas e práticas de gases em campo.">
   
   <main class="product-hero">
+    <div style="max-width: 1240px; margin: 0 auto 2rem; position: relative; z-index: 10;">
+      <a href="/produtos" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--g700); text-decoration: none; font-weight: 600; font-family: var(--font-body); font-size: 0.95rem; transition: color 0.2s;" onmouseover="this.style.color='var(--orange)'" onmouseout="this.style.color='var(--g700)'">&larr; Voltar para Produtos</a>
+    </div>
     <div class="product-grid">
-      <div class="product-gallery-wrapper reveal">
-        <div class="product-gallery">
-          <img id="main-product-image" src="/images/products/tubos_colorimetricos/Uniphos-Tubes-1.jpg" alt="Tubo Colorimétrico Uniphos" />
-        </div>
-        <div class="product-thumbnails">
-          <button class="thumb-btn active" data-src="/images/products/tubos_colorimetricos/Uniphos-Tubes-1.jpg" aria-label="Ver imagem 1">
-            <img src="/images/products/tubos_colorimetricos/Uniphos-Tubes-1.jpg" alt="Miniatura 1" />
-          </button>
-          <button class="thumb-btn" data-src="/images/products/tubos_colorimetricos/Uniphos-Tubes-2.jpg" aria-label="Ver imagem 2">
-            <img src="/images/products/tubos_colorimetricos/Uniphos-Tubes-2.jpg" alt="Miniatura 2" />
-          </button>
-          <button class="thumb-btn" data-src="/images/products/tubos_colorimetricos/Uniphos-Tubes-3.jpg" aria-label="Ver imagem 3">
-            <img src="/images/products/tubos_colorimetricos/Uniphos-Tubes-3.jpg" alt="Miniatura 3" />
-          </button>
-          <button class="thumb-btn" data-src="/images/products/tubos_colorimetricos/Uniphos-Tubes-4.jpg" aria-label="Ver imagem 4">
-            <img src="/images/products/tubos_colorimetricos/Uniphos-Tubes-4.jpg" alt="Miniatura 4" />
-          </button>
-          <button class="thumb-btn" data-src="/images/products/tubos_colorimetricos/Uniphos-Tubes-5.jpg" aria-label="Ver imagem 5">
-            <img src="/images/products/tubos_colorimetricos/Uniphos-Tubes-5.jpg" alt="Miniatura 5" />
-          </button>
-          <button class="thumb-btn" data-src="/images/products/produto-tubo-colorimetrico-uniphos.webp" aria-label="Ver imagem 6">
-            <img src="/images/products/produto-tubo-colorimetrico-uniphos.webp" alt="Miniatura 6" />
-          </button>
+      <div class="product-gallery reveal">
+        <div class="carousel-container">
+          <div class="carousel-wrapper" id="carousel-tubo-colorimetrico">
+            <img src="/images/products/tubos_colorimetricos/Uniphos-Tubes-1.jpg" alt="Tubo Colorimétrico Uniphos" class="carousel-slide" />
+            <img src="/images/products/tubos_colorimetricos/Uniphos-Tubes-2.jpg" alt="Tubo Colorimétrico Uniphos" class="carousel-slide" />
+            <img src="/images/products/tubos_colorimetricos/Uniphos-Tubes-3.jpg" alt="Tubo Colorimétrico Uniphos" class="carousel-slide" />
+            <img src="/images/products/tubos_colorimetricos/Uniphos-Tubes-4.jpg" alt="Tubo Colorimétrico Uniphos" class="carousel-slide" />
+            <img src="/images/products/tubos_colorimetricos/Uniphos-Tubes-5.jpg" alt="Tubo Colorimétrico Uniphos" class="carousel-slide" />
+            <img src="/images/products/produto-tubo-colorimetrico-uniphos.webp" alt="Tubo Colorimétrico Uniphos" class="carousel-slide" />
+          </div>
+          <button class="carousel-btn prev-btn" data-target="carousel-tubo-colorimetrico">❮</button>
+          <button class="carousel-btn next-btn" data-target="carousel-tubo-colorimetrico">❯</button>
         </div>
       </div>
       <div class="product-info reveal">
@@ -40,14 +32,15 @@ import '../../../styles/products.css';
           <p class="product-description" style="margin-bottom: 0;">Durante o processo, a amostra de ar é aspirada pelo tubo, que contém um reagente específico para cada substância. Ao entrar em contato com o gás, esse reagente provoca uma mudança de cor, permitindo que a concentração seja lida diretamente na escala impressa no próprio tubo.</p>
           <p class="product-description" style="margin-bottom: 0;">Por serem pré-calibrados, os tubos Uniphos não exigem calibração adicional e são livres de manutenção, oferecendo uma solução simples, segura e eficiente para análises pontuais de substâncias químicas em amostras gasosas.</p>
           <p class="product-description" style="margin-bottom: 0;">Além da linha Uniphos, a 4Safety também trabalha com tubos colorimétricos da marca KwikDraw, ampliando as opções para diferentes necessidades de monitoramento, aplicações técnicas e faixas de concentração.</p>
-          <p class="product-description" style="margin-bottom: 0;">A linha conta com mais de 250 tubos detectores, desenvolvidos para mais de 150 produtos químicos e diferentes faixas de concentração.</p>        </div>
+          <p class="product-description" style="margin-bottom: 0;">A linha conta com mais de 250 tubos detectores, desenvolvidos para mais de 150 produtos químicos e diferentes faixas de concentração.</p>
+        </div>
         <div class="product-meta">
           <span class="meta-badge">UNIPHOS</span>
           <span class="meta-badge">Gases Tóxicos</span>
           <span class="meta-badge">NR-33</span>
         </div>
         <div class="product-actions">
-          <button class="btn-add-cart btn-primary" data-cart-add data-product-name="Tubo Colorimétrico Uniphos" data-product-img="/images/products/produto-tubo-colorimetrico-uniphos.webp">
+          <button class="btn-add-cart btn-primary" data-cart-add data-product-name="Tubo Colorimétrico Uniphos" data-product-img="/images/products/produto-tubo-colorimetrico-uniphos.webp" data-product-slug="deteccao-de-gas/tubo-colorimetrico" style="width: 100%;">
              Solicitar mais informações
           </button>
         </div>
@@ -132,12 +125,12 @@ import '../../../styles/products.css';
           <div class="related-grid">
             <a class="related-card" href="/produtos/mascaras-respiradores">
               <div class="related-card-media">
-                <img src="/images/products/produto-protecao-respiratoria.webp" alt="Proteção Respiratória" />
+                <img src="/images/products/mascaras_respiradores/10.webp" alt="Proteção Respiratória" />
               </div>
               <div class="related-card-copy">
                 <span class="related-card-tag">Segurança Pulmonar — NR-6</span>
                 <h3>Proteção Respiratória</h3>
-                <p>Representamos alguns tipos de máscaras respiratórias.A disponibilidade e a indicação da linha ideal são confirmadas sobconsulta técnica.</p>
+                <p>Representamos alguns tipos de máscaras respiratórias. A disponibilidade e a indicação da linha ideal são confirmadas sob consulta técnica.</p>
               </div>
             </a>
           </div>
@@ -149,7 +142,7 @@ import '../../../styles/products.css';
   <!-- Script do Carrinho -->
   <script is:inline src="/js/cart.js"></script>
 
-  <!-- Script de Reveal -->
+  <!-- Script de Reveal & Carousel -->
   <script>
     document.addEventListener('astro:page-load', () => {
       const reveals = document.querySelectorAll(".reveal");
@@ -166,22 +159,83 @@ import '../../../styles/products.css';
       
       reveals.forEach(el => observer.observe(el));
 
-      // Thumbnail gallery logic
-      const mainImg = document.getElementById('main-product-image');
-      const thumbs = document.querySelectorAll('.thumb-btn');
-      if (mainImg && thumbs.length > 0) {
-        thumbs.forEach(btn => {
-          btn.addEventListener('click', () => {
-            const src = btn.getAttribute('data-src');
-            if (src) {
-              mainImg.setAttribute('src', src);
-            }
-            thumbs.forEach(t => t.classList.remove('active'));
-            btn.classList.add('active');
-          });
+      // Carousel logic
+      const prevBtns = document.querySelectorAll('.prev-btn');
+      const nextBtns = document.querySelectorAll('.next-btn');
+      
+      prevBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const targetId = btn.getAttribute('data-target');
+          if (targetId) {
+            const c = document.getElementById(targetId);
+            if(c) c.scrollBy({ left: -c.clientWidth, behavior: 'smooth' });
+          }
         });
-      }
+      });
+      
+      nextBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const targetId = btn.getAttribute('data-target');
+          if (targetId) {
+            const c = document.getElementById(targetId);
+            if(c) c.scrollBy({ left: c.clientWidth, behavior: 'smooth' });
+          }
+        });
+      });
     });
   </script>
+
+  <style>
+  .carousel-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+  .carousel-wrapper {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    height: 100%;
+    scrollbar-width: none;
+  }
+  .carousel-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+  .carousel-slide {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+    scroll-snap-align: start;
+    object-fit: cover;
+  }
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 10;
+    transition: background 0.3s, color 0.3s;
+  }
+  .carousel-btn.prev-btn {
+    left: 10px;
+  }
+  .carousel-btn.next-btn {
+    right: 10px;
+  }
+  </style>
 
 </Layout>
