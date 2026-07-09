@@ -8,11 +8,11 @@
   <div class="hero-brand-lines" aria-hidden="true"></div>
   <div class="hero-placeholder" id="hero-slider">
     <img
-      src="/images/hero/SLIDER_01.png"
-      alt="Profissional com EPI em ambiente industrial"
-      data-title="<strong>Somos a 4SAFETY</strong>"
-      data-sub="Proteção e Performance e profissional."
-      data-link="/produtos"
+      src="/images/hero/TUBOS_COLORI.png"
+      alt="Distribuidor autorizado UNIPHOS & Tubos KwikDraw"
+      data-title="Distribuidor autorizado <strong>UNIPHOS & Tubos KwikDraw</strong>"
+      data-sub="Medição pontual, prática e confiável para diferentes gases e vapores."
+      data-link="/produtos/deteccao-de-gas/tubo-colorimetrico"
       class="active"
     />
     <img
@@ -23,25 +23,26 @@
       data-link="/produtos?filter=fumigacao"
     />
     <img
+      src="/images/hero/SLIDER_01.png"
+      alt="Profissional com EPI em ambiente industrial"
+      data-title="<strong>Somos a 4SAFETY</strong>"
+      data-sub="Proteção e Performance e profissional."
+      data-link="/produtos"
+    />
+    <img
       src="/images/hero/SLIDER_03.png"
       alt="Profissional com respirador e capacete"
       data-title="<strong>Equipamentos para riscos operacionais reais</strong>"
       data-sub="Catálogo técnico com documentação confirmada conforme aplicação."
-      data-link="/produtos"
-    />
-    <img
-      src="/images/hero/TUBOS_COLORI.png"
-      alt="Distribuidor autorizado UNIPHOS & Tubos KwikDraw"
-      data-title="Distribuidor autorizado <strong>UNIPHOS & Tubos KwikDraw</strong>"
-      data-sub="Medição pontual, prática e confiável para diferentes gases e vapores."
-      data-link="/produtos/deteccao-de-gas/tubo-colorimetrico"
+      data-link="/produtos/mascaras-respiradores"
+      data-btn="Saiba mais"
     />
   </div>
   <div class="hero-content">
-    <h1 class="hero-h1"><strong>Somos a 4SAFETY</strong></h1>
-    <p class="hero-sub">Proteção e Performance e profissional.</p>
+    <h1 class="hero-h1">Distribuidor autorizado <strong>UNIPHOS & Tubos KwikDraw</strong></h1>
+    <p class="hero-sub">Medição pontual, prática e confiável para diferentes gases e vapores.</p>
     <div class="hero-actions">
-      <a href="/produtos" class="btn-primary">Ver produtos</a>
+      <a href="/produtos/deteccao-de-gas/tubo-colorimetrico" class="btn-primary">Ver produtos</a>
     </div>
   </div>
   <div class="hero-arrows">
@@ -191,7 +192,10 @@
           Promise.all([titleOut.finished, subOut.finished]).then(() => {
             htmlTitleEl.innerHTML = nextTitle;
             htmlSubEl.innerHTML = nextSub;
-            if (linkEl) linkEl.href = nextLink;
+            if (linkEl) {
+              linkEl.href = nextLink;
+              linkEl.textContent = nextImage.dataset.btn || "Ver produtos";
+            }
 
             htmlTitleEl.style.opacity = "0";
             htmlSubEl.style.opacity = "0";
@@ -218,7 +222,8 @@
           const brandLines = document.querySelector(".hero-brand-lines") as HTMLElement;
           if (!brandLines) return;
           brandLines.style.transition = "opacity 0.8s ease";
-          brandLines.style.opacity = index === 0 ? "0" : "0.8";
+          const isSlider01 = images[index]?.src?.includes("SLIDER_01");
+          brandLines.style.opacity = isSlider01 ? "0" : "0.8";
         }
 
         function goTo(index: number) {
@@ -257,6 +262,7 @@
         const linkEl = document.querySelector(".hero-actions .btn-primary") as HTMLAnchorElement;
         if (linkEl) {
           linkEl.href = images[currentIndex].dataset.link || "/produtos";
+          linkEl.textContent = images[currentIndex].dataset.btn || "Ver produtos";
         }
 
         // Estado inicial das brand lines

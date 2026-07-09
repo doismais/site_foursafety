@@ -29,75 +29,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://4safety.vercel.app/produtos/capacete-focus-a</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://4safety.vercel.app/produtos/calcados</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://4safety.vercel.app/produtos/descartaveis</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://4safety.vercel.app/produtos/visual</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://4safety.vercel.app/produtos/mochilas-acessorios</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://4safety.vercel.app/produtos/lonas-sob-medida</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://4safety.vercel.app/produtos/altura</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://4safety.vercel.app/produtos/respiratorio</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://4safety.vercel.app/produtos/termica</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://4safety.vercel.app/produtos/deteccao-de-gas/bomba-deteccao</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://4safety.vercel.app/produtos/deteccao-de-gas/tubo-colorimetrico</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://4safety.vercel.app/produtos/deteccao-de-gas/detector-portatil</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://4safety.vercel.app/produtos/auditivo</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://4safety.vercel.app/produtos/manual</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://4safety.vercel.app/produtos/capacete-focus-b</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://4safety.vercel.app/produtos/fumigacao</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://4safety.vercel.app/produtos/mascaras-respiradores</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://4safety.vercel.app/produtos/monitoramento-ambiental</loc>
     <priority>0.8</priority>
   </url>
   <url>
@@ -105,11 +37,75 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://4safety.vercel.app/produtos/lonas-sob-medida</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://4safety.vercel.app/produtos/detectores-de-gas</loc>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://4safety.vercel.app/produtos/monitoramento-ambiental</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://4safety.vercel.app/produtos/mascaras-respiradores</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://4safety.vercel.app/produtos/altura</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://4safety.vercel.app/produtos/capacete-focus-a</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://4safety.vercel.app/produtos/capacete-focus-b</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://4safety.vercel.app/produtos/manual</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://4safety.vercel.app/produtos/mochilas-acessorios</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://4safety.vercel.app/produtos/descartaveis</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://4safety.vercel.app/produtos/termica</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://4safety.vercel.app/produtos/calcados</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://4safety.vercel.app/produtos/auditivo</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://4safety.vercel.app/produtos/visual</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://4safety.vercel.app/produtos/acessorios-seguranca</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://4safety.vercel.app/produtos/detectores-fixos</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://4safety.vercel.app/produtos/detectores-portateis</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://4safety.vercel.app/produtos/tubos-detectores</loc>
     <priority>0.8</priority>
   </url>
 </urlset>

@@ -1,4 +1,17 @@
+<!-- markdownlint-disable MD003 MD007 MD013 MD022 MD023 MD025 MD029 MD032 MD033 MD034 -->
+
 # Guia Técnico de Configuração e Desenvolvimento
+
+```text
+========================================
+         4SAFETY · SETUP & DEV
+========================================
+Status: ACTIVE
+Version: v1.0.5
+========================================
+```
+
+## ⟠ Objetivo
 
 Este documento descreve as especificações técnicas, requisitos de ambiente e
 procedimentos de automação para o projeto 4Safety (Astro).
@@ -96,4 +109,22 @@ set -a; source .env; set +a; git push https://doismais:${GITHUB_TOKEN}@github.co
 git add .
 git commit -m "fix: finaliza ajustes finos do PDF, converte banner para png e atualiza textos"
 set -a; source .env; set +a; git push https://doismais:${GITHUB_TOKEN}@github.com/doismais/site_foursafety.git main
+```
+
+────────────────────────────────────────
+
+## ◬ Assinatura
+
+```text
+▓▓▓ NΞØ MELLØ
+────────────────────────────────────────
+Core Architect · NΞØ Protocol
+neo@neoprotocol.space
+
+"Code is law. Expand until
+chaos becomes protocol."
+
+Security by design.
+Exploits find no refuge here.
+────────────────────────────────────────
 ```

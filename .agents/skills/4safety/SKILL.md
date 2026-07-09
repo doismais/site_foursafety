@@ -11,7 +11,7 @@ description: Regras de operação, rotina e limites técnicos para atuar no repo
          4SAFETY · SKILL
 ========================================
 Status: ACTIVE
-Version: v1.0.4
+Version: v1.0.5
 ========================================
 ```
 
