@@ -22,13 +22,17 @@ document.addEventListener("astro:page-load", () => {
     const btn = e.target.closest("[data-cart-add]");
     if (btn) {
       e.preventDefault();
-      
+
       const productName = btn.getAttribute("data-product-name") || "um produto";
-      
+      const productSlug = btn.getAttribute("data-product-slug");
+
       let message = `Olá *4Safety!*\n`;
       message += `Gostaria de solicitar um orçamento ou mais informações para o seguinte item:\n\n`;
       message += `• ${productName}`;
-      
+      if (productSlug) {
+        message += `\n🔗 https://4safety.com.br/produtos/${productSlug}`;
+      }
+
       const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`;
       window.open(url, "_blank");
     }
