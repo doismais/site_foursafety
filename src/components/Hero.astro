@@ -5,10 +5,11 @@
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
-  <div class="hero-placeholder" id="hero-slider">
+  <div class="hero-slider-stage" id="hero-slider">
     <img
       src="/images/hero/TUBOS_COLORI.png"
       alt="Distribuidor autorizado UNIPHOS & Tubos KwikDraw"
+      title="Distribuidor autorizado UNIPHOS & Tubos KwikDraw"
       data-title="Distribuidor autorizado <strong>UNIPHOS & Tubos KwikDraw</strong>"
       data-sub="Medição pontual, prática e confiável para diferentes gases e vapores."
       data-link="/produtos/deteccao-de-gas/tubo-colorimetrico"
@@ -17,6 +18,7 @@
     <img
       src="/images/hero/SLIDER-02.png"
       alt="Técnico com EPI em área industrial"
+      title="Técnico com EPI em área industrial"
       data-title="<strong>Equipamentos para Fumigação com Detecção Segura de Gases</strong>"
       data-sub="Detectores e medidores de gases para monitoramento, controle e segurança em operações de fumigação industrial."
       data-link="/produtos"
@@ -24,6 +26,7 @@
     <img
       src="/images/hero/SLIDER_03.png"
       alt="Profissional com respirador e capacete"
+      title="Profissional com respirador e capacete"
       data-title="<strong>Equipamentos para riscos operacionais reais</strong>"
       data-sub="Catálogo técnico com documentação confirmada conforme aplicação."
       data-link="/produtos/mascaras-respiradores"
@@ -32,6 +35,7 @@
     <img
       src="/images/hero/SLIDER_01.png"
       alt="Profissional com EPI em ambiente industrial"
+      title="Profissional com EPI em ambiente industrial"
       data-title="<strong>Somos a 4SAFETY</strong>"
       data-sub="Proteção e Performance e profissional."
       data-link="/produtos"
@@ -48,6 +52,7 @@
     <button
       class="hero-arrow hero-arrow--prev"
       aria-label="Banner anterior"
+      title="Banner anterior"
     >
       <svg
         width="20"
@@ -58,11 +63,16 @@
         stroke-width="2"
         stroke-linecap="round"
         stroke-linejoin="round"
+        aria-hidden="true"
       >
         <polyline points="15 18 9 12 15 6" />
       </svg>
     </button>
-    <button class="hero-arrow hero-arrow--next" aria-label="Próximo banner">
+    <button
+      class="hero-arrow hero-arrow--next"
+      aria-label="Próximo banner"
+      title="Próximo banner"
+    >
       <svg
         width="20"
         height="20"
@@ -72,6 +82,7 @@
         stroke-width="2"
         stroke-linecap="round"
         stroke-linejoin="round"
+        aria-hidden="true"
       >
         <polyline points="9 6 15 12 9 18" />
       </svg>
@@ -81,6 +92,7 @@
     href="#cta-atuacao"
     class="hero-scroll-down"
     aria-label="Role para baixo"
+    title="Role para baixo"
   >
     <div class="scroll-ring"></div>
     <svg
@@ -92,6 +104,7 @@
       stroke-width="2.5"
       stroke-linecap="round"
       stroke-linejoin="round"
+      aria-hidden="true"
     >
       <polyline points="6 9 12 15 18 9" />
     </svg>
@@ -188,7 +201,10 @@
             fadeOut,
           );
 
-          Promise.all([titleOut.finished, subOut.finished]).then(() => {
+          Promise.all([
+            titleOut.finished.catch(() => {}),
+            subOut.finished.catch(() => {}),
+          ]).then(() => {
             htmlTitleEl.innerHTML = nextTitle;
             htmlSubEl.innerHTML = nextSub;
             if (linkEl) {

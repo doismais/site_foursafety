@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://4safety.vercel.app/sitemap.xml
+Sitemap: https://4safety.com.br/sitemap.xml

@@ -1,5 +1,11 @@
 /**
- * 4Safety — DOIS MAIS AGENCY
+ * ========================================
+ *        4SAFETY · WHATSAPP ENGINE
+ * ========================================
+ * Architect : Neo Mello
+ * Protocol  : NΞØ Protocol (Code is Law)
+ * Agency    : Dois Mais Agency
+ * ========================================
  * Direct WhatsApp Redirect Logic (No Cart)
  * Replaces the old localStorage cart system.
  */

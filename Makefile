@@ -9,7 +9,7 @@ PNPM ?= pnpm
 
 .DEFAULT_GOAL := help
 
-.PHONY: help install dev build preview clean check safe-push
+.PHONY: help install dev build preview clean check lint verify safe-push
 
 help:
 	@echo "4Safety (Astro) — comandos disponíveis"
@@ -20,6 +20,8 @@ help:
 	@echo "make preview    # Visualiza o build de produção localmente"
 	@echo "make clean      # Limpa o cache e arquivos temporários do Astro"
 	@echo "make check      # Valida tipos TypeScript + arquivos Astro"
+	@echo "make lint       # Alias para make check"
+	@echo "make verify     # Valida tipos e gera build limpo"
 	@echo "make safe-push  # NΞØ Protocol: Audit -> Check -> Build -> Status"
 
 install:
@@ -47,6 +49,10 @@ check:
 	@echo "Verificando tipos TypeScript e arquivos Astro..."
 	@$(PNPM) run check || (echo "❌ Erros de tipo encontrados!" && exit 1)
 	@echo "✅ Verificação de tipos concluída sem erros."
+
+lint: check
+
+verify: clean check build
 
 safe-push:
 	@echo "1. Verificando vulnerabilidades..."

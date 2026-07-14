@@ -8,6 +8,15 @@ import { ClientRouter } from 'astro:transitions';
 ---
 
 <!doctype html>
+<!-- 
+  ========================================
+         4SAFETY · ASTRO ARCHITECTURE
+  ========================================
+  Architect : Neo Mello
+  Protocol  : NΞØ Protocol (Code is Law)
+  Agency    : Dois Mais Agency
+  ========================================
+-->
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
@@ -21,16 +30,17 @@ import { ClientRouter } from 'astro:transitions';
     <title>{title}</title>
     <ClientRouter />
     <meta name="description" content={description} />
-    <meta name="author" content="Dois Mais Agency" />
+    <meta name="author" content="Dev Neo Mello· Dois Mais Agency" />
+    <meta name="generator" content={Astro.generator} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://4safety.vercel.app/images/og-image.png" />
+    <meta property="og:image" content="https://4safety.com.br/images/og-image.png" />
     <meta property="og:image:alt" content={title} />
-    <meta property="og:url" content="https://4safety.vercel.app/" />
-    <link rel="canonical" href="https://4safety.vercel.app/" />
+    <meta property="og:url" content="https://4safety.com.br/" />
+    <link rel="canonical" href="https://4safety.com.br/" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="https://4safety.vercel.app/images/og-image.webp" />
+    <meta name="twitter:image" content="https://4safety.com.br/images/og-image.webp" />
     
     <!-- Preconnect para Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -49,7 +59,7 @@ import { ClientRouter } from 'astro:transitions';
       }
     </script>
 
-    <!-- Google Tag Manager (Slot) -->
+    <!-- Google Tag Manager (Slot - Desativado até obter ID real)
     <script is:inline>
       (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
       new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -57,6 +67,7 @@ import { ClientRouter } from 'astro:transitions';
       'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
       })(window,document,'script','dataLayer','GTM-XXXXXX'); // <-- Substitua pelo ID real
     </script>
+    -->
 
     <!-- Service Worker Registration -->
     <script is:inline>
@@ -89,8 +100,8 @@ import { ClientRouter } from 'astro:transitions';
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "4Safety",
-        "url": "https://4safety.vercel.app/",
-        "logo": "https://4safety.vercel.app/images/brand/Logo_4Safety-01.webp",
+        "url": "https://4safety.com.br/",
+        "logo": "https://4safety.com.br/images/brand/Logo_4Safety-01.webp",
         "email": "4safety@4safety.com.br",
         "address": {
           "@type": "PostalAddress",
@@ -135,10 +146,10 @@ import { ClientRouter } from 'astro:transitions';
     </noscript>
   </head>
   <body>
-    <!-- Google Tag Manager (noscript) -->
+    <!-- Google Tag Manager (noscript - Desativado até obter ID real)
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXX"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+    -->
     <Nav />
     <slot />
     <Footer />
