@@ -1,6 +1,7 @@
 ---
 // Layout.astro
 const { title = "PROTEÇÃO, DETECÇÃO E PERFORMANCE", description = "Somos especialistas em manter a sua operação segura." } = Astro.props;
+const gtagId = import.meta.env.PUBLIC_GTAG_ID;
 import '../styles/global.css';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
@@ -60,14 +61,18 @@ import { ClientRouter } from 'astro:transitions';
     </script>
 
     <!-- Google tag (gtag.js) -->
-    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-X710FKT6LQ"></script>
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+    {gtagId && (
+      <>
+        <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${gtagId}`}></script>
+        <script is:inline define:vars={{ gtagId }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
 
-      gtag('config', 'G-X710FKT6LQ');
-    </script>
+          gtag('config', gtag);
+        </script>
+      </>
+    )}
 
     <!-- Service Worker Registration -->
     <script is:inline>
