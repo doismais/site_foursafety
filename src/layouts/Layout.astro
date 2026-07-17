@@ -59,15 +59,15 @@ import { ClientRouter } from 'astro:transitions';
       }
     </script>
 
-    <!-- Google Tag Manager (Slot - Desativado até obter ID real)
+    <!-- Google tag (gtag.js) -->
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-X710FKT6LQ"></script>
     <script is:inline>
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-XXXXXX'); // <-- Substitua pelo ID real
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-X710FKT6LQ');
     </script>
-    -->
 
     <!-- Service Worker Registration -->
     <script is:inline>
@@ -146,10 +146,7 @@ import { ClientRouter } from 'astro:transitions';
     </noscript>
   </head>
   <body>
-    <!-- Google Tag Manager (noscript - Desativado até obter ID real)
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXX"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    -->
+
     <Nav />
     <slot />
     <Footer />
