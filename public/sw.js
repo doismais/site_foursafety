@@ -1,8 +1,8 @@
 const CACHE_NAME = "4safety-cache-v2";
 const urlsToCache = [
   "/",
-  "/index.html",
   "/favicon.ico",
+  "/favicon.svg",
   "/images/site.webmanifest",
 ];
 

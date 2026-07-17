@@ -12,20 +12,20 @@ import '../../styles/products.css';
     <div class="product-grid">
       <div class="product-gallery-wrapper reveal">
         <div class="product-gallery">
-          <img id="main-product-image" src="/images/products/produto-equipamentos-altura.webp" alt="Equipamentos para Altura" />
+          <img id="main-product-image" src="/images/products/produto-equipamentos-altura.webp" alt="Equipamentos para Altura" loading="lazy" />
         </div>
         <div class="product-thumbnails">
           <button class="thumb-btn active" data-src="/images/products/produto-equipamentos-altura.webp" aria-label="Ver imagem 1">
-            <img src="/images/products/produto-equipamentos-altura.webp" alt="Miniatura Altura" />
+            <img src="/images/products/produto-equipamentos-altura.webp" alt="Miniatura Altura" loading="lazy" />
           </button>
           <button class="thumb-btn" data-src="/images/products/cinturoes/cinturoes.webp" aria-label="Ver imagem 2">
-            <img src="/images/products/cinturoes/cinturoes.webp" alt="Miniatura Cinturões" />
+            <img src="/images/products/cinturoes/cinturoes.webp" alt="Miniatura Cinturões" loading="lazy" />
           </button>
           <button class="thumb-btn" data-src="/images/products/talabartes.webp" aria-label="Ver imagem 3">
-            <img src="/images/products/talabartes.webp" alt="Miniatura Talabartes" />
+            <img src="/images/products/talabartes.webp" alt="Miniatura Talabartes" loading="lazy" />
           </button>
           <button class="thumb-btn" data-src="/images/products/trava-quedas.webp" aria-label="Ver imagem 4">
-            <img src="/images/products/trava-quedas.webp" alt="Miniatura Trava-Quedas" />
+            <img src="/images/products/trava-quedas.webp" alt="Miniatura Trava-Quedas" loading="lazy" />
           </button>
         </div>
       </div>
@@ -61,7 +61,7 @@ import '../../styles/products.css';
           <div class="related-grid">
             <a class="related-card" href="/produtos/calcados">
               <div class="related-card-media">
-                <img src="/images/products/produto-botas-calzados.webp" alt="Botas e Calçados" />
+                <img src="/images/products/produto-botas-calzados.webp" alt="Botas e Calçados" loading="lazy" />
               </div>
               <div class="related-card-copy">
                 <span class="related-card-tag">Proteção dos Pés — NR-6</span>
@@ -71,7 +71,7 @@ import '../../styles/products.css';
             </a>
             <a class="related-card" href="/produtos/mascaras-respiradores">
               <div class="related-card-media">
-                <img src="/images/products/produto-protecao-respiratoria.webp" alt="Proteção Respiratória" />
+                <img src="/images/products/produto-protecao-respiratoria.webp" alt="Proteção Respiratória" loading="lazy" />
               </div>
               <div class="related-card-copy">
                 <span class="related-card-tag">Segurança Pulmonar — NR-6</span>
@@ -86,7 +86,7 @@ import '../../styles/products.css';
   </main>
 
   <!-- Script do Carrinho -->
-  <script is:inline src="/js/cart.js"></script>
+  <script is:inline src="/js/cart.js" defer></script>
 
   <!-- Script de Reveal & Galeria -->
   <script>

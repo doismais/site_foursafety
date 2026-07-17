@@ -7,7 +7,7 @@
        4SAFETY · AGENTS REGISTRY
 ========================================
 Status: ACTIVE
-Version: v1.0.5
+Version: v1.0.6
 ========================================
 ```
 
@@ -39,6 +39,9 @@ Leia este arquivo antes de qualquer ação no repositório.
 4. **Protocolo Git NΞØ.**
    Antes de commitar, execute validações e builds locais.
    Não faça push se houver erros de build.
+
+5. **Uso de Imagens (Astro `<Image />` vs `<img>`).**
+   Imagens armazenadas na pasta `public/` (ex: `/images/products/...`) devem continuar usando a tag HTML padrão `<img>`. Não tente migrá-las para o componente `<Image />` do Astro (`astro:assets`) mantendo caminhos relativos de string, pois isso causará o erro de build `MissingImageDimension`. Apenas use `<Image />` se as imagens forem movidas para a pasta `src/` (ex: `src/assets/`) e importadas no frontmatter.
 
 ────────────────────────────────────────
 

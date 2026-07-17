@@ -6,6 +6,9 @@ import '../styles/global.css';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import { ClientRouter } from 'astro:transitions';
+
+// Injeção ativa de URL Canônica purificada conforme o Padrão Canônico de SEO // NEØ PROTOCOL
+const canonicalURL = new URL(Astro.url.pathname, 'https://4safety.com.br');
 ---
 
 <!doctype html>
@@ -28,6 +31,7 @@ import { ClientRouter } from 'astro:transitions';
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="manifest" href="/images/site.webmanifest" />
+    <link rel="preload" href="/images/brand/Logo_4Safety-01.webp" as="image" fetchpriority="high" />
     <title>{title}</title>
     <ClientRouter />
     <meta name="description" content={description} />
@@ -38,8 +42,8 @@ import { ClientRouter } from 'astro:transitions';
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://4safety.com.br/images/og-image.png" />
     <meta property="og:image:alt" content={title} />
-    <meta property="og:url" content="https://4safety.com.br/" />
-    <link rel="canonical" href="https://4safety.com.br/" />
+    <meta property="og:url" content={canonicalURL} />
+    <link rel="canonical" href={canonicalURL} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content="https://4safety.com.br/images/og-image.webp" />
     
@@ -138,17 +142,9 @@ import { ClientRouter } from 'astro:transitions';
     </script>
     
     <link
-      rel="preload"
-      as="style"
+      rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&family=Source+Sans+3:wght@400;500;600;700;800&display=swap"
-      onload="this.removeAttribute('onload'); this.setAttribute('rel', 'stylesheet');"
     />
-    <noscript>
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&family=Source+Sans+3:wght@400;500;600;700;800&display=swap"
-      />
-    </noscript>
   </head>
   <body>
 

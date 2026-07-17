@@ -7,10 +7,8 @@ import Layout from '../layouts/Layout.astro';
   <!-- HERO BANNER -->
   <section class="hero">
     <div class="hero-visual">
-      <img
-        src="/images/0006.webp"
-        alt="Equipe técnica em ambiente industrial"
-      />
+      <img src="/images/0006.webp"
+        alt="Equipe técnica em ambiente industrial" loading="lazy" />
       <div class="hero-overlay">
         <p class="hero-title-line">Alta performance em proteção profissional.</p>
         <p class="hero-sub-line">Equipamentos certificados para garantir a segurança onde o risco não permite falhas.</p>
@@ -46,18 +44,18 @@ import Layout from '../layouts/Layout.astro';
     <!-- 1 - Tubo Colorimétrico -->
     <div class="produto-card reveal" data-cat="gas">
       <a href="/produtos/deteccao-de-gas/tubo-colorimetrico" class="produto-card-link">
-        <img class="produto-img" src="/images/products/produto-tubo-colorimetrico-uniphos.webp" alt="Tubo Colorimétrico Uniphos" title="Tubo Colorimétrico Uniphos" loading="lazy" />
+        <img class="produto-img" src="/images/products/produto-tubo-colorimetrico-uniphos.webp" alt="Tubos colorimétricos UNIPHOS & Tubos KwikDraw" title="Tubos colorimétricos UNIPHOS & Tubos KwikDraw" loading="lazy"   />
         <div class="produto-badges"><span class="badge-norma">NR-33 / NR-15</span></div>
-        <h3 class="produto-headline">Tubo Colorimétrico Uniphos</h3>
+        <h3 class="produto-headline">Tubos colorimétricos <span style="display: block; font-size: 0.8em; font-weight: 700; color: var(--g700); margin-top: 0.25rem;">Uniphos & KwikDraw</span></h3>
         <p class="produto-body">Análise quantitativa de atmosfera — detecção de gases tóxicos e explosivos em campo.</p>
       </a>
-      <button class="produto-cta" data-cart-add data-product-name="Tubo Colorimétrico Uniphos" data-product-img="/images/products/detectores_gas/3.webp" data-product-slug="tubo-colorimetrico">Solicitar mais informações</button>
+      <button class="produto-cta" data-cart-add data-product-name="Tubo Colorimétrico | Uniphos & KwikDraw" data-product-img="/images/products/produto-tubo-colorimetrico-uniphos.webp" data-product-slug="deteccao-de-gas/tubo-colorimetrico">Solicitar mais informações</button>
     </div>
 
     <!-- 2 - Equipamentos para Monitoramento de Fumigação -->
     <div class="produto-card reveal" data-cat="fumigacao">
       <a href="/produtos/monitoramento-fumigacao" class="produto-card-link">
-        <img class="produto-img" src="/images/products/fumigantes/4.webp" alt="Equipamentos para Monitoramento de Fumigação" title="Equipamentos para Monitoramento de Fumigação" loading="lazy" />
+        <img class="produto-img" src="/images/products/fumigantes/4.webp" alt="Equipamentos para Monitoramento de Fumigação" title="Equipamentos para Monitoramento de Fumigação" loading="lazy"   />
         <div class="produto-badges"><span class="badge-norma">Fumigação</span></div>
         <h3 class="produto-headline">Equipamentos para Monitoramento de Fumigação</h3>
         <p class="produto-body">Soluções específicas para detecção, verificação de vazamentos e monitoramento contínuo em operações de fumigação.</p>
@@ -68,7 +66,7 @@ import Layout from '../layouts/Layout.astro';
     <!-- 3 - Lona de Fumigação -->
     <div class="produto-card reveal" data-cat="fumigacao">
       <a href="/produtos/lonas-sob-medida" class="produto-card-link">
-        <img class="produto-img" src="/images/products/lonas_fumigacao/18.webp" alt="Lonas de Fumigação Sob Medida" title="Lonas de Fumigação Sob Medida" loading="lazy" />
+        <img class="produto-img" src="/images/products/lonas_fumigacao/18.webp" alt="Lonas de Fumigação Sob Medida" title="Lonas de Fumigação Sob Medida" loading="lazy"   />
         <div class="produto-badges"><span class="badge-norma">Fumigação</span></div>
         <h3 class="produto-headline">Lonas de Fumigação Sob Medida</h3>
         <p class="produto-body">Lonas personalizadas, resistentes e funcionais, para melhor vedação em processos de fumigação.</p>
@@ -79,7 +77,7 @@ import Layout from '../layouts/Layout.astro';
     <!-- 4 - Detectores de Gás -->
     <div class="produto-card reveal" data-cat="gas">
       <a href="/produtos/detectores-de-gas" class="produto-card-link">
-        <img class="produto-img" src="/images/products/detectores_gas/1.webp" alt="Detectores de Gás" title="Detectores de Gás" loading="lazy" />
+        <img class="produto-img" src="/images/products/detectores_gas/1.webp" alt="Detectores de Gás" title="Detectores de Gás" loading="lazy"   />
         <div class="produto-badges"><span class="badge-norma">Segurança</span></div>
         <h3 class="produto-headline">Detectores de Gás</h3>
         <p class="produto-body">Soluções para medição pontual, monitoramento portátil e controle contínuo.</p>
@@ -90,7 +88,7 @@ import Layout from '../layouts/Layout.astro';
     <!-- 5 - Equipamentos para Monitoramento Ambiental -->
     <div class="produto-card reveal" data-cat="outros">
       <a href="/produtos/monitoramento-ambiental" class="produto-card-link">
-        <img class="produto-img" src="/images/products/monitoramento/5.webp" alt="Equipamentos para Monitoramento Ambiental" title="Equipamentos para Monitoramento Ambiental" loading="lazy" />
+        <img class="produto-img" src="/images/products/monitoramento/5.webp" alt="Equipamentos para Monitoramento Ambiental" title="Equipamentos para Monitoramento Ambiental" loading="lazy"   />
         <div class="produto-badges"><span class="badge-norma">Ambiental</span></div>
         <h3 class="produto-headline">Equipamentos para Monitoramento Ambiental</h3>
         <p class="produto-body">Sistemas para medições em chaminés, análise da qualidade do ar e monitoramento de efluentes.</p>
@@ -102,7 +100,7 @@ import Layout from '../layouts/Layout.astro';
     <!-- Máscaras e Respiradores -->
     <div class="produto-card reveal" data-cat="respiratorio">
       <a href="/produtos/mascaras-respiradores" class="produto-card-link">
-        <img class="produto-img" src="/images/products/mascaras_respiradores/10.webp" alt="Máscaras e Respiradores de Proteção" title="Máscaras e Respiradores de Proteção" loading="lazy" />
+        <img class="produto-img" src="/images/products/mascaras_respiradores/10.webp" alt="Máscaras e Respiradores de Proteção" title="Máscaras e Respiradores de Proteção" loading="lazy"   />
         <div class="produto-badges"><span class="badge-norma">Respiratória</span></div>
         <h3 class="produto-headline">Máscaras e Respiradores de Proteção</h3>
         <p class="produto-body">Linha completa de máscaras e respiradores descartáveis e reutilizáveis, PFF2, semifaciais e faciais inteiras.</p>
@@ -113,7 +111,7 @@ import Layout from '../layouts/Layout.astro';
     <!-- 7 - Trabalho em Altura -->
     <div class="produto-card reveal" data-cat="altura">
       <a href="/produtos/altura" class="produto-card-link">
-        <img class="produto-img" src="/images/products/produto-equipamentos-altura.webp" alt="Trabalho em Altura" title="Trabalho em Altura" loading="lazy" />
+        <img class="produto-img" src="/images/products/produto-equipamentos-altura.webp" alt="Trabalho em Altura" title="Trabalho em Altura" loading="lazy"   />
         <div class="produto-badges"><span class="badge-norma">NR-35</span></div>
         <h3 class="produto-headline">Trabalho em Altura</h3>
         <p class="produto-body">Trava-quedas, cinturões paraquedistas e sistemas de ancoragem com documentação sob consulta.</p>
@@ -124,7 +122,7 @@ import Layout from '../layouts/Layout.astro';
     <!-- 8 - Capacete Focus A -->
     <div class="produto-card reveal" data-cat="altura">
       <a href="/produtos/capacete-focus-a" class="produto-card-link">
-        <img class="produto-img" src="/images/products/capacete_focus_a/capacete_focus_a.webp" alt="Capacete Focus A" title="Capacete Focus A" loading="lazy" />
+        <img class="produto-img" src="/images/products/capacete_focus_a/capacete_focus_a.webp" alt="Capacete Focus A" title="Capacete Focus A" loading="lazy"   />
         <div class="produto-badges"><span class="badge-norma">CA 14.816</span></div>
         <h3 class="produto-headline">Capacete Focus A</h3>
         <p class="produto-body">Ideal para esportes técnicos, escalada e resgate. ABS com tratamento UV.</p>
@@ -135,7 +133,7 @@ import Layout from '../layouts/Layout.astro';
     <!-- 9 - Capacete Focus B -->
     <div class="produto-card reveal" data-cat="altura">
       <a href="/produtos/capacete-focus-b" class="produto-card-link">
-        <img class="produto-img" src="/images/products/capacete_focus_a/capacete_focus_a2.webp" alt="Capacete Focus B" title="Capacete Focus B" loading="lazy" />
+        <img class="produto-img" src="/images/products/capacete_focus_a/capacete_focus_a2.webp" alt="Capacete Focus B" title="Capacete Focus B" loading="lazy"   />
         <div class="produto-badges"><span class="badge-norma">CA 17.098</span></div>
         <h3 class="produto-headline">Capacete Focus B</h3>
         <p class="produto-body">Indicado para trabalhos com energia elétrica e também para atividades como escalada, resgate, alpinismo e espeleologia.</p>
@@ -146,7 +144,7 @@ import Layout from '../layouts/Layout.astro';
     <!-- 10 - Luvas de Proteção -->
     <div class="produto-card reveal" data-cat="outros">
       <a href="/produtos/manual" class="produto-card-link">
-        <img class="produto-img" src="/images/products/produto-luvas-protecao.webp" alt="Luvas de Proteção" title="Luvas de Proteção" loading="lazy" />
+        <img class="produto-img" src="/images/products/produto-luvas-protecao.webp" alt="Luvas de Proteção" title="Luvas de Proteção" loading="lazy"   />
         <div class="produto-badges"><span class="badge-norma">NR-6</span></div>
         <h3 class="produto-headline">Luvas de Proteção</h3>
         <p class="produto-body">Proteção para riscos mecânicos, químicos, térmicos e elétricos.</p>
@@ -157,7 +155,7 @@ import Layout from '../layouts/Layout.astro';
     <!-- 11 - Mochilas & Acessórios -->
     <div class="produto-card reveal" data-cat="outros">
       <a href="/produtos/mochilas-acessorios" class="produto-card-link">
-        <img class="produto-img" src="/images/products/mochilas_acessorios.webp" alt="Mochilas e Acessórios" title="Mochilas e Acessórios" loading="lazy" />
+        <img class="produto-img" src="/images/products/mochilas_acessorios.webp" alt="Mochilas e Acessórios" title="Mochilas e Acessórios" loading="lazy"   />
         <div class="produto-badges"><span class="badge-norma">Acessórios</span></div>
         <h3 class="produto-headline">Mochilas e Acessórios</h3>
         <p class="produto-body">Mochilas para cordas, modelos impermeáveis Wind e Kit 160. Organização e praticidade.</p>
@@ -168,7 +166,7 @@ import Layout from '../layouts/Layout.astro';
     <!-- 12 - Descartáveis -->
     <div class="produto-card reveal" data-cat="outros">
       <a href="/produtos/descartaveis" class="produto-card-link">
-        <img class="produto-img" src="/images/products/produto-descartaveis.webp" alt="Descartáveis" title="Descartáveis" loading="lazy" />
+        <img class="produto-img" src="/images/products/produto-descartaveis.webp" alt="Descartáveis" title="Descartáveis" loading="lazy"   />
         <div class="produto-badges"><span class="badge-norma">NR-6</span></div>
         <h3 class="produto-headline">Descartáveis</h3>
         <p class="produto-body">Macacões Tyvek, toucas, protetores de calçado e kits para contaminantes.</p>
@@ -179,7 +177,7 @@ import Layout from '../layouts/Layout.astro';
     <!-- 13 - Proteção Térmica -->
     <div class="produto-card reveal" data-cat="outros">
       <a href="/produtos/termica" class="produto-card-link">
-        <img class="produto-img" src="/images/products/produto-protecao-termica.webp" alt="Proteção Térmica" title="Proteção Térmica" loading="lazy" />
+        <img class="produto-img" src="/images/products/produto-protecao-termica.webp" alt="Proteção Térmica" title="Proteção Térmica" loading="lazy"   />
         <div class="produto-badges"><span class="badge-norma">NR-6 / NR-15</span></div>
         <h3 class="produto-headline">Proteção Térmica</h3>
         <p class="produto-body">Luvas, aventais e roupas aluminizadas para exposição a calor intenso.</p>
@@ -190,7 +188,7 @@ import Layout from '../layouts/Layout.astro';
     <!-- 14 - Botas e Calçados -->
     <div class="produto-card reveal" data-cat="outros">
       <a href="/produtos/calcados" class="produto-card-link">
-        <img class="produto-img" src="/images/products/produto-botas-calzados.webp" alt="Botas e Calçados" title="Botas e Calçados" loading="lazy" />
+        <img class="produto-img" src="/images/products/produto-botas-calzados.webp" alt="Botas e Calçados" title="Botas e Calçados" loading="lazy"   />
         <div class="produto-badges"><span class="badge-norma">NR-6</span></div>
         <h3 class="produto-headline">Botas e Calçados</h3>
         <p class="produto-body">Calçados de segurança com bico de aço, antiderrapante e resistência química.</p>
@@ -201,7 +199,7 @@ import Layout from '../layouts/Layout.astro';
     <!-- 15 - Protetor Auditivo -->
     <div class="produto-card reveal" data-cat="auditivo">
       <a href="/produtos/auditivo" class="produto-card-link">
-        <img class="produto-img" src="/images/products/produto-protetor-auditivo.webp" alt="Protetor Auditivo" title="Protetor Auditivo" loading="lazy" />
+        <img class="produto-img" src="/images/products/produto-protetor-auditivo.webp" alt="Protetor Auditivo" title="Protetor Auditivo" loading="lazy"   />
         <div class="produto-badges"><span class="badge-norma">NR-15 / NR-6</span></div>
         <h3 class="produto-headline">Protetor Auditivo</h3>
         <p class="produto-body">Protetores tipo concha e plug selecionados conforme exposição ocupacional.</p>
@@ -212,7 +210,7 @@ import Layout from '../layouts/Layout.astro';
     <!-- 16 - Óculos de Proteção -->
     <div class="produto-card reveal" data-cat="outros">
       <a href="/produtos/visual" class="produto-card-link">
-        <img class="produto-img" src="/images/products/produto-oculos-protecao.webp" alt="Óculos de Proteção" title="Óculos de Proteção" loading="lazy" />
+        <img class="produto-img" src="/images/products/produto-oculos-protecao.webp" alt="Óculos de Proteção" title="Óculos de Proteção" loading="lazy"   />
         <div class="produto-badges"><span class="badge-norma">NR-6</span></div>
         <h3 class="produto-headline">Óculos de Proteção</h3>
         <p class="produto-body">Proteção ocular contra impacto, radiação UV e respingos químicos.</p>
@@ -226,7 +224,7 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
   <!-- Script do Carrinho -->
-  <script is:inline src="/js/cart.js"></script>
+  <script is:inline src="/js/cart.js" defer></script>
 
   <!-- Script de Filtro e Reveal -->
   <script>
