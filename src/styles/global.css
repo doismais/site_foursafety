@@ -2053,6 +2053,11 @@ footer::before {
   gap: 1rem;
   flex-wrap: wrap;
 }
+.footer-bottom-row--legal {
+  justify-content: flex-start;
+  padding-top: 0.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
 .footer-copyright {
   font-size: 0.72rem;
   color: rgba(255, 255, 255, 0.7);
@@ -2074,7 +2079,7 @@ footer::before {
 }
 .footer-legal-links a {
   font-size: 0.72rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.922);
   font-family: var(--font-mono);
   letter-spacing: 0.04em;
   text-decoration: none;
@@ -2109,8 +2114,12 @@ footer::before {
   color: rgba(255, 255, 255, 0.6);
 }
 .footer-legal {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  flex-wrap: wrap;
   font-size: 0.72rem;
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.5);
   font-family: var(--font-mono);
   line-height: 1.65;
   letter-spacing: 0.02em;
@@ -2132,8 +2141,9 @@ footer::before {
   color: rgba(255, 0, 0, 0.55);
 }
 .footer-legal a {
-  color: inherit;
+  color: rgba(255, 255, 255, 0.92);
   text-decoration: none;
+  transition: color 0.2s;
 }
 .footer-legal a:hover {
   color: rgba(255, 255, 255, 1);
