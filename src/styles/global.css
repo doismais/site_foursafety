@@ -1698,8 +1698,9 @@ section {
 }
 .form-label {
   font-family: var(--font-mono);
-  font-size: 0.6rem;
-  color: var(--g400);
+  font-size: 0.65rem;
+  color: var(--white);
+  font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   display: block;
@@ -1870,7 +1871,7 @@ footer::before {
   font-weight: 800;
   line-height: 1.08;
   letter-spacing: -0.02em;
-  margin-bottom: 0.6rem;
+  margin-bottom: 2rem;
 }
 .footer-form-sub {
   font-size: 0.92rem;

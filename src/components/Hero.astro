@@ -18,14 +18,14 @@
       title="Técnico com EPI em área industrial"
       data-title="<strong>Equipamentos para Fumigação com Detecção Segura de Gases</strong>"
       data-sub="Detectores e medidores de gases para monitoramento, controle e segurança em operações de fumigação industrial."
-      data-link="/produtos"
+      data-link="/produtos/monitoramento-fumigacao"
     />
     <img src="/images/hero/SLIDER_03.png"
       alt="Profissional com respirador e capacete"
       title="Profissional com respirador e capacete"
       data-title="<strong>Equipamentos para riscos operacionais reais</strong>"
       data-sub="Catálogo técnico com documentação confirmada conforme aplicação."
-      data-link="/produtos/mascaras-respiradores"
+      data-link="/produtos"
       data-btn="Saiba mais"
     />
     <img src="/images/hero/SLIDER_01.png"
@@ -33,11 +33,13 @@
       title="Profissional com EPI em ambiente industrial"
       data-title="<strong>Somos a 4SAFETY</strong>"
       data-sub="Proteção e Performance e profissional."
-      data-link="/produtos"
+      data-link="/quem-somos"
+      data-btn="Saiba mais"
     />
   </div>
   <div class="hero-content">
     <h1 class="hero-h1">Tubos colorimétricos <strong>UNIPHOS & Tubos KwikDraw</strong></h1>
+    <p class="hero-sub"></p>
     <div class="hero-actions">
       <a href="/produtos/deteccao-de-gas/tubo-colorimetrico" class="btn-primary">Ver produtos</a>
     </div>
@@ -150,7 +152,7 @@
       const images = slider.querySelectorAll("img");
       const titleEl = document.querySelector(".hero-h1");
       const subEl = document.querySelector(".hero-sub");
-      if (images.length && titleEl && subEl) {
+      if (images.length && titleEl) {
         let currentIndex = 0;
 
         function transitionText(nextImage: HTMLImageElement) {
@@ -170,14 +172,16 @@
           };
 
           const htmlTitleEl = titleEl as HTMLElement;
-          const htmlSubEl = subEl as HTMLElement;
+          const htmlSubEl = subEl as HTMLElement | null;
           const linkEl = document.querySelector(".hero-actions .btn-primary") as HTMLAnchorElement;
 
           // Cancela animações anteriores para evitar conflito de opacidade
           htmlTitleEl.getAnimations().forEach((a) => a.cancel());
-          htmlSubEl.getAnimations().forEach((a) => a.cancel());
+          if (htmlSubEl) {
+            htmlSubEl.getAnimations().forEach((a) => a.cancel());
+            htmlSubEl.style.opacity = "1";
+          }
           htmlTitleEl.style.opacity = "1";
-          htmlSubEl.style.opacity = "1";
 
           const titleOut = htmlTitleEl.animate(
             [
@@ -187,27 +191,29 @@
             fadeOut,
           );
 
-          const subOut = htmlSubEl.animate(
-            [
-              { opacity: 1, transform: "translateY(0)" },
-              { opacity: 0, transform: "translateY(10px)" },
-            ],
-            fadeOut,
-          );
+          const subOut = htmlSubEl
+            ? htmlSubEl.animate(
+                [
+                  { opacity: 1, transform: "translateY(0)" },
+                  { opacity: 0, transform: "translateY(10px)" },
+                ],
+                fadeOut,
+              )
+            : null;
 
           Promise.all([
             titleOut.finished.catch(() => {}),
-            subOut.finished.catch(() => {}),
+            subOut ? subOut.finished.catch(() => {}) : Promise.resolve(),
           ]).then(() => {
             htmlTitleEl.innerHTML = nextTitle;
-            htmlSubEl.innerHTML = nextSub;
+            if (htmlSubEl) htmlSubEl.innerHTML = nextSub;
             if (linkEl) {
               linkEl.href = nextLink;
               linkEl.textContent = nextImage.dataset.btn || "Ver produtos";
             }
 
             htmlTitleEl.style.opacity = "0";
-            htmlSubEl.style.opacity = "0";
+            if (htmlSubEl) htmlSubEl.style.opacity = "0";
 
             htmlTitleEl.animate(
               [
@@ -217,13 +223,15 @@
               fadeIn,
             );
 
-            htmlSubEl.animate(
-              [
-                { opacity: 0, transform: "translateY(10px)" },
-                { opacity: 1, transform: "translateY(0)" },
-              ],
-              fadeIn,
-            );
+            if (htmlSubEl) {
+              htmlSubEl.animate(
+                [
+                  { opacity: 0, transform: "translateY(10px)" },
+                  { opacity: 1, transform: "translateY(0)" },
+                ],
+                fadeIn,
+              );
+            }
           });
         }
 
@@ -266,7 +274,7 @@
         if (nextBtn) nextBtn.addEventListener("click", nextImage);
 
         titleEl.innerHTML = images[currentIndex].dataset.title || titleEl.innerHTML;
-        subEl.innerHTML = images[currentIndex].dataset.sub || subEl.innerHTML;
+        if (subEl) subEl.innerHTML = images[currentIndex].dataset.sub || subEl.innerHTML;
         
         const linkEl = document.querySelector(".hero-actions .btn-primary") as HTMLAnchorElement;
         if (linkEl) {

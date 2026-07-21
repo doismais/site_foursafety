@@ -20,7 +20,7 @@ import Layout from '../layouts/Layout.astro';
   <section class="historia" id="historia">
     <div class="section-inner">
       <div class="historia-grid" style="display: flex; justify-content: center; text-align: center;">
-        <div class="historia-copy reveal" style="max-width: 800px;">
+        <div class="historia-copy reveal" style="max-width: 1050px;">
           <p>
             Há 15 anos, a 4Safety contribui para a proteção de pessoas e operações, oferecendo soluções em Equipamentos de Proteção Individual (EPI) e Coletiva (EPC).
             Somos guiados pela ética, pela excelência técnica e pela busca contínua por inovação e conformidade legal.
@@ -543,20 +543,31 @@ import Layout from '../layouts/Layout.astro';
     background: linear-gradient(180deg, #fbf8f3 0%, #f1ece5 100%);
     color: var(--black);
   }
+  @media (min-width: 768px) {
+    .historia {
+      padding-top: 3.5rem;
+      padding-bottom: 3.5rem;
+    }
+  }
   .historia-grid {
     display: grid;
     gap: 1.25rem;
-    margin-top: 2rem;
+    margin-top: 1rem;
   }
   .historia-copy {
     display: grid;
     gap: 1rem;
   }
   .historia-copy p {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     line-height: 1.7;
     color: var(--g900);
     font-weight: 500;
+  }
+  @media (min-width: 1024px) {
+    .historia-copy p {
+      font-size: 1.45rem;
+    }
   }
   .historia-highlight {
     border: 1px solid rgba(28, 25, 22, 0.08);

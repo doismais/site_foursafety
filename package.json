@@ -21,9 +21,7 @@
   "devDependencies": {
     "sharp": "^0.34.5"
   },
-  "pnpm": {
-    "overrides": {
-      "yaml": "^2.8.3"
-    }
+  "overrides": {
+    "yaml": "^2.8.3"
   }
 }
