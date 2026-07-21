@@ -14,6 +14,7 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
   Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains" env=HTTPS
+  Header always set Link "</sitemap.xml>; rel=\"service-desc\", </robots.txt>; rel=\"service-desc\""
 </IfModule>
 
 # ── Block Sensitive Files ─────────────────────────────────────

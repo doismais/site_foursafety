@@ -1,12 +1,12 @@
-const CACHE_NAME = "4safety-cache-v2";
+const CACHE_NAME = "4safety-cache-v3";
 const urlsToCache = [
-  "/",
   "/favicon.ico",
   "/favicon.svg",
   "/images/site.webmanifest",
 ];
 
 self.addEventListener("install", (event) => {
+  self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
       return cache.addAll(urlsToCache);
