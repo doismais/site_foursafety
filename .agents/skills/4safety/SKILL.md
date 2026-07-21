@@ -11,7 +11,7 @@ description: Regras de operação, rotina e limites técnicos para atuar no repo
          4SAFETY · SKILL
 ========================================
 Status: ACTIVE
-Version: v1.0.5
+Version: v1.0.7
 ========================================
 ```
 
@@ -21,8 +21,7 @@ Como agir ao receber uma tarefa neste projeto:
 
 1. **Leia os documentos de contexto**:
    - `AGENTS.md` para regras de comportamento.
-   - `CONTEXT.md` para entender onde você está.
-   - `MEMORY.md` para saber o que já foi decidido.
+   - `CONTEXT.md` para entender o histórico e arquitetura.
    - `SETUP.md` para instruções de ambiente e configurações do projeto.
 
 2. **Execute a menor mudança funcional**:
@@ -30,7 +29,7 @@ Como agir ao receber uma tarefa neste projeto:
    - Mantenha o foco no objetivo da tarefa.
 
 3. **Valide localmente**:
-   - Sempre rode `pnpm build` (ou `make build`) antes de dar a tarefa por concluída.
+   - Sempre rode `pnpm build` (ou `make verify`) antes de dar a tarefa por concluída.
    - Verifique se não há quebras de rota ou imagens não resolvidas.
 
 ────────────────────────────────────────
@@ -39,8 +38,8 @@ Como agir ao receber uma tarefa neste projeto:
 
 - Não crie arquivos HTML na pasta `public` sem autorização.
 - Não use `/index.html` em links (use URLs limpas).
-- Não quebre o padrão de design estabelecido.
-- Respeite o limite de 80 caracteres por linha na documentação.
+- Respeite o protocolo de navegação SPA do Astro (`astro:page-load`) e insira guards de inicialização em listeners.
+- Respeite as regras de deploy FTP no `Makefile` (espelhamento em `.` com `chmod -R 755 images`).
 
 ────────────────────────────────────────
 

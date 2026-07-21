@@ -1,0 +1,9 @@
+# 4Safety · Security Disclosure Policy (RFC 9116)
+# https://4safety.com.br/.well-known/security.txt
+
+Contact: mailto:contato@4safety.com.br
+Contact: https://4safety.com.br/quem-somos
+Expires: 2027-12-31T23:59:59.000Z
+Preferred-Languages: pt-BR, en
+Canonical: https://4safety.com.br/.well-known/security.txt
+Policy: https://4safety.com.br/politica-de-privacidade

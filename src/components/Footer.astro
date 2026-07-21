@@ -53,13 +53,14 @@ const currentYear = new Date().getFullYear();
         <form id="contact-form" class="footer-form">
           <div class="form-group">
             <label class="form-label" for="contact-name">Nome</label>
-            <input id="contact-name" name="nome" class="form-input" type="text" placeholder="Seu nome" required />
+            <input id="contact-name" name="nome" autocomplete="name" class="form-input" type="text" placeholder="Seu nome" required />
           </div>
           <div class="form-group">
             <label class="form-label" for="contact-company">Empresa</label>
             <input
               id="contact-company"
               name="empresa"
+              autocomplete="organization"
               class="form-input"
               type="text"
               placeholder="Empresa (opcional)"
@@ -70,6 +71,7 @@ const currentYear = new Date().getFullYear();
             <input
               id="contact-email"
               name="email"
+              autocomplete="email"
               class="form-input"
               type="email"
               placeholder="seu@email.com.br"

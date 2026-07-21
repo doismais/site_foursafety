@@ -7,7 +7,7 @@
        4SAFETY · AGENTS REGISTRY
 ========================================
 Status: ACTIVE
-Version: v1.0.6
+Version: v1.0.7
 ========================================
 ```
 
@@ -36,12 +36,18 @@ Leia este arquivo antes de qualquer ação no repositório.
    Estilos específicos de produto devem ir para `src/styles/products.css`.
    Estilos globais ficam em `src/styles/global.css`.
 
-4. **Protocolo Git NΞØ.**
-   Antes de commitar, execute validações e builds locais.
-   Não faça push se houver erros de build.
+4. **Protocolo Git NΞØ & Deploy FTP.**
+   Antes de commitar, execute validações e builds locais com `make check` / `make build`.
+   No deploy FTP (`make deploy-ftp`), o `lftp` espelha o diretório `dist/` para a raiz `.` do servidor, aplicando `chmod -R 755 images` e excluindo dotfiles do sistema (`--exclude '^\.bash'`).
 
 5. **Uso de Imagens (Astro `<Image />` vs `<img>`).**
    Imagens armazenadas na pasta `public/` (ex: `/images/products/...`) devem continuar usando a tag HTML padrão `<img>`. Não tente migrá-las para o componente `<Image />` do Astro (`astro:assets`) mantendo caminhos relativos de string, pois isso causará o erro de build `MissingImageDimension`. Apenas use `<Image />` se as imagens forem movidas para a pasta `src/` (ex: `src/assets/`) e importadas no frontmatter.
+
+6. **Prevenção de Memory Leaks em Astro SPA (`astro:page-load`).**
+   Todos os event listeners vinculados a `window` ou `document` devem utilizar atributos de guarda (`dataset.init`) para evitar duplicação de listeners durante navegações SPA.
+
+7. **Acessibilidade & Autofill em Formulários.**
+   Campos de entrada (`<input>`) em formulários devem declarar explicitamente seus atributos `autocomplete="..."` (`name`, `organization`, `email`, etc.).
 
 ────────────────────────────────────────
 
@@ -52,9 +58,9 @@ src/
 ├── components/          # Componentes Astro reutilizáveis
 ├── layouts/             # Layouts principais (Layout.astro)
 ├── pages/               # Rotas do site (Astro)
-│   ├── produtos/       # Páginas de produtos específicos
+│   ├── produtos/        # Páginas de produtos específicos
 │   └── index.astro      # Home
-└── styles/             # Arquivos CSS (global, products)
+└── styles/              # Arquivos CSS (global, products)
 ```
 
 ────────────────────────────────────────
@@ -78,6 +84,6 @@ Sempre siga o fluxo de segurança antes de enviar mudanças:
 Core Architect · NΞØ Protocol
 neo@neoprotocol.space
 
-"Code is law. "
+"Code is law."
 ────────────────────────────────────────
 ```
