@@ -261,9 +261,10 @@ import Layout from '../layouts/Layout.astro';
       filterBtns.forEach(btn => btn.addEventListener("click", () => applyFilter((btn as HTMLElement).dataset.filter || "all")));
       if (filterSelect) filterSelect.addEventListener("change", () => applyFilter((filterSelect as HTMLSelectElement).value));
       
-      // Check URL parameters for initial filter
+      // Check URL parameters & hash for initial filter
       const urlParams = new URLSearchParams(window.location.search);
-      const initialFilter = urlParams.get('filter') || "all";
+      const hashFilter = window.location.hash ? window.location.hash.replace("#", "") : "";
+      const initialFilter = urlParams.get('filter') || urlParams.get('filtro') || urlParams.get('categoria') || hashFilter || "all";
       applyFilter(initialFilter);
 
       // Reveal

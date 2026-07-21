@@ -165,7 +165,7 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://4safety.com.br');
               
               const siblings = [...el.parentElement.querySelectorAll(".reveal")];
               const idx = siblings.indexOf(el);
-              const stagger = Math.min(idx * 75, 380);
+              const stagger = Math.min(idx * 30, 90);
               
               if (stagger > 0) {
                 el.style.transitionDelay = `${stagger}ms`;
@@ -175,7 +175,7 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://4safety.com.br');
               observer.unobserve(el);
             });
           },
-          { threshold: 0.1, rootMargin: "0px 0px -36px 0px" },
+          { threshold: 0.05, rootMargin: "0px 0px 50px 0px" },
         );
         reveals.forEach((el) => observer.observe(el));
       });

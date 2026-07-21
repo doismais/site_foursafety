@@ -17,20 +17,29 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
   Header always set Link "</sitemap.xml>; rel=\"service-desc\", </robots.txt>; rel=\"service-desc\""
 </IfModule>
 
+# ── Custom 404 Error Page ─────────────────────────────────────
+ErrorDocument 404 /404.html
+
 # ── Block Sensitive Files ─────────────────────────────────────
 <FilesMatch "(\.env|\.git|package\.json|package-lock\.json|astro\.config\.*|tsconfig\.json|pnpm-lock\.yaml|\.DS_Store)">
-  Order Allow,Deny
-  Deny from all
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order Allow,Deny
+    Deny from all
+  </IfModule>
 </FilesMatch>
 
 # ── Block Directory Listing ───────────────────────────────────
 Options -Indexes
 
-# ── Astro Clean URLs (SPA fallback) ──────────────────────────
+# ── Astro Clean URLs ─────────────────────────────────────────
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !/$
 RewriteCond %{REQUEST_URI} !\.
-RewriteRule ^(.*)$ /$1/index.html [L]
+RewriteRule ^(.*)$ /$1/ [R=301,L]
 
 # ── Cache Static Assets ──────────────────────────────────────
 <IfModule mod_expires.c>

@@ -9,20 +9,22 @@ PNPM ?= pnpm
 
 .DEFAULT_GOAL := help
 
-.PHONY: help install dev build preview clean check lint verify safe-push
+.PHONY: help install dev build preview clean clean-cache check lint verify safe-push deploy-ftp
 
 help:
 	@echo "4Safety (Astro) — comandos disponíveis"
 	@echo "──────────────────────────────────────"
-	@echo "make install    # Instala as dependências do projeto"
-	@echo "make dev        # Inicia o servidor de desenvolvimento"
-	@echo "make build      # Gera o build de produção"
-	@echo "make preview    # Visualiza o build de produção localmente"
-	@echo "make clean      # Limpa o cache e arquivos temporários do Astro"
-	@echo "make check      # Valida tipos TypeScript + arquivos Astro"
-	@echo "make lint       # Alias para make check"
-	@echo "make verify     # Valida tipos e gera build limpo"
-	@echo "make safe-push  # NΞØ Protocol: Audit -> Check -> Build -> Status"
+	@echo "make install     # Instala as dependências do projeto"
+	@echo "make dev         # Inicia o servidor de desenvolvimento"
+	@echo "make build       # Gera o build de produção"
+	@echo "make preview     # Visualiza o build de produção localmente"
+	@echo "make clean       # Limpa node_modules, dist, .astro e todos os caches"
+	@echo "make clean-cache # Limpa apenas caches de build (.astro, .vite, dist)"
+	@echo "make check       # Valida tipos TypeScript + arquivos Astro"
+	@echo "make lint        # Alias para make check"
+	@echo "make verify      # Valida tipos e gera build limpo"
+	@echo "make deploy-ftp  # Envia o build (dist/) para o FTP apagando arquivos antigos"
+	@echo "make safe-push   # NΞØ Protocol: Audit -> Check -> Build -> Status"
 
 install:
 	@echo "Instalando dependências..."
@@ -41,9 +43,14 @@ preview:
 	@$(PNPM) run preview
 
 clean:
-	@echo "Limpando cache e arquivos temporários..."
-	@rm -rf node_modules/.vite .astro dist
-	@echo "✅ Cache limpo."
+	@echo "Limpando node_modules, dist e todos os artefatos de cache..."
+	@rm -rf node_modules dist .astro .vercel .cache *.tsbuildinfo
+	@echo "✅ Limpeza completa concluída (node_modules, dist e caches removidos)."
+
+clean-cache:
+	@echo "Limpando apenas caches de build..."
+	@rm -rf node_modules/.cache node_modules/.vite .astro dist .vercel *.tsbuildinfo
+	@echo "✅ Caches de build limpos com sucesso."
 
 check:
 	@echo "Verificando tipos TypeScript e arquivos Astro..."
@@ -52,7 +59,7 @@ check:
 
 lint: check
 
-verify: clean check build
+verify: clean-cache check build
 
 safe-push:
 	@echo "1. Verificando vulnerabilidades..."
@@ -65,3 +72,8 @@ safe-push:
 	@git status
 	@echo "🚀 Tudo certo! Sem vulnerabilidades, sem erros de tipo e build bem-sucedido."
 	@echo "👉 Agora você pode fazer o commit e push das mudanças."
+
+deploy-ftp: verify
+	@echo "Enviando build para o servidor FTP e apagando arquivos remotos antigos..."
+	@lftp -u 4safety,'Jmartins@13' ftp.4safety.com.br -e "set ssl:verify-certificate no; mirror -R --delete --exclude '^\.bash' --exclude '^\.ftp' --exclude '^logs' --verbose dist/ /; quit"
+	@echo "🚀 Deploy via FTP concluído com sucesso!"

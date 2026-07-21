@@ -54,8 +54,9 @@
           if (!entry.isIntersecting) return;
           const el = entry.target;
           const span = el.querySelector("span");
-          if (!span) return;
+          if (!span || span.dataset.counted) return; // Adiciona verificação para evitar recontagem
           const originalText = span.textContent;
+          if (!originalText) return;
           
           if (originalText.includes(":")) {
             const parts = originalText.split(":");
@@ -72,7 +73,7 @@
                   current1 = Math.min(current1 + step1, target1);
                   current2 = Math.min(current2 + step2, target2);
                   span.textContent = `${current1}:${current2}`;
-                  if (current1 >= target1 && current2 >= target2) clearInterval(timer);
+                  if (current1 >= target1 && current2 >= target2) { clearInterval(timer); span.dataset.counted = "true"; }
                 }, 200); // Intervalo mais lento para o 1:1
               }, 500); // Atraso de meio segundo para dar tempo do usuário ver
               countObserver.unobserve(el);
@@ -87,7 +88,7 @@
           const timer = setInterval(() => {
             current = Math.min(current + step, target);
             span.textContent = String(current);
-            if (current >= target) clearInterval(timer);
+            if (current >= target) { clearInterval(timer); span.dataset.counted = "true"; }
           }, 30);
           countObserver.unobserve(el);
         });
@@ -99,6 +100,9 @@
     // ── GLASS CARDS HOVER GLOW ───────────────────────────────────────────
     document.querySelectorAll(".glass-card").forEach((card) => {
       const htmlCard = card as HTMLElement;
+      if (htmlCard.dataset.glowInit) return;
+      htmlCard.dataset.glowInit = "true";
+
       htmlCard.addEventListener("mousemove", (e: MouseEvent) => {
         const r = htmlCard.getBoundingClientRect();
         const x = ((e.clientX - r.left) / r.width) * 100;

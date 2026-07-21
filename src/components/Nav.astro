@@ -43,14 +43,17 @@
   document.addEventListener('astro:page-load', () => {
     // ── NAV SCROLL EFFECT ────────────────────────────────────────────────
     const nav = document.getElementById('main-nav');
-    if (nav) {
-      window.addEventListener('scroll', () => {
+    if (nav && !nav.dataset.scrollInit) {
+      nav.dataset.scrollInit = 'true';
+      const handleScroll = () => {
         if (window.scrollY > 50) {
           nav.classList.add('nav--scrolled');
         } else {
           nav.classList.remove('nav--scrolled');
         }
-      });
+      };
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      handleScroll();
     }
 
     // ── MOBILE MENU TOGGLE ───────────────────────────────────────────────
@@ -58,19 +61,28 @@
     const navMenu = document.getElementById('nav-menu');
     const navOverlay = document.getElementById('nav-overlay');
     
-    if (navToggle && navMenu && navOverlay) {
-      navToggle.addEventListener('click', () => {
-        navToggle.classList.toggle('active');
-        navMenu.classList.toggle('active');
-        navOverlay.classList.toggle('active');
-        document.body.classList.toggle('no-scroll');
-      });
+    if (navToggle && navMenu && navOverlay && !navToggle.dataset.toggleInit) {
+      navToggle.dataset.toggleInit = 'true';
 
-      navOverlay.addEventListener('click', () => {
+      const closeMenu = () => {
         navToggle.classList.remove('active');
         navMenu.classList.remove('active');
         navOverlay.classList.remove('active');
         document.body.classList.remove('no-scroll');
+      };
+
+      navToggle.addEventListener('click', () => {
+        const isActive = navToggle.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        navOverlay.classList.toggle('active');
+        document.body.classList.toggle('no-scroll', isActive);
+      });
+
+      navOverlay.addEventListener('click', closeMenu);
+
+      // Fecha o menu mobile automaticamente ao clicar em qualquer link
+      navMenu.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', closeMenu);
       });
     }
   });

@@ -170,19 +170,25 @@ const currentYear = new Date().getFullYear();
     const backToTop = document.querySelector('.back-to-top');
     const waFloat = document.querySelector('.wa-float');
     
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 300) {
-        if (backToTop) backToTop.classList.add('show');
-        if (waFloat) waFloat.classList.add('visible');
-      } else {
-        if (backToTop) backToTop.classList.remove('show');
-        if (waFloat) waFloat.classList.remove('visible');
-      }
-    });
+    if (backToTop && !backToTop.hasAttribute('data-scroll-init')) {
+      backToTop.setAttribute('data-scroll-init', 'true');
+      const handleScroll = () => {
+        if (window.scrollY > 300) {
+          if (backToTop) backToTop.classList.add('show');
+          if (waFloat) waFloat.classList.add('visible');
+        } else {
+          if (backToTop) backToTop.classList.remove('show');
+          if (waFloat) waFloat.classList.remove('visible');
+        }
+      };
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      handleScroll();
+    }
 
     // ── WA FLOAT PULSE ───────────────────────────────────────────────────
     const waFloatElement = document.querySelector(".wa-float");
-    if (waFloatElement) {
+    if (waFloatElement && !waFloatElement.hasAttribute('data-anim-init')) {
+      waFloatElement.setAttribute('data-anim-init', 'true');
       waFloatElement.animate(
         [
           { boxShadow: "0 4px 20px rgba(37, 211, 102, .38)" },
@@ -203,7 +209,8 @@ const currentYear = new Date().getFullYear();
     const contactSubmit = document.getElementById("contact-submit") as HTMLButtonElement;
     const statusMsg = document.getElementById("form-status-msg") as HTMLParagraphElement;
 
-    if (contactForm && contactSubmit) {
+    if (contactForm && contactSubmit && !contactForm.hasAttribute('data-submit-init')) {
+      contactForm.setAttribute('data-submit-init', 'true');
       contactForm.addEventListener("submit", async (e) => {
         e.preventDefault();
         
