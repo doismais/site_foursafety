@@ -74,6 +74,6 @@ safe-push:
 	@echo "👉 Agora você pode fazer o commit e push das mudanças."
 
 deploy-ftp: verify
-	@echo "Enviando build para o servidor FTP e apagando arquivos remotos antigos..."
-	@lftp -u 4safety,'Jmartins@13' ftp.4safety.com.br -e "set ssl:verify-certificate no; mirror -R --delete --exclude '^\.bash' --exclude '^\.ftp' --exclude '^logs' --verbose dist/ /; quit"
+	@echo "Enviando build para o servidor FTP e ajustando permissões..."
+	@lftp -u 4safety,'Jmartins@13' ftp.4safety.com.br -e "set ssl:verify-certificate no; mirror -R --delete --exclude '^\.bash' --exclude '^\.ftp' --exclude '^logs' --verbose dist/ .; chmod -R 755 images; quit"
 	@echo "🚀 Deploy via FTP concluído com sucesso!"
